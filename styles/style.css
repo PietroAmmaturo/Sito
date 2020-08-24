@@ -1,3 +1,5 @@
+body{font: 22px 'Open Sans', sans-serif;}
+
 .header{
   padding-left: 40px;
   padding-right: 40px;
@@ -15,7 +17,7 @@
 
 .header h1.name{
   display: inline-block;
-  font-size: 40px;
+  font: 40px 'Montserrat', sans-serif;
   animation-name: fullname;
   animation-duration: 8s;
   animation-direction: alternate-reverse;
@@ -25,7 +27,7 @@
 
 .header h1.surname{
   display: inline-block;
-  font-size: 40px;
+	font: 40px 'Montserrat', sans-serif;
   animation-name: fullname;
   animation-duration: 8s;
   animation-direction: alternate;
@@ -47,13 +49,16 @@
 
 
 /* Style the top navigation bar */
-.navbar {
+.onavbar {
   overflow: hidden; /* Hide overflow */
-  background-color: #333; /* Dark background color */
+  background-color: rgb(40,40,40); /* Dark background color */
+	z-index: 0;
+	height: 54px;
 }
 
 /* Style the navigation bar links */
-.navbar a {
+.onavbar a {
+		font: 18px 'Raleway', sans-serif;
   float: left; /* Make sure that the links stay side-by-side */
   display: block; /* Change the display to block, for responsive reasons (see below) */
   color: white; /* White text color */
@@ -63,28 +68,78 @@
 }
 
 /* Right-aligned link */
-.navbar a.right {
+.onavbar a.right {
   float: right; /* Float a link to the right */
 }
 
 /* Change color on hover/mouse-over */
-.navbar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+.onavbar a:hover {
+  background-color: rgb(60,60,60); /* Grey background color */
+  color: White; /* Black text color */
 }
 
-.navbar a.active {
- background-color: Grey;
- color: Black;
+.onavbar a.active {
+ background-color: rgb(80,80,80);
+ color: White;
 }
 
-.sticky {
+.osticky {
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-.sticky + .content {
+.osticky + .content {
+  padding-top: 60px;
+}
+
+.vnavbar {
+	font: 18px 'Raleway', sans-serif;
+  overflow: hidden; /* Hide overflow */
+  background-color: rgb(240,240,240); /* Dark background color */
+	width: 150px;
+	position: absolute;
+	top: 100;
+	height: 100%;
+	z-index: 0;
+	visibility :hidden;
+}
+
+/* Style the navigation bar links */
+.vnavbar a {
+  float: top;
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: Black; /* White text color */
+  text-align: left;; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+	width: 100%;
+}
+
+/* Top-aligned link */
+.vnavbar a.top {
+  float: top; /* Float a link to the top */
+}
+
+/* Change color on hover/mouse-over */
+.vnavbar a:hover {
+  background-color: rgb(220,220,220); /* Grey background color */
+  color: black; /* Black text color */
+}
+
+.vnavbar a.active {
+ background-color: rgb(200,200,200);
+ color: Black;
+}
+
+ .vsticky {
+  position: fixed;
+  top: 54px;
+	left: 0px;
+	height: 100%;
+}
+
+.vsticky + .content {
   padding-top: 60px;
 }
 
@@ -97,6 +152,9 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+	position: static;
+	left:	150px;
+	z-index: -1;
 }
 
 /* Create two unequal columns that sits next to each other */
@@ -126,30 +184,37 @@
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .row {
     flex-direction: column;
+		position: static;
+		left:	0;
+		width: 100%;
   }
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
+  .onavbar a {
     width: 100%;
   }
+	.row {
+		flex-direction: column;
+		position: static;
+		left:	0;
+		width: 100%;
+	}
 }
 .footer {
+	position: relative;
+	width: 100%;
   padding: 20px; /* Some padding */
   text-align: center; /* Center text*/
   background: #ddd; /* Grey background */
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+	z-index: 1;
+}s
 
 /*test*/
 div.void {
-margin-top: 2000px;
+margin-top: 200px;
 }
