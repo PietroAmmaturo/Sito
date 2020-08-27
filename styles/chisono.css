@@ -35,3 +35,14 @@ section.competenze div.img{
 	background-position: 50% 40%;
 	background-size: 900px 900px;
 }
+
+section.istruzione td{
+	font: 1.6em 'Lato', sans-serif;
+	letter-spacing: 0.2em;
+	padding-bottom: 20px;
+}
+section.istruzione div.img{
+	background-image: url("images/studying.jpg");
+	background-position: 60% 100%;
+	background-size: 900px 900px;
+}
