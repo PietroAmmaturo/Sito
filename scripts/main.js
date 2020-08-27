@@ -2,58 +2,59 @@ window.onscroll = function() {stickyNav()};
 
 var vnavon = false;
 var onavon = true;
-var stickynavon = false;
-
+var stickyonavon = false;
 var onavbar = document.getElementById("onavbar");
-var osticky = onavbar.offsetTop;
-
 var vnavbar = document.getElementById("vnavbar");
-var vsticky = vnavbar.offsetTop - 54;
-
-function stickyOnav() {
-  if (window.pageYOffset >= osticky) {
-		stickynavon = true;
-		document.getElementById("blocktoggleonav").style.display = "inline-block";
-    onavbar.classList.add("osticky");
-		if (!onavon){hideOnav();}
-  } else {
-		stickynavon = false;
-		showOnav();
-		document.getElementById("blocktoggleonav").style.display = "none";
-    onavbar.classList.remove("osticky");
-  }
-}
-
-function stickyVnav() {
-  if (window.pageYOffset >= vsticky) {
-    vnavbar.classList.add("vsticky")
-  } else {
-    vnavbar.classList.remove("vsticky");
-  }
-}
+var onavtop = onavbar.offsetTop;
+var vnavtop = vnavbar.offsetTop - convertRem(3.5);
 
 function stickyNav() {
-stickynavon = true;
+	stickyonavon = true;
 	stickyOnav();
   stickyVnav();
 }
+function stickyOnav() {
+  if (window.pageYOffset >= onavtop) {
+		stickyonavon = true;
+		document.getElementById("blocktoggleonav").style.display = "inline-block";
+    onavbar.classList.add("sticky");
+		if (!onavon){hideOnav();};
+  }
+	else {
+		stickyonavon = false;
+		showOnav();
+		document.getElementById("blocktoggleonav").style.display = "none";
+    onavbar.classList.remove("sticky");
+  }
+}
+function stickyVnav() {
+  if (window.pageYOffset >= vnavtop) {
+    vnavbar.classList.add("sticky");
+  } else {
+    vnavbar.classList.remove("sticky");
+  }
+}
 
+function toggleVnav(){
+	if (vnavon){hideVnav();}
+	else {showVnav();}
+}
 function hideVnav(){
-	vnavon = false;
-	document.getElementById("vnavbar").style.visibility = "hidden";
-	document.getElementById("row").style.position = "static";
-	document.getElementById("row").style.width = "100%";
-	document.getElementById("togglevnav").innerHTML = "keyboard_arrow_down";
+	if(onavon){vnavon = false;}
+	document.getElementById("vnavbar").style.width = "0em";
+	document.getElementById("main").style.left = "0em";
+	document.getElementById("main").style.width = "100%";
+	document.getElementById("blocktogglevnav").classList.remove("active");
 
 }
 function showVnav(){
 	vnavon = true;
-	document.getElementById("vnavbar").style.visibility = "visible";
-	document.getElementById("togglevnav").innerHTML = "keyboard_arrow_up";
+	document.getElementById("vnavbar").style.width = "5em";
+	document.getElementById("blocktogglevnav").classList.add("active");
 	if(window.innerWidth > 900){
-		document.getElementById("row").style.position = "relative";
-		document.getElementById("row").style.width = "calc(100% - 150px)";
-}
+		document.getElementById("main").style.left = "12.5em";
+		document.getElementById("main").style.width = "calc(100% - 12.5em)";
+	}
 }
 
 function toggleOnav(){
@@ -61,29 +62,37 @@ function toggleOnav(){
 	else {showOnav();
 	}
 }
-
 function hideOnav(){
 	onavon = false;
-	if (stickynavon){
+	if (stickyonavon){
+	hideVnav();
 	document.getElementById("onavbar").style.width = "60px";
 	document.getElementById("onavbar").style.right = "0px";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
-}
+	}
 }
 function showOnav(){
-	if (stickynavon){onavon = true;}
+	if (stickyonavon){onavon = true;}
+	if (vnavon){showVnav();}
 	document.getElementById("onavbar").style.width = "100%";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
 }
 
-function toggleVnav(){
-	if (vnavon){hideVnav();}
-	else {showVnav();
-	}
+window.onresize = function() {
+		toggleVnav();
+		toggleVnav();
 }
 
-
-window.onresize = function() {
-	toggleVnav();
-	toggleVnav();
+function getRootElementFontSize() {
+  // Returns a number
+  return parseFloat(
+    // of the computed font-size, so in px
+    getComputedStyle(
+      // for the root <html> element
+      document.documentElement
+    ).fontSize
+  );
+}
+function convertRem(value) {
+  return value * getRootElementFontSize();
 }

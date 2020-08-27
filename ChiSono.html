@@ -8,15 +8,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
-<link rel="stylesheet" type="text/css" href="styles/chisono.css">
-<link href=
-"https://fonts.googleapis.com/icon?family=Material+Icons"
-rel="stylesheet">
-<link href=
-"https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
-rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/chisono.css">
+	<link href=
+	"https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href=
+	"https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
+	rel="stylesheet">
 
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<script src=
 	"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 </script>
@@ -25,67 +25,147 @@ rel="stylesheet">
 <body>
 	<div class="header">
 		<div class="fullname">
-			<h1 class="name">Pietro</h1>
-			<h1 class="surname">Ammaturo</h1>
+			<h1 class="letter 1">P</h1>
+			<h1 class="letter 2">i</h1>
+			<h1 class="letter 3">e</h1>
+			<h1 class="letter 4">t</h1>
+			<h1 class="letter 5">r</h1>
+			<h1 class="letter 6">o</h1>
+			<br>
+			<h1 class="letter 7">A</h1>
+			<h1 class="letter 8">m</h1>
+			<h1 class="letter 9">m</h1>
+			<h1 class="letter 10">a</h1>
+			<h1 class="letter 11">t</h1>
+			<h1 class="letter 12">u</h1>
+			<h1 class="letter 13">r</h1>
+			<h1 class="letter 14">o</h1>
 		</div>
 	</div>
 
 	<div id="onavbar" class="onavbar">
 		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none";>
 			<i class="material-icons" id="toggleonav">keyboard_arrow_right</i></a>
-		<a onclick="toggleVnav()">
-			<i class="material-icons" id="togglevnav">keyboard_arrow_down</i></a>
-		<a href="Home.html">
-			<i class="material-icons">home</i></a>
-		<a class="active" href="ChiSono.html">
-			<i class="material-icons">person</i></a></a>
-		<a href="Novità.html">
-		<i class="material-icons">new_releases</i></a>
-		<a href="Esperimenti.html">
-			<i class="material-icons">apps</i></a>
-	</div>
+			<a onclick="toggleVnav()" id="blocktogglevnav">
+				<i class="material-icons" id="togglevnav">dehaze</i></a>
+				<a href="Home.html">
+					<i class="material-icons">home</i></a>
+					<a class="active" href="ChiSono.html">
+						<i class="material-icons">person</i></a></a>
+						<a href="Novità.html">
+							<i class="material-icons">new_releases</i></a>
+							<a href="Esperimenti.html">
+								<i class="material-icons">apps</i></a>
+							</div>
 
-	<div id="vnavbar" class="vnavbar">
-		<a href="#anagrafica">Anagrafica</a>
-		<a href="">Presentazione</a>
-		<a href="">Competenze</a>
-		<a href="">c</a>
-	</div>
+							<div id="vnavbar" class="vnavbar">
+								<a href="#anagrafica">Anagrafica</a>
+								<a href="#descrizione">Descrizione</a>
+								<a href="#competenze">Competenze</a>
+								<a href="">Istruzione</a>
+							</div>
 
-<section class="anagrafica">
-	<div id="row" class="row">
-		<div class="side">
-			<img src="images/me.jpg">
-		</div>
-		<div class="main">
-				<h1>Anagrafica</h1>
-				<table>
-				<tr>
-					<td>Nome:</td>
-					<td>Pietro</td>
-				</tr>
-				<tr>
-				<td>Cognome:</td>
-				<td>Ammaturo</td>
-			</tr>
-				<tr>
-				<td>Data di nascita:</td>
-				<td>6 giugno 2002</td>
-			</tr>
-				<tr>
-				<td>Luogo di nascita:</td>
-				<td>Avellino(AV)</td>
-			</tr>
-		</table>
-		</div>
-	</div>
+<section id="main" class="main">
+							<section id="anagrafica" class="anagrafica UL">
+								<div id="row" class="row">
+									<div class="side L">
+										<div class="img"></div>
+									</div>
+									<div class="main S">
+										<h1>Anagrafica</h1>
+										<table>
+											<tr>
+												<td>Nome:&nbsp&nbsp&nbsp&nbsp</td>
+												<td>Pietro</td>
+											</tr>
+											<tr>
+												<td>Cognome:&nbsp&nbsp&nbsp&nbsp</td>
+												<td>Ammaturo</td>
+											</tr>
+											<tr>
+												<td>Data di nascita:&nbsp&nbsp&nbsp&nbsp</td>
+												<td>6 giugno 2002</td>
+											</tr>
+											<tr>
+												<td>Luogo di nascita:&nbsp&nbsp&nbsp&nbsp</td>
+												<td>Avellino (AV)</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</section>
+
+							<section id="descrizione" class="descrizione UL">
+								<div id="row" class="row">
+									<div class="side S">
+										<div class="img"></div>
+									</div>
+									<div class="main L">
+										<h1>Descrizione</h1>
+										<div class="txt">Sono uno studente universitario, laureando in ingegneria
+											informatica al politecnico di Milano. Nel tempo libero mi
+											occupo della realizzazione di siti web. Ho ampia
+											conoscenza di diversi linguaggi di programmazione lato
+											client e discreta lato server. </div>
+										</div>
+									</div>
+								</section>
+
+								<section id="competenze" class="competenze UL">
+									<div id="row" class="row">
+										<div class="side M">
+											<div class="img"></div>
+										</div>
+										<div class="main M">
+											<h1>Competenze</h1>
+											<table>
+												<tr>
+													<td style="padding-bottom: 0px;"></td>
+													<td style="padding-bottom: 0px;" class="score"></td>
+												</tr>
+												<tr>
+													<td>HTML:&nbsp&nbsp</td>
+													<td><div id="htmlscore" class="score"></div></td>
+												</tr>
+												<tr>
+													<td>CSS:&nbsp&nbsp</td>
+													<td><div id="cssscore" class="score"></div></td>
+												</tr>
+												<tr>
+													<td>JS:&nbsp&nbsp</td>
+													<td><div id="jsscore" class="score"></div></td>
+												</tr>
+												<tr>
+													<td>SQL:&nbsp&nbsp</td>
+													<td><div id="sqlscore" class="score"></div></td>
+												</tr>
+											</tr>
+											<tr>
+												<td>PHP:&nbsp&nbsp</td>
+												<td><div id="phpscore" class="score"></div></td>
+											</tr>
+										</tr>
+										<tr>
+											<td>Java:&nbsp&nbsp</td>
+											<td><div id="javascore" class="score"></div></td>
+										</tr>
+									</tr>
+									<tr>
+										<td>C++:&nbsp&nbsp</td>
+										<td><div id="c++score" class="score"></div></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</section>
 </section>
 
+					<div class="footer">
+						<h2>Footer</h2>
+					</div>
 
-	<div class="footer">
-		<h2>Footer</h2>
-	</div>
-
-	<script type="text/javascript" src="scripts/main.js"></script>
-</body>
-</html>
+					<script type="text/javascript" src="scripts/main.js"></script>
+					<script type="text/javascript" src="scripts/chisono.js"></script>
+					<script type="text/javascript" src="scripts/utility.js"></script>
+				</body>
+				</html>

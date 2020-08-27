@@ -1,0 +1,53 @@
+section.news1 div.img{
+	background-image: url("images/novità1.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news2 div.img{
+	background-image: url("images/novità2.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news3 div.img{
+	background-image: url("images/novità3.jpg");
+	background-position: 50% 30%;
+	background-size: 800px 500px;
+}
+
+section.news4  div.img{
+	background-image: url("images/novità1.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news5 div.img{
+	background-image: url("images/novità2.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news6 div.img{
+	background-image: url("images/novità3.jpg");
+	background-position: 50% 20%;
+	background-size: 800px 500px;
+}
+
+section.news7  div.img{
+	background-image: url("images/novità1.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news8 div.img{
+	background-image: url("images/novità2.jpg");
+	background-position: 50% 80%;
+	background-size: 800px 500px;
+}
+
+section.news9 div.img{
+	background-image: url("images/novità3.jpg");
+	background-position: 50% 20%;
+	background-size: 800px 500px;
+}
