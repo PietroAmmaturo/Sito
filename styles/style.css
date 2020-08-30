@@ -1,6 +1,5 @@
 body{font-size: 1em;
 margin:0;
-min-width: 400px;
 }
 iframe{
 	border-width: 0;
@@ -11,7 +10,7 @@ iframe{
 	padding-bottom: 5em;
   text-align: center;/* center the text */
   background-image:
-  url('images/headerbackground.jpg');
+  url('images/headerbackground.webp');
   animation-name: background;
   animation-duration: 180s;
   animation-direction: normal;
@@ -175,9 +174,9 @@ section.UL div.img{
 	width: 100%;
 }
 section.UL div.txt{
-	font: 1.5em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 1.4em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.XL h1{
 	display: inline;
@@ -189,9 +188,9 @@ section.XL div.img{
 	width: 100%;
 }
 section.XL div.txt{
-	font: 1.4em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 1.3em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.L h1{
 	display: inline;
@@ -203,9 +202,9 @@ section.L div.img{
 	width: 100%;
 }
 section.L div.txt{
-	font: 1.3em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 1.2em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.M h1{
 	display: inline;
@@ -217,9 +216,9 @@ section.M div.img{
 	width: 100%;
 }
 section.M div.txt{
-	font: 1.2em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 1.1em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.S h1{
 	display: inline;
@@ -231,30 +230,30 @@ section.S div.img{
 	width: 100%;
 }
 section.S div.txt{
-	font: 1.1em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 1em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.XS h1{
 	display: inline;
 	font: 2em "Economica", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	letter-spacing: 0.2em;
+
 }
 section.XS div.img{
 	height: 5em;
 	width: 100%;
 }
 section.XS div.txt{
-	font: 1em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	font: 0.9em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
+
 }
 section.US h1{
 	display: inline;
 	font: 1.6em "Economica", sans-serif;
 	letter-spacing: 0.1em;
-	text-align: justify;
+
 }
 section.US div.img{
 	height: 0em;
@@ -262,8 +261,8 @@ section.US div.img{
 }
 section.US div.txt{
 	font: 0.8em "Open Sans", sans-serif;
-	letter-spacing: 0.1em;
-	text-align: justify;
+	letter-spacing: 0.2em;
+
 }
 
 /* Column container */
@@ -342,10 +341,26 @@ section.US div.txt{
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+body{
+	font-size: 0.9em;
+}
+}
+
 @media screen and (max-width: 400px) {
+body{
+	font-size: 0.8em;
+}
+}
+
+@media screen and (max-width: 300px) {
+	body{
+		font-size: 0.7em;
+	}
 }
 
 .footer {
+	height: 30em;
 	position: relative;
 	left:0;
 	width: 100%;

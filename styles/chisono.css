@@ -1,22 +1,22 @@
 section.anagrafica td{
-	font: 1.6em 'Lato', sans-serif;
+	font: 1em 'Lato', sans-serif;
 	letter-spacing: 0.2em;
 	padding-bottom: 20px;
 }
 section.anagrafica  div.img{
-	background-image: url("images/me.jpg");
-	background-position: 70% 20%;
-	background-size: 900px 900px;
+	background-image: url("images/me.webp");
+	background-position: 70% 45%;
+	background-size: 960px 522px;
 }
 
 section.descrizione div.img{
-	background-image: url("images/productivity.jpg");
-	background-position: 55% 80%;
-	background-size: 900px 900px;
+	background-image: url("images/productivity.webp");
+	background-position: 60% 60%;
+	background-size: 960px 522px;
 }
 
 section.competenze td{
-	font: 1.6em 'Lato', sans-serif;
+	font: 1em 'Lato', sans-serif;
 	letter-spacing: 0.2em;
 	padding-bottom: 20px;
 }
@@ -31,18 +31,18 @@ display: inline-block;
 background-color: rgba(0, 0, 0, 0.4);
 }
 section.competenze div.img{
-	background-image: url("images/coding.jpg");
-	background-position: 50% 40%;
-	background-size: 900px 900px;
+	background-image: url("images/coding.webp");
+	background-position: 40% 40%;
+	background-size: 960px 720px;
 }
 
 section.istruzione td{
-	font: 1.6em 'Lato', sans-serif;
+	font: 1em 'Lato', sans-serif;
 	letter-spacing: 0.2em;
 	padding-bottom: 20px;
 }
 section.istruzione div.img{
-	background-image: url("images/studying.jpg");
-	background-position: 60% 100%;
-	background-size: 900px 900px;
+	background-image: url("images/studying.webp");
+	background-position: 60% 80%;
+	background-size: 960px 522px;
 }

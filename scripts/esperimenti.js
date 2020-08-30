@@ -1,30 +1,32 @@
-var a = "false";
-var b = "false";
+var a = false;
+var b = false;
 function DataEdOra(){
-  if (a == "true") {
+  if (a) {
     document.getElementById('DataEdOra').style.display='none';
     document.getElementById('Colori').style.display='none';
     document.getElementById('segnaposto').style.display='block';
-    a = "false";
+    a = false;
   }
   else {
     document.getElementById('DataEdOra').style.display='block';
     document.getElementById('Colori').style.display='none';
     document.getElementById('segnaposto').style.display='none';
-    a = "true";
+    a = true;
+		b = false;
   }
 }
 function Colori(){
-  if (b == "true") {
+  if (b) {
     document.getElementById('Colori').style.display='none';
     document.getElementById('DataEdOra').style.display='none';
     document.getElementById('segnaposto').style.display='block';
-    b = "false";
+    b = false;
   }
   else {
     document.getElementById('Colori').style.display='block';
     document.getElementById('DataEdOra').style.display='none';
     document.getElementById('segnaposto').style.display='none';
-    b = "true";
+    b = true;
+		a = false;
   }
 }
