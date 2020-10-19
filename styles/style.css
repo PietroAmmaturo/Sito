@@ -111,21 +111,39 @@ iframe{
 }
 
 .vnavbar {
+	-ms-overflow-style: none;
+	display: block;
 	transition: 0.5s;
 	font: 2.5em 'Economica', sans-serif;
-  overflow: auto; /* Hide overflow */
+  overflow: scroll; /* Scroll navbar */
   background-color: rgba(255,255,255,0.6); /* Dark background color */
 	width: 0em;
 	position: absolute;
 	height: 100%;
 	z-index: 1;
+	padding-bottom: 60vh;
 }
+.vnavbar::-webkit-scrollbar {
+	background: transparent;
+	overflow: visible;
+	width: 10px;
+}
+.vnavbar::-webkit-scrollbar-thumb {
+	background-color: rgba(40,40,40,0.2);
+
+}
+
+.vnavbar::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(40,40,40,0.6);
+}
+
 /* Style the navigation bar links */
+
 .vnavbar a {
   float: top;
   display: block; /* Change the display to block, for responsive reasons (see below) */
   color: Black; /* White text color */
-  text-align: left;; /* Center the text */
+  text-align: left; /* Center the text */
   padding: 0.5em 0.5em; /* Add some padding */
   text-decoration: none; /* Remove underline */
 	width: 100%;
@@ -145,6 +163,7 @@ iframe{
   top: 1.4em;
 	left: 0em;
 	height: 100%;
+	padding-bottom: 2em;
 }
 .vnavbar.sticky + .content {
   padding-top: 2em;
