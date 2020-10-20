@@ -111,17 +111,16 @@ iframe{
 }
 
 .vnavbar {
-	-ms-overflow-style: none;
 	display: block;
 	transition: 0.5s;
-	font: 2.5em 'Economica', sans-serif;
+	font: 2em 'Economica', sans-serif;
   overflow: scroll; /* Scroll navbar */
   background-color: rgba(255,255,255,0.6); /* Dark background color */
 	width: 0em;
 	position: absolute;
 	height: 100%;
 	z-index: 1;
-	padding-bottom: 60vh;
+	padding-bottom: 8em;
 }
 .vnavbar::-webkit-scrollbar {
 	background: transparent;
@@ -160,7 +159,7 @@ iframe{
 }
  .vnavbar.sticky {
   position: fixed;
-  top: 1.4em;
+  top: 1.73em;
 	left: 0em;
 	height: 100%;
 	padding-bottom: 2em;
@@ -382,9 +381,10 @@ body{
 .footer {
 	height: 30em;
 	position: relative;
-	left:0;
+	left: 0;
 	width: 100%;
-  padding: 5em; /* Some padding */
+	padding-top: 2vw;
+  padding-left: 5vw; /* Some padding */
 	justify-content: center;
   background: #ddd; /* Grey background */
 	z-index: 0;

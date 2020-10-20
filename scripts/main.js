@@ -6,7 +6,7 @@ var stickyonavon = false;
 var onavbar = document.getElementById("onavbar");
 var vnavbar = document.getElementById("vnavbar");
 var onavtop = onavbar.offsetTop;
-var vnavtop = vnavbar.offsetTop - convertRem(3.5);
+var vnavtop = vnavbar.offsetTop - convertRem(3.1);
 
 function stickyNav() {
 	stickyonavon = true;
@@ -40,7 +40,7 @@ function toggleVnav(){
 	else {showVnav();}
 }
 function hideVnav(){
-	if(onavon){vnavon = false;}
+	if(onavon || !stickyonavon){vnavon = false;}
 	document.getElementById("vnavbar").style.width = "0em";
 	document.getElementById("main").style.left = "0em";
 	document.getElementById("main").style.width = "100%";
@@ -52,8 +52,8 @@ function showVnav(){
 	document.getElementById("vnavbar").style.width = "5em";
 	document.getElementById("blocktogglevnav").classList.add("active");
 	if(window.innerWidth > 900){
-		document.getElementById("main").style.left = "12.5em";
-		document.getElementById("main").style.width = "calc(100% - 12.5em)";
+		document.getElementById("main").style.left = "10em";
+		document.getElementById("main").style.width = "calc(100% - 10em)";
 	}
 }
 
@@ -66,7 +66,7 @@ function hideOnav(){
 	onavon = false;
 	if (stickyonavon){
 	hideVnav();
-	document.getElementById("onavbar").style.width = "60px";
+	document.getElementById("onavbar").style.width = "3.5em";
 	document.getElementById("onavbar").style.right = "0px";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
 	}
