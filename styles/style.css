@@ -71,7 +71,7 @@ iframe{
 	width: 100%;
   overflow: hidden; /* Hide overflow */
   background-color: rgba(40,40,40,0.4); /* Dark background color */
-	z-index: 2;
+	z-index: 5;
 	height: 3.5em;
 	transition: width 0.5s;
 }
@@ -119,7 +119,7 @@ iframe{
 	width: 0em;
 	position: absolute;
 	height: 100%;
-	z-index: 1;
+	z-index: 4;
 	padding-bottom: 8em;
 }
 .vnavbar::-webkit-scrollbar {
@@ -178,7 +178,7 @@ section.main{
 	transition: 0.5s;
 	position: relative;
 	left: 0em;
-	z-index: -1;
+	z-index: 1;
 	margin: 0em;
 	padding: 0em;
 }
