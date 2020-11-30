@@ -116,6 +116,12 @@ iframe{
 	left:0%; bottom:5%;
 	font: 1.2em 'Economica', sans-serif;
 }
+.onavbar div.center{
+	display: flex;
+	justify-content: center;
+	margin:0 auto;
+}
+
 
 
 .vnavbar {
