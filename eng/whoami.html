@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<title>Who am I</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/whoami.css">
+	<link href=
+	"https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href=
+	"https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
+	rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="header">
+		<div class="fullname">
+			<h1 class="letter 1">P</h1>
+			<h1 class="letter 2">i</h1>
+			<h1 class="letter 3">e</h1>
+			<h1 class="letter 4">t</h1>
+			<h1 class="letter 5">r</h1>
+			<h1 class="letter 6">o</h1>
+			<br>
+			<h1 class="letter 7">A</h1>
+			<h1 class="letter 8">m</h1>
+			<h1 class="letter 9">m</h1>
+			<h1 class="letter 10">a</h1>
+			<h1 class="letter 11">t</h1>
+			<h1 class="letter 12">u</h1>
+			<h1 class="letter 13">r</h1>
+			<h1 class="letter 14">o</h1>
+		</div>
+	</div>
+
+	<div id="onavbar" class="onavbar">
+		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none";>
+			<i class="material-icons" id="toggleonav">keyboard_arrow_right</i>
+		</a>
+		<a onclick="toggleVnav()" id="blocktogglevnav">
+			<i class="material-icons" id="togglevnav">dehaze</i>
+		</a>
+		<a href="index.html" id = "gotoindex">
+			<i class="material-icons">home</i>
+		</a>
+		<a class="active" href="whoami.html" id = "gotowhoami">
+			<i class="material-icons">person</i>
+		</a>
+		<a href="news.html" id = "gotonews">
+			<i class="material-icons">new_releases</i>
+		</a>
+		<a href="experiments.html" id = "gotoexperiments">
+			<i class="material-icons">apps</i>
+		</a>
+	</div>
+
+	<div id="vnavbar" class="vnavbar">
+		<a href="#anagrafica">Anagrafica</a>
+		<a href="#descrizione">Descrizione</a>
+		<a href="#competenze">Competenze</a>
+		<a href="">Istruzione</a>
+	</div>
+
+	<section id="main" class="main">
+		<section id="anagrafica" class="anagrafica UL">
+			<div id="row" class="row">
+				<div class="side L">
+					<div class="img"></div>
+				</div>
+				<div class="main S">
+					<h1>Anagrafica</h1>
+					<table>
+						<tr>
+							<td><h2>Nome:&nbsp&nbsp&nbsp&nbsp</h2></td>
+							<td><div class="txt">Pietro</div></td>
+						</tr>
+						<tr>
+							<td><h2>Cognome:&nbsp&nbsp&nbsp&nbsp</h2></td>
+							<td><div class="txt">Ammaturo</div></td>
+						</tr>
+						<tr>
+							<td><h2>Data di nascita:&nbsp&nbsp&nbsp&nbsp</h2></td>
+							<td><div class="txt">6 giugno 2002</div></td>
+						</tr>
+						<tr>
+							<td><h2>Luogo di nascita:&nbsp&nbsp&nbsp&nbsp</h2></td>
+							<td><div class="txt">Avellino (AV)</div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section id="descrizione" class="descrizione UL">
+			<div id="row" class="row">
+				<div class="side S">
+					<div class="img"></div>
+				</div>
+				<div class="main L">
+					<h1>Descrizione</h1>
+					<div class="txt" style="text-align:justify">Sono uno
+						studente universitario, laureando in ingegneria
+						informatica al politecnico di Milano. Nel tempo libero mi
+						occupo della realizzazione di siti web. Ho conoscenze
+						discrete lato client e di base lato server. Sono molto
+						interessato all'immersività delle pagine web, in
+						particolare a a come AR (augmented reality), VR (virtual
+						reality) e MR (mixed reality) possono migliorare
+						la resa di queste ultime. </div>
+					</div>
+				</div>
+			</section>
+
+			<section id="competenze" class="competenze UL">
+				<div id="row" class="row">
+					<div class="side M">
+						<div class="img"></div>
+					</div>
+					<div class="main M">
+						<h1>Competenze</h1>
+						<table>
+							<tr>
+								<td style="padding-bottom: 0px;"></td>
+								<td style="padding-bottom: 0px;" class="score"></td>
+							</tr>
+							<tr>
+								<td><h2>HTML:&nbsp&nbsp</h2></td>
+								<td><div id="htmlscore" class="score"></div></td>
+							</tr>
+							<tr>
+								<td><h2>CSS:&nbsp&nbsp</h2></td>
+								<td><div id="cssscore" class="score"></div></td>
+							</tr>
+							<tr>
+								<td><h2>JS:&nbsp&nbsp</h2></td>
+								<td><div id="jsscore" class="score"></div></td>
+							</tr>
+							<tr>
+								<td><h2>SQL:&nbsp&nbsp</h2></td>
+								<td><div id="sqlscore" class="score"></div></td>
+							</tr>
+						</tr>
+						<tr>
+							<td><h2>PHP:&nbsp&nbsp</h2></td>
+							<td><div id="phpscore" class="score"></div></td>
+						</tr>
+					</tr>
+					<tr>
+						<td><h2>C:&nbsp&nbsp</h2></td>
+						<td><div id="cscore" class="score"></div></td>
+					</tr>
+					<tr>
+						<td><h2>Java:&nbsp&nbsp</h2></td>
+						<td><div id="javascore" class="score"></div></td>
+					</tr>
+				</tr>
+				<tr>
+					<td><h2>C++:&nbsp&nbsp</h2></td>
+					<td><div id="c++score" class="score"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</section>
+
+<section id="istruzione" class="istruzione UL">
+	<div id="row" class="row">
+		<div class="side S">
+			<div class="img"></div>
+		</div>
+		<div class="main L">
+			<h1>Istruzione</h1>
+			<table>
+				<tr>
+					<td><h2>Diploma: &nbsp&nbsp&nbsp</h2></td>
+					<td><div class="txt">Indirizzo scientifico: scienze applicate<br>
+						Istituto ISIS Albertini Nola(NA)<br>
+						Votazione: 100 e lode</div></td>
+					</tr>
+					<tr>
+						<td><h2>Inglese: &nbsp&nbsp&nbsp</h2></td>
+						<td><div class="txt">Certificazione Cambridge C1(198)</div></td>
+					</tr>
+					<tr>
+						<td><h2>Informatica: &nbsp&nbsp&nbsp</h2></td>
+						<td><div class="txt">Certificazione Eipass</div></td>
+					</tr>
+					<tr>
+						<td><h2>Economia: &nbsp&nbsp&nbsp</h2></td>
+						<td><div class="txt">Certificazione "Young manager course"<br>
+							London Kingston University</div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</section>
+	</section>
+	<div id="footer" class="footer">
+		<h1>Contattami</h1>
+		<table>
+			<tr>
+				<td><h2>Cellulare: &nbsp&nbsp&nbsp</h2></td>
+				<td><div class="txt">+393391354572</div></td>
+			</tr>
+			<tr>
+				<td><h2>E-mail: &nbsp&nbsp&nbsp</h2></td>
+				<td><div class="txt"><a href =
+					"mailto: pammaturo02@gmail.com">
+					pammaturo02@gmail.com</a></div></td>
+				</tr>
+				<tr>
+					<td><h2>Twitter: &nbsp&nbsp&nbsp</h2></td>
+					<td><div class="txt"><a href=
+						"https://twitter.com/AmmaturoPietro">
+						@AmmaturoPietro</a></div></td>
+					</tr>
+					<tr>
+						<td><h2>Linkedin: &nbsp&nbsp&nbsp</h2></td>
+						<td><div class="txt"><a href=
+							"https://www.linkedin.com/in/pietro-ammaturo-0a56a71a1/">
+							Pietro Ammaturo</a></div></td>
+						</tr>
+					</table>
+				</div>
+
+				<script type="text/javascript" src="scripts/main.js"></script>
+				<script type="text/javascript" src="scripts/whoami.js"></script>
+				<script type="text/javascript" src="scripts/listeners.js"></script>
+
+			</body>
+			</html>

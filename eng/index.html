@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+	<title>Home</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+	<link href=
+	"https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href=
+	"https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
+	rel="stylesheet">
+
+</head>
+<body>
+
+	<div class="header">
+		<div class="fullname">
+			<h1 class="letter 1">P</h1>
+			<h1 class="letter 2">i</h1>
+			<h1 class="letter 3">e</h1>
+			<h1 class="letter 4">t</h1>
+			<h1 class="letter 5">r</h1>
+			<h1 class="letter 6">o</h1>
+			<br>
+			<h1 class="letter 7">A</h1>
+			<h1 class="letter 8">m</h1>
+			<h1 class="letter 9">m</h1>
+			<h1 class="letter 10">a</h1>
+			<h1 class="letter 11">t</h1>
+			<h1 class="letter 12">u</h1>
+			<h1 class="letter 13">r</h1>
+			<h1 class="letter 14">o</h1>
+		</div>
+	</div>
+
+	<div id="onavbar" class="onavbar">
+		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none";>
+			<i class="material-icons" id="toggleonav">keyboard_arrow_right</i>
+		</a>
+		<a onclick="toggleVnav()" id="blocktogglevnav">
+			<i class="material-icons" id="togglevnav">dehaze</i>
+		</a>
+		<a class="active" href="index.html" id = "gotoindex">
+			<i class="material-icons">home</i>
+		</a>
+		<a href="whoami.html" id = "gotowhoami">
+			<i class="material-icons">person</i>
+		</a>
+		<a href="news.html" id = "gotonews">
+			<i class="material-icons">new_releases</i>
+		</a>
+		<a href="experiments.html" id = "gotoexperiments">
+			<i class="material-icons">apps</i>
+		</a>
+	</div>
+
+	<div id="vnavbar" class="vnavbar">
+		<a href="#anagrafica">Anagrafica</a>
+		<a href="#descrizione">Descrizione</a>
+		<a href="#competenze">Competenze</a>
+		<a href="">Istruzione</a>
+	</div>
+
+	<section id="main" class="main">
+		<section class="wip UL">
+			<div id="row" class="row">
+				<div class="side L">
+					<div class="main-container">
+						<ul class="list-of-floating-elements">
+							<li class="floated">
+								<canvas id = "a1" onmouseout="fade(this)"
+								onclick="lock(this, '0')"
+								onmouseover="stamp(this, '0')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "a2" onmouseout="fade(this)"
+								onclick="lock(this, '1')"
+								onmouseover="stamp(this, '1')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "a3" onmouseout="fade(this)"
+								onclick="lock(this, '2')"
+								onmouseover="stamp(this, '2')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "a4" onmouseout="fade(this)"
+								onclick="lock(this, '3')"
+								onmouseover="stamp(this, '3')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "a5" onmouseout="fade(this)"
+								onclick="lock(this, '4')"
+								onmouseout="fade(this)" onmouseover="stamp(this, '4')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "a6" onmouseout="fade(this)"
+								onclick="lock(this, '5')"
+								onmouseover="stamp(this, '5')"></canvas>
+							</li>
+						</ul>
+					</div>
+					<div class="main-container">
+						<ul class="list-of-floating-elements">
+							<li class="floated">
+								<canvas id = "b1" onmouseout="fade(this)"
+								onclick="lock(this, '6')"
+								onmouseover="stamp(this, '6')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "b2" onmouseout="fade(this)"
+								onclick="lock(this, '7')"
+								onmouseover="stamp(this, '7')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "b3" onmouseout="fade(this)"
+								onclick="lock(this, '8')"
+								onmouseover="stamp(this, '8')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "b4" onmouseout="fade(this)"
+								onclick="lock(this, '9')"
+								onmouseover="stamp(this, '9')"></canvas>
+							</li>
+						</ul>
+					</div>
+					<div class="main-container">
+						<ul class="list-of-floating-elements">
+							<li class="floated">
+								<canvas id = "c1" onmouseout="fade(this)"
+								onclick="lock(this, '10')"
+								onmouseover="stamp(this, '10')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "c2" onmouseout="fade(this)"
+								onclick="lock(this, '11')"
+								onmouseover="stamp(this, '11')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "c3" onmouseout="fade(this)"
+								onclick="lock(this, '12')"
+								onmouseover="stamp(this, '12')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "c4" onmouseout="fade(this)"
+								onclick="lock(this, '13')"
+								onmouseover="stamp(this, '13')"></canvas>
+							</li>
+							<li class="floated">
+								<canvas id = "c5" onmouseout="fade(this)"
+								onclick="lock(this, '14')"
+								onmouseover="stamp(this, '14')"></canvas>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main S">
+					<h1 id = "typing" class = "txt typing"></h1>
+				</div>
+			</section>
+		</section>
+
+		<div id="footer" class="footer">
+			<h1>Contattami</h1>
+			<table>
+				<tr>
+					<td><h2>Cellulare: &nbsp&nbsp&nbsp</h2></td>
+					<td><div class="txt">+393391354572</div></td>
+				</tr>
+				<tr>
+					<td><h2>E-mail: &nbsp&nbsp&nbsp</h2></td>
+					<td><div class="txt"><a href =
+						"mailto: pammaturo02@gmail.com">
+						pammaturo02@gmail.com</a></div></td>
+					</tr>
+					<tr>
+						<td><h2>Twitter: &nbsp&nbsp&nbsp</h2></td>
+						<td><div class="txt"><a href=
+							"https://twitter.com/AmmaturoPietro">
+							@AmmaturoPietro</a></div></td>
+						</tr>
+						<tr>
+							<td><h2>Linkedin: &nbsp&nbsp&nbsp</h2></td>
+							<td><div class="txt"><a href=
+								"https://www.linkedin.com/in/pietro-ammaturo-0a56a71a1/">
+								Pietro Ammaturo</a></div></td>
+							</tr>
+						</table>
+					</div>
+
+					<script type="text/javascript" src="scripts/main.js"></script>
+					<script type="text/javascript" src="scripts/index.js"></script>
+					<script type="text/javascript" src="scripts/listeners.js"></script>
+
+				</body>
+				</html>

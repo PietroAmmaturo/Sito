@@ -1,0 +1,14 @@
+  div.segnaposto{
+    width: 100%;
+    height: 21em;
+    background-color: lightblue;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 2em;
+    display: block;
+  }
+iframe{
+	width: 100%;
+	height: 42em;
+	display: none;
+}
