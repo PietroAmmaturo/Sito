@@ -263,7 +263,6 @@ section.S div.img{
 section.S div.txt{
 	font: 1em "Open Sans", sans-serif;
 	letter-spacing: 0.2em;
-
 }
 section.XS h1{
 	display: inline;
@@ -400,4 +399,29 @@ body{
 	justify-content: center;
   background: #ddd; /* Grey background */
 	z-index: 0;
+}
+
+.footer td {
+	padding-top: 2em;
+}
+.footer div.container {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.footer h1 {
+	display: inline;
+	font: 2em 'Raleway', sans-serif;
+	letter-spacing: 0.2em;
+}
+
+.footer h2 {
+	display: inline;
+	font: 1.5em 'Economica', sans-serif;
+	letter-spacing: 0.2em;
+}
+
+.footer div.txt {
+	font: 1.2em "Open Sans", sans-serif;
+	letter-spacing: 0.2em;
 }
