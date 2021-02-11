@@ -400,7 +400,6 @@ body{
   background: #ddd; /* Grey background */
 	z-index: 0;
 }
-
 .footer td {
 	padding-top: 2em;
 }
@@ -410,18 +409,24 @@ body{
 	display: block;
 }
 .footer h1 {
-	display: inline;
+	padding-top: 0.2em;
 	font: 2em 'Raleway', sans-serif;
 	letter-spacing: 0.2em;
 }
-
 .footer h2 {
+	min-width:30%;
 	display: inline;
 	font: 1.5em 'Economica', sans-serif;
 	letter-spacing: 0.2em;
 }
-
+.footer div.line {
+	padding-top: 1em;
+}
 .footer div.txt {
+	min-width: 70%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
 	font: 1.2em "Open Sans", sans-serif;
 	letter-spacing: 0.2em;
 }
