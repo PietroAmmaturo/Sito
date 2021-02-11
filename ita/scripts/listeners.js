@@ -1,5 +1,15 @@
-document.getElementById("blocktogglevnav").addEventListener("mouseenter", function(){showTextOnav(this, 'SIDEBAR')});
-document.getElementById("blocktogglevnav").addEventListener("mouseleave", function(){hideTextOnav(this, 'SIDEBAR')});
+var isMobile = is_touch_device1(); //initiate as false
+// device detection
+function is_touch_device1() {
+  return 'ontouchstart' in window;
+}
+
+if (!isMobile){
+document.getElementById("blocktogglevnav").addEventListener("mouseenter", function(){showTextOnav(this, 'TOGGLE')});
+document.getElementById("blocktogglevnav").addEventListener("mouseleave", function(){hideTextOnav(this, 'TOGGLE')});
+document.getElementById("blocktoggleonav").addEventListener("mouseenter", function(){showTextOnav(this, 'TOGGLE')});
+document.getElementById("blocktoggleonav").addEventListener("mouseleave", function(){hideTextOnav(this, 'TOGGLE')});
+}
 document.getElementById("gotoindex").addEventListener("mouseenter", function(){showTextOnav(this, 'HOME')});
 document.getElementById("gotoindex").addEventListener("mouseleave", function(){hideTextOnav(this, 'HOME')});
 document.getElementById("gotowhoami").addEventListener("mouseenter", function(){showTextOnav(this, 'INFO')});

@@ -6,7 +6,7 @@ var stickyonavon = false;
 var onavbar = document.getElementById("onavbar");
 var vnavbar = document.getElementById("vnavbar");
 var onavtop = onavbar.offsetTop;
-var vnavtop = vnavbar.offsetTop - convertRem(3.1);
+var vnavtop = vnavbar.offsetTop - convertRem(3.9);
 
 function stickyNav() {
 	stickyonavon = true;
@@ -27,6 +27,7 @@ function stickyOnav() {
     onavbar.classList.remove("sticky");
   }
 }
+
 function stickyVnav() {
   if (window.pageYOffset >= vnavtop) {
     vnavbar.classList.add("sticky");
@@ -35,17 +36,15 @@ function stickyVnav() {
   }
 }
 
-function toggleVnav(){
-	if (vnavon){hideVnav();}
-	else {showVnav();}
-}
+/*eccessivamente complicato e delle volte si apre la vnavbar wuando non dovrebbe*/
+/*
 function hideVnav(){
 	if(onavon || !stickyonavon){vnavon = false;}
 	document.getElementById("vnavbar").style.width = "0em";
 	document.getElementById("main").style.left = "0em";
 	document.getElementById("main").style.width = "100%";
 	document.getElementById("blocktogglevnav").classList.remove("active");
-
+	console.log("aa");
 }
 function showVnav(){
 	vnavon = true;
@@ -56,12 +55,6 @@ function showVnav(){
 		document.getElementById("main").style.width = "calc(100% - 10em)";
 	}
 }
-
-function toggleOnav(){
-	if (onavon){hideOnav();}
-	else {showOnav();
-	}
-}
 function hideOnav(){
 	onavon = false;
 	if (stickyonavon){
@@ -69,6 +62,7 @@ function hideOnav(){
 	document.getElementById("onavbar").style.width = "3.5em";
 	document.getElementById("onavbar").style.right = "0px";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
+	document.getElementById("blocktoggleonav").classList.add("active");
 	}
 }
 function showOnav(){
@@ -76,12 +70,40 @@ function showOnav(){
 	if (vnavon){showVnav();}
 	document.getElementById("onavbar").style.width = "100%";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
+	document.getElementById("blocktoggleonav").classList.remove("active");
+}
+*/
+function hideVnav(){
+	vnavon = false;
+	document.getElementById("vnavbar").style.width = "0em";
+	document.getElementById("main").style.left = "0em";
+	document.getElementById("main").style.width = "100%";
+	document.getElementById("blocktogglevnav").classList.remove("active");
+}
+function showVnav(){
+	vnavon = true;
+	document.getElementById("vnavbar").style.width = "5em";
+	document.getElementById("blocktogglevnav").classList.add("active");
+	if(window.innerWidth > 900){
+		document.getElementById("main").style.left = "10em";
+		document.getElementById("main").style.width = "calc(100% - 10em)";
+	}
+}
+function hideOnav(){
+	onavon = false;
+	hideVnav();
+	document.getElementById("onavbar").style.width = "3.5em";
+	document.getElementById("onavbar").style.right = "0px";
+	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
+	document.getElementById("blocktoggleonav").classList.add("active");
+}
+function showOnav(){
+	onavon = true;
+	document.getElementById("onavbar").style.width = "100%";
+	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
+	document.getElementById("blocktoggleonav").classList.remove("active");
 }
 
-window.onresize = function() {
-		toggleVnav();
-		toggleVnav();
-}
 
 function getRootElementFontSize() {
   // Returns a number
@@ -94,6 +116,20 @@ function getRootElementFontSize() {
   );
 }
 
+function toggleVnav(){
+	if (vnavon){hideVnav();}
+	else {showVnav();}
+}
+function toggleOnav(){
+	if (onavon){hideOnav();}
+	else {showOnav();
+	}
+}
+
+window.onresize = function() {
+		toggleVnav();
+		toggleVnav();
+}
 /*eccessivamente complicato, e non funziona bene*/
 /*
 function showTextOnav(obj, description){
