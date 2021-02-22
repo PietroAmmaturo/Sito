@@ -1,0 +1,53 @@
+section.news1 div.img{
+	background-image: url("images/news1.webp");
+	background-position: 50% 50%;
+	background-size: 360px 270px;
+}
+
+section.news2 div.img{
+	background-image: url("images/news2.webp");
+	background-position: 50% 50%;
+	background-size: 360px 270px;
+}
+
+section.news3 div.img{
+	background-image: url("images/news3.webp");
+	background-position: 50% 50%;
+	background-size: 360px 270px;
+}
+
+section.news4  div.img{
+	background-image: url("images/news4.webp");
+	background-position: 50% 50%;
+	background-size: 280px 210px;
+}
+
+section.news5 div.img{
+	background-image: url("images/news5.webp");
+	background-position: 50% 50%;
+	background-size: 280px 210px;
+}
+
+section.news6 div.img{
+	background-image: url("images/news6.webp");
+	background-position: 50% 50%;
+	background-size: 280px 210px;
+}
+
+section.news7  div.img{
+	background-image: url("images/news7.webp");
+	background-position: 50% 50%;
+	background-size: 100px 75px;
+}
+
+section.news8 div.img{
+	background-image: url("images/news8.webp");
+	background-position: 50% 50%;
+	background-size: 100px 75px;
+}
+
+section.news9 div.img{
+	background-image: url("images/news9.webp");
+	background-position: 50% 50%;
+	background-size: 100px 75px;
+}
