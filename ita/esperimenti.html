@@ -6,6 +6,7 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<link rel="stylesheet" type="text/css" href="styles/esperimenti.css">
@@ -65,18 +66,20 @@
 	<div id="vnavbar" class="vnavbar">
 		<a href="#DataEdOra"><div>Data ed Ora</div></a>
 		<a href="#Colori"><div>Colori</div></a>
-		<a href="#SistemaSolare"><div>Colori</div></a>
+		<a href="#SistemaSolare"><div>Sist. Sol.</div></a>
 	</div>
 
-	<section id="main" class="main"></section>
-
-	<iframe id="DataEdOra" src="https://pietroammaturo.github.io/ita/esperimenti/Data ed Ora.html" width=
-	"100%" height="500em"></iframe>
-	<iframe id="Colori" src="https://pietroammaturo.github.io/ita/esperimenti/Colori.html" width="100%" height=
-	"500em"></iframe>
-	<iframe id="SistemaSolare" src="https://pietroammaturo.github.io/ita/esperimenti/Sistema Solare.html" width="100%" height=
-	"500em"></iframe>
-
+	<section id="main" class="main">
+		<section id="DataEdOra" class="esperimento" >
+					<iframe src="https://pietroammaturo.github.io/ita/esperimenti/Data ed Ora.html"></iframe>
+		</section>
+		<section id="Colori" class="esperimento" >
+						<iframe src="https://pietroammaturo.github.io/ita/esperimenti/Colori.html"></iframe>
+		</section>
+		<section id="SistemaSolare" class="esperimento" >
+							<iframe allowvr="yes" allowfullscreen="yes" src="https://pietroammaturo.github.io/ita/esperimenti/Sistema Solare.html"></iframe>
+		</section>
+	</section>
 	<div id="footer" class="footer">
 		<h1>Contattami</h1>
 		<div class="line">
