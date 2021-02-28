@@ -16,13 +16,14 @@
 			<!--planet distances: 1 km = 100 000 000-->
 			<!--planet orbiting time: 10 = 1d-->
 			<!-- origin at 0 0 0 -->
-	  	<a-entity
-	  		position="0 3 10">
-	  		<a-camera
+	  		<a-entity
+					camera
+					look-controls
+					wasd-controls="acceleration: 500"
+					position="0 5 10"
 	  			active="true"
 	  			fov="100">
-	  		</a-camera>
-	 		</a-entity>
+	  		</a-entity>
 
 	  <!-- sun-->
 	  <a-sphere
