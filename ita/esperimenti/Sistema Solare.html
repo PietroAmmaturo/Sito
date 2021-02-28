@@ -13,7 +13,8 @@
 			<a-sky color="#000011"></a-sky>
 			<!--sun dimensions: 1km = 5 000 000km-->
 			<!--planet dimensions: 1km = 100 000km-->
-			<!--planet distances: 1 km = 100 000 000-->
+			<!--planet distances: 1 km = 100 000 000km-->
+			<!--satelitae distances: 1 km = 500 000km-->
 			<!--planet orbiting time: 10 = 1d-->
 			<!-- origin at 0 0 0 -->
 	  		<a-entity
@@ -82,7 +83,7 @@
 	  		</a-sphere>
 	  </a-entity>
 
-	  <!-- earth -->
+	  <!-- earth orbit-->
 	  <a-entity
 	  	position="0 4 0"
 	  	animation=
@@ -91,17 +92,34 @@
 	  		dur: 3650;
 	  		easing: linear;
 	  		loop:true">
+				<!-- earth -->
 	  		<a-sphere
 	  			radius="0.063"
 	  			color="#003366"
 	  			position="1.48 0 0"
-	  			animation=
-	  				"property: rotation;
-	  				to: 0 -360 0;
-	  				dur: 5000;
-	  				easing: linear;
-	  				loop:true">
-	  		</a-sphere>
+					animation=
+						"property: rotation;
+						to: 0 -360 0;
+						dur: 100;
+						easing: linear;
+						loop:true">
+				</a-sphere>
+				<!-- moon orbit -->
+				<a-entity
+					position="1.48 0 0"
+					animation=
+						"property: rotation;
+						to: 0 -360 0;
+						dur: 2700;
+						easing: linear;
+						loop:true">
+					<!-- moon -->
+					<a-sphere
+						radius="0.017"
+						color="#AAAAAA"
+						position="0.72 0 0">
+					</a-sphere>
+				</a-entity>
 	  </a-entity>
 
     <!-- mars -->
@@ -147,6 +165,54 @@
 	  				easing: linear;
 	  				loop:true">
 	  		</a-sphere>
+				<!-- ganymede orbit -->
+				<a-entity
+					position="7.6 0 0"
+					animation=
+						"property: rotation;
+						to: 0 -360 0;
+						dur: 700;
+						easing: linear;
+						loop:true">
+					<!-- ganymede -->
+					<a-sphere
+						radius="0.026"
+						color="#999999"
+						position="2.14 0 0">
+					</a-sphere>
+				</a-entity>
+				<!-- europa orbit -->
+				<a-entity
+					position="7.6 0 0"
+					animation=
+						"property: rotation;
+						to: 0 -360 0;
+						dur: 300;
+						easing: linear;
+						loop:true">
+					<!-- europe -->
+					<a-sphere
+						radius="0.015"
+						color="#AA8855"
+						position="1.34 0 0">
+					</a-sphere>
+				</a-entity>
+				<!-- callisto orbit -->
+				<a-entity
+					position="7.6 0 0"
+					animation=
+						"property: rotation;
+						to: 0 -360 0;
+						dur: 1700;
+						easing: linear;
+						loop:true">
+					<!-- callisto -->
+					<a-sphere
+						radius="0.024"
+						color="#777777"
+						position="3.74 0 0">
+					</a-sphere>
+				</a-entity>
 	  </a-entity>
 
 
