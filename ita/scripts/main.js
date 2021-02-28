@@ -78,6 +78,8 @@ function hideVnav(){
 	document.getElementById("vnavbar").style.width = "0em";
 	document.getElementById("main").style.left = "0em";
 	document.getElementById("main").style.width = "100%";
+	document.getElementById("footer").style.left = "0em";
+	document.getElementById("footer").style.width = "100%";
 	document.getElementById("blocktogglevnav").classList.remove("active");
 }
 function showVnav(){
@@ -85,8 +87,10 @@ function showVnav(){
 	document.getElementById("vnavbar").style.width = "5em";
 	document.getElementById("blocktogglevnav").classList.add("active");
 	if(window.innerWidth > 900){
-		document.getElementById("main").style.left = "10em";
-		document.getElementById("main").style.width = "calc(100% - 10em)";
+		document.getElementById("main").style.left = "11em";
+		document.getElementById("main").style.width = "calc(100% - 11em)";
+		document.getElementById("footer").style.left = "11em";
+		document.getElementById("footer").style.width = "calc(100% - 11em)";
 	}
 }
 function hideOnav(){
