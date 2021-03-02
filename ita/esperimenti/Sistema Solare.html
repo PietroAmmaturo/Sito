@@ -10,7 +10,7 @@
 				<img id = "floor" src="sample-assets/assets/images/terrain/backgrounddetailed6.jpg">
 			</a-assets>
 
-			<a-sky color="#000011"></a-sky>
+			<a-sky color="#111122"></a-sky>
 			<!--sun dimensions: 1km = 5 000 000km-->
 			<!--planet dimensions: 1km = 100 000km-->
 			<!--planet distances: 1 km = 100 000 000km-->
@@ -26,20 +26,36 @@
 	  			fov="100">
 	  		</a-entity>
 
-	  <!-- sun-->
-	  <a-sphere
-	  	radius="0.35"
-	  	color="#FFAA00"
-	  	position="0 0 -10"
-	  	animation=
-	  		"property: rotation;
-	  		to: 0 360 0;
-	  		dur: 5000;
-	  		easing: linear;
-	  		loop:true">
-	  </a-sphere>
+				<!--custom light | ambient -->
+				<a-entity
+					light=
+						"type: ambient;
+						intensity: 0.4">
+				</a-entity>
+				<!-- custom light | point -->
+				<a-entity
+					position ="0 0 -10"
+					light =
+					"type:point;
+					intensity: 0.8;
+					distance: 10000;
+					castShadow: true;
+					shadowCameraVisible: false;">
+				</a-entity>
 
-	  <!-- mercury -->
+				<a-sphere id="sun"
+									radius = "0.35"
+									material="color: #FFAA00; flatShading:true; emissive:#FFAA00; emissiveIntensity:1"
+									position ="0 0 -10"
+									opacity = "1"
+					 				animation= "property: rotation;
+					 										to: 0 -360 0;
+					 										dur: 10000;
+					 										easing: linear;
+					 										loop:true">
+			</a-sphere>
+
+
 	  <a-entity
 	  	position="0 0 -10"
 	  	animation=
