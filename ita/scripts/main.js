@@ -1,4 +1,6 @@
-window.onscroll = function() {stickyNav()};
+window.onscroll = function() {
+  stickyNav()
+};
 
 var vnavon = false;
 var onavon = true;
@@ -9,21 +11,23 @@ var onavtop = onavbar.offsetTop;
 var vnavtop = vnavbar.offsetTop - convertRem(3.9);
 
 function stickyNav() {
-	stickyonavon = true;
-	stickyOnav();
+  stickyonavon = true;
+  stickyOnav();
   stickyVnav();
 }
+
 function stickyOnav() {
   if (window.pageYOffset >= onavtop) {
-		stickyonavon = true;
-		document.getElementById("blocktoggleonav").style.display = "inline-block";
+    stickyonavon = true;
+    document.getElementById("blocktoggleonav").style.display = "inline-block";
     onavbar.classList.add("sticky");
-		if (!onavon){hideOnav();};
-  }
-	else {
-		stickyonavon = false;
-		showOnav();
-		document.getElementById("blocktoggleonav").style.display = "none";
+    if (!onavon) {
+      hideOnav();
+    };
+  } else {
+    stickyonavon = false;
+    showOnav();
+    document.getElementById("blocktoggleonav").style.display = "none";
     onavbar.classList.remove("sticky");
   }
 }
@@ -73,39 +77,42 @@ function showOnav(){
 	document.getElementById("blocktoggleonav").classList.remove("active");
 }
 */
-function hideVnav(){
-	vnavon = false;
-	document.getElementById("vnavbar").style.width = "0em";
-	document.getElementById("main").style.left = "0em";
-	document.getElementById("main").style.width = "100%";
-	document.getElementById("footer").style.left = "0em";
-	document.getElementById("footer").style.width = "100%";
-	document.getElementById("blocktogglevnav").classList.remove("active");
+function hideVnav() {
+  vnavon = false;
+  document.getElementById("vnavbar").style.width = "0em";
+  document.getElementById("main").style.left = "0em";
+  document.getElementById("main").style.width = "100%";
+  document.getElementById("footer").style.left = "0em";
+  document.getElementById("footer").style.width = "100%";
+  document.getElementById("blocktogglevnav").classList.remove("active");
 }
-function showVnav(){
-	vnavon = true;
-	document.getElementById("vnavbar").style.width = "5em";
-	document.getElementById("blocktogglevnav").classList.add("active");
-	if(window.innerWidth > 900){
-		document.getElementById("main").style.left = "11em";
-		document.getElementById("main").style.width = "calc(100% - 11em)";
-		document.getElementById("footer").style.left = "11em";
-		document.getElementById("footer").style.width = "calc(100% - 11em)";
-	}
+
+function showVnav() {
+  vnavon = true;
+  document.getElementById("vnavbar").style.width = "5em";
+  document.getElementById("blocktogglevnav").classList.add("active");
+  if (window.innerWidth > 900) {
+    document.getElementById("main").style.left = "11em";
+    document.getElementById("main").style.width = "calc(100% - 11em)";
+    document.getElementById("footer").style.left = "11em";
+    document.getElementById("footer").style.width = "calc(100% - 11em)";
+  }
 }
-function hideOnav(){
-	onavon = false;
-	hideVnav();
-	document.getElementById("onavbar").style.width = "3.5em";
-	document.getElementById("onavbar").style.right = "0px";
-	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
-	document.getElementById("blocktoggleonav").classList.add("active");
+
+function hideOnav() {
+  onavon = false;
+  hideVnav();
+  document.getElementById("onavbar").style.width = "3.5em";
+  document.getElementById("onavbar").style.right = "0px";
+  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
+  document.getElementById("blocktoggleonav").classList.add("active");
 }
-function showOnav(){
-	onavon = true;
-	document.getElementById("onavbar").style.width = "100%";
-	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
-	document.getElementById("blocktoggleonav").classList.remove("active");
+
+function showOnav() {
+  onavon = true;
+  document.getElementById("onavbar").style.width = "100%";
+  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
+  document.getElementById("blocktoggleonav").classList.remove("active");
 }
 
 
@@ -120,19 +127,25 @@ function getRootElementFontSize() {
   );
 }
 
-function toggleVnav(){
-	if (vnavon){hideVnav();}
-	else {showVnav();}
+function toggleVnav() {
+  if (vnavon) {
+    hideVnav();
+  } else {
+    showVnav();
+  }
 }
-function toggleOnav(){
-	if (onavon){hideOnav();}
-	else {showOnav();
-	}
+
+function toggleOnav() {
+  if (onavon) {
+    hideOnav();
+  } else {
+    showOnav();
+  }
 }
 
 window.onresize = function() {
-		toggleVnav();
-		toggleVnav();
+  toggleVnav();
+  toggleVnav();
 }
 /*eccessivamente complicato, e non funziona bene*/
 /*
@@ -165,21 +178,21 @@ function hideTextOnav(obj, description){
 }
 */
 
-function showTextOnav(obj, description){
-	content = document.getElementById(obj.id).innerHTML;
-	var htmlDescription = '<div>' + description + '</div>';
-	if(!(content.includes(htmlDescription))){
-		document.getElementById(obj.id).innerHTML += (htmlDescription);
-	}
+function showTextOnav(obj, description) {
+  content = document.getElementById(obj.id).innerHTML;
+  var htmlDescription = '<div>' + description + '</div>';
+  if (!(content.includes(htmlDescription))) {
+    document.getElementById(obj.id).innerHTML += (htmlDescription);
+  }
 }
 
-function hideTextOnav(obj, description){
-	let content = document.getElementById(obj.id).innerHTML;
-	var htmlDescription = '<div>' + description + '</div>';
-	if((content.includes(htmlDescription))){
-		content = content.replace(htmlDescription, '');
-		document.getElementById(obj.id).innerHTML = content;
-	}
+function hideTextOnav(obj, description) {
+  let content = document.getElementById(obj.id).innerHTML;
+  var htmlDescription = '<div>' + description + '</div>';
+  if ((content.includes(htmlDescription))) {
+    content = content.replace(htmlDescription, '');
+    document.getElementById(obj.id).innerHTML = content;
+  }
 }
 
 function convertRem(value) {

@@ -1,34 +1,38 @@
-section.wip div.img{
-	background-image: url("images/wip.webp");
-	background-position: 20% 30%;
-	background-size: 880px 495px;
+section.wip div.img {
+  background-image: url("images/wip.webp");
+  background-position: 20% 30%;
+  background-size: 880px 495px;
 }
 
-.typing:after{
+.typing:after {
   content: "|";
   animation: blink 1000ms linear infinite alternate;
 }
-@-webkit-keyframes blink{
-  0%{opacity: 0;}
-  100%{opacity: 1;}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-container {
-      float: left;
-      position: relative;
-      left: -5%;
-    }
-		.floated{
-			white-space: nowrap;
-			display: inline;
-		}
-		canvas{
-			position: static;
-			width: 5em;
-			height: 5em;
-			background-color: rgba(0,0,0,0);
-		}
-choose your world
-become your chief
-master your hobby
-follow your dream
+  float: left;
+  position: relative;
+  left: -5%;
+}
+
+.floated {
+  white-space: nowrap;
+  display: inline;
+}
+
+canvas {
+  position: static;
+  width: 5em;
+  height: 5em;
+  background-color: rgba(0, 0, 0, 0);
+}
