@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+	</head>
+
+	<body>
+				<a-scene>
+			<!-- Assets Management System -->
+			<a-assets>
+				<a-asset-item id="interior-model"
+											src="assets/models/wip_-_interior_environment_farm_house/scene.gltf">
+				</a-asset-item>
+			</a-assets>
+
+
+			<a-sky color="#332233"></a-sky>
+
+			<a-entity position="0 0 0"
+								id="pov"
+								animation="property: position; dur: 1000; startEvents: go">
+				<a-entity camera="active: true"
+									look-controls
+									wasd-controls-enabled="false"
+									position="0 1.6 0">
+					<a-entity raycaster="far: 4; objects: .clickable"
+										animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; to: 1 1 1"
+										animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; to: 3 3 3"
+										animation__leaving="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 250; to: 1 1 1"
+										cursor="fuse: true; fuseTimeout: 1500"
+										material="color: white; shader: flat"
+										position="0 0 -0.3"
+										geometry="primitive: sphere; radius: 0.001">
+					</a-entity>
+					</a-entity>
+
+					<a-entity progressive-controls></a-entity>
+				</a-entity>
+			</a-entity>
+			<a-entity text="value: Hello World;"></a-entity>
+
+			<a-entity id="interior"
+								position="0 0 10"
+								gltf-model="#interior-model"
+								shadow="cast: true; receive: true">
+			</a-entity>
+
+
+			<!--custom light | ambient -->
+			<a-entity light="type: ambient;
+						intensity: 0.2">
+			</a-entity>
+			<!-- custom light | point -->
+			<a-entity light="type:point;
+					intensity: 0.8;
+					distance: 500;
+					castShadow: true;
+					color: #FF0050;"
+								position="-2.8 0.5 -9">
+			</a-entity>
+			<!-- custom light | spot -->
+			<a-entity light="type:spot;
+					angle: 200;
+					color: #FFAAAA;
+					target: #interior;
+					intensity: 0.5;
+					castShadow: true;"
+								position="10000 5000 -10000">
+			</a-entity>
+
+			<a-circle id="checkpoint0"
+								class="clickable"
+								position="0 0.1 0"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint1"
+								class="clickable"
+								position="0 0.1 -4"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint2"
+								class="clickable"
+								position="2 0.1 -4"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint4"
+								class="clickable"
+								position="-3.5 0.1 -4"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint4"
+								class="clickable"
+								position="-2 0.1 -4"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint6"
+								class="clickable"
+								position="0 0.1 -8"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint7"
+								class="clickable"
+								position="2 0.1 -8"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint8"
+								class="clickable"
+								position="-2.5 0.1 -6"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint9"
+								class="clickable"
+								position="-4.5 0.1 -6.7"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint10"
+								class="clickable"
+								position="-2.4 0.1 -2"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint11"
+								class="clickable"
+								position="-2.4 -0.8. -0.5"
+								checkpoint>
+			</a-circle>
+
+			<a-circle id="checkpoint12"
+								class="clickable"
+								position="-2.4 -1.8 1.3"
+								checkpoint>
+			</a-circle>
+
+			<a-sphere id = "magicsphere1" class="clickable"
+								pop
+								magic
+								radius="0.05"
+								position="0.3 1.1 -1"
+								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
+			</a-sphere>
+			<a-sphere id = "magicsphere2" class="clickable"
+								pop
+								magic
+								radius="0.05"
+								position="3 0.1 -7"
+								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
+			</a-sphere>
+			<a-sphere id = "magicsphere3" class="clickable"
+								pop
+								magic
+								radius="0.05"
+								position="3.1 1.43 -3.9"
+								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
+			</a-sphere>
+			<a-sphere id = "magicsphere4" class="clickable"
+								pop
+								magic
+								radius="0.05"
+								position="-4.83 0.1 -5.57"
+								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
+			</a-sphere>
+			<a-sphere id = "magicsphere5" class="clickable"
+								pop
+								magic
+								radius="0.05"
+								position="-1.3 0.1 -1"
+								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
+			</a-sphere>
+		</a-scene>
+
+
+		<script>
+
+			document.getElementById("magicsphere1").addEventListener("click", popHandler);
+			document.getElementById("magicsphere2").addEventListener("click", popHandler);
+			document.getElementById("magicsphere3").addEventListener("click", popHandler);
+			document.getElementById("magicsphere4").addEventListener("click", popHandler);
+			document.getElementById("magicsphere5").addEventListener("click", popHandler);
+			let popcounter = 0;
+			function popHandler() {
+				popcounter++;
+				if (popcounter == 5)
+					alert("hai vinto!");
+				else
+					alert(popcounter + " / 5!");
+			}
+
+			AFRAME.registerComponent('pop',
+			{
+				init: function()
+				{
+					console.log("registered");
+					var el = this.el;
+					el.setAttribute("animation__pop-click", "property: opacity; startEvents: click; dur: 0; to: 0");
+					el.setAttribute("animation__pop-fusing", "property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; to: 3 3 3");
+					el.setAttribute("animation__pop-leaving", "property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 250; to: 1 1 1");
+					el.setAttribute("event-set__pop-click", "_event: click; class: unclickable; popped()");
+				}
+			});
+			AFRAME.registerComponent('magic',
+			{
+				init: function()
+				{
+					console.log("registered");
+					var el = this.el;
+					el.setAttribute("animation__magic-fusing", "property: material.emissiveIntensity; startEvents: fusing; dur: 10; easing: easeInCubic; to: 1");
+					el.setAttribute("animation__magic-leaving", "property: material.emissiveIntensity; startEvents: mouseleave; dur: 5; easing: easeInCubic; to: 0");
+				}
+			});
+
+			AFRAME.registerSystem("goto",
+			{
+				init: function()
+				{
+					// global - shared between all goto components
+					this.isMoving = false;
+				}
+			});
+
+			AFRAME.registerComponent("goto",
+			{
+				init: function()
+				{
+					let rig = document.querySelector("#pov");
+					rig.addEventListener("animationcomplete", e =>
+					{
+						this.system.isMoving = false;
+					});
+					this.el.addEventListener("click", e =>
+					{
+						if (this.system.isMoving) return;
+						let targetPos = this.el.getAttribute("position");
+						let rigPos = rig.getAttribute("position");
+						this.system.isMoving = true;
+
+						rig.setAttribute("animation",
+						{
+							from: rigPos,
+							to: AFRAME.utils.coordinates.stringify(
+							{
+								x: targetPos.x,
+								y: targetPos.y,
+								z: targetPos.z
+							}),
+							dur: targetPos.distanceTo(rigPos) * 750
+						});
+						rig.emit("go");
+					});
+				}
+			});
+
+			AFRAME.registerComponent('checkpoint',
+			{
+				init: function()
+				{
+					console.log("registered");
+					var el = this.el;
+					el.setAttribute("goto", 0);
+					el.setAttribute("rotation", "-90 0 0");
+					el.setAttribute("scale", "0.4 0.4 0.4");
+					el.setAttribute("opacity", "0.0")
+					el.setAttribute("light", "type:point; intensity: 5; distance: 0.5; castShadow: false; color: #FF00FF;");
+				}
+			});
+		</script>
+
+	</body>
+
+</html>
