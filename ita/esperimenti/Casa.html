@@ -4,10 +4,89 @@
 	<head>
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 		<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Homemade Apple'
+					rel='stylesheet'>
 	</head>
 
 	<body shadow="type: basic">
-				<a-scene stats>
+		<style>
+			.ui
+			{
+				z-index: 1000;
+			}
+
+			.ui div.counter
+			{
+				z-index: 1001;
+				position: fixed;
+				width: 200px;
+				height: 100px;
+				left: 10px;
+				bottom: 10px;
+				background-color: rgba(0, 0, 0, 0);
+				color: rgb(100, 0, 20);
+				font-size: 50px;
+				text-align: center;
+				font-family: 'Homemade Apple';
+				font-weight: bold;
+				padding: 5px;
+			}
+
+			.ui div.message
+			{
+				z-index: 1001;
+				position: fixed;
+				width: 100vw;
+				height: 100px;
+				bottom: 50%;
+				background-color: rgba(0, 0, 0, 0);
+				color: rgba(100, 0, 20, 1);
+				font-size: 50px;
+				text-align: center;
+				font-family: 'Homemade Apple';
+				font-weight: bold;
+				padding: 5px;
+			}
+
+			/* The animation code */
+			@keyframes fade
+			{
+				0%
+				{
+					color: rgba(100, 0, 20, 0);
+				}
+				20%
+				{
+					color: rgba(100, 0, 20, 0.5);
+				}
+				40%
+				{
+					color: rgba(100, 0, 20, 1);
+				}
+				60%
+				{
+					color: rgba(100, 0, 20, 1);
+				}
+				80%
+				{
+					color: rgba(100, 0, 20, 0.5);
+				}
+				100%
+				{
+					color: rgba(100, 0, 20, 0);
+				}
+			}
+
+		</style>
+		<section id="ui"
+						 class="ui">
+			<div id="magic-counter"
+					 class="counter"></div>
+			<div id="message"
+					 class="message"></div>
+		</section>
+		<a-scene stats
+						 style="z-index: 1">
 			<!-- Assets Management System -->
 			<a-assets>
 				<a-asset-item id="interior-model"
@@ -21,11 +100,13 @@
 			<a-entity position="0 0 0"
 								id="pov"
 								animation="property: position; dur: 1000; startEvents: go">
-				<a-entity camera="active: true"
+				<a-entity id="camera"
+									camera="active: true"
 									look-controls
 									wasd-controls-enabled="false"
 									position="0 1.6 0">
-					<a-entity raycaster="far: 4; objects: .clickable"
+					<a-entity id="cursor"
+										raycaster="far: 4; objects: .clickable"
 										animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; to: 1 1 1"
 										animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; to: 3 3 3"
 										animation__leaving="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 250; to: 1 1 1"
@@ -34,10 +115,10 @@
 										position="0 0 -0.3"
 										geometry="primitive: sphere; radius: 0.001">
 					</a-entity>
-					</a-entity>
-
-					<a-entity progressive-controls></a-entity>
 				</a-entity>
+
+				<a-entity progressive-controls></a-entity>
+			</a-entity>
 			</a-entity>
 			<a-entity text="value: Hello World;"></a-entity>
 
@@ -142,35 +223,40 @@
 								checkpoint>
 			</a-circle>
 
-			<a-sphere id = "magicsphere1" class="clickable"
+			<a-sphere id="magicsphere1"
+								class="clickable"
 								pop
 								magic
 								radius="0.05"
 								position="0.3 1.1 -1"
 								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
 			</a-sphere>
-			<a-sphere id = "magicsphere2" class="clickable"
+			<a-sphere id="magicsphere2"
+								class="clickable"
 								pop
 								magic
 								radius="0.05"
 								position="3 0.1 -7"
 								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
 			</a-sphere>
-			<a-sphere id = "magicsphere3" class="clickable"
+			<a-sphere id="magicsphere3"
+								class="clickable"
 								pop
 								magic
 								radius="0.05"
 								position="3.1 1.43 -3.9"
 								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
 			</a-sphere>
-			<a-sphere id = "magicsphere4" class="clickable"
+			<a-sphere id="magicsphere4"
+								class="clickable"
 								pop
 								magic
 								radius="0.05"
 								position="-4.83 0.1 -5.57"
 								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
 			</a-sphere>
-			<a-sphere id = "magicsphere5" class="clickable"
+			<a-sphere id="magicsphere5"
+								class="clickable"
 								pop
 								magic
 								radius="0.05"
@@ -181,19 +267,28 @@
 
 
 		<script>
-
-			document.getElementById("magicsphere1").addEventListener("click", popHandler);
-			document.getElementById("magicsphere2").addEventListener("click", popHandler);
-			document.getElementById("magicsphere3").addEventListener("click", popHandler);
-			document.getElementById("magicsphere4").addEventListener("click", popHandler);
-			document.getElementById("magicsphere5").addEventListener("click", popHandler);
-			let popcounter = 0;
-			function popHandler() {
-				popcounter++;
-				if (popcounter == 5)
-					alert("hai vinto!");
-				else
-					alert(popcounter + " / 5!");
+			document.getElementById("magicsphere1").addEventListener("click", magicHandler);
+			document.getElementById("magicsphere2").addEventListener("click", magicHandler);
+			document.getElementById("magicsphere3").addEventListener("click", magicHandler);
+			document.getElementById("magicsphere4").addEventListener("click", magicHandler);
+			document.getElementById("magicsphere5").addEventListener("click", magicHandler);
+			let magiccounter = 0;
+			let magicelements = 5;
+			document.getElementById("magic-counter").innerHTML = magiccounter + " / " + magicelements;
+			document.getElementById("message").innerHTML = "Find the magic spheres";
+			document.getElementById("message").setAttribute("style", "animation: fade 10s");
+			setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: none"); }, 10000);
+			function magicHandler()
+			{
+				magiccounter ++;
+				document.getElementById("magic-counter").innerHTML = magiccounter + " / " + magicelements;
+				if (magiccounter == magicelements)
+				{
+					document.getElementById("message").innerHTML = "Task completed!";
+					setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: block"); }, 10000);
+					document.getElementById("message").setAttribute("style", "animation: fade 10s");
+					setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: none"); }, 10000);
+				}
 			}
 
 			AFRAME.registerComponent('pop',
