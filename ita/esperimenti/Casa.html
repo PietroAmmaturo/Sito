@@ -6,12 +6,12 @@
 		<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 	</head>
 
-	<body>
-				<a-scene>
+	<body shadow="type: basic">
+				<a-scene stats>
 			<!-- Assets Management System -->
 			<a-assets>
 				<a-asset-item id="interior-model"
-											src="assets/models/wip_-_interior_environment_farm_house/scene.gltf">
+											src="assets/models/wip_-_interior_environment_farm_house/scene.glb">
 				</a-asset-item>
 			</a-assets>
 
@@ -54,7 +54,7 @@
 			</a-entity>
 			<!-- custom light | point -->
 			<a-entity light="type:point;
-					intensity: 0.8;
+					intensity: 1;
 					distance: 500;
 					castShadow: true;
 					color: #FF0050;"
@@ -65,7 +65,7 @@
 					angle: 200;
 					color: #FFAAAA;
 					target: #interior;
-					intensity: 0.5;
+					intensity: 1;
 					castShadow: true;"
 								position="10000 5000 -10000">
 			</a-entity>
