@@ -82,6 +82,13 @@
 				}
 			}
 		</style>
+
+		<section id="disclaimer" style="width: 100%; position: fixed; z-index: 10000; opacity: 1; margin-top: 40vh; margin-left: 20vw; margin-right: 20vw;">
+			<h1 style="color: rgba(255, 50, 50, 1); width: 60vw; text-align: center">IMPORTANT</h1>
+			<h2 style="width: 60vw; text-align: center">Good CPU requred <br> (Snapdragon 855 / apple A12 Bionic or above)</h2>
+			<button id="autorizebutton" style="height:20vh; width: 60vw; text-align: center">CLICK TO START</button>
+		</section>
+
 		<section id="ui"
 						 class="ui">
 			<div id="magic-counter"
@@ -89,8 +96,9 @@
 			<div id="message"
 					 class="message"></div>
 		</section>
-		<a-scene stats
-						 style="z-index: 1">
+		<a-scene id="scene"
+						 stats
+						 style="z-index: 1; opacity: 0">
 			<!-- Assets Management System -->
 			<a-assets>
 				<a-asset-item id="interior-model"
@@ -128,7 +136,6 @@
 
 			<a-entity id="interior"
 								position="0 0 10"
-								gltf-model="#interior-model"
 								shadow="cast: true; receive: true">
 			</a-entity>
 
@@ -155,10 +162,11 @@
 								position="10000 5000 -10000">
 			</a-entity>
 
-			<a-circle id="start" position="0 1.6 -0.5"
-						 class="clickable"
-						 start
-						 color="#000000">
+			<a-circle id="start"
+								position="0 1.6 -0.5"
+								class="unclickable"
+								start
+								color="#000000">
 			</a-circle>
 
 			<a-circle id="checkpoint0"
@@ -275,8 +283,18 @@
 			</a-sphere>
 		</a-scene>
 
+		<script id"main-script">
+			document.getElementById("autorizebutton").addEventListener("click", autorize);
 
-		<script>
+			function autorize()
+			{
+				document.getElementById("disclaimer").innerHTML = "";
+				document.getElementById("scene").setAttribute("style", "opacity: 1");
+				document.getElementById("interior").setAttribute("gltf-model", "#interior-model");
+				document.getElementById("start").setAttribute("class", "clickable");
+			}
+			document.querySelector('a-scene').pause();
+
 			document.getElementById("start").addEventListener("click", afterstart);
 			document.getElementById("magicsphere1").addEventListener("click", magicHandler);
 			document.getElementById("magicsphere2").addEventListener("click", magicHandler);
