@@ -55,28 +55,32 @@
 				{
 					color: rgba(100, 0, 20, 0);
 				}
+
 				20%
 				{
 					color: rgba(100, 0, 20, 0.5);
 				}
+
 				40%
 				{
 					color: rgba(100, 0, 20, 1);
 				}
+
 				60%
 				{
 					color: rgba(100, 0, 20, 1);
 				}
+
 				80%
 				{
 					color: rgba(100, 0, 20, 0.5);
 				}
+
 				100%
 				{
 					color: rgba(100, 0, 20, 0);
 				}
 			}
-
 		</style>
 		<section id="ui"
 						 class="ui">
@@ -267,27 +271,42 @@
 
 
 		<script>
-			document.getElementById("magicsphere1").addEventListener("click", magicHandler);
-			document.getElementById("magicsphere2").addEventListener("click", magicHandler);
-			document.getElementById("magicsphere3").addEventListener("click", magicHandler);
-			document.getElementById("magicsphere4").addEventListener("click", magicHandler);
-			document.getElementById("magicsphere5").addEventListener("click", magicHandler);
-			let magiccounter = 0;
-			let magicelements = 5;
-			document.getElementById("magic-counter").innerHTML = magiccounter + " / " + magicelements;
-			document.getElementById("message").innerHTML = "Find the magic spheres";
-			document.getElementById("message").setAttribute("style", "animation: fade 10s");
-			setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: none"); }, 10000);
+			document.querySelector('a-scene').addEventListener('loaded', afterload());
+
+			function afterload()
+			{
+				document.getElementById("magicsphere1").addEventListener("click", magicHandler);
+				document.getElementById("magicsphere2").addEventListener("click", magicHandler);
+				document.getElementById("magicsphere3").addEventListener("click", magicHandler);
+				document.getElementById("magicsphere4").addEventListener("click", magicHandler);
+				document.getElementById("magicsphere5").addEventListener("click", magicHandler);
+				let magiccounter = 0;
+				let magicelements = 5;
+				document.getElementById("magic-counter").innerHTML = magiccounter + " / " + magicelements;
+				document.getElementById("message").innerHTML = "Find the magic spheres";
+				document.getElementById("message").setAttribute("style", "animation: fade 10s");
+				setTimeout(function()
+				{
+					document.getElementById("message").setAttribute("style", "display: none");
+				}, 10000);
+			}
+
 			function magicHandler()
 			{
-				magiccounter ++;
+				magiccounter++;
 				document.getElementById("magic-counter").innerHTML = magiccounter + " / " + magicelements;
 				if (magiccounter == magicelements)
 				{
 					document.getElementById("message").innerHTML = "Task completed!";
-					setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: block"); }, 10000);
+					setTimeout(function()
+					{
+						document.getElementById("message").setAttribute("style", "display: block");
+					}, 10000);
 					document.getElementById("message").setAttribute("style", "animation: fade 10s");
-					setTimeout(function(){ document.getElementById("message").setAttribute("style", "display: none"); }, 10000);
+					setTimeout(function()
+					{
+						document.getElementById("message").setAttribute("style", "display: none");
+					}, 10000);
 				}
 			}
 
