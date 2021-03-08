@@ -8,7 +8,7 @@
 					rel='stylesheet'>
 	</head>
 
-	<body shadow="type: basic">
+	<body>
 		<style>
 			.ui
 			{
@@ -83,10 +83,12 @@
 			}
 		</style>
 
-		<section id="disclaimer" style="width: 100%; position: fixed; z-index: 10000; opacity: 1; margin-top: 40vh; margin-left: 20vw; margin-right: 20vw;">
+		<section id="disclaimer"
+						 style="width: 100%; position: fixed; z-index: 10000; opacity: 1; margin-top: 40vh; margin-left: 20vw; margin-right: 20vw;">
 			<h1 style="color: rgba(255, 50, 50, 1); width: 60vw; text-align: center">IMPORTANT</h1>
-			<h2 style="width: 60vw; text-align: center">Good CPU requred <br> (Snapdragon 855 / apple A12 Bionic or above)</h2>
-			<button id="autorizebutton" style="height:20vh; width: 60vw; text-align: center">CLICK TO START</button>
+			<h2 style="width: 60vw; text-align: center">Good CPU reqiured <br> (Snapdragon 855 / apple A12 Bionic or above)</h2>
+			<button id="autorizebutton"
+							style="height:20vh; width: 60vw; text-align: center">CLICK TO START</button>
 		</section>
 
 		<section id="ui"
@@ -97,8 +99,9 @@
 					 class="message"></div>
 		</section>
 		<a-scene id="scene"
-						 stats
-						 style="z-index: 1; opacity: 0">
+						 shadow="type: basic"
+						 stats visible="false"
+						 style="z-index: 1">
 			<!-- Assets Management System -->
 			<a-assets>
 				<a-asset-item id="interior-model"
@@ -136,10 +139,11 @@
 
 			<a-entity id="interior"
 								position="0 0 10"
+								gltf-model="#interior-model"
 								shadow="cast: true; receive: true">
 			</a-entity>
 
-
+			<a-entity id="lights">
 			<!--custom light | ambient -->
 			<a-entity light="type: ambient;
 						intensity: 0.2">
@@ -161,6 +165,7 @@
 					castShadow: true;"
 								position="10000 5000 -10000">
 			</a-entity>
+		</a-entity>
 
 			<a-circle id="start"
 								position="0 1.6 -0.5"
@@ -169,6 +174,7 @@
 								color="#000000">
 			</a-circle>
 
+			<a-entity id="checkpoints">
 			<a-circle id="checkpoint0"
 								class="clickable"
 								position="0 0.1 0"
@@ -240,7 +246,9 @@
 								position="-2.4 -1.8 1.3"
 								checkpoint>
 			</a-circle>
+			<a-entity>
 
+			<a-entity id="magicspheres">
 			<a-sphere id="magicsphere1"
 								class="clickable"
 								pop
@@ -280,20 +288,20 @@
 								radius="0.05"
 								position="-1.3 0.1 -1"
 								material="color: #FF0088; flatShading:true; emissive: #FF4499; emissiveIntensity: 0">
-			</a-sphere>
+			</a-sphere>.
+			<a-entity>
 		</a-scene>
 
-		<script id"main-script">
+		<script id"main-script"
+						type="text/javascript">
 			document.getElementById("autorizebutton").addEventListener("click", autorize);
 
 			function autorize()
 			{
 				document.getElementById("disclaimer").innerHTML = "";
-				document.getElementById("scene").setAttribute("style", "opacity: 1");
-				document.getElementById("interior").setAttribute("gltf-model", "#interior-model");
+				document.getElementById("scene").setAttribute("visible", "true");
 				document.getElementById("start").setAttribute("class", "clickable");
 			}
-			document.querySelector('a-scene').pause();
 
 			document.getElementById("start").addEventListener("click", afterstart);
 			document.getElementById("magicsphere1").addEventListener("click", magicHandler);
