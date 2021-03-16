@@ -1,4 +1,4 @@
-window.onscroll = function() {
+window.onscroll = function () {
   stickyNav()
 };
 
@@ -43,38 +43,38 @@ function stickyVnav() {
 /*eccessivamente complicato e delle volte si apre la vnavbar wuando non dovrebbe*/
 /*
 function hideVnav(){
-	if(onavon || !stickyonavon){vnavon = false;}
-	document.getElementById("vnavbar").style.width = "0em";
-	document.getElementById("main").style.left = "0em";
-	document.getElementById("main").style.width = "100%";
-	document.getElementById("blocktogglevnav").classList.remove("active");
-	console.log("aa");
+  if(onavon || !stickyonavon){vnavon = false;}
+  document.getElementById("vnavbar").style.width = "0em";
+  document.getElementById("main").style.left = "0em";
+  document.getElementById("main").style.width = "100%";
+  document.getElementById("blocktogglevnav").classList.remove("active");
+  console.log("aa");
 }
 function showVnav(){
-	vnavon = true;
-	document.getElementById("vnavbar").style.width = "5em";
-	document.getElementById("blocktogglevnav").classList.add("active");
-	if(window.innerWidth > 900){
-		document.getElementById("main").style.left = "10em";
-		document.getElementById("main").style.width = "calc(100% - 10em)";
-	}
+  vnavon = true;
+  document.getElementById("vnavbar").style.width = "5em";
+  document.getElementById("blocktogglevnav").classList.add("active");
+  if(window.innerWidth > 900){
+    document.getElementById("main").style.left = "10em";
+    document.getElementById("main").style.width = "calc(100% - 10em)";
+  }
 }
 function hideOnav(){
-	onavon = false;
-	if (stickyonavon){
-	hideVnav();
-	document.getElementById("onavbar").style.width = "3.5em";
-	document.getElementById("onavbar").style.right = "0px";
-	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
-	document.getElementById("blocktoggleonav").classList.add("active");
-	}
+  onavon = false;
+  if (stickyonavon){
+  hideVnav();
+  document.getElementById("onavbar").style.width = "3.5em";
+  document.getElementById("onavbar").style.right = "0px";
+  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
+  document.getElementById("blocktoggleonav").classList.add("active");
+  }
 }
 function showOnav(){
-	if (stickyonavon){onavon = true;}
-	if (vnavon){showVnav();}
-	document.getElementById("onavbar").style.width = "100%";
-	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
-	document.getElementById("blocktoggleonav").classList.remove("active");
+  if (stickyonavon){onavon = true;}
+  if (vnavon){showVnav();}
+  document.getElementById("onavbar").style.width = "100%";
+  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
+  document.getElementById("blocktoggleonav").classList.remove("active");
 }
 */
 function hideVnav() {
@@ -143,38 +143,38 @@ function toggleOnav() {
   }
 }
 
-window.onresize = function() {
+window.onresize = function () {
   toggleVnav();
   toggleVnav();
 }
 /*eccessivamente complicato, e non funziona bene*/
 /*
 function showTextOnav(obj, description){
-	console.log(obj.parentNode.id);
-	content = document.getElementById(obj.parentNode.id).innerHTML;
-	var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
-	+ description + '\')">' + description + '</div>';
-	console.log(content);
-	if(!(content.includes(htmlDescription))){
-		console.log("showTextOnav");
-		console.log(obj.parentNode.id);
-		document.getElementById(obj.parentNode.id).innerHTML += (htmlDescription);
-	}
+  console.log(obj.parentNode.id);
+  content = document.getElementById(obj.parentNode.id).innerHTML;
+  var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
+  + description + '\')">' + description + '</div>';
+  console.log(content);
+  if(!(content.includes(htmlDescription))){
+    console.log("showTextOnav");
+    console.log(obj.parentNode.id);
+    document.getElementById(obj.parentNode.id).innerHTML += (htmlDescription);
+  }
 }
 
 function hideTextOnav(obj, description){
-	let content = document.getElementById(obj.parentNode.id).innerHTML;
-	var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
-	+ description + '\')">' + description + '</div>';
-	console.log(content);
-	if((content.includes(htmlDescription))){
-		console.log("hideTextOnav");
-		console.log(obj.parentNode.id);
-		console.log(content);
-		console.log(htmlDescription);
-		content = content.replace(htmlDescription, '');
-		document.getElementById(obj.parentNode.id).innerHTML = content;
-	}
+  let content = document.getElementById(obj.parentNode.id).innerHTML;
+  var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
+  + description + '\')">' + description + '</div>';
+  console.log(content);
+  if((content.includes(htmlDescription))){
+    console.log("hideTextOnav");
+    console.log(obj.parentNode.id);
+    console.log(content);
+    console.log(htmlDescription);
+    content = content.replace(htmlDescription, '');
+    document.getElementById(obj.parentNode.id).innerHTML = content;
+  }
 }
 */
 

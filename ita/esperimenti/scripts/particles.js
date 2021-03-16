@@ -14,7 +14,7 @@ let mouse = {
 }
 console.log(2);
 window.addEventListener('mousemove',
-  function(event) {
+  function (event) {
     mouse.x = event.x;
     mouse.y = event.y;
   }
@@ -117,7 +117,7 @@ function connect() {
     connectionNumber = 0;
     for (let b = a; b < particlesArray.length; b++) {
       let distance = ((particlesArray[a].x - particlesArray[b].x) *
-          (particlesArray[a].x - particlesArray[b].x)) +
+        (particlesArray[a].x - particlesArray[b].x)) +
         ((particlesArray[a].y - particlesArray[b].y) *
           (particlesArray[a].y - particlesArray[b].y));
       if (distance < (canvas.width / 7) * (canvas.height / 7) && connectionNumber < 50) {
@@ -149,16 +149,16 @@ function animate() {
   connect();
 }
 // resize event
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
   canvas.width = innerWidth;
   canvas.height = this.innerHeight;
   mouse.radius = ((canvas.height / 80) * (canvas.height / 80));
   init();
 })
-window.addEventListener('mouseout', function() {
+window.addEventListener('mouseout', function () {
   mouse.radius = 0;
 })
-window.addEventListener('mouseover', function() {
+window.addEventListener('mouseover', function () {
   mouse.radius = ((canvas.height / 80) * (canvas.height / 80));
 })
 

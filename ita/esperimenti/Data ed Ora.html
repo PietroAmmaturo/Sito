@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
+<head>
 
-		<style>
-			p.a
-			{
-				text-align: center;
-			}
+	<style>
+		p.a {
+			text-align: center;
+		}
 
-			button.a
-			{
-				background-color: Tomato;
-				width: 40%;
-			}
+		button.a {
+			background-color: Tomato;
+			width: 40%;
+		}
 
-			button.b
-			{
-				background-color: Tomato;
-				width: 60%;
-			}
+		button.b {
+			background-color: Tomato;
+			width: 60%;
+		}
 
-			h1.a
-			{
-				padding: 5px 15px;
-			}
+		h1.a {
+			padding: 5px 15px;
+		}
 
-			h2.a
-			{
-				padding: 5px 10px;
-			}
-		</style>
+		h2.a {
+			padding: 5px 10px;
+		}
+	</style>
 
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<script>
-			var a = '30px';
+	<script>
+		var a = '30px';
 
-			function myFunctionBig()
-			{
-				document.getElementById('demo').style.fontSize = '35px';
-			}
+		function myFunctionBig() {
+			document.getElementById('demo').style.fontSize = '35px';
+		}
 
-			function myFunctionSmall()
-			{
-				document.getElementById('demo').style.fontSize = '25px';
-			}
+		function myFunctionSmall() {
+			document.getElementById('demo').style.fontSize = '25px';
+		}
 
-			function myFunctionMedium()
-			{
-				document.getElementById('demo').style.fontSize = '30px';
-			}
+		function myFunctionMedium() {
+			document.getElementById('demo').style.fontSize = '30px';
+		}
 
-			function myFunctionDefault()
-			{
-				document.getElementById('demo').style.fontSize = a;
-			}
+		function myFunctionDefault() {
+			document.getElementById('demo').style.fontSize = a;
+		}
 
-			function setVarA(b)
-			{
-				a = b;
-			}
-		</script>
+		function setVarA(b) {
+			a = b;
+		}
+	</script>
 
-		<p class="a">
-			<button class="b"
-							type="button"
-							onclick="document.getElementById('demo').innerHTML = Date();
+	<p class="a">
+		<button class="b" type="button" onclick="document.getElementById('demo').innerHTML = Date();
     myFunctionDefault()">
-				<h1 class="a">cliccami per vedere data ed ora</h1>
-			</button><br>
-		</p>
+			<h1 class="a">cliccami per vedere data ed ora</h1>
+		</button><br>
+	</p>
 
-		<p class="a">
-			<button class="a"
-							type="button"
-							onclick="setVarA('35px')"
-							onmouseover="myFunctionBig()"
-							onmouseout="myFunctionDefault()">
-				<h2 class="a">cliccami per ingrandire.</h2>
-			</button><br>
-		</p>
+	<p class="a">
+		<button class="a" type="button" onclick="setVarA('35px')" onmouseover="myFunctionBig()"
+				onmouseout="myFunctionDefault()">
+			<h2 class="a">cliccami per ingrandire.</h2>
+		</button><br>
+	</p>
 
-		<p class="a">
-			<button class="a"
-							type="button"
-							onclick="setVarA('25px')"
-							onmouseover="myFunctionSmall()"
-							onmouseout="myFunctionDefault()">
-				<h2 class="a">cliccami per rimpicciolire.</h2>
-			</button><br>
-		</p>
+	<p class="a">
+		<button class="a" type="button" onclick="setVarA('25px')" onmouseover="myFunctionSmall()"
+				onmouseout="myFunctionDefault()">
+			<h2 class="a">cliccami per rimpicciolire.</h2>
+		</button><br>
+	</p>
 
-		<p class="a">
-			<button class="a"
-							type="button"
-							onclick="setVarA('30px')"
-							onmouseover="myFunctionMedium()"
-							onmouseout="myFunctionDefault()">
-				<h2 class="a">cliccami per normalizzare.</h2>
-			</button><br>
-		</p>
+	<p class="a">
+		<button class="a" type="button" onclick="setVarA('30px')" onmouseover="myFunctionMedium()"
+				onmouseout="myFunctionDefault()">
+			<h2 class="a">cliccami per normalizzare.</h2>
+		</button><br>
+	</p>
 
-		<p class="a"
-			 id="demo"></p>
+	<p class="a" id="demo"></p>
 
-	</body>
+</body>
 
 </html>

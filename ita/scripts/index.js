@@ -152,7 +152,7 @@ function lock(obj, num) {
 
 function fade(obj) {
   if (!obj.locked) {
-    setTimeout(function() {
+    setTimeout(function () {
       cancel(obj);
     }, 4000 + 4000 * Math.random());
   }
@@ -169,7 +169,7 @@ function cancel(obj) {
 
 function reset(name) {
   document.getElementById(name).locked = false;
-  setTimeout(function() {
+  setTimeout(function () {
     var canvas = document.getElementById(name);
     var ctx = canvas.getContext("2d");
     document.getElementById(name).style.backgroundColor = "rgba(0,0,0,0.8)";
@@ -183,7 +183,7 @@ function resetAll() {
   for (k = 0; k < names.length; k++) {
     reset(names[k]);
   }
-  setTimeout(function() {
+  setTimeout(function () {
     isreset = false;
   }, 1000);
   setTimeout(resetAll, 30000);

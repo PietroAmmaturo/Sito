@@ -1,251 +1,211 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
+<head>
 
-		<style>
-			button.color
-			{
-				width: 20%;
-				height: 20%;
+	<style>
+		button.color {
+			width: 20%;
+			height: 20%;
+		}
+
+		button.black {
+			margin: 0;
+			background: black;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+		}
+
+		button.red {
+			margin: 0;
+			background: red;
+			position: absolute;
+			top: 28%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		button.blue {
+			margin: 0;
+			background: blue;
+			position: absolute;
+			top: 61%;
+			left: 70%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		button.yellow {
+			margin: 0;
+			background: yellow;
+			position: absolute;
+			top: 61%;
+			left: 30%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		button.orange {
+			margin: 0;
+			background: orange;
+			position: absolute;
+			top: 39%;
+			left: 30%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		button.violet {
+			margin: 0;
+			background: violet;
+			position: absolute;
+			top: 39%;
+			left: 70%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		button.green {
+			margin: 0;
+			background: green;
+			position: absolute;
+			top: 72%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: none;
+		}
+
+		p.main {
+			width: 500px;
+			height: 500px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+	<script>
+		var RBY = false;
+		var O = false;
+		var V = false;
+		var G = false;
+
+		function showRBY() {
+			RBY = true;
+			document.getElementById("red").style.display = "block";
+			document.getElementById("blue").style.display = "block";
+			document.getElementById("yellow").style.display = "block";
+		}
+
+		function hideRBY() {
+			RBY = false;
+			document.getElementById("red").style.display = "none";
+			document.getElementById("blue").style.display = "none";
+			document.getElementById("yellow").style.display = "none";
+		}
+
+		function switchRBY() {
+			if (RBY == true) {
+				hideRBY();
 			}
+			else {
+				showRBY();
+			};
+		}
 
-			button.black
-			{
-				margin: 0;
-				background: black;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
+		function showO() {
+			O = true;
+			document.getElementById("orange").style.display = "block";
+		}
+
+		function hideO() {
+			O = false;
+			document.getElementById("orange").style.display = "none";
+		}
+
+		function showV() {
+			V = true;
+			document.getElementById("violet").style.display = "block";
+		}
+
+		function hideV() {
+			V = false;
+			document.getElementById("violet").style.display = "none";
+		}
+
+		function showG() {
+			G = true;
+			document.getElementById("green").style.display = "block";
+		}
+
+		function hideG() {
+			G = false;
+			document.getElementById("green").style.display = "none";
+		}
+
+		function switchOV() {
+			if ((O == true) && (V == true)) {
+				hideO();
+				hideV();
 			}
+			else {
+				showO();
+				showV();
+			};
+		}
 
-			button.red
-			{
-				margin: 0;
-				background: red;
-				position: absolute;
-				top: 28%;
-				left: 50%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
+		function switchVG() {
+			if ((V == true) && (G == true)) {
+				hideV();
+				hideG();
 			}
+			else {
+				showV();
+				showG();
+			};
+		}
 
-			button.blue
-			{
-				margin: 0;
-				background: blue;
-				position: absolute;
-				top: 61%;
-				left: 70%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
+		function switchGO() {
+			if ((G == true) && (O == true)) {
+				hideG();
+				hideO();
 			}
+			else {
+				showG();
+				showO();
+			};
+		}
+	</script>
+</head>
 
-			button.yellow
-			{
-				margin: 0;
-				background: yellow;
-				position: absolute;
-				top: 61%;
-				left: 30%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
-			}
-
-			button.orange
-			{
-				margin: 0;
-				background: orange;
-				position: absolute;
-				top: 39%;
-				left: 30%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
-			}
-
-			button.violet
-			{
-				margin: 0;
-				background: violet;
-				position: absolute;
-				top: 39%;
-				left: 70%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
-			}
-
-			button.green
-			{
-				margin: 0;
-				background: green;
-				position: absolute;
-				top: 72%;
-				left: 50%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-				border-radius: 50%;
-				display: none;
-			}
-
-			p.main
-			{
-				width: 500px;
-				height: 500px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-right: -50%;
-				transform: translate(-50%, -50%);
-			}
-		</style>
-		<script>
-			var RBY = false;
-			var O = false;
-			var V = false;
-			var G = false;
-
-			function showRBY()
-			{
-				RBY = true;
-				document.getElementById("red").style.display = "block";
-				document.getElementById("blue").style.display = "block";
-				document.getElementById("yellow").style.display = "block";
-			}
-
-			function hideRBY()
-			{
-				RBY = false;
-				document.getElementById("red").style.display = "none";
-				document.getElementById("blue").style.display = "none";
-				document.getElementById("yellow").style.display = "none";
-			}
-
-			function switchRBY()
-			{
-				if (RBY == true)
-				{
-					hideRBY();
-				}
-				else
-				{
-					showRBY();
-				};
-			}
-
-			function showO()
-			{
-				O = true;
-				document.getElementById("orange").style.display = "block";
-			}
-
-			function hideO()
-			{
-				O = false;
-				document.getElementById("orange").style.display = "none";
-			}
-
-			function showV()
-			{
-				V = true;
-				document.getElementById("violet").style.display = "block";
-			}
-
-			function hideV()
-			{
-				V = false;
-				document.getElementById("violet").style.display = "none";
-			}
-
-			function showG()
-			{
-				G = true;
-				document.getElementById("green").style.display = "block";
-			}
-
-			function hideG()
-			{
-				G = false;
-				document.getElementById("green").style.display = "none";
-			}
-
-			function switchOV()
-			{
-				if ((O == true) && (V == true))
-				{
-					hideO();
-					hideV();
-				}
-				else
-				{
-					showO();
-					showV();
-				};
-			}
-
-			function switchVG()
-			{
-				if ((V == true) && (G == true))
-				{
-					hideV();
-					hideG();
-				}
-				else
-				{
-					showV();
-					showG();
-				};
-			}
-
-			function switchGO()
-			{
-				if ((G == true) && (O == true))
-				{
-					hideG();
-					hideO();
-				}
-				else
-				{
-					showG();
-					showO();
-				};
-			}
-		</script>
-	</head>
-
-	<body>
-		<p class="main">
-			<button id="black"
-							class="color black"
-							onclick="switchRBY()"></button>
-			<button id="red"
-							class="color red"
-							onclick="switchOV()"></button>
-			<button id="blue"
-							class="color blue"
-							onclick="switchVG()"></button>
-			<button id="yellow"
-							class="color yellow"
-							onclick="switchGO()"></button>
-			<button id="orange"
-							class="color orange"></button>
-			<button id="violet"
-							class="color violet"></button>
-			<button id="green"
-							class="color green"></button>
-		</p>
-	</body>
+<body>
+	<p class="main">
+		<button id="black" class="color black" onclick="switchRBY()"></button>
+		<button id="red" class="color red" onclick="switchOV()"></button>
+		<button id="blue" class="color blue" onclick="switchVG()"></button>
+		<button id="yellow" class="color yellow" onclick="switchGO()"></button>
+		<button id="orange" class="color orange"></button>
+		<button id="violet" class="color violet"></button>
+		<button id="green" class="color green"></button>
+	</p>
+</body>
 
 </html>

@@ -12,8 +12,7 @@ iframe {
   padding-bottom: 5em;
   text-align: center;
   /* center the text */
-  background-image:
-    url('images/headerbackground.webp');
+  background-image: url('images/headerbackground.webp');
   animation-name: background;
   animation-duration: 180s;
   animation-direction: normal;
@@ -95,19 +94,15 @@ iframe {
   0% {
     color: rgba(0, 0, 0, 1);
   }
-
   25% {
     color: rgba(0, 0, 0, 0.8);
   }
-
   50% {
     color: rgba(0, 0, 0, 0.6);
   }
-
   75% {
     color: rgba(0, 0, 0, 0.4);
   }
-
   100% {
     color: rgba(0, 0, 0, 0.2);
   }
@@ -117,21 +112,19 @@ iframe {
   0% {
     background-position: left top;
   }
-
   25% {
     background-position: right top;
   }
-
   50% {
     background-position: right bottom;
   }
-
   75% {
     background-position: left bottom;
   }
 }
 
 /* Style the top navigation bar */
+
 .onavbar {
   position: absolute;
   top: 12.1em;
@@ -167,6 +160,7 @@ iframe {
 }
 
 /* Style the navigation bar links */
+
 .onavbar a {
   position: relative;
   font: 1em 'Raleway', sans-serif;
@@ -185,6 +179,7 @@ iframe {
 }
 
 /* Right-aligned link */
+
 .onavbar a.right {
   float: right;
   /* Float a link to the right */
@@ -241,6 +236,7 @@ iframe {
 }
 
 /* Style the navigation bar links */
+
 .vnavbar a {
   display: block;
   /* Change the display to block, for responsive reasons (see below) */
@@ -258,6 +254,7 @@ iframe {
 }
 
 /* Top-aligned link */
+
 .vnavbar a.top {
   float: top;
   /* Float a link to the top */
@@ -285,11 +282,13 @@ iframe {
 }
 
 /* Ensure proper sizing */
+
 * {
   box-sizing: border-box;
 }
 
 /* section settings */
+
 section.main {
   transition: 0.5s;
   position: relative;
@@ -413,6 +412,7 @@ section.US div.txt {
 }
 
 /* Column container */
+
 .row {
   transition: 0.5s;
   display: flex;
@@ -420,7 +420,9 @@ section.US div.txt {
 }
 
 /* Create two unequal columns that sits next to each other */
+
 /* Sidebar/left column */
+
 .side {
   background-color: #f1f1f1;
   /* Grey background color */
@@ -444,6 +446,7 @@ section.US div.txt {
 }
 
 /* Main column */
+
 .main {
   background-color: white;
   /* White background color */
@@ -464,17 +467,14 @@ section.US div.txt {
 }
 
 @media (hover:hover) {
-
   /* Change color on hover/mouse-over */
   .onavbar a:hover {
     background-color: rgba(40, 40, 40, 0.2);
     /* Grey background color */
   }
-
   .vnavbar::-webkit-scrollbar-thumb:hover {
     background-color: rgba(40, 40, 40, 0.6);
   }
-
   /* Change color on hover/mouse-over */
   .vnavbar a div:hover {
     background-color: rgba(40, 40, 40, 0.7);
@@ -483,16 +483,13 @@ section.US div.txt {
 }
 
 @media (hover:none) {
-
   /* Change color on hover/mouse-over */
   .onavbar a:hover {
     background-color: rgba(40, 40, 40, 0.0);
   }
-
   .vnavbar::-webkit-scrollbar-thumb:hover {
     background-color: inherit;
   }
-
   /* Change color on hover/mouse-over */
   .vnavbar a:hover {
     background-color: rgba(40, 40, 40, 0);
@@ -500,58 +497,47 @@ section.US div.txt {
 }
 
 /* Responsive layout - when the screen is less than 900px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 900px) {
   .header br {
     display: block;
   }
-
   .onavbar {
     font-size: 1.2em;
     top: 15.95em;
   }
-
   .vnavbar a div {
     width: auto;
     padding-left: .6em;
   }
-
   .vnavbar {
     font-size: 2.8em;
     background-color: rgba(255, 255, 255, 0);
   }
-
   .vnavbar a {
     pointer-events: none;
   }
-
   section.UL {
     padding-bottom: 7em;
   }
-
   section.XL {
     padding-bottom: 6em;
   }
-
   section.L {
     padding-bottom: 5em;
   }
-
   section.M {
     padding-bottom: 4em;
   }
-
   section.S {
     padding-bottom: 3em;
   }
-
   section.XS {
     padding-bottom: 2em;
   }
-
   section.US {
     padding-bottom: 1em;
   }
-
   .row {
     flex-direction: column;
     position: static;
@@ -561,6 +547,7 @@ section.US div.txt {
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 500px) {
   body {
     font-size: 0.9em;

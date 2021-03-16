@@ -5,40 +5,40 @@ function is_touch_device1() {
 }
 
 if (!isMobile) {
-  document.getElementById("blocktogglevnav").addEventListener("mouseenter", function() {
+  document.getElementById("blocktogglevnav").addEventListener("mouseenter", function () {
     showTextOnav(this, 'TOGGLE')
   });
-  document.getElementById("blocktogglevnav").addEventListener("mouseleave", function() {
+  document.getElementById("blocktogglevnav").addEventListener("mouseleave", function () {
     hideTextOnav(this, 'TOGGLE')
   });
-  document.getElementById("blocktoggleonav").addEventListener("mouseenter", function() {
+  document.getElementById("blocktoggleonav").addEventListener("mouseenter", function () {
     showTextOnav(this, 'TOGGLE')
   });
-  document.getElementById("blocktoggleonav").addEventListener("mouseleave", function() {
+  document.getElementById("blocktoggleonav").addEventListener("mouseleave", function () {
     hideTextOnav(this, 'TOGGLE')
   });
 }
-document.getElementById("gotoindex").addEventListener("mouseenter", function() {
+document.getElementById("gotoindex").addEventListener("mouseenter", function () {
   showTextOnav(this, 'HOME')
 });
-document.getElementById("gotoindex").addEventListener("mouseleave", function() {
+document.getElementById("gotoindex").addEventListener("mouseleave", function () {
   hideTextOnav(this, 'HOME')
 });
-document.getElementById("gotowhoami").addEventListener("mouseenter", function() {
+document.getElementById("gotowhoami").addEventListener("mouseenter", function () {
   showTextOnav(this, 'INFO')
 });
-document.getElementById("gotowhoami").addEventListener("mouseleave", function() {
+document.getElementById("gotowhoami").addEventListener("mouseleave", function () {
   hideTextOnav(this, 'INFO')
 });
-document.getElementById("gotonews").addEventListener("mouseenter", function() {
+document.getElementById("gotonews").addEventListener("mouseenter", function () {
   showTextOnav(this, 'NEWS')
 });
-document.getElementById("gotonews").addEventListener("mouseleave", function() {
+document.getElementById("gotonews").addEventListener("mouseleave", function () {
   hideTextOnav(this, 'NEWS')
 });
-document.getElementById("gotoexperiments").addEventListener("mouseenter", function() {
+document.getElementById("gotoexperiments").addEventListener("mouseenter", function () {
   showTextOnav(this, 'TRY ME')
 });
-document.getElementById("gotoexperiments").addEventListener("mouseleave", function() {
+document.getElementById("gotoexperiments").addEventListener("mouseleave", function () {
   hideTextOnav(this, 'TRY ME')
 });

@@ -17,7 +17,7 @@ let mouse = {
 }
 console.log(2);
 window.addEventListener('mousemove',
-  function(event) {
+  function (event) {
     mouse.x = event.x;
     mouse.y = event.y;
   }
@@ -71,7 +71,7 @@ class Particle {
 // animation loop
 function animate() {
 
-  setInterval(function() {
+  setInterval(function () {
     c()
   }, 20);
 
