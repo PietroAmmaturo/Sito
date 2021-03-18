@@ -576,6 +576,7 @@ section.US div.txt {
 }
 
 .footer {
+  transition: 0.5s;
   height: 30em;
   position: relative;
   left: 0;
