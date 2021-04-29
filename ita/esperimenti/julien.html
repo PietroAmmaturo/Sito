@@ -2,26 +2,26 @@
 <!-- include A-Frame obviously -->
 
 <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
-    <!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">-->
-    <a-scene>
+<body>
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+    <!--<a-scene>-->
         <a-assets>
-            <a-asset-item id="texture" src="julienassets\models\the_great_pyramid_of_giza\textures\mat-0_baseColor.jpeg"></a-asset-item>
             <a-asset-item id="logo" src="julienassets\models\the_great_pyramid_of_giza\scene.gltf"></a-asset-item>
         </a-assets>
-   <!--     <a-marker smooth="true" size = "1" type='barcode' value='6'>
+      <a-marker smooth="true" size = "1" type='barcode' value='6'>
             <a-entity gltf-model="#logo" position="0 0 0" rotation="0 0 0" scale="1 1 1">
             </a-entity>
         </a-marker>
-    -->
-        <a-entity camera></a-entity>
+
+        <!--  
         <a-entity gltf-model="#logo" position="0 0 0" rotation="0 0 0" scale="1 1 1">
         </a-entity>
-    </a-scene>
+       </a-scene>
+           -->
 </body>
 
 </html>
