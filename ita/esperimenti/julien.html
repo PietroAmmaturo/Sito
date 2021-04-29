@@ -13,10 +13,12 @@
             <a-asset-item id="logo" src="julienassets\models\the_great_pyramid_of_giza\scene.gltf"></a-asset-item>
         </a-assets>
         <a-marker type='barcode' value='6'>
-            <a-entity gltf-model="#logo">
+            <a-entity gltf-model="#logo" position="0 0 0" rotation="0 0 0" scale="1 1 1">
             </a-entity>
         </a-marker>
         <a-entity camera></a-entity>
+        <a-entity gltf-model="#logo" position="0 0 0" rotation="90 0 0" scale="1 1 1">
+        </a-entity>
     </a-scene>
 </body>
 
