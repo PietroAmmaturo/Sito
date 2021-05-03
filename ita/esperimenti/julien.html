@@ -4,7 +4,9 @@
 <head>
 	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
+    <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+    <meta aframe-injected="" name="theme-color" content="black">
 </head>
 
 <body>
@@ -13,8 +15,8 @@
         <a-assets>
             <a-asset-item id="logo" src="julienassets\models\the_great_pyramid_of_giza\scene.gltf"></a-asset-item>
         </a-assets>
-      <a-marker smooth="true" size = "1" type='barcode' value='6'>
-            <a-entity gltf-model="#logo" position="0 0 0" rotation="0 0 0" scale="0.5 0.5 0.5">
+      <a-marker smoSoth="true" size = "1" type='barcode' value='6' arjs-anchor>
+            <a-entity gltf-model="#logo" position="-1.5 0.5 -0.5" rotation="0 0 0" scale="0.5 0.5 0.5">
             </a-entity>
         </a-marker>
 
