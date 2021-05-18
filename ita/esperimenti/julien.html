@@ -21,13 +21,14 @@
         <!--<a-scene>-->
         <a-assets>
             <!--<a-asset-item id="pyramid" src="julienassets\models\the_great_pyramid_of_giza\scene.gltf"></a-asset-item>-->
-            <a-asset-item id="logo-obj" src="julienassets\models\QRCard.obj"></a-asset-item>
-            <a-asset-item id="logo-mtl" src="julienassets\models\QRCard.mtl"></a-asset-item>
+            <a-asset-item id="logo-gltf" src="julienassets\models\CarteQR.glb"></a-asset-item>
+            <a-asset-item id="logo-obj" src="julienassets\models\CarteQR3.obj"></a-asset-item>
+            <a-asset-item id="logo-mtl" src="julienassets\models\CarteQR3.mtl"></a-asset-item>
         </a-assets>
         <a-marker size="1" type='barcode' value='5' arjs-anchor smooth="true">
-            <!--<a-entity gltf-model="#logo" position="-1 -1 -1" rotation="0 0 0" scale="2 2 2">
-            </a-entity>-->
-            <a-entity obj-model="obj: #logo-obj; mtl: #logo-mtl" scale="0.03 0.03 0.03" rotation="-90 45 0"></a-entity>
+            <a-entity gltf-model="#logo-gltf" position="0 0 0" rotation="0 45 0" scale="0.03 0.03 0.03">
+            </a-entity>
+            <!--<a-entity obj-model="obj: #logo-obj; mtl: #logo-mtl" scale="0.03 0.03 0.03" rotation="-90 45 0"></a-entity>-->
         </a-marker>
 
 
