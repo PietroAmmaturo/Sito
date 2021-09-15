@@ -9,7 +9,11 @@
 
     <a-scene inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" device-orientation-permission-ui="">
 
-        <a-sky id="image-360" src="universe3.png" material geometry scale></a-sky>
+        <a-sky id="image-360" src="universe3.png" animation="property: rotation;
+        to: -360 360 -360;
+        dur: 1000000;
+        easing: linear;
+        loop:true" material geometry scale></a-sky>
 
     </a-scene>
 </body>
