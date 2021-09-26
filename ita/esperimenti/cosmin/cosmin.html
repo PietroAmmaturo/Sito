@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Hello World A-Frame WebXR</title>
+<!-- *** CHANGE THESE TO COMPONENTS ON YOUR SERVER *** -->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<!-- for creating Navmesh... Also uncomment a-scene inspector-plugin-recast -->
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+</script>
+</head>
+  <body>
+<a-scene background="color: #FAFAFA" inspector-plugin-recast>
+
+
+    		<!-- Assets Management System -->
+		<a-assets>
+			<a-asset-item id="structure-obj" src="SECRET_PROJECT_X2.obj"></a-asset-item>
+            <a-asset-item id="structure-mtl" src="SECRET_PROJECT_X2.mtl"></a-asset-item>
+		</a-assets>
+		
+        <a-entity obj-model="obj: #structure-obj; mtl: #structure-mtl"></a-entity>
+
+<!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  
+      <a-entity id="navmesh-Hello" gltf-model="assets/gltf/AdvHelloWorldnavmesh.gltf" visible="false" nav-mesh=""></a-entity>-->
+</a-scene>
+  </body>
+</html>
