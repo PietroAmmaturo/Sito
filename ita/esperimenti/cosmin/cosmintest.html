@@ -57,13 +57,15 @@
       <a-entity class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
                 tracked-controls vive-controls="hand: left" oculus-touch-controls="hand: left"
                 windows-motion-controls="hand: left"
+                raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
+                cursor="fuse: true; fuseTimeout: 1500"
                 visible="true">			
-                <a-entity id="cursor" raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
+                <a-entity id="cursor"
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; to: 1 1 1"
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; to: 3 3 3"
                 animation__leaving="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 250; to: 1 1 1"
-                cursor="fuse: true; fuseTimeout: 1500" material="color: green; shader: flat"
-                position="0 0 -4" geometry="primitive: sphere; radius: 0.01">
+                material="color: green; shader: flat"
+                position="0 0 -4" geometry="primitive: sphere; radius: 0.05">
           </a-entity>
         </a-entity>
       <!-- Right Controller  -->
