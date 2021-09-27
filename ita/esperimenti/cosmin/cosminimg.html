@@ -18,7 +18,13 @@
             <a-asset-item id="structure-mtl" src="SECRET_PROJECT_X2.mtl"></a-asset-item>
 		</a-assets>-->
 		
-        <a-entity gltf-model="url(SECRET PROJECT X2.gltf)"></a-entity>
+    <a-assets>
+			<img id="canestra" src="SECRET PROJECT X3_Textures\Bitcoin as seen by Gustave Courbet.jpg">
+		</a-assets>
+
+		<!--image primitive | IMG size 1024x768px -->
+
+		<a-image src="#canestra" position="0 1.5 -10" width="1" height="0.75" scale="3 3 1"></a-image>
 
 <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  
       <a-entity id="navmesh-Hello" gltf-model="assets/gltf/AdvHelloWorldnavmesh.gltf" visible="false" nav-mesh=""></a-entity>-->
