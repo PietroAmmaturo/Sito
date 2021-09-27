@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Cosmin</title>
+  <title>Advanced Hello World A-Frame WebXR</title>
   <meta name="description"
         content="Advanced Hello World, WebXR! A-frame provides a hello world that is really remarkable, however you usually need to have controller selection and environment with movement.  With this example you get what works across the most headsets and controllers.">
   <meta name="viewport"
@@ -13,10 +13,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="gray-translucent" />
   <!-- *** CHANGE THESE TO COMPONENTS ON YOUR SERVER *** -->
-  <script src="aframe-master/dist/aframe-v1.2.0.min.js"></script>
-  <script src="aframe-extras-master/dist/aframe-extras.min.js"></script>
-  <script src="aframe-teleport-controls-master/dist/aframe-teleport-controls.js"></script>
-  <script src="superframe-master/components/thumb-controls/dist/aframe-thumb-controls-component.min.js"></script>
+  <script src="scripts/aframe-v1.1.0.min.js"></script>
+  <script src="scripts/aframe-extras.min.js"></script>
+  <script src="scripts/aframe-teleport-controls.min.js"></script>
+  <script src="scripts/aframe-thumb-controls-component.min.js"></script>
   <!-- for creating Navmesh... Also uncomment a-scene inspector-plugin-recast
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     -->
@@ -37,7 +37,7 @@
     <!-- main structure -->
     <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true" position = "0 4 0" scale="2 2 2" ></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh="">
+    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
 
     </a-entity>
     <!-- Basic movement and teleportation  -->
