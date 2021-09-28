@@ -53,16 +53,16 @@
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: true"></a-entity>
-      <!-- Left Controller  -->
-      <a-entity class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
+      <!-- Left Controller  hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF" -->
+      <a-entity id = "leftHand" 
                 laser-controls="hand: left" tracked-controls vive-controls="" oculus-touch-controls=""
                 windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
                 oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
                 generic-tracked-controller-controls=""
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 18; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
-      <!-- Right Controller  -->
-      <a-entity class="rightController" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
+      <!-- Right Controller  hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF" -->
+      <a-entity id = "rightHand" 
                 laser-controls="hand: right" tracked-controls vive-controls="" oculus-touch-controls=""
                 windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
                 oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
