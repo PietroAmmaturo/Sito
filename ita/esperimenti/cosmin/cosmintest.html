@@ -26,7 +26,7 @@
 <body>
 
   <!-- used for creating Navmesh... see javascript component above <a-scene inspector-plugin-recast>  https://github.com/donmccurdy/aframe-inspector-plugin-recast-->
-  <a-scene background="color: #FAFAFA">
+  <a-scene background="color: #FAFAFA" shadow="type: basic" stats>
 
     <!-- assets to load -->
     <a-assets>
@@ -36,16 +36,8 @@
 
     </a-assets>
 
-    <!-- main structure -->
-    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
-              position="0 0 0" scale="1 1 1"></a-entity>
-    <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
+    <a-sky color="#FFFFFF"></a-sky>
 
-      <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra" class="clickable" click-listener src="#canestra"
-               position="2 1.5 -3" width="1" height="0.75" scale="1 1 1"></a-image>
-
-    </a-entity>
     <!-- Basic movement and teleportation  -->
     <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;"
               navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable"
@@ -54,25 +46,43 @@
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: true"></a-entity>
       <!-- Left Controller   -->
-      <a-entity id = "leftHand" class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
+      <a-entity id="leftHand" class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
                 laser-controls="hand: left" vive-controls="hand: left" oculus-touch-controls="hand: left"
-                windows-motion-controls="hand: left" daydream-controls="hand: left" gearvr-controls="hand: left" magicleap-controls="hand: left"
-                oculus-go-controls="hand: left" valve-index-controls="hand: left" vive-focus-controls="hand: left"
-                generic-tracked-controller-controls="hand: left"
+                windows-motion-controls="hand: left" daydream-controls="hand: left" gearvr-controls="hand: left"
+                magicleap-controls="hand: left" oculus-go-controls="hand: left" valve-index-controls="hand: left"
+                vive-focus-controls="hand: left" generic-tracked-controller-controls="hand: left"
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 5; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  -->
-      <a-entity id = "rightHand" class="rightController" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
-                laser-controls="hand: right" vive-controls="hand: right" oculus-touch-controls="hand: right"
-                windows-motion-controls="hand: right" daydream-controls="hand: right" gearvr-controls="hand: right" magicleap-controls="hand: right"
+      <a-entity id="rightHand" class="rightController"
+                hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF" laser-controls="hand: right"
+                vive-controls="hand: right" oculus-touch-controls="hand: right" windows-motion-controls="hand: right"
+                daydream-controls="hand: right" gearvr-controls="hand: right" magicleap-controls="hand: right"
                 oculus-go-controls="hand: right" valve-index-controls="hand: right" vive-focus-controls="hand: right"
                 generic-tracked-controller-controls="hand: right"
                 raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
     </a-entity>
+
+    <!-- main structure -->
+    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+              position="0 0 0" scale="1 1 1"></a-entity>
+    <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
+    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh></a-entity>
+    <!-- interactive img -->
+    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra"
+             class="clickable" click-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+    </a-image>
+
     <!-- A light in the scene casting shadows -->
-    <a-entity light="intensity: 0.6; castShadow: true; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10; shadowCameraVisible: true"
-              position="9.9649 17.32329 13.93447"></a-entity>
+    <!-- custom light | spot -->
+    <a-entity light="type:spot;
+			angle: 20000;
+			penumbra: 0.1;
+			color:  #FFC800;
+			intensity: 1;
+			castShadow: true;
+			shadowCameraVisible: true;" position="0 0.5 -4" rotation="-90 0 0"></a-entity>
   </a-scene>
   <script>
 
