@@ -30,14 +30,19 @@
 
     <!-- assets to load -->
     <a-assets>
-			<a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
-            <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
-		</a-assets>
+      <a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
+      <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
+      <img id="canestra" src="assets/images/758px-Canestra_di_frutta_(Caravaggio).jpg">
+
+    </a-assets>
 
     <!-- main structure -->
-    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true" position = "0 0 0" scale="1 1 1" ></a-entity>
+    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+              position="0 0 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
+
+    <a-image id="image_canestra" class="clickable" click-listener onclick="interactImg();" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1"></a-image>
 
     </a-entity>
     <!-- Basic movement and teleportation  -->
@@ -51,12 +56,16 @@
       <a-entity class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
                 tracked-controls vive-controls="hand: left" oculus-touch-controls="hand: left"
                 windows-motion-controls="hand: left"
+                laser-controls="hand: left"
+                daydream-controls="" gearvr-controls="" magicleap-controls="" oculus-go-controls="" valve-index-controls="" vive-focus-controls="" generic-tracked-controller-controls=""
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 18; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  -->
       <a-entity class="rightController" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
                 tracked-controls vive-controls="hand: right" oculus-touch-controls="hand: right"
-                windows-motion-controls="hand: right" laser-controls
+                windows-motion-controls="hand: right"
+                laser-controls="hand: right"
+                daydream-controls="" gearvr-controls="" magicleap-controls="" oculus-go-controls="" valve-index-controls="" vive-focus-controls="" generic-tracked-controller-controls=""
                 raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
     </a-entity>
@@ -64,6 +73,26 @@
     <a-entity light="intensity: 0.6; castShadow: true; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10; shadowCameraVisible: true"
               position="9.9649 17.32329 13.93447"></a-entity>
   </a-scene>
+  <script>
+
+    // Component to do on click.
+    AFRAME.registerComponent('click-listener', {
+      init: function () {
+        this.el.addEventListener('click', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
+    });
+
+    function interactImg() {
+        window.open("https://www.w3schools.com");
+        document.getElementById('image_canestra').setAttribute('visible', false);      
+      }
+  </script>
 </body>
+
+
 
 </html>
