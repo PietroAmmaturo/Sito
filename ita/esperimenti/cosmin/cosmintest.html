@@ -79,7 +79,7 @@
     // Component to do on click.
     AFRAME.registerComponent('click-listener', {
       init: function () {
-        this.el.addEventListener('triggerdown', function (evt) {
+        this.el.addEventListener('click', function (evt) {
           // remove clicked object from view
           //this.setAttribute('visible', false);
 
