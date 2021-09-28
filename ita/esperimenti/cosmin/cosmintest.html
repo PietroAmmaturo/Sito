@@ -53,8 +53,8 @@
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: true"></a-entity>
-      <!-- Left Controller  hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF" -->
-      <a-entity id = "leftHand" 
+      <!-- Left Controller   -->
+      <a-entity id = "leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
                 laser-controls="hand: left" vive-controls="" oculus-touch-controls=""
                 windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
                 oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
@@ -62,13 +62,14 @@
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 18; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF" -->
-      <a-entity id = "rightHand" 
+      <a-entity id = "rightHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
                 laser-controls="hand: right" vive-controls="" oculus-touch-controls=""
                 windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
                 oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
                 generic-tracked-controller-controls=""
                 raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
+    </a-entity>
     <!-- A light in the scene casting shadows -->
     <a-entity light="intensity: 0.6; castShadow: true; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10; shadowCameraVisible: true"
               position="9.9649 17.32329 13.93447"></a-entity>
