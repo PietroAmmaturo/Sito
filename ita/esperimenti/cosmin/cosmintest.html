@@ -42,7 +42,8 @@
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
 
-    <a-image id="image_canestra" class="clickable" click-listener onclick="interactImg();" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1"></a-image>
+      <a-image id="image_canestra" class="clickable" click-listener onclick="interactImg();" src="#canestra"
+               position="2 1.5 -3" width="1" height="0.75" scale="1 1 1"></a-image>
 
     </a-entity>
     <!-- Basic movement and teleportation  -->
@@ -54,18 +55,18 @@
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: true"></a-entity>
       <!-- Left Controller  -->
       <a-entity class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
-                tracked-controls vive-controls="hand: left" oculus-touch-controls="hand: left"
-                windows-motion-controls="hand: left"
-                laser-controls="hand: left"
-                daydream-controls="" gearvr-controls="" magicleap-controls="" oculus-go-controls="" valve-index-controls="" vive-focus-controls="" generic-tracked-controller-controls=""
+                laser-controls="hand: left" tracked-controls vive-controls="" oculus-touch-controls=""
+                windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
+                oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
+                generic-tracked-controller-controls=""
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 18; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  -->
       <a-entity class="rightController" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
-                tracked-controls vive-controls="hand: right" oculus-touch-controls="hand: right"
-                windows-motion-controls="hand: right"
-                laser-controls="hand: right"
-                daydream-controls="" gearvr-controls="" magicleap-controls="" oculus-go-controls="" valve-index-controls="" vive-focus-controls="" generic-tracked-controller-controls=""
+                laser-controls="hand: right" tracked-controls vive-controls="" oculus-touch-controls=""
+                windows-motion-controls="" daydream-controls="" gearvr-controls="" magicleap-controls=""
+                oculus-go-controls="" valve-index-controls="" vive-focus-controls=""
+                generic-tracked-controller-controls=""
                 raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
     </a-entity>
@@ -87,10 +88,10 @@
     });
 
     function interactImg() {
-        console.log("interaction started");
-        window.open("https://www.w3schools.com");
-        document.getElementById('image_canestra').setAttribute('visible', false);      
-      }
+      console.log("interaction started");
+      window.open("https://www.w3schools.com");
+      document.getElementById('image_canestra').setAttribute('visible', false);
+    }
   </script>
 </body>
 
