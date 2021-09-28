@@ -26,20 +26,18 @@
 <body>
 
   <!-- used for creating Navmesh... see javascript component above <a-scene inspector-plugin-recast>  https://github.com/donmccurdy/aframe-inspector-plugin-recast-->
-  <a-scene background="color: #FAFAFA">
+  <a-scene background="color: #FAFAFA" shadow="type: basic" stats>
 
     <!-- assets to load -->
     <a-assets>
-			<a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
-            <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
-		</a-assets>
+      <a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
+      <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
+      <img id="canestra" src="assets/images/758px-Canestra_di_frutta_(Caravaggio).jpg">
 
-    <!-- main structure -->
-    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true" position = "0 0 0" scale="1 1 1" ></a-entity>
-    <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
+    </a-assets>
 
-    </a-entity>
+    <a-sky color="#000000"></a-sky>
+
     <!-- Basic movement and teleportation  -->
     <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;"
               navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable"
@@ -47,23 +45,108 @@
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: true"></a-entity>
-      <!-- Left Controller  -->
-      <a-entity class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
-                tracked-controls vive-controls="hand: left" oculus-touch-controls="hand: left"
-                windows-motion-controls="hand: left"
-                teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 18; collisionEntities: #navmesh; landingMaxAngle: 60"
+      <!-- Left Controller   -->
+      <a-entity id="leftHand" class="leftController" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
+                laser-controls="hand: left" vive-controls="hand: left" oculus-touch-controls="hand: left"
+                windows-motion-controls="hand: left" daydream-controls="hand: left" gearvr-controls="hand: left"
+                magicleap-controls="hand: left" oculus-go-controls="hand: left" valve-index-controls="hand: left"
+                vive-focus-controls="hand: left" generic-tracked-controller-controls="hand: left"
+                teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 5; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  -->
-      <a-entity class="rightController" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
-                tracked-controls vive-controls="hand: right" oculus-touch-controls="hand: right"
-                windows-motion-controls="hand: right" laser-controls
+      <a-entity id="rightHand" class="rightController"
+                hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF" laser-controls="hand: right"
+                vive-controls="hand: right" oculus-touch-controls="hand: right" windows-motion-controls="hand: right"
+                daydream-controls="hand: right" gearvr-controls="hand: right" magicleap-controls="hand: right"
+                oculus-go-controls="hand: right" valve-index-controls="hand: right" vive-focus-controls="hand: right"
+                generic-tracked-controller-controls="hand: right"
                 raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
     </a-entity>
-    <!-- A light in the scene casting shadows -->
-    <a-entity light="intensity: 0.6; castShadow: true; shadowCameraLeft: -10; shadowCameraBottom: -10; shadowCameraRight: 10; shadowCameraTop: 10; shadowCameraVisible: true"
-              position="9.9649 17.32329 13.93447"></a-entity>
+
+    <!-- main structure -->
+    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+              position="0 0 0" scale="1 1 1"></a-entity>
+    <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
+    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <!-- interactive img -->
+    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra"
+             class="clickable" click-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+    </a-image>
+
+    <!-- Lights in the scene -->
+    <!--custom light | ambient -->
+    <a-entity light="type: ambient;
+    intensity: 0.1; color:  #F80;">
+    </a-entity>
+    <!-- custom light | spot -->
+    <a-entity light="type:spot;
+			angle: 90;
+			penumbra: 0;
+			color:  #FF8800;
+			intensity: 10;
+			castShadow: false;
+      decay: 1;
+			shadowCameraVisible: true;" position="0 0.1 0" rotation="-90 0 0"></a-entity>
+
+    <!-- custom light | spot -->
+    <a-entity light="type:spot;
+    angle: 30;
+    penumbra: 0;
+    color:  #FF8800;
+    intensity: 3;
+    castShadow: false;
+    decay: 1;
+    shadowCameraVisible: true;" position="0 -10 0" rotation="90 0 0"></a-entity>
   </a-scene>
+  <script>
+
+    // Component to do on click.
+    AFRAME.registerComponent('click-listener', {
+      init: function () {
+        this.el.addEventListener('click', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
+    });    // Component to do on click.
+    AFRAME.registerComponent('mouseenter-listener', {
+      init: function () {
+        this.el.addEventListener('mouseenter', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
+    });
+    AFRAME.registerComponent('mouseleave-listener', {
+      init: function () {
+        this.el.addEventListener('mouseleave', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
+    });
+
+
+
+    function clickImg() {
+      console.log("click started");
+      window.open("https://www.w3schools.com");
+    }
+    function mouseenterImg() {
+      console.log("mouseenter started");
+      document.getElementById('image_canestra').setAttribute('scale', '1.2 1.2 1')
+    }
+    function mouseleaveImg() {
+      console.log("mouseleave started");
+      document.getElementById('image_canestra').setAttribute('scale', '1 1 1')
+    }
+  </script>
 </body>
+
+
 
 </html>
