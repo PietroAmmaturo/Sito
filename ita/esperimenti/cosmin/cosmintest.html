@@ -42,7 +42,7 @@
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="true" nav-mesh>
 
-      <a-image id="image_canestra" class="clickable" click-listener onclick="interactImg();" src="#canestra"
+      <a-image onclick="clicktImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra" class="clickable" click-listener src="#canestra"
                position="2 1.5 -3" width="1" height="0.75" scale="1 1 1"></a-image>
 
     </a-entity>
@@ -85,11 +85,39 @@
 
         });
       }
+    });    // Component to do on click.
+    AFRAME.registerComponent('mouseenter-listener', {
+      init: function () {
+        this.el.addEventListener('mouseenter', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
+    });
+    AFRAME.registerComponent('mouseleave-listener', {
+      init: function () {
+        this.el.addEventListener('mouseleave', function (evt) {
+          // remove clicked object from view
+          //this.setAttribute('visible', false);
+
+        });
+      }
     });
 
-    function interactImg() {
-      console.log("interaction started");
+
+
+    function clickImg() {
+      console.log("click started");
       window.open("https://www.w3schools.com");
+    }
+    function mouseenterImg() {
+      console.log("mouseenter started");
+      document.getElementById('image_canestra').setAttribute('scale', '2 2 1')
+    }
+    function mouseleaveImg() {
+      console.log("mouseleave started");
+      document.getElementById('image_canestra').setAttribute('scale', '1 1 1')
     }
   </script>
 </body>
