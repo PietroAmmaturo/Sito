@@ -14,12 +14,11 @@
 
     <!-- assets to load -->
     <a-assets>
-			<a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
-            <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
+			<a-asset-item id="#structure-gltf" src="assets/gltf/unnamed.glb"></a-asset-item>
 		</a-assets>
 
     <!-- main structure -->
-    <a-entity obj-model="obj: #structure-obj; mtl: #structure-mtl" position = "0 0 0" scale="1 1 1" ></a-entity>
+    <a-entity gltf-model=" #structure-gltf" position = "0 0 0" scale="1 1 1" ></a-entity>
 
 <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  
       <a-entity id="navmesh-Hello" gltf-model="assets/gltf/AdvHelloWorldnavmesh.gltf" visible="false" nav-mesh=""></a-entity>-->
