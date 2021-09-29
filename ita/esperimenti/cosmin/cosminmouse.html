@@ -51,15 +51,16 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity raycaster-listen class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
+    <a-entity id="structure" raycaster-listen class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
               shadow="cast: true; receive: true" position="0 3.8 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     </a-entity>
     <!-- interactive img -->
-    <a-image raycaster-listen onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg();"
-             id="image_canestra" class="clickable" click-listener mouseenter-listener mouseleave-listener
-             src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+    <a-image raycaster-listen onclick="clickImg(this);" onmouseenter="mouseenterImg(this);"
+             onmouseleave="mouseleaveImg(this);" id="image_canestra" class="clickable" click-listener
+             mouseenter-listener mouseleave-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75"
+             scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
@@ -130,17 +131,20 @@
 
 
 
-    function clickImg() {
+    function clickImg(image) {
       console.log("click started");
-      window.open("https://www.w3schools.com");
+      if (checkIntersection(image))
+        window.open("https://www.w3schools.com");
     }
-    function mouseenterImg() {
+    function mouseenterImg(image) {
       console.log("mouseenter started");
-      this.setAttribute('scale', '1.2 1.2 1')
+      if (checkIntersection(image))
+        image.setAttribute('scale', '1.2 1.2 1')
     }
-    function mouseleaveImg() {
+    function mouseleaveImg(image) {
       console.log("mouseleave started");
-      this.setAttribute('scale', '1 1 1')
+      if (checkIntersection(image))
+        image.setAttribute('scale', '1 1 1')
     }
 
     AFRAME.registerComponent('raycaster-listen', {
@@ -162,12 +166,26 @@
 
         let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
         if (!intersection) { return; }
-        console.log(intersection.point);
-        console.log(intersection);
-        console.log(intersection[0]);
-        console.log(intersection["distance"]);
       }
     });
+
+    function checkIntersection(myobj) {
+      console.log("checkIntersection");
+      let obstacle = document.querySelector('#structure');
+
+      let obstacle_intersection = obstacle.raycaster.components.raycaster.getIntersection(obstacle.el);
+      if (!obstacle_intersection) { return 1; }
+
+      let myobj_intersection = myobj.raycaster.components.raycaster.getIntersection(myobj.el);
+
+      if (myobj_intersection["distance"] <= obstacle_intersection["distance"]) {
+        console.log("intersection valid");
+        return 1;
+      } else {
+        console.log("intersection invalid");
+        return 0;
+      }
+    }
   </script>
 </body>
 
