@@ -57,8 +57,8 @@
     <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     </a-entity>
     <!-- interactive img -->
-    <a-image raycaster-listen onclick="clickImg(this);" onmouseenter="mouseenterImg(this);"
-             onmouseleave="mouseleaveImg(this);" id="image_canestra" class="clickable" click-listener
+    <a-image raycaster-listen onclick="clickImg(this.object3D);" onmouseenter="mouseenterImg(this.object3D);"
+             onmouseleave="mouseleaveImg(this.object3D);" id="image_canestra" class="clickable" click-listener
              mouseenter-listener mouseleave-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75"
              scale="1 1 1">
     </a-image>
@@ -171,7 +171,7 @@
 
     function checkIntersection(myobj) {
       console.log("checkIntersection", myobj);
-      let obstacle = document.querySelector('#structure');
+      let obstacle = document.querySelector('#structure').object3D;
       console.log(obstacle);
       let obstacle_intersection = obstacle.raycaster.components.raycaster.getIntersection(obstacle.el);
       if (!obstacle_intersection) { return 1; }
