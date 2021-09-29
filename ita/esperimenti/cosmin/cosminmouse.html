@@ -44,7 +44,7 @@
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: false">
-        <a-entity id="cursor" cursor raycaster="far: 10; objects: .clickable" material="color: white; shader: flat"
+        <a-entity id="cursor" first-intersection-only cursor raycaster="far: 10; objects: .clickable" material="color: white; shader: flat"
                   position="0 0 -0.3" geometry="primitive: sphere; radius: 0.001">
         </a-entity>
       </a-entity>
@@ -169,6 +169,19 @@
 
         let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
         if (!intersection) { return; }
+      }
+    });
+
+    AFRAME.registerComponent('first-intersection-only', {
+      init: function () {
+        // Use events to figure out what raycaster is listening so we don't have to
+        // hardcode the raycaster.
+        this.el.addEventListener('raycaster-intersection', evt => {
+          console.log("component", this);
+          this.intersecting = evt.detail.els;
+          console.log("component", this.intersecting);
+
+        });
       }
     });
 
