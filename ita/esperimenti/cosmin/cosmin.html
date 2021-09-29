@@ -40,7 +40,7 @@
 
     <!-- Basic movement and teleportation  -->
     <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;"
-              navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .ignore"
+              navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable"
               position="0 0 0" rotation="0 0 0">
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
@@ -50,7 +50,7 @@
                 laser-controls="hand: left" vive-controls="hand: left" oculus-touch-controls="hand: left"
                 windows-motion-controls="hand: left" daydream-controls="hand: left" gearvr-controls="hand: left"
                 magicleap-controls="hand: left" oculus-go-controls="hand: left" valve-index-controls="hand: left"
-                vive-focus-controls="hand: left" generic-tracked-controller-controls="hand: left"
+                vive-focus-controls="hand: left" generic-tracked-controller-controls="hand: left"y
                 raycaster="far: 0; objects: .leftclickable;"
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 5; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
@@ -66,13 +66,13 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity class="ignore" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
               position="0 0 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity class="collision" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     <!-- interactive img -->
-    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" click-listener mouseenter-listener mouseleave-listener id="image_canestra"
-             class="clickable ignore" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra"
+             class="clickable" click-listener mouseleave-listener mouseenter-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
