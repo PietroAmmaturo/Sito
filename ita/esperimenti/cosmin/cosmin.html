@@ -40,7 +40,7 @@
 
     <!-- Basic movement and teleportation  -->
     <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;"
-              navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable"
+              navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .ignore"
               position="0 0 0" rotation="0 0 0">
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
@@ -66,13 +66,13 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+    <a-entity class="ignore" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
               position="0 0 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <a-entity class="collision" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     <!-- interactive img -->
     <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" click-listener mouseenter-listener mouseleave-listener id="image_canestra"
-             class="clickable" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+             class="clickable ignore" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
