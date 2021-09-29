@@ -17,8 +17,6 @@
   <script src="scripts/aframe-extras.min.js"></script>
   <script src="scripts/aframe-teleport-controls.min.js"></script>
   <script src="scripts/aframe-thumb-controls-component.min.js"></script>
-  <script src="http://supereggbert.github.io/aframe-aobake-component/dist/build.js"></script>
-
   <!-- for creating Navmesh... Also uncomment a-scene inspector-plugin-recast
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     -->
@@ -66,16 +64,14 @@
                 line="color: lawngreen; opacity: 0.5" visible="true"></a-entity>
     </a-entity>
 
-    <a-entity aobake>
     <!-- main structure -->
     <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
               position="0 0 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
-    </a-entity>
     <!-- interactive img -->
     <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra"
-             class="clickable" click-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+             class="clickable" click-listener mouseleave-listener mouseenter-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
