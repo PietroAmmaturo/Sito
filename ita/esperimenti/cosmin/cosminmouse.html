@@ -176,10 +176,10 @@
       console.log("checkIntersection", myobj);
       let obstacle = document.querySelector('#structure');
       console.log(obstacle);
-      let obstacle_intersection = obstacle.raycaster.components.raycaster.getIntersection(obstacle.el);
+      let obstacle_intersection = obstacle.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(obstacle.el);
       if (!obstacle_intersection) { return 1; }
 
-      let myobj_intersection = myobj.raycaster.components.raycaster.getIntersection(myobj.el);
+      let myobj_intersection = myobj.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(myobj.el);
 
       if (myobj_intersection["distance"] <= obstacle_intersection["distance"]) {
         console.log("intersection valid");
