@@ -163,9 +163,9 @@
         let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
         if (!intersection) { return; }
         console.log(intersection.point);
-        console.log(evt.detail.intersection);
-        console.log(evt.detail.intersection[0]);
-        console.log(evt.detail.intersection["distance"]);
+        console.log(intersection);
+        console.log(intersection[0]);
+        console.log(intersection["distance"]);
       }
     });
   </script>
