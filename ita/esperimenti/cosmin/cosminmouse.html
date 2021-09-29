@@ -152,8 +152,10 @@
         // Use events to figure out what raycaster is listening so we don't have to
         // hardcode the raycaster.
         this.el.addEventListener('raycaster-intersected', evt => {
-          console.log("intersected", this);
-          console.log("intersected", this.el);
+          console.log("component", this);
+          console.log("element", this.el);
+          console.log("components", this.el.components);
+          console.log("component(?)", this.el.components.raycaster-intersected);
           this.raycaster = evt.detail.el;
 
         });
