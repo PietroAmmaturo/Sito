@@ -51,15 +51,15 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity raycaster-listen class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
-              position="0 0 0" scale="1 1 1"></a-entity>
+    <a-entity raycaster-listen class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl"
+              shadow="cast: true; receive: true" position="0 3.8 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     </a-entity>
     <!-- interactive img -->
-    <a-image raycaster-listen onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg();" id="image_canestra"
-             class="clickable" click-listener mouseenter-listener mouseleave-listener src="#canestra"
-             position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+    <a-image raycaster-listen onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg();"
+             id="image_canestra" class="clickable" click-listener mouseenter-listener mouseleave-listener
+             src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
@@ -134,27 +134,27 @@
     }
 
     AFRAME.registerComponent('raycaster-listen', {
-	init: function () {
-    // Use events to figure out what raycaster is listening so we don't have to
-    // hardcode the raycaster.
-    this.el.addEventListener('raycaster-intersected', evt => {
-      console.log("raycaster intersecting with img");
-      this.raycaster = evt.detail.el;
-      console.log(evt.detail.el);
-    });
-    this.el.addEventListener('raycaster-intersected-cleared', evt => {
-      this.raycaster = null;
-    });
-  },
+      init: function () {
+        // Use events to figure out what raycaster is listening so we don't have to
+        // hardcode the raycaster.
+        this.el.addEventListener('raycaster-intersected', evt => {
+          console.log("raycaster intersecting with img");
+          this.raycaster = evt.detail.el;
+          console.log(evt.detail.el);
+        });
+        this.el.addEventListener('raycaster-intersected-cleared', evt => {
+          this.raycaster = null;
+        });
+      },
 
-  tick: function () {
-    if (!this.raycaster) { return; }  // Not intersecting.
+      tick: function () {
+        if (!this.raycaster) { return; }  // Not intersecting.
 
-    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) { return; }
-    console.log(intersection.point);
-  }
-});
+        let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+        if (!intersection) { return; }
+        console.log(intersection.point);
+      }
+    });
   </script>
 </body>
 
