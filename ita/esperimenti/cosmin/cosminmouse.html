@@ -86,15 +86,15 @@
     castShadow: false;
     decay: 1;
     shadowCameraVisible: true;" position="0 -10 0" rotation="90 0 0"></a-entity>
-    		<!-- custom light | point -->
-		<a-entity light="type:point;
+    <!-- custom light | point -->
+    <a-entity light="type:point;
     color:  #FF8800;
     intensity: 1;
     distance: 10;
     castShadow: false;
     decay: 1;
     shadowCameraVisible: true;" position="0 2.5 0">
-</a-entity>
+    </a-entity>
   </a-scene>
   <script>
 
@@ -150,10 +150,7 @@
         this.el.addEventListener('raycaster-intersected', evt => {
           console.log("raycaster intersecting with img");
           this.raycaster = evt.detail.el;
-          console.log(evt.detail.intersection);
-          console.log(evt.detail.intersection[0]);
-          console.log(evt.detail.intersection["distance"]);
-          
+
         });
         this.el.addEventListener('raycaster-intersected-cleared', evt => {
           this.raycaster = null;
@@ -166,6 +163,9 @@
         let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
         if (!intersection) { return; }
         console.log(intersection.point);
+        console.log(evt.detail.intersection);
+        console.log(evt.detail.intersection[0]);
+        console.log(evt.detail.intersection["distance"]);
       }
     });
   </script>
