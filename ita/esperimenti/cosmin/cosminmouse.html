@@ -74,24 +74,26 @@
 			color:  #FF8800;
 			intensity: 2;
 			castShadow: false;
-      decay: 1;
-			shadowCameraVisible: true;" position="0 0 0" rotation="-90 0 0"></a-entity>
+      decay: 0;
+			shadowCameraVisible: true;" position="0 0.2 0" rotation="-90 0 0"></a-entity>
 
     <!-- custom light | spot -->
     <a-entity light="type:spot;
-    angle: 10;
+    angle: 20;
     penumbra: 0;
     color:  #FF8800;
-    intensity: 3;
+    intensity: 2;
     castShadow: false;
     decay: 1;
     shadowCameraVisible: true;" position="0 -10 0" rotation="90 0 0"></a-entity>
     		<!-- custom light | point -->
 		<a-entity light="type:point;
-    intensity: 100;
-    distance: 5;
-    castShadow: true;
-    shadowCameraVisible: true;" position="0 5 1">
+    color:  #FF8800;
+    intensity: 1;
+    distance: 10;
+    castShadow: false;
+    decay: 1;
+    shadowCameraVisible: true;" position="0 2.5 0">
 </a-entity>
   </a-scene>
   <script>
