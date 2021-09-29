@@ -153,6 +153,7 @@
         // hardcode the raycaster.
         this.el.addEventListener('raycaster-intersected', evt => {
           console.log("intersected", this);
+          console.log("intersected", this.el);
           this.raycaster = evt.detail.el;
 
         });
@@ -171,7 +172,7 @@
 
     function checkIntersection(myobj) {
       console.log("checkIntersection", myobj);
-      let obstacle = document.querySelector('#structure').object3D;
+      let obstacle = document.querySelector('#structure');
       console.log(obstacle);
       let obstacle_intersection = obstacle.raycaster.components.raycaster.getIntersection(obstacle.el);
       if (!obstacle_intersection) { return 1; }
