@@ -97,7 +97,7 @@
 </a-entity>
   </a-scene>
   <script>
-var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
+
 
     // Component to do on click.
     AFRAME.registerComponent('click-listener', {
@@ -151,6 +151,8 @@ var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
           console.log("raycaster intersecting with img");
           this.raycaster = evt.detail.el;
           console.log(evt.detail.el);
+          console.log(evt.detail.el.x);
+          console.log(evt.detail.el.y);
           console.log(this.raycaster.distance);
           
         });
