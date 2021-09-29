@@ -41,8 +41,7 @@
     <a-sky color="#000000"></a-sky>
 
     <!-- Basic movement  -->
-    <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;"
-              position="0 0 0" rotation="0 0 0">
+    <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true;" position="0 0 0" rotation="0 0 0">
       <!-- camera -->
       <a-entity id="head" camera="active: true" position="0 1.6 0"
                 look-controls="pointerLockEnabled: true; reverseMouseDrag: false">
@@ -52,16 +51,16 @@
       </a-entity>
     </a-entity>
 
-    <a-entity aobake>
-      <!-- main structure -->
-      <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl"
-                shadow="cast: true; receive: true" position="0 0 0" scale="1 1 1"></a-entity>
-      <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-      <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <!-- main structure -->
+    <a-entity class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl" shadow="cast: true; receive: true"
+              position="0 0 0" scale="1 1 1"></a-entity>
+    <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
+    <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     </a-entity>
     <!-- interactive img -->
     <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg();" id="image_canestra"
-             class="clickable" click-listener mouseenter-listener mouseleave-listener  src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
+             class="clickable" click-listener mouseenter-listener mouseleave-listener src="#canestra"
+             position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
     <!-- Lights in the scene -->
