@@ -51,6 +51,7 @@
                 windows-motion-controls="hand: left" daydream-controls="hand: left" gearvr-controls="hand: left"
                 magicleap-controls="hand: left" oculus-go-controls="hand: left" valve-index-controls="hand: left"
                 vive-focus-controls="hand: left" generic-tracked-controller-controls="hand: left"
+                raycaster="far: 0; objects: .leftclickable;"
                 teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; type: parabolic; curveShootingSpeed: 5; collisionEntities: #navmesh; landingMaxAngle: 60"
                 visible="true"></a-entity>
       <!-- Right Controller  -->
@@ -70,7 +71,7 @@
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     <!-- interactive img -->
-    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" id="image_canestra"
+    <a-image onclick="clickImg();" onmouseenter="mouseenterImg();" onmouseleave="mouseleaveImg()" click-listener mouseenter-listener mouseleave-listener id="image_canestra"
              class="clickable" src="#canestra" position="2 1.5 -3" width="1" height="0.75" scale="1 1 1">
     </a-image>
 
