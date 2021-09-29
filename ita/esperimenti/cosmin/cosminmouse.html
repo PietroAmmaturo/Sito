@@ -150,7 +150,6 @@
         this.el.addEventListener('raycaster-intersected', evt => {
           console.log("raycaster intersecting with img");
           this.raycaster = evt.detail.el;
-          console.log(evt.detail.el);
           console.log(evt.detail.el.x);
           console.log(evt.detail.el.y);
           console.log(this.raycaster.distance);
