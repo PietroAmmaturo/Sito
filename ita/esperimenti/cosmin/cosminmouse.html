@@ -51,7 +51,7 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity raycaster-listen class="collision" obj-model="obj: #structure-obj; mtl: #structure-mtl"
+    <a-entity raycaster-listen class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
               shadow="cast: true; receive: true" position="0 3.8 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
@@ -72,20 +72,27 @@
 			angle: 90;
 			penumbra: 0;
 			color:  #FF8800;
-			intensity: 10;
+			intensity: 2;
 			castShadow: false;
       decay: 1;
-			shadowCameraVisible: true;" position="0 0.1 0" rotation="-90 0 0"></a-entity>
+			shadowCameraVisible: true;" position="0 0 0" rotation="-90 0 0"></a-entity>
 
     <!-- custom light | spot -->
     <a-entity light="type:spot;
-    angle: 30;
+    angle: 10;
     penumbra: 0;
     color:  #FF8800;
-    intensity: 3;
+    intensity: 0.5;
     castShadow: false;
     decay: 1;
     shadowCameraVisible: true;" position="0 -10 0" rotation="90 0 0"></a-entity>
+    		<!-- custom light | point -->
+		<a-entity light="type:point;
+    intensity: 100;
+    distance: 5;
+    castShadow: true;
+    shadowCameraVisible: true;" position="0 5 1">
+</a-entity>
   </a-scene>
   <script>
 
