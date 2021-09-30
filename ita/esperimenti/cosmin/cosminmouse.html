@@ -181,6 +181,7 @@
           this.intersecting = evt.detail.els;
           console.log("component", evt.detail.els);
           console.log("component", evt.detail.els[0]);
+          console.log("component", evt.detail.els[0].components["raycaster-listen"].raycaster.components.raycaster.getIntersection(evt.detail.els[0].el)["distance"]);
 
         });
       }
