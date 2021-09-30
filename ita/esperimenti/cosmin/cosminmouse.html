@@ -142,22 +142,22 @@
 
 
     function clickImg(image) {
-      if (checkIntersection(image)) {
+      //if (checkIntersection(image)) {
         console.log("click started");
         window.open("https://www.w3schools.com");
-      }
+      //}
     }
     function mouseenterImg(image) {
-      if (checkIntersection(image)) {
+      //if (checkIntersection(image)) {
         console.log("mouseenter started");
         image.setAttribute('scale', '1.2 1.2 1')
-      }
+      //}
     }
     function mouseleaveImg(image) {
-      if (checkIntersection(image)) {
+      //if (checkIntersection(image)) {
         console.log("mouseleave started");
         image.setAttribute('scale', '1 1 1')
-      }
+      //}
     }
 
     AFRAME.registerComponent('raycaster-listen', {
