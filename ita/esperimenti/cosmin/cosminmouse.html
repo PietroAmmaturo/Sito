@@ -181,7 +181,9 @@
           this.intersecting = evt.detail.els;
           console.log("component", evt.detail.els);
           console.log("component", evt.detail.els[0]);
+          
           let obj = evt.detail.els[0];
+          console.log("component", obj.components["raycaster-listen"].raycaster);
           let obj_intersection = obj.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(obj.el);
           console.log("component", obj_intersection["distance"]);
 
