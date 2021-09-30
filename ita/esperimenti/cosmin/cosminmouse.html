@@ -178,8 +178,8 @@
         // hardcode the raycaster.
         this.el.addEventListener('raycaster-intersection', evt => {
           console.log("component", this);
-          this.intersecting = evt.detail.el;
-          console.log("component", evt.detail.el);
+          this.intersecting = evt.detail.els;
+          console.log("component", evt.detail.els);
 
         });
       }
