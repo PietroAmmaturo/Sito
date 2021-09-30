@@ -142,22 +142,16 @@
 
 
     function clickImg(image) {
-      //if (checkIntersection(image)) {
         console.log("click started");
         window.open("https://www.w3schools.com");
-      //}
     }
     function mouseenterImg(image) {
-      //if (checkIntersection(image)) {
         console.log("mouseenter started");
         image.setAttribute('scale', '1.2 1.2 1')
-      //}
     }
     function mouseleaveImg(image) {
-      //if (checkIntersection(image)) {
         console.log("mouseleave started");
         image.setAttribute('scale', '1 1 1')
-      //}
     }
 
     AFRAME.registerComponent('raycaster-listen', {
@@ -182,23 +176,7 @@
         if (!intersection) { return; }
       }
     });
-
-    function checkIntersection(myobj) {
-      console.log("checkIntersection", myobj);
-      let obstacle = document.querySelector('#structure');
-      let obstacle_intersection = obstacle.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(obstacle.el);
-      if (!obstacle_intersection) { return 1; }
-
-      let myobj_intersection = myobj.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(myobj.el);
-
-      if (myobj_intersection["distance"] <= obstacle_intersection["distance"]) {
-        console.log("intersection valid");
-        return 1;
-      } else {
-        console.log("intersection invalid");
-        return 0;
-      }
-    }
+    
   </script>
 </body>
 
