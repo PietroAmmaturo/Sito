@@ -132,19 +132,22 @@
 
 
     function clickImg(image) {
-      console.log("click started");
-      if (checkIntersection(image))
+      if (checkIntersection(image)) {
+        console.log("click started");
         window.open("https://www.w3schools.com");
+      }
     }
     function mouseenterImg(image) {
-      console.log("mouseenter started");
-      if (checkIntersection(image))
+      if (checkIntersection(image)) {
+        console.log("mouseenter started");
         image.setAttribute('scale', '1.2 1.2 1')
+      }
     }
     function mouseleaveImg(image) {
-      console.log("mouseleave started");
-      if (checkIntersection(image))
+      if (checkIntersection(image)) {
+        console.log("mouseleave started");
         image.setAttribute('scale', '1 1 1')
+      }
     }
 
     AFRAME.registerComponent('raycaster-listen', {
@@ -152,14 +155,12 @@
         // Use events to figure out what raycaster is listening so we don't have to
         // hardcode the raycaster.
         this.el.addEventListener('raycaster-intersected', evt => {
-          console.log("component", this);
-          console.log("element", this.el);
-          console.log("components", this.el.components);
-          console.log("component(?)", this.el.components["raycaster-listen"]);
+          console.log("raycaster-intersected", this.el);
           this.raycaster = evt.detail.el;
 
         });
         this.el.addEventListener('raycaster-intersected-cleared', evt => {
+          console.log("raycaster-intersected-cleared", this.el);
           this.raycaster = null;
         });
       },
@@ -175,8 +176,6 @@
     function checkIntersection(myobj) {
       console.log("checkIntersection", myobj);
       let obstacle = document.querySelector('#structure');
-      console.log(obstacle);
-      console.log(obstacle.components);
       let obstacle_intersection = obstacle.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(obstacle.el);
       if (!obstacle_intersection) { return 1; }
 
