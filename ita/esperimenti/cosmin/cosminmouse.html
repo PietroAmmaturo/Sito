@@ -176,6 +176,7 @@
       console.log("checkIntersection", myobj);
       let obstacle = document.querySelector('#structure');
       console.log(obstacle);
+      console.log(obstacle.components);
       let obstacle_intersection = obstacle.components["raycaster-listen"].raycaster.components.raycaster.getIntersection(obstacle.el);
       if (!obstacle_intersection) { return 1; }
 
