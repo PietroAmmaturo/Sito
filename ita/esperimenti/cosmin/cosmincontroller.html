@@ -88,21 +88,39 @@
 			angle: 90;
 			penumbra: 0;
 			color:  #FF8800;
-			intensity: 10;
+			intensity: 2;
 			castShadow: false;
-      decay: 1;
-			shadowCameraVisible: true;" position="0 0.1 0" rotation="-90 0 0"></a-entity>
+      decay: 0;
+			shadowCameraVisible: false;" position="0 0.2 0" rotation="-90 0 0"></a-entity>
 
     <!-- custom light | spot -->
     <a-entity light="type:spot;
-    angle: 30;
+    angle: 20;
     penumbra: 0;
     color:  #FF8800;
-    intensity: 3;
+    intensity: 2;
     castShadow: false;
     decay: 1;
-    shadowCameraVisible: true;" position="0 -10 0" rotation="90 0 0"></a-entity>
-  </a-scene>
+    shadowCameraVisible: false;" position="0 -10 0" rotation="90 0 0"></a-entity>
+    <!-- custom light | point -->
+    <a-entity light="type:point;
+    color:  #FF8800;
+    intensity: 1;
+    distance: 10;
+    castShadow: false;
+    decay: 1;
+    shadowCameraVisible: false;" position="0 2.5 0">
+    </a-entity>ù
+        <!-- custom light | point -->
+        <a-entity light="type:point;
+        color:  #FF8800;
+        intensity: 0.05;
+        distance: 100;
+        castShadow: true;
+        decay: 0.2;
+        shadowCameraNear: 6;
+        shadowCameraVisible: false;" position="0 5 0">
+        </a-entity>
   <script>
 
     // Component to do on click.
