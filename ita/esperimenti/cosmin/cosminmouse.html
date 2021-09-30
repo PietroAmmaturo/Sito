@@ -179,7 +179,7 @@
         this.el.addEventListener('raycaster-intersection', evt => {
           console.log("component", this);
           this.intersecting = evt.detail;
-          console.log("component", this.intersecting);
+          console.log("component", evt.detail);
 
         });
       }
