@@ -51,13 +51,13 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity id="structure" class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
+    <a-entity raycaster-listen id="structure" class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
               shadow="cast: true; receive: true" position="0 3.8 0" scale="1 1 1"></a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
     <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
     </a-entity>
     <!-- interactive img -->
-    <a-image onclick="clickImg(this);" onmouseenter="mouseenterImg(this);"
+    <a-image raycaster-listen onclick="clickImg(this);" onmouseenter="mouseenterImg(this);"
              onmouseleave="mouseleaveImg(this);" id="image_canestra" class="clickable" click-listener
              mouseenter-listener mouseleave-listener src="#canestra" position="2 1.5 -3" width="1" height="0.75"
              scale="1 1 1">
