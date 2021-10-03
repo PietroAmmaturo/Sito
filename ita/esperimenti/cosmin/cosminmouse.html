@@ -31,8 +31,8 @@
 
     <!-- assets to load -->
     <a-assets>
-      <a-asset-item id="structure-obj" src="assets/obj/SECRET PROJECT X3.obj"></a-asset-item>
-      <a-asset-item id="structure-mtl" src="assets/obj/SECRET PROJECT X3.mtl"></a-asset-item>
+      <a-asset-item id="structure-obj" src="assets/obj/X20.obj"></a-asset-item>
+      <a-asset-item id="structure-mtl" src="assets/obj/X20.mtl"></a-asset-item>
       <img id="canestra" src="assets/images/758px-Canestra_di_frutta_(Caravaggio).jpg">
 
     </a-assets>
@@ -51,10 +51,70 @@
     </a-entity>
 
     <!-- main structure -->
-    <a-entity raycaster-listen id="structure" class="clickable" obj-model="obj: #structure-obj; mtl: #structure-mtl"
-              shadow="cast: true; receive: true" position="0 3.8 0" scale="1 1 1"></a-entity>
+    <a-entity material="roughness: 1000; metalness: 0.5; shader: standard; color: white" raycaster-listen id="structure"
+              class="clickable" obj-model="obj: #structure-obj" shadow="cast: true; receive: true" position="0 3.8 0"
+              scale="1 1 1"></a-entity>
+    <!-- floor -->
+    <a-entity geometry="primitive: circle; segments: 256; radius: 26;" shadow="cast: true; receive: true"
+              material="roughness: 0.7; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity: 0.1"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <!-- b emitting -->
+    <a-entity position="0.250 0 -0.8" geometry="height: 0.001; primitive: cylinder; segments-radial: 256; radius: 0.7;"
+              shadow="cast: true; receive: true"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              rotation="0 0 0">
+    </a-entity>
+    <a-entity position="0.250 0 0.9" geometry="height: 0.001; primitive: cylinder; segments-radial: 256; radius: 0.7;"
+              shadow="cast: true; receive: true"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              rotation="0 0 0">
+    </a-entity>
+    <a-entity position="-0.25 0 -0.8" geometry="height: 0.001; primitive: box; depth:1.4; width:1 "
+              shadow="cast: true; receive: true"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              rotation="0 0 0">
+    </a-entity>
+    <a-entity position="-0.25 0 0.9" geometry="height: 0.001; primitive: box; depth:1.4; width:1 "
+              shadow="cast: true; receive: true"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              rotation="0 0 0">
+    </a-entity>
+    <!-- wall emitting -->
+    <a-entity position="0 3 0"
+              geometry="height: 5; primitive: cylinder; segments-radial: 256; radius: 11.51; theta-length:15; theta-start:32; open-ended:true"
+              material="side:double; roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="0 0 0" shadow="cast: false; receive: true">
+    </a-entity>
+    <!-- wall emitting -->
+    <a-entity position="0 3 0"
+              geometry="height: 5; primitive: cylinder; segments-radial: 256; radius: 11.51; theta-length: 1; theta-start: 0; open-ended: false"
+              material="side:double; roughness: 1; metalness: 1; shader: standard; color: white; emissive:#00AAFF; emissiveIntensity: 2"
+              radius="30" rotation="0 0 0" shadow="cast: false; receive: true">
+    </a-entity>
+    <!-- rings -->
+    <a-entity position="0 0.003 0"
+              geometry="primitive: ring; segments-theta: 256; radius-inner:7.475; radius-outer:7.575;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.1 0"
+              geometry="primitive: ring; segments-theta: 256; radius-inner:11.105; radius-outer:11.205;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.1 0"
+              geometry="primitive: ring; segments-theta: 256; radius-inner:15.37; radius-outer:15.47;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.1 0" geometry="primitive: ring; segments-theta: 256; radius-inner:19.80; radius-outer:19.9;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
-    <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh></a-entity>
+    <a-entity position="0 3.8 0" id="navmesh" gltf-model="assets/gltf/navmesh.gltf" visible="false" nav-mesh>
+    </a-entity>
     </a-entity>
     <!-- interactive img -->
     <a-image raycaster-listen onclick="clickImg(this);" onmouseenter="mouseenterImg(this);"
@@ -67,18 +127,18 @@
     <!--custom light | ambient -->
     <a-entity light="type: ambient;
     intensity: 0.1; color:  #F80;">
+      <a-entity light="type:point;
+    color:  #FF8800;
+    intensity: 0.2;
+    distance: 100;
+    castShadow: true;
+    decay: 0.2;
+    shadowCameraNear: 6;
+    shadowCameraVisible: false;" position="0 0 0">
+      </a-entity>
     </a-entity>
-    <!-- custom light | spot -->
-    <a-entity light="type:spot;
-			angle: 90;
-			penumbra: 0;
-			color:  #FF8800;
-			intensity: 2;
-			castShadow: false;
-      decay: 0;
-			shadowCameraVisible: false;" position="0 0.2 0" rotation="-90 0 0"></a-entity>
-
-    <!-- custom light | spot -->
+    <!-- central lights -->
+    <!-- bitcoin b (under)-->
     <a-entity light="type:spot;
     angle: 20;
     penumbra: 0;
@@ -87,25 +147,35 @@
     castShadow: false;
     decay: 1;
     shadowCameraVisible: false;" position="0 -10 0" rotation="90 0 0"></a-entity>
-    <!-- custom light | point -->
+    <!--wall light-->
     <a-entity light="type:point;
+    distance: 8;
+    angle: 40;
+    penumbra: 0;
     color:  #FF8800;
     intensity: 1;
-    distance: 10;
     castShadow: false;
     decay: 1;
-    shadowCameraVisible: false;" position="0 2.5 0">
-    </a-entity>ù
-        <!-- custom light | point -->
-        <a-entity light="type:point;
+    shadowCameraVisible: false;" position="0 1 0" rotation="90 0 0"></a-entity>
+    <!-- floor -->
+    <a-entity light="type:spot;
+        angle: 82;
+        penumbra: 0.2;
         color:  #FF8800;
-        intensity: 0.05;
-        distance: 100;
-        castShadow: true;
-        decay: 0.2;
-        shadowCameraNear: 6;
-        shadowCameraVisible: false;" position="0 5 0">
-        </a-entity>
+        intensity: 5;
+        castShadow: false;
+        decay: 0;
+        shadowCameraVisible: false;" position="0 1 0" rotation="-90 0 0"></a-entity>
+    <a-entity light="type:spot;
+  distance: 20;
+  angle: 70;
+  penumbra: 0;
+  color:  #FF8800;
+  intensity: 4;
+  castShadow: true;
+  decay: 10;
+  shadowCameraVisible: true; shadowMapHeight:5120; shadowMapWidth:5120" position="7.3 2 8.8" rotation="0 220 0">
+    </a-entity>
   </a-scene>
   <script>
 
@@ -141,17 +211,17 @@
 
 
 
-    function clickImg(image) {
-        console.log("click started");
-        window.open("https://www.w3schools.com");
+    function clickImg(image, link) {
+      console.log("click started");
+      window.open(link);
     }
     function mouseenterImg(image) {
-        console.log("mouseenter started");
-        image.setAttribute('scale', '1.2 1.2 1')
+      console.log("mouseenter started");
+      image.setAttribute('scale', '1.2 1.2 1')
     }
     function mouseleaveImg(image) {
-        console.log("mouseleave started");
-        image.setAttribute('scale', '1 1 1')
+      console.log("mouseleave started");
+      image.setAttribute('scale', '1 1 1')
     }
 
     AFRAME.registerComponent('raycaster-listen', {
@@ -176,7 +246,68 @@
         if (!intersection) { return; }
       }
     });
-    
+
+    var sceneEl = document.querySelector('a-scene');
+
+    AFRAME.registerComponent('do-something-once-loaded', {
+      init: function () {
+        // This will be called after the entity has properly attached and loaded.
+        console.log('I am ready!');
+      }
+    });
+
+    let frames = [
+      {
+        "title": "anything",
+        "id": "frame1",
+        "url": "assets/images/758px-Canestra_di_frutta_(Caravaggio).jpg",
+        "height": "2",
+        "thetaLength": "15",
+        "radius": "10",
+        "thetaStart": "100",
+        "elevation": "2",
+        "ctaUrl": "https://www.google.com/"
+      },
+      {
+        "title": "anything",
+        "id": "frame2",
+        "url": "assets/images/758px-Canestra_di_frutta_(Caravaggio).jpg",
+        "height": "4",
+        "thetaLength": "30",
+        "radius": "10",
+        "thetaStart": "0",
+        "elevation": "4",
+        "ctaUrl": "https://www.google.com/"
+      }
+    ]
+
+    function build_frames() {
+      for (let frame of frames) {
+        console.log(frame);
+        var frameEl = document.createElement('a-curvedimage');
+        sceneEl.appendChild(frameEl);
+        frameEl.setAttribute('do-something-once-loaded',);
+        frameEl.setAttribute('raycaster-listen',);
+        frameEl.classList.add("clickable");
+        frameEl.classList.add("ignore");
+        frameEl.setAttribute('id', "'" + frame.id + "'");
+        frameEl.setAttribute('position', { x: 0, y: frame.elevation, z: 0 });
+        frameEl.setAttribute('radius', frame.radius);
+        frameEl.setAttribute('theta-start', frame.thetaStart);
+        frameEl.setAttribute('theta-length', frame.thetaLength);
+        frameEl.setAttribute('height', frame.height);
+        frameEl.setAttribute('src', frame.url);
+        frameEl.setAttribute('onclick', "clickImg(this,\'" + frame.ctaUrl + "\')");
+      }
+    }
+
+    if (sceneEl.hasLoaded) {
+      build_frames();
+    } else {
+      sceneEl.addEventListener('loaded', build_frames);
+    }
+
+
   </script>
 </body>
 
