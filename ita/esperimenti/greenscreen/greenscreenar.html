@@ -1,21 +1,30 @@
-
 <html>
-  <head>
-    <title>amirrozen</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-  </head>
 
-  <body>
-    <video style="position: absolute; opacity: 0;" id="greenscreenvideo" src="try.mp4" loop autoplay></video>
-    <a-scene inspector="" keyboard-shortcuts="" screenshot="" device-orientation-permission-ui="" fog="">
-      <a-plane 
-        material="shader: chromakey; src: #greenscreenvideo; color: 0 0.9 0" 
-        position="0 0 -2" 
-        scale="6.4 3.6 1 "
-      ></a-plane>
-    </a-scene>
-    
-  </body>
+<head>
+  <title>aframe-chromakey-material example</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+  <video style="position: absolute; opacity: 0;" id="greenscreenvideo" src="try.mp4" muted></video>
+  <a-scene inspector="" keyboard-shortcuts="" screenshot="" device-orientation-permission-ui="" fog="" style="z-index: 1">
+    <a-plane material="shader: chromakey; src: #greenscreenvideo; color: 0 0.9 0" position="0 0 -2" scale="3.2 1.8 1 ">
+    </a-plane>
+  </a-scene>
+  <button style="position:fixed; top: 0px; width: 10vw; height: 10vh; z-index: 100" onclick="playPause()" >Play/Pause</button>
+  <script>
+    var myVideo = document.getElementById("greenscreenvideo");
+
+    function playPause() {
+      if (myVideo.paused)
+        myVideo.play();
+      else
+        myVideo.pause();
+    }
+
+  </script>
+</body>
+
 </html>
