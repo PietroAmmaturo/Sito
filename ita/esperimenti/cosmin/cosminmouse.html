@@ -93,23 +93,43 @@
               radius="30" rotation="0 0 0" shadow="cast: false; receive: true">
     </a-entity>
     <!-- rings -->
-    <a-entity position="0 0.003 0"
-              geometry="primitive: ring; segments-theta: 256; radius-inner:7.475; radius-outer:7.575;"
+    <a-entity position="0 0.002 0"
+              geometry="primitive: ring; segments-theta: 128; radius-inner:7.475; radius-outer:7.575;"
               material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
               radius="10" rotation="-90 0 0">
     </a-entity>
-    <a-entity position="0 0.1 0"
-              geometry="primitive: ring; segments-theta: 256; radius-inner:11.105; radius-outer:11.205;"
+    <a-entity position="0 0.002 0"
+              geometry="primitive: ring; segments-theta: 128; radius-inner:11.105; radius-outer:11.205;"
               material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
               radius="10" rotation="-90 0 0">
     </a-entity>
-    <a-entity position="0 0.1 0"
+    <a-entity position="0 0.002 0"
               geometry="primitive: ring; segments-theta: 256; radius-inner:15.37; radius-outer:15.47;"
               material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
               radius="10" rotation="-90 0 0">
     </a-entity>
-    <a-entity position="0 0.1 0" geometry="primitive: ring; segments-theta: 256; radius-inner:19.80; radius-outer:19.9;"
+    <a-entity position="0 0.002 0" geometry="primitive: ring; segments-theta: 256; radius-inner:19.80; radius-outer:19.9;"
               material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity:1.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <!-- rings -->
+    <a-entity position="0 0.001 0"
+              geometry="primitive: ring; segments-theta: 128; radius-inner:7.375; radius-outer:7.675;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity: 0.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.001 0"
+              geometry="primitive: ring; segments-theta: 128; radius-inner:11.005; radius-outer:11.305;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity: 0.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.001 0"
+              geometry="primitive: ring; segments-theta: 256; radius-inner:15.27; radius-outer:15.57;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity: 0.2"
+              radius="10" rotation="-90 0 0">
+    </a-entity>
+    <a-entity position="0 0.001 0" geometry="primitive: ring; segments-theta: 256; radius-inner:19.70; radius-outer: 20;"
+              material="roughness: 1; metalness: 1; shader: standard; color: white; emissive:#FF8800; emissiveIntensity: 0.2"
               radius="10" rotation="-90 0 0">
     </a-entity>
     <!-- nav-mesh: protecting us from running thru sphere, cube and cylinder  -->
@@ -134,7 +154,7 @@
     castShadow: true;
     decay: 0.2;
     shadowCameraNear: 6;
-    shadowCameraVisible: false;" position="0 0 0">
+    shadowCameraVisible: false; shadowMapHeight: 5120; shadowMapWidth: 5120" position="0 0 0">
       </a-entity>
     </a-entity>
     <!-- central lights -->
@@ -146,7 +166,7 @@
     intensity: 2;
     castShadow: false;
     decay: 1;
-    shadowCameraVisible: false;" position="0 -10 0" rotation="90 0 0"></a-entity>
+    shadowCameraVisible: false; shadowMapHeight: 5120; shadowMapWidth: 5120" position="0 -10 0" rotation="90 0 0"></a-entity>
     <!--wall light-->
     <a-entity light="type:point;
     distance: 8;
