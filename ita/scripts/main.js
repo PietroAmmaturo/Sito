@@ -8,7 +8,6 @@ var stickyonavon = false;
 var onavbar = document.getElementById("onavbar");
 var vnavbar = document.getElementById("vnavbar");
 var onavtop = onavbar.offsetTop;
-var vnavtop = vnavbar.offsetTop - convertRem(3.9);
 
 function stickyNav() {
   stickyonavon = true;
@@ -33,14 +32,14 @@ function stickyOnav() {
 }
 
 function stickyVnav() {
-  if (window.pageYOffset >= vnavtop) {
+  if (window.pageYOffset >= onavtop) {
     vnavbar.classList.add("sticky");
   } else {
     vnavbar.classList.remove("sticky");
   }
 }
 
-/*eccessivamente complicato e delle volte si apre la vnavbar wuando non dovrebbe*/
+/*eccessivamente complicato e delle volte si apre la vnavbar quando non dovrebbe*/
 /*
 function hideVnav(){
   if(onavon || !stickyonavon){vnavon = false;}
