@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
 	<title>Home</title>
@@ -9,14 +10,12 @@
 
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
-	<link href=
-	"https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-	<link href=
-	"https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
-	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
+		  rel="stylesheet">
 
 </head>
+
 <body>
 
 	<div class="header">
@@ -40,164 +39,354 @@
 	</div>
 
 	<div id="onavbar" class="onavbar">
-		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none";>
+		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none">
 			<i class="material-icons" id="toggleonav">keyboard_arrow_right</i>
 		</a>
-		<a onclick="toggleVnav()" id="blocktogglevnav">
-			<i class="material-icons" id="togglevnav">dehaze</i>
-		</a>
 		<div class="center">
-			<a class="active" href="index.html" id = "gotoindex">
-				<i class="material-icons">home</i>
-			</a>
-			<a href="whoami.html" id = "gotowhoami">
+			<a href="#about" id="about_button">
 				<i class="material-icons">person</i>
 			</a>
-			<a href="news.html" id = "gotonews">
+			<a href="#portfolio" id="portfolio_button">
+				<i class="material-icons">apps</i>
+			</a>
+			<a href="#news" id="news_button">
 				<i class="material-icons">new_releases</i>
 			</a>
-			<a href="experiments.html" id = "gotoexperiments">
-				<i class="material-icons">apps</i>
+			<a href="#social" id="social_button">
+				<i class="material-icons">message</i>
 			</a>
 		</div>
 	</div>
 
-	<div id="vnavbar" class="vnavbar">
-		<a href="#anagrafica">Anagrafica</a>
-		<a href="#descrizione">Descrizione</a>
-		<a href="#competenze">Competenze</a>
-		<a href="">Istruzione</a>
-	</div>
-
-	<section id="main" class="main">
-		<section class="wip UL">
-			<div id="row" class="row">
-				<div class="side L">
-					<div class="main-container">
-						<ul class="list-of-floating-elements">
-							<li class="floated">
-								<canvas id = "a1" onmouseout="fade(this)"
-								onclick="lock(this, '0')"
-								onmouseover="stamp(this, '0')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "a2" onmouseout="fade(this)"
-								onclick="lock(this, '1')"
-								onmouseover="stamp(this, '1')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "a3" onmouseout="fade(this)"
-								onclick="lock(this, '2')"
-								onmouseover="stamp(this, '2')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "a4" onmouseout="fade(this)"
-								onclick="lock(this, '3')"
-								onmouseover="stamp(this, '3')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "a5" onmouseout="fade(this)"
-								onclick="lock(this, '4')"
-								onmouseout="fade(this)" onmouseover="stamp(this, '4')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "a6" onmouseout="fade(this)"
-								onclick="lock(this, '5')"
-								onmouseover="stamp(this, '5')"></canvas>
-							</li>
-						</ul>
-					</div>
-					<div class="main-container">
-						<ul class="list-of-floating-elements">
-							<li class="floated">
-								<canvas id = "b1" onmouseout="fade(this)"
-								onclick="lock(this, '6')"
-								onmouseover="stamp(this, '6')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "b2" onmouseout="fade(this)"
-								onclick="lock(this, '7')"
-								onmouseover="stamp(this, '7')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "b3" onmouseout="fade(this)"
-								onclick="lock(this, '8')"
-								onmouseover="stamp(this, '8')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "b4" onmouseout="fade(this)"
-								onclick="lock(this, '9')"
-								onmouseover="stamp(this, '9')"></canvas>
-							</li>
-						</ul>
-					</div>
-					<div class="main-container">
-						<ul class="list-of-floating-elements">
-							<li class="floated">
-								<canvas id = "c1" onmouseout="fade(this)"
-								onclick="lock(this, '10')"
-								onmouseover="stamp(this, '10')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "c2" onmouseout="fade(this)"
-								onclick="lock(this, '11')"
-								onmouseover="stamp(this, '11')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "c3" onmouseout="fade(this)"
-								onclick="lock(this, '12')"
-								onmouseover="stamp(this, '12')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "c4" onmouseout="fade(this)"
-								onclick="lock(this, '13')"
-								onmouseover="stamp(this, '13')"></canvas>
-							</li>
-							<li class="floated">
-								<canvas id = "c5" onmouseout="fade(this)"
-								onclick="lock(this, '14')"
-								onmouseover="stamp(this, '14')"></canvas>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="main S">
-					<h1 id = "typing" class = "txt typing"></h1>
-				</div>
-			</section>
-		</section>
-
-		<div id="footer" class="footer">
-			<h1>Contattami</h1>
-			<table>
-				<tr>
-					<td><h2>Cellulare: &nbsp&nbsp&nbsp</h2></td>
-					<td><div class="txt">+393391354572</div></td>
-				</tr>
-				<tr>
-					<td><h2>E-mail: &nbsp&nbsp&nbsp</h2></td>
-					<td><div class="txt"><a href =
-						"mailto: pammaturo02@gmail.com">
-						pammaturo02@gmail.com</a></div></td>
-					</tr>
-					<tr>
-						<td><h2>Twitter: &nbsp&nbsp&nbsp</h2></td>
-						<td><div class="txt"><a href=
-							"https://twitter.com/AmmaturoPietro">
-							@AmmaturoPietro</a></div></td>
+	<div id="content" class="content">
+		<div class="divider_right"></div>
+		<section id="about">
+			<h1>About Me</h1>
+			<div class="container about_item" id="personal_data">
+				<h2>Personal Data</h2>
+				<div class="container">
+					<img src="images/me.jpg" />
+					<table>
+						<tr>
+							<td>
+								<h3>Nome:&nbsp&nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Pietro</p>
+							</td>
 						</tr>
 						<tr>
-							<td><h2>Linkedin: &nbsp&nbsp&nbsp</h2></td>
-							<td><div class="txt"><a href=
-								"https://www.linkedin.com/in/pietro-ammaturo-0a56a71a1/">
-								Pietro Ammaturo</a></div></td>
-							</tr>
-						</table>
+							<td>
+								<h3>Cognome:&nbsp&nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Ammaturo</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Data di nascita:&nbsp&nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>6 giugno 2002</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Luogo di nascita:&nbsp&nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Avellino (AV)</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="separator"></div>
+			<div id="description" class="container about_item">
+				<h2>Description</h2>
+				<div class="container">
+					<p>
+						Sono uno studente di ingegneria
+						informatica al politecnico di Milano. Nel tempo libero mi
+						occupo della realizzazione di siti web. Ho conoscenze
+						discrete lato client e di base lato server. Sono molto
+						interessato all'immersività delle pagine web, in
+						particolare a come AR (augmented reality), VR (virtual
+						reality) e MR (mixed reality) possono migliorare
+						la resa di queste ultime. </p>
+
+				</div>
+			</div>
+			<div class="separator"></div>
+			<div id="skills" class="container about_item">
+				<h2>Skills</h2>
+				<div class="container">
+					<table>
+						<tr>
+							<td class="score_label">
+								<h3>HTML:&nbsp&nbsp</h3>
+							</td>
+							<td class="score_container">
+								<div id="htmlscore" class="score html"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="score_label">
+								<h3>CSS:&nbsp&nbsp</h3>
+							</td>
+							<td class="score_container">
+								<div id="cssscore" class="score css"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="score_label">
+								<h3>JS:&nbsp&nbsp</h3>
+							</td>
+							<td class="score_container">
+								<div id="jsscore" class="score js"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="score_label">
+								<h3>SQL:&nbsp&nbsp</h3>
+							</td>
+							<td class="score_container">
+								<div id="sqlscore" class="score sql"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="score_label">
+								<h3>C:&nbsp&nbsp</h3>
+							</td>
+							<td class="score_container">
+								<div id="cscore" class="score c"></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="separator"></div>
+			<div id="studies" class="container about_item">
+				<h2>Studies</h2>
+				<div class="container">
+					<table>
+						<tr>
+							<td>
+								<h3>Diploma: &nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Indirizzo scientifico: scienze applicate<br>
+									Istituto ISIS Albertini Nola(NA)<br>
+									Votazione: 100 e lode</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Inglese: &nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Certificazione Cambridge C1(198)</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Informatica: &nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Certificazione Eipass</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Economia: &nbsp&nbsp&nbsp</h3>
+							</td>
+							<td>
+								<p>Certificazione "Young manager course"<br>
+									London Kingston University</p>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+		</section>
+		<div class="divider_left"></div>
+		<div class="divider_right"></div>
+		<section id="portfolio">
+			<h1>Portfolio</h1>
+			<div class="portfolio_menu container">
+				<div class="wrapper"><a id="websites_button">WEBSITES</a><a id="webxr_button">WEBXR</a></div>
+			</div>
+			<div class="separator"></div>
+			<div class="container">
+				<div id="description" class="container portfolio_item webxr">
+					<h2>Description</h2>
+					<div class="carousel portfolio_carousel">
+						<div class="portfolio_space"></div>
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<div class="portfolio_space"></div>
 					</div>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
 
-					<script type="text/javascript" src="scripts/main.js"></script>
-					<script type="text/javascript" src="scripts/index.js"></script>
-					<script type="text/javascript" src="scripts/listeners.js"></script>
+					</div>
+				</div>
+				<div id="description" class="container portfolio_item websites">
+					<h2>Description</h2>
+					<div class="carousel portfolio_carousel">
+						<div class="portfolio_space"></div>
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<div class="portfolio_space"></div>
+					</div>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
 
-				</body>
-				</html>
+					</div>
+				</div>
+				<div id="description" class="container portfolio_item webxr">
+					<h2>Description</h2>
+					<div class="carousel portfolio_carousel">
+						<div class="portfolio_space"></div>
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<img src="images/me.jpg" />
+						<div class="portfolio_space"></div>
+					</div>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="divider_left"></div>
+		<div class="divider_right"></div>
+		<section id="news">
+			<h1>News</h1>
+			<div class="container carousel news_carousel">
+				<div class="news_space"></div>
+				<div class="news_item container try">
+					<h2>Description</h2>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
+
+					</div>
+				</div>
+				<div class="news_item container">
+					<h2>Description</h2>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
+
+					</div>
+				</div>
+				<div class="news_item container">
+					<h2>Description</h2>
+					<div class="container">
+						<p>
+							Sono uno studente di ingegneria
+							informatica al politecnico di Milano. Nel tempo libero mi
+							occupo della realizzazione di siti web. Ho conoscenze
+							discrete lato client e di base lato server. Sono molto
+							interessato all'immersività delle pagine web, in
+							particolare a come AR (augmented reality), VR (virtual
+							reality) e MR (mixed reality) possono migliorare
+							la resa di queste ultime. </p>
+
+					</div>
+				</div>
+				<div class="news_space"></div>
+			</div>
+		</section>
+		<div class="divider_left"></div>
+		<div class="divider_right"></div>
+		<section id="social">
+			<h1>Social</h1>
+			<div class="container">
+				<div class="social_item left container">
+					<img src="images/Windows_live_square.jfif" />
+					<h2>follow me on twitter</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="social_item right container">
+					<img src="images/Windows_live_square.jfif" />
+					<h2>find me on instagram</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="social_item left container">
+					<img src="images/Windows_live_square.jfif" />
+					<h2>check me out on github</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="social_item right container">
+					<img src="images/Windows_live_square.jfif" />
+					<h2>hire me on fiverr</h2>
+				</div>
+				<div class="separator"></div>
+				<div class="social_item left container">
+					<img src="images/Windows_live_square.jfif" />
+					<div>
+						<h2>mail me:</h2>
+						<p>pammaturo02 @gmail.com</p>
+					</div>
+				</div>
+				<div class="separator"></div>
+				<div class="social_item right container">
+					<img src="images/Windows_live_square.jfif" />
+					<div>
+						<h2>call me:</h2>
+						<p>+39 999 999 9999</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="divider_left"></div>
+	</div>
+
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/listeners.js"></script>
+</body>

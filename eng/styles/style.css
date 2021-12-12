@@ -1,405 +1,616 @@
-body{font: 1em 'Open Sans', sans-serif;
-margin:0;
+html {
+	scroll-behavior: smooth
 }
 
-iframe{
+body {
+	font: 1em 'Open Sans', sans-serif;
+	margin: 0;
+	background-image: linear-gradient(90deg, black, rgba(40, 40, 40, 1) 20%, rgba(40, 40, 40, 1) 80%, black);
+}
+
+section {
+	position: relative;
+	margin: 10px;
+	padding: 10px;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+iframe {
 	border-width: 0;
 }
 
-.header{
-  padding: 3em;
+.header {
+	padding: 3em;
 	padding-bottom: 5em;
-  text-align: center;/* center the text */
-  background-image:
-  url('images/headerbackground.webp');
-  animation-name: background;
-  animation-duration: 180s;
-  animation-direction: normal;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+	text-align: center;
+	/* center the text */
+	background-image: url('images/headerbackground.webp');
+	animation-name: background;
+	animation-duration: 180s;
+	animation-direction: normal;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
 }
 
-.header h1.letter{
-  display: inline-block;
-  font: 3em 'Montserrat', sans-serif;
-  animation-name: fullname;
-  animation-duration: 13s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-.header br{
-  display: none;
+.header h1.letter {
+	display: inline-block;
+	font: 3em 'Montserrat', sans-serif;
+	animation-name: fullname;
+	animation-duration: 13s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
-.header h1.letter:nth-child(1){animation-delay: 1s;}
-.header h1.letter:nth-child(2){animation-delay: 2s;}
-.header h1.letter:nth-child(3){animation-delay: 3s;}
-.header h1.letter:nth-child(4){animation-delay: 4s;}
-.header h1.letter:nth-child(5){animation-delay: 5s;}
-.header h1.letter:nth-child(6){animation-delay: 6s;}
-.header h1.letter:nth-child(8){animation-delay: 7s;}
-.header h1.letter:nth-child(9){animation-delay: 8s;}
-.header h1.letter:nth-child(10){animation-delay: 9s;}
-.header h1.letter:nth-child(11){animation-delay: 10s;}
-.header h1.letter:nth-child(12){animation-delay: 11s;}
-.header h1.letter:nth-child(13){animation-delay: 12s;}
-.header h1.letter:nth-child(14){animation-delay: 13s;}
-.header h1.letter:nth-child(15){animation-delay: 14s;}
-
-
-@keyframes fullname{
-	0% {color: rgba(0, 0, 0, 1);}
-	25% {color: rgba(0, 0, 0, 0.8);}
-	50% {color: rgba(0, 0, 0, 0.6);}
-	75% {color: rgba(0, 0, 0, 0.4);}
-	100% {color: rgba(0, 0, 0, 0.2);}
+.header br {
+	display: none;
 }
 
-@keyframes background{
-  0% {background-position: left top;}
-  25% {background-position: right top;}
-  50% {background-position: right bottom;}
-  75% {background-position: left bottom;}
-  }
+.header h1.letter:nth-child(1) {
+	animation-delay: 1s;
+}
 
+.header h1.letter:nth-child(2) {
+	animation-delay: 2s;
+}
+
+.header h1.letter:nth-child(3) {
+	animation-delay: 3s;
+}
+
+.header h1.letter:nth-child(4) {
+	animation-delay: 4s;
+}
+
+.header h1.letter:nth-child(5) {
+	animation-delay: 5s;
+}
+
+.header h1.letter:nth-child(6) {
+	animation-delay: 6s;
+}
+
+.header h1.letter:nth-child(8) {
+	animation-delay: 7s;
+}
+
+.header h1.letter:nth-child(9) {
+	animation-delay: 8s;
+}
+
+.header h1.letter:nth-child(10) {
+	animation-delay: 9s;
+}
+
+.header h1.letter:nth-child(11) {
+	animation-delay: 10s;
+}
+
+.header h1.letter:nth-child(12) {
+	animation-delay: 11s;
+}
+
+.header h1.letter:nth-child(13) {
+	animation-delay: 12s;
+}
+
+.header h1.letter:nth-child(14) {
+	animation-delay: 13s;
+}
+
+.header h1.letter:nth-child(15) {
+	animation-delay: 14s;
+}
+
+@keyframes fullname {
+	0% {
+		color: rgba(0, 0, 0, 1);
+	}
+
+	25% {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	50% {
+		color: rgba(0, 0, 0, 0.6);
+	}
+
+	75% {
+		color: rgba(0, 0, 0, 0.4);
+	}
+
+	100% {
+		color: rgba(0, 0, 0, 0.2);
+	}
+}
+
+@keyframes background {
+	0% {
+		background-position: left top;
+	}
+
+	25% {
+		background-position: right top;
+	}
+
+	50% {
+		background-position: right bottom;
+	}
+
+	75% {
+		background-position: left bottom;
+	}
+}
 
 /* Style the top navigation bar */
+
 .onavbar {
 	position: absolute;
 	top: 12.1em;
 	width: 100%;
-  overflow: hidden; /* Hide overflow */
-  background-color: rgba(40,40,40,0.4); /* Dark background color */
+	overflow: hidden;
+	/* Hide overflow */
+	background-color: rgba(40, 40, 40, 0.6);
+	/* Dark background color */
 	z-index: 5;
 	height: 3.5em;
 	transition: width 0.5s;
 }
-/* Style the navigation bar links */
-.onavbar a {
-	position: relative;
-	font: 1em 'Raleway', sans-serif;
-  float: left; /* Make sure that the links stay side-by-side */
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: white; /* White text color */
-  text-align: center; /* Center the text */
-  padding: 1em 1em; /* Add some padding */
-  text-decoration: none; /* Remove underline */
-}
-/* Right-aligned link */
-.onavbar a.right {
-  float: right; /* Float a link to the right */
-}
-/* Change color on hover/mouse-over */
-.onavbar a:hover {
-  background-color: rgba(40,40,40,0.2); /* Grey background color */
-  color: White; /* Black text color */
-}
-.onavbar a.active {
- background-color: rgba(40,40,40,0.4);
- color: White;
-}
-.onavbar a i{
-	font-size: 1.5em;
-}
-.onavbar.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.onavbar.sticky + .content {
-  padding-top: 5em;
-}
+
 .onavbar a div {
 	position: absolute;
 	width: 100%;
-	left:0%; bottom:5%;
+	left: 0%;
+	bottom: 5%;
 	font: 1.2em 'Economica', sans-serif;
+	z-index: 6;
 }
-.onavbar div.center{
+
+.onavbar div {
+	position: absolute;
+	width: 100%;
+}
+
+.onavbar div.center {
 	display: flex;
 	justify-content: center;
-	margin:0 auto;
-}
-
-
-
-.vnavbar {
-	display: block;
-	transition: 0.5s;
-	font: 2em 'Economica', sans-serif;
-  overflow: scroll; /* Scroll navbar */
-  background-color: rgba(255,255,255,0.6); /* Dark background color */
-	width: 0em;
-	position: absolute;
-	height: 100%;
-	z-index: 4;
-	padding-bottom: 8em;
-}
-.vnavbar::-webkit-scrollbar {
-	background: transparent;
-	overflow: visible;
-	width: 10px;
-}
-.vnavbar::-webkit-scrollbar-thumb {
-	background-color: rgba(40,40,40,0.2);
-
-}
-
-.vnavbar::-webkit-scrollbar-thumb:hover {
-	background-color: rgba(40,40,40,0.6);
+	margin: 0 auto;
+	z-index: 6;
 }
 
 /* Style the navigation bar links */
 
-.vnavbar a {
-  float: top;
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: Black; /* White text color */
-  text-align: left; /* Center the text */
-  padding: 0.5em 0.5em; /* Add some padding */
-  text-decoration: none; /* Remove underline */
-	width: 100%;
-	white-space: nowrap;
-}
-/* Top-aligned link */
-.vnavbar a.top {
-  float: top; /* Float a link to the top */
-}
-/* Change color on hover/mouse-over */
-.vnavbar a:hover {
-  background-color: rgba(40,40,40,0.2); /* Grey background color */
-  color: Black; /* Black text color */
-}
- .vnavbar.sticky {
-  position: fixed;
-  top: 1.73em;
-	left: 0em;
-	height: 100%;
-	padding-bottom: 2em;
-}
-.vnavbar.sticky + .content {
-  padding-top: 2em;
-}
-
-/* Ensure proper sizing */
-* {
-  box-sizing: border-box;
-}
-
-/* section settings */
-section.main{
-	transition: 0.5s;
+.onavbar a {
 	position: relative;
-	left: 0em;
-	z-index: 1;
-	margin: 0em;
-	padding: 0em;
+	font: 1em 'Raleway', sans-serif;
+	float: left;
+	/* Make sure that the links stay side-by-side */
+	display: block;
+	/* Change the display to block, for responsive reasons (see below) */
+	color: white;
+	/* White text color */
+	text-align: center;
+	/* Center the text */
+	padding: 1em 1em;
+	/* Add some padding */
+	text-decoration: none;
+	/* Remove underline */
 }
-section.UL h1{
-	display: inline;
-	font: 4em 'Economica', sans-serif;
-	letter-spacing: 0.2em;
-}
-section.UL div.img{
-	min-height: 30em;
-	height: 100%;
-	width: 100%;
-}
-section.UL div.txt{
-	font: 1.4em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
 
-}
-section.XL h1{
-	display: inline;
-	font: 3.6em 'Economica', sans-serif;
-	letter-spacing: 0.2em;
-}
-section.XL div.img{
-	height: 25em;
-	width: 100%;
-}
-section.XL div.txt{
-	font: 1.3em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
+/* Right-aligned link */
 
+.onavbar a.right {
+	float: right;
+	/* Float a link to the right */
+	z-index: 8;
 }
-section.L h1{
-	display: inline;
-	font: 3.2em 'Economica', sans-serif;
-	letter-spacing: 0.2em;
-}
-section.L div.img{
-	height: 20em;
-	width: 100%;
-}
-section.L div.txt{
-	font: 1.2em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
 
+.onavbar a.left {
+	float: left;
+	/* Float a link to the left */
+	z-index: 8;
 }
-section.M h1{
-	display: inline;
-	font: 2.8em 'Economica', sans-serif;
-	letter-spacing: 0.2em;
-}
-section.M div.img{
-	height: 15em;
-	width: 100%;
-}
-section.M div.txt{
-	font: 1.1em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
 
+.onavbar a i {
+	font-size: 1.5em;
 }
-section.S h1{
-	display: inline;
-	font: 2.4em 'Economica', sans-serif;
-	letter-spacing: 0.2em;
-}
-section.S div.img{
-	height: 10em;
+
+.onavbar.sticky {
+	position: fixed;
+	top: 0px;
 	width: 100%;
 }
-section.S div.txt{
+
+
+
+.content {
+	width: 60%;
+	margin: auto;
+	background-color: rgb(200, 200, 200);
+}
+
+.content h1 {
+	font: 3em 'Economica', sans-serif;
+	letter-spacing: 0.2em;
+	background-color: rgb(40, 40, 40);
+	color: white;
+	text-align: center;
+	border: white solid 2px;
+}
+
+.content h2 {
+	font: 2em 'Economica', sans-serif;
+	letter-spacing: 0.2em;
+}
+
+.content p {
 	font: 1em "Open Sans", sans-serif;
 	letter-spacing: 0.2em;
+}
+
+.container {
+	margin: auto;
+	width: 90%;
+	padding: 0px;
+	position: relative;
+}
+
+.about_item {
+	margin: 20px;
+}
+
+.about_item img {
+	width: 15vw;
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transform: translateY(-50%);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.portfolio_menu {
+	position: relative;
+	width: 100%;
+	font-size: 2em;
+}
+
+
+.wrapper {
+	width: 60%;
+	margin: auto;
+	display: flex;
+}
+
+.portfolio_menu a {
+	width: 40%;
+	margin: 5%;
+	text-align: center;
+	color: black;
+	background: radial-gradient(ellipse at 50% 100%, rgb(40, 40, 40), rgb(200, 200, 200) 20%);
+	background-size: 200% 50%;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	display: inline-flexbox;
+}
+
+.portfolio_menu a:hover {
+	color: white;
+	background: radial-gradient(ellipse at 50% 100%, white, rgb(200, 200, 200) 60%);
+}
+
+.portfolio_menu a.active {
+	color: white;
+	background: radial-gradient(ellipse at 50% 100%, white, rgb(200, 200, 200) 60%);
+}
+
+.portfolio_item {
+	background-color: rgb(200, 200, 200);
+	width: 45%;
+	margin: 2.3%;
+	display: inline-block;
+	-webkit-box-shadow: inset 0 0 60px 30px white;
+	box-shadow: inset 0 0 60px 30px white;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.portfolio_item img {
+	width: 75%;
+	margin: 2.5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.portfolio_carousel {
+	-webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+	mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.portfolio_space {
+	width: 10%;
+	display: inline-block;
+	white-space: normal;
+}
+
+.news_carousel {
+	background-image: linear-gradient(90deg, rgba(200,200,200, 1) 0%, white, rgba(200,200,200, 1) 100%);
+	-webkit-mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+	mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+}
+
+.news_item {
+	width: 45%;
+	margin: 2.5%;
+	display: inline-block;
+	white-space: normal;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.news_space {
+	width: 25%;
+	display: inline-block;
+	white-space: normal;
+}
+
+.social_item h2 {
+	display: inline-block;
+	align-self: center;
+	margin: 10px;
+}
+.social_item p {
+	display: block;
+	align-self: center;
+	margin: 10px;
+}
+.social_item img {
+	display: inline-block;
+	height: 128px;
+	align-self: center;
+}
+
+.social_item {
+	display: flex;
+	margin: 20px;
+}
+
+.social_item.right {
+	flex-direction: row-reverse;
 
 }
-section.XS h1{
-	display: inline;
-	font: 2em "Economica", sans-serif;
-	letter-spacing: 0.2em;
+.social_item.right:hover {
+	background: linear-gradient(90deg, rgb(200, 200, 200) 20%, white calc(100% - 128px));
 
 }
-section.XS div.img{
-	height: 5em;
+.social_item.left {
+	flex-direction: row;
+}
+.social_item.left:hover {
+	background: linear-gradient(90deg, white 128px, rgb(200, 200, 200) 80%);
+}
+
+.carousel {
+	overflow: scroll;
+	white-space: nowrap;
+	cursor: grab;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel::-webkit-scrollbar {
+	display: none;
+}
+
+#skills table {
 	width: 100%;
 }
-section.XS div.txt{
-	font: 0.9em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
 
+.score {
+	text-align: right;
+	/* Right-align text */
+	padding-top: 10px;
+	/* Add top padding */
+	padding-bottom: 10px;
+	/* Add bottom padding */
+	color: white;
+	/* White text color */
 }
-section.US h1{
-	display: inline;
-	font: 1.6em "Economica", sans-serif;
-	letter-spacing: 0.1em;
 
+.score_label {
+	width: 10%;
 }
-section.US div.img{
-	height: 0em;
+
+.score_container {
+	width: 90%;
+}
+
+
+.html {
+	width: 90%;
+	background-image: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%, rgba(140, 140, 140, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Green */
+.css {
+	width: 80%;
+	background-image: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%, rgba(140, 140, 140, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Green */
+.js {
+	width: 80%;
+	background-image: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%, rgba(140, 140, 140, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Green */
+.sql {
+	width: 30%;
+	background-image: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%, rgba(140, 140, 140, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Green */
+.c {
+	width: 50%;
+	background-image: linear-gradient(90deg, rgba(40, 40, 40, 1) 0%, rgba(140, 140, 140, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Green */
+
+.divider_right {
+	height: 3px;
 	width: 100%;
-}
-section.US div.txt{
-	font: 0.8em "Open Sans", sans-serif;
-	letter-spacing: 0.2em;
-
+	background: linear-gradient(90deg, rgb(200, 200, 200) 10%, rgb(100, 100, 100), rgb(40, 40, 40) 90%);
 }
 
-/* Column container */
-.row {
-	transition: 0.5s;
-  display: flex;
-  flex-wrap: wrap;
+.divider_left {
+	height: 3px;
+	width: 100%;
+	background: linear-gradient(90deg, rgb(40, 40, 40) 10%, rgb(100, 100, 100), rgb(200, 200, 200) 90%);
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  background-color: #f1f1f1; /* Grey background color */
-  padding: 0.5em; /* Some padding */
-}
-.side.L{
-	flex: 45%; /* Set the width of the sidebar */
-}
-.side.M{
-	flex: 30%; /* Set the width of the sidebar */
-}
-.side.S{
-	flex: 15%; /* Set the width of the sidebar */
+.separator {
+	height: 2px;
+	width: 100%;
+	background: radial-gradient(closest-side, rgb(40, 40, 40), rgb(200, 200, 200));
 }
 
-/* Main column */
-.main {
-  background-color: white; /* White background color */
-  padding: 0.5em; /* Some padding */
-}
-.main.L{
-	flex: 85;
-}
-.main.M{
-	flex: 85;
-}
-.main.S{
-	flex: 85;
-}
-
-/* Responsive layout - when the screen is less than 900px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 900px) {
-	.header br{
+@media screen and (max-width: 1200px) {
+	.header br {
 		display: block;
 	}
-	.onavbar{
-		top: 19.9em;
+
+	.header {
+		height: 25em;
+		font-size: 0.8em;
 	}
-	section.UL{
-		padding-bottom: 7em;
+
+	.onavbar {
+		top: 16.5em;
 	}
-	section.XL{
-		padding-bottom: 6em;
-	}
-	section.L{
-		padding-bottom: 5em;
-	}
-	section.M{
-		padding-bottom: 4em;
-	}
-	section.S{
-		padding-bottom: 3em;
-	}
-	section.XS{
-		padding-bottom: 2em;
-	}
-	section.US{
-		padding-bottom: 1em;
-	}
-  .row {
-    flex-direction: column;
-		position: static;
-		left:	0;
+
+	.container {
 		width: 100%;
-  }
-}
+	}
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 500px) {
-body{
-	font-size: 0.9em;
-}
-}
+	.content {
+		width: 90%;
+	}
 
-@media screen and (max-width: 400px) {
-body{
-	font-size: 0.8em;
-}
-}
+	.news_item {
+		width: 90%;
+		margin: 5%;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
 
-@media screen and (max-width: 300px) {
-	body{
-		font-size: 0.7em;
+	.portfolio_item {
+		width: 100%;
+		margin: 0%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.about_item {
+		margin: 0%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#about img {
+		width: 100%;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		transform: translateY(0%);
+	}
+
+	.news_space {
+		display: none;
+	}
+
+	.wrapper {
+		display: block;
+		width: fit-content;
+	}
+
+	.portfolio_menu a {
+		display: block;
+		width: auto;
+	}
+	.social_item.right:hover {
+		background: linear-gradient(90deg, rgb(200, 200, 200) 0%, white calc(100% - 128px));
+	
+	}
+	
+	.social_item.left:hover {
+		background: linear-gradient(90deg, white 128px, rgb(200, 200, 200) 100%);
 	}
 }
 
-.footer {
-	height: 30em;
-	position: relative;
-	left: 0;
-	width: 100%;
-	padding-top: 2vw;
-  padding-left: 5vw; /* Some padding */
-	justify-content: center;
-  background: #ddd; /* Grey background */
-	z-index: 0;
+@media (hover:hover) {
+
+	/* Change color on hover/mouse-over */
+	.onavbar a:hover {
+		background-color: rgba(40, 40, 40, 0.2);
+		/* Grey background color */
+	}
+
+	.vnavbar::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(40, 40, 40, 0.6);
+	}
+
+	/* Change color on hover/mouse-over */
+	.vnavbar a div:hover {
+		background-color: rgba(40, 40, 40, 0.7);
+		text-align: right;
+	}
+}
+
+@media (hover:none) {
+
+	/* Change color on hover/mouse-over */
+	.onavbar a:hover {
+		background-color: rgba(40, 40, 40, 0.0);
+	}
+
+	.vnavbar::-webkit-scrollbar-thumb:hover {
+		background-color: inherit;
+	}
+
+	/* Change color on hover/mouse-over */
+	.vnavbar a:hover {
+		background-color: rgba(40, 40, 40, 0);
+	}
+}
+
+.fadein {
+	animation: fadein 0.5s linear 0s normal forwards;
+}
+
+.fadeout {
+	animation: fadeout 0.5s linear 0s normal forwards;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
 }
