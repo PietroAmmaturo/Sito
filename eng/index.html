@@ -62,6 +62,7 @@
 		<div class="divider_right"></div>
 		<section id="about">
 			<h1>About Me</h1>
+			<div class="separator"></div>
 			<div class="container about_item" id="personal_data">
 				<h2>Personal Data</h2>
 				<div class="container">
@@ -69,7 +70,7 @@
 					<table>
 						<tr>
 							<td>
-								<h3>Nome:&nbsp&nbsp&nbsp&nbsp</h3>
+								<h3>Name:&nbsp&nbsp&nbsp&nbsp</h3>
 							</td>
 							<td>
 								<p>Pietro</p>
@@ -77,7 +78,7 @@
 						</tr>
 						<tr>
 							<td>
-								<h3>Cognome:&nbsp&nbsp&nbsp&nbsp</h3>
+								<h3>Surname:&nbsp&nbsp&nbsp&nbsp</h3>
 							</td>
 							<td>
 								<p>Ammaturo</p>
@@ -85,15 +86,15 @@
 						</tr>
 						<tr>
 							<td>
-								<h3>Data di nascita:&nbsp&nbsp&nbsp&nbsp</h3>
+								<h3>Birth date:&nbsp&nbsp&nbsp&nbsp</h3>
 							</td>
 							<td>
-								<p>6 giugno 2002</p>
+								<p>6 june 2002</p>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<h3>Luogo di nascita:&nbsp&nbsp&nbsp&nbsp</h3>
+								<h3>From:&nbsp&nbsp&nbsp&nbsp</h3>
 							</td>
 							<td>
 								<p>Avellino (AV)</p>
@@ -107,14 +108,11 @@
 				<h2>Description</h2>
 				<div class="container">
 					<p>
-						Sono uno studente di ingegneria
-						informatica al politecnico di Milano. Nel tempo libero mi
-						occupo della realizzazione di siti web. Ho conoscenze
-						discrete lato client e di base lato server. Sono molto
-						interessato all'immersività delle pagine web, in
-						particolare a come AR (augmented reality), VR (virtual
-						reality) e MR (mixed reality) possono migliorare
-						la resa di queste ultime. </p>
+						I am a computer engeneering student at the Politecnico di Milano. In my free time I realize
+						websities an webxr experiences. I am mainly a frontend web developer, but I am also studiyng the
+						server side. My main area of interests are webar(augmented reality in the web) and webvr(virtual
+						reality in the web), and how theese tools are able to henance the web experience of the user.
+					</p>
 
 				</div>
 			</div>
@@ -207,43 +205,61 @@
 							</td>
 						</tr>
 					</table>
-
 				</div>
 			</div>
+			<div class="separator"></div>
 		</section>
 		<div class="divider_left"></div>
 		<div class="divider_right"></div>
 		<section id="portfolio">
 			<h1>Portfolio</h1>
+			<div class="separator"></div>
 			<div class="portfolio_menu container">
 				<div class="wrapper"><a id="websites_button">WEBSITES</a><a id="webxr_button">WEBXR</a></div>
 			</div>
 			<div class="separator"></div>
-			<div class="container">
-				<div id="description" class="container portfolio_item webxr">
-					<h2>Description</h2>
+			<div class="portfolio_items container">
+				<div id="description" class="container portfolio_item websites">
+					<a href="https://www.yealthy.life">
+						<h2>Yealthy</h2>
+					</a>
 					<div class="carousel portfolio_carousel">
 						<div class="portfolio_space"></div>
-						<img src="images/me.jpg" />
-						<img src="images/me.jpg" />
-						<img src="images/me.jpg" />
+						<img src="images/yealthy1.png" />
+						<img src="images/yealthy2.png" />
+						<img src="images/yealthy3.png" />
+						<img src="images/yealthy4.png" />
 						<div class="portfolio_space"></div>
 					</div>
 					<div class="container">
 						<p>
-							Sono uno studente di ingegneria
-							informatica al politecnico di Milano. Nel tempo libero mi
-							occupo della realizzazione di siti web. Ho conoscenze
-							discrete lato client e di base lato server. Sono molto
-							interessato all'immersività delle pagine web, in
-							particolare a come AR (augmented reality), VR (virtual
-							reality) e MR (mixed reality) possono migliorare
-							la resa di queste ultime. </p>
-
+							I realized Yealthy's website. Yealthy is a startup and its website consists of different
+							pages, containing different carousels, interesting backgrounds, a fancy news section, a blog
+							showing Guido's latest medium posts and much more.</p>
 					</div>
 				</div>
 				<div id="description" class="container portfolio_item websites">
-					<h2>Description</h2>
+					<a href="https://www.guidoputignano.com">
+						<h2>Guido Putignano's personal website</h2>
+					</a>
+					<div class="carousel portfolio_carousel">
+						<div class="portfolio_space"></div>
+						<img src="images/guido1.png" />
+						<img src="images/guido2.png" />
+						<img src="images/guido3.png" />
+						<img src="images/guido4.png" />
+						<div class="portfolio_space"></div>
+					</div>
+					<div class="container">
+						<p>I realized Guido Putignano's personal website, a simple one-pager with different sections, a
+							fancy Portfolio and a few carousels, based on POLO's templates.</p>
+
+					</div>
+				</div>
+				<div id="description" class="container portfolio_item webxr">
+					<a href="https://pyramide3d.com/AR/">
+						<h2>Pyramide3D</h2>
+					</a>
 					<div class="carousel portfolio_carousel">
 						<div class="portfolio_space"></div>
 						<img src="images/me.jpg" />
@@ -253,19 +269,15 @@
 					</div>
 					<div class="container">
 						<p>
-							Sono uno studente di ingegneria
-							informatica al politecnico di Milano. Nel tempo libero mi
-							occupo della realizzazione di siti web. Ho conoscenze
-							discrete lato client e di base lato server. Sono molto
-							interessato all'immersività delle pagine web, in
-							particolare a come AR (augmented reality), VR (virtual
-							reality) e MR (mixed reality) possono migliorare
-							la resa di queste ultime. </p>
+							This is a simple webARexperience, marker based, that displays a model on a marker, that can
+							be a photo or a barcode, in this case a QRcode, representing the value 5</p>
 
 					</div>
 				</div>
 				<div id="description" class="container portfolio_item webxr">
-					<h2>Description</h2>
+					<a href="https://www.guidoputignano.com">
+						<h2>Guido Putignano's personal website</h2>
+					</a>
 					<div class="carousel portfolio_carousel">
 						<div class="portfolio_space"></div>
 						<img src="images/me.jpg" />
@@ -287,101 +299,89 @@
 					</div>
 				</div>
 			</div>
+			<div class="separator"></div>
 		</section>
 		<div class="divider_left"></div>
 		<div class="divider_right"></div>
 		<section id="news">
 			<h1>News</h1>
+			<div class="separator"></div>
 			<div class="container carousel news_carousel">
 				<div class="news_space"></div>
-				<div class="news_item container try">
-					<h2>Description</h2>
-					<div class="container">
-						<p>
-							Sono uno studente di ingegneria
-							informatica al politecnico di Milano. Nel tempo libero mi
-							occupo della realizzazione di siti web. Ho conoscenze
-							discrete lato client e di base lato server. Sono molto
-							interessato all'immersività delle pagine web, in
-							particolare a come AR (augmented reality), VR (virtual
-							reality) e MR (mixed reality) possono migliorare
-							la resa di queste ultime. </p>
+				<a href="https://www.google.com">
+					<div class="news_item container try">
+						<h2>University</h2>
+						<div class="container">
+							<p>
+								I am currently studying computer engeneering at Politecnico di Milano, I am in the
+								second semester of the second year.</p>
 
+						</div>
 					</div>
-				</div>
-				<div class="news_item container">
-					<h2>Description</h2>
-					<div class="container">
-						<p>
-							Sono uno studente di ingegneria
-							informatica al politecnico di Milano. Nel tempo libero mi
-							occupo della realizzazione di siti web. Ho conoscenze
-							discrete lato client e di base lato server. Sono molto
-							interessato all'immersività delle pagine web, in
-							particolare a come AR (augmented reality), VR (virtual
-							reality) e MR (mixed reality) possono migliorare
-							la resa di queste ultime. </p>
-
+				</a>
+				<a href="https://www.google.com">
+					<div class="news_item container">
+						<h2>WebXR</h2>
+						<div class="container">
+							<p>
+								I am working on different WebXR projects, using <a href="https://aframe.io/">Aframe</a>,
+								<a href="https://ar-js-org.github.io/AR.js-Docs//">Ar.js</a>, <a
+								   href="https://threejs.org/">Three.js</a>
+								and more. At the
+								same time I am learning more about theese libraries and others regarding webxr, such as
+								WebGL, collision library in Aframe.
+							</p>
+						</div>
 					</div>
-				</div>
-				<div class="news_item container">
-					<h2>Description</h2>
-					<div class="container">
-						<p>
-							Sono uno studente di ingegneria
-							informatica al politecnico di Milano. Nel tempo libero mi
-							occupo della realizzazione di siti web. Ho conoscenze
-							discrete lato client e di base lato server. Sono molto
-							interessato all'immersività delle pagine web, in
-							particolare a come AR (augmented reality), VR (virtual
-							reality) e MR (mixed reality) possono migliorare
-							la resa di queste ultime. </p>
-
-					</div>
-				</div>
+				</a>
 				<div class="news_space"></div>
 			</div>
+			<div class="separator"></div>
 		</section>
 		<div class="divider_left"></div>
 		<div class="divider_right"></div>
 		<section id="social">
 			<h1>Social</h1>
 			<div class="container">
-				<div class="social_item left container">
-					<img src="images/Windows_live_square.jfif" />
-					<h2>follow me on twitter</h2>
-				</div>
 				<div class="separator"></div>
-				<div class="social_item right container">
-					<img src="images/Windows_live_square.jfif" />
-					<h2>find me on instagram</h2>
-				</div>
-				<div class="separator"></div>
-				<div class="social_item left container">
-					<img src="images/Windows_live_square.jfif" />
-					<h2>check me out on github</h2>
-				</div>
-				<div class="separator"></div>
-				<div class="social_item right container">
-					<img src="images/Windows_live_square.jfif" />
-					<h2>hire me on fiverr</h2>
-				</div>
-				<div class="separator"></div>
-				<div class="social_item left container">
-					<img src="images/Windows_live_square.jfif" />
-					<div>
-						<h2>mail me:</h2>
-						<p>pammaturo02 @gmail.com</p>
+				<a href="https://twitter.com/AmmaturoPietro">
+					<div class="social_item left">
+						<img src="images/twitter_icon.png" />
+						<h2>follow me on twitter</h2>
 					</div>
-				</div>
+				</a>
 				<div class="separator"></div>
-				<div class="social_item right container">
-					<img src="images/Windows_live_square.jfif" />
-					<div>
-						<h2>call me:</h2>
-						<p>+39 999 999 9999</p>
+				<a href="https://www.instagram.com/pietro_ammaturo">
+					<div class="social_item right">
+						<img src="images/instagram_icon.png" />
+						<h2>find me on instagram</h2>
 					</div>
-				</div>
+				</a>
+				<div class="separator"></div>
+				<a href="https://github.com/PietroAmmaturo">
+					<div class="social_item left">
+						<img src="images/github_icon.png" />
+						<h2>check me out on github</h2>
+					</div>
+				</a>
+				<div class="separator"></div>
+				<a href="https://www.fiverr.com/users/pietroammaturo">
+					<div class="social_item right">
+						<img src="images/fiverr_icon.png" />
+						<h2>hire me on fiverr</h2>
+					</div>
+				</a>
+				<div class="separator"></div>
+				<a href="mailto:pammaturo02@gmail.com">
+					<div class="social_item left">
+						<img src="images/mail_icon.png" />
+						<div>
+							<h2>mail me:</h2>
+							<p>pammaturo02 @gmail.com</p>
+						</div>
+					</div>
+				</a>
+				<div class="separator"></div>
 			</div>
 		</section>
 		<div class="divider_left"></div>
