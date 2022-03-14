@@ -87,10 +87,8 @@ function convertRem(value) {
 
 
 var sliders = document.getElementsByClassName('carousel');
-console.log(sliders)
 for (i = 0; i < sliders.length; i++) {
 	let slider = sliders[i];
-	console.log(slider)
 	let isDown = false;
 	let startX;
 	let scrollLeft;
@@ -115,7 +113,6 @@ for (i = 0; i < sliders.length; i++) {
 		const x = e.pageX - slider.offsetLeft;
 		const walk = (x - startX) * 3; //scroll-fast
 		slider.scrollLeft = scrollLeft - walk;
-		console.log(walk);
 	});
 
 }
