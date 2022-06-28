@@ -7,7 +7,28 @@
 
 <body>
     <h1>Here is an example of the iframe 360 video</h1>
-    <iframe src="video.html"></iframe>
+    <style>
+        .linkwrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .blocker {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.0);
+        }
+
+        .linkwrap iframe {
+            z-index: 2;
+        }
+    </style>
+    <a href="video.html" target="_blank" class="linkwrap">
+        <div class="blocker"></div>
+        <iframe width="420" height="315" src="video.html" frameborder="0" allowfullscreen></iframe>
+    </a>
 </body>
 
 </html>
