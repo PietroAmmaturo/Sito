@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <video style="position: absolute" visible="false" id="360" webkit-playsinline playsinline loop="true">
+    <video style="position: absolute" visible="false" id="vid" webkit-playsinline playsinline loop="true">
         <source src="360.mp4" type="video/mp4">
     </video>
     <script>
@@ -39,7 +39,7 @@
         });</script>
     <a-scene vr-mode-ui="enabled: true">
         <!-- Using the asset management system. -->
-        <a-videosphere play-on-window-click="target: #360" src="#360"></a-videosphere>
+        <a-videosphere play-on-window-click="target: #360" src="#vid"></a-videosphere>
 
         <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
         <!--<a-videosphere src="africa.mp4"></a-videosphere>-->
