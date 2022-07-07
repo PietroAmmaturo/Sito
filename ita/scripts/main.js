@@ -1,199 +1,193 @@
 window.onscroll = function () {
-  stickyNav()
+	stickyNav()
 };
 
-var vnavon = false;
 var onavon = true;
 var stickyonavon = false;
 var onavbar = document.getElementById("onavbar");
-var vnavbar = document.getElementById("vnavbar");
 var onavtop = onavbar.offsetTop;
 
 function stickyNav() {
-  stickyonavon = true;
-  stickyOnav();
-  stickyVnav();
+	stickyonavon = true;
+	stickyOnav();
 }
 
 function stickyOnav() {
-  if (window.pageYOffset >= onavtop) {
-    stickyonavon = true;
-    document.getElementById("blocktoggleonav").style.display = "inline-block";
-    onavbar.classList.add("sticky");
-    if (!onavon) {
-      hideOnav();
-    };
-  } else {
-    stickyonavon = false;
-    showOnav();
-    document.getElementById("blocktoggleonav").style.display = "none";
-    onavbar.classList.remove("sticky");
-  }
-}
-
-function stickyVnav() {
-  if (window.pageYOffset >= onavtop) {
-    vnavbar.classList.add("sticky");
-  } else {
-    vnavbar.classList.remove("sticky");
-  }
-}
-
-/*eccessivamente complicato e delle volte si apre la vnavbar quando non dovrebbe*/
-/*
-function hideVnav(){
-  if(onavon || !stickyonavon){vnavon = false;}
-  document.getElementById("vnavbar").style.width = "0em";
-  document.getElementById("main").style.left = "0em";
-  document.getElementById("main").style.width = "100%";
-  document.getElementById("blocktogglevnav").classList.remove("active");
-  console.log("aa");
-}
-function showVnav(){
-  vnavon = true;
-  document.getElementById("vnavbar").style.width = "5em";
-  document.getElementById("blocktogglevnav").classList.add("active");
-  if(window.innerWidth > 900){
-    document.getElementById("main").style.left = "10em";
-    document.getElementById("main").style.width = "calc(100% - 10em)";
-  }
-}
-function hideOnav(){
-  onavon = false;
-  if (stickyonavon){
-  hideVnav();
-  document.getElementById("onavbar").style.width = "3.5em";
-  document.getElementById("onavbar").style.right = "0px";
-  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
-  document.getElementById("blocktoggleonav").classList.add("active");
-  }
-}
-function showOnav(){
-  if (stickyonavon){onavon = true;}
-  if (vnavon){showVnav();}
-  document.getElementById("onavbar").style.width = "100%";
-  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
-  document.getElementById("blocktoggleonav").classList.remove("active");
-}
-*/
-function hideVnav() {
-  vnavon = false;
-  document.getElementById("vnavbar").style.width = "0em";
-  document.getElementById("main").style.left = "0em";
-  document.getElementById("main").style.width = "100%";
-  document.getElementById("footer").style.left = "0em";
-  document.getElementById("footer").style.width = "100%";
-  document.getElementById("blocktogglevnav").classList.remove("active");
-}
-
-function showVnav() {
-  vnavon = true;
-  document.getElementById("vnavbar").style.width = "5em";
-  document.getElementById("blocktogglevnav").classList.add("active");
-  if (window.innerWidth > 900) {
-    document.getElementById("main").style.left = "11em";
-    document.getElementById("main").style.width = "calc(100% - 11em)";
-    document.getElementById("footer").style.left = "11em";
-    document.getElementById("footer").style.width = "calc(100% - 11em)";
-  }
+	if (window.pageYOffset >= onavtop) {
+		stickyonavon = true;
+		document.getElementById("blocktoggleonav").style.display = "inline-block";
+		onavbar.classList.add("sticky");
+		if (!onavon) {
+			hideOnav();
+		};
+	} else {
+		stickyonavon = false;
+		showOnav();
+		document.getElementById("blocktoggleonav").style.display = "none";
+		onavbar.classList.remove("sticky");
+	}
 }
 
 function hideOnav() {
-  onavon = false;
-  hideVnav();
-  document.getElementById("onavbar").style.width = "3.5em";
-  document.getElementById("onavbar").style.right = "0px";
-  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
-  document.getElementById("blocktoggleonav").classList.add("active");
+	onavon = false;
+	document.getElementById("onavbar").style.width = "3.5em";
+	document.getElementById("onavbar").style.right = "0px";
+	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
+	document.getElementById("blocktoggleonav").classList.add("active");
 }
 
 function showOnav() {
-  onavon = true;
-  document.getElementById("onavbar").style.width = "100%";
-  document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
-  document.getElementById("blocktoggleonav").classList.remove("active");
+	onavon = true;
+	document.getElementById("onavbar").style.width = "100%";
+	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
+	document.getElementById("blocktoggleonav").classList.remove("active");
 }
 
 
 function getRootElementFontSize() {
-  // Returns a number
-  return parseFloat(
-    // of the computed font-size, so in px
-    getComputedStyle(
-      // for the root <html> element
-      document.documentElement
-    ).fontSize
-  );
+	// Returns a number
+	return parseFloat(
+		// of the computed font-size, so in px
+		getComputedStyle(
+			// for the root <html> element
+			document.documentElement
+		).fontSize
+	);
 }
 
-function toggleVnav() {
-  if (vnavon) {
-    hideVnav();
-  } else {
-    showVnav();
-  }
-}
 
 function toggleOnav() {
-  if (onavon) {
-    hideOnav();
-  } else {
-    showOnav();
-  }
+	if (onavon) {
+		hideOnav();
+	} else {
+		showOnav();
+	}
 }
-
-window.onresize = function () {
-  toggleVnav();
-  toggleVnav();
-}
-/*eccessivamente complicato, e non funziona bene*/
-/*
-function showTextOnav(obj, description){
-  console.log(obj.parentNode.id);
-  content = document.getElementById(obj.parentNode.id).innerHTML;
-  var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
-  + description + '\')">' + description + '</div>';
-  console.log(content);
-  if(!(content.includes(htmlDescription))){
-    console.log("showTextOnav");
-    console.log(obj.parentNode.id);
-    document.getElementById(obj.parentNode.id).innerHTML += (htmlDescription);
-  }
-}
-
-function hideTextOnav(obj, description){
-  let content = document.getElementById(obj.parentNode.id).innerHTML;
-  var htmlDescription = '<div onmouseleave="hideTextOnav(this, \''
-  + description + '\')">' + description + '</div>';
-  console.log(content);
-  if((content.includes(htmlDescription))){
-    console.log("hideTextOnav");
-    console.log(obj.parentNode.id);
-    console.log(content);
-    console.log(htmlDescription);
-    content = content.replace(htmlDescription, '');
-    document.getElementById(obj.parentNode.id).innerHTML = content;
-  }
-}
-*/
 
 function showTextOnav(obj, description) {
-  content = document.getElementById(obj.id).innerHTML;
-  var htmlDescription = '<div>' + description + '</div>';
-  if (!(content.includes(htmlDescription))) {
-    document.getElementById(obj.id).innerHTML += (htmlDescription);
-  }
+	content = document.getElementById(obj.id).innerHTML;
+	var htmlDescription = '<div>' + description + '</div>';
+	if (!(content.includes(htmlDescription))) {
+		document.getElementById(obj.id).innerHTML += (htmlDescription);
+	}
 }
 
 function hideTextOnav(obj, description) {
-  let content = document.getElementById(obj.id).innerHTML;
-  var htmlDescription = '<div>' + description + '</div>';
-  if ((content.includes(htmlDescription))) {
-    content = content.replace(htmlDescription, '');
-    document.getElementById(obj.id).innerHTML = content;
-  }
+	let content = document.getElementById(obj.id).innerHTML;
+	var htmlDescription = '<div>' + description + '</div>';
+	if ((content.includes(htmlDescription))) {
+		content = content.replace(htmlDescription, '');
+		document.getElementById(obj.id).innerHTML = content;
+	}
 }
 
 function convertRem(value) {
-  return value * getRootElementFontSize();
+	return value * getRootElementFontSize();
+}
+
+
+var sliders = document.getElementsByClassName('carousel');
+for (i = 0; i < sliders.length; i++) {
+	let slider = sliders[i];
+	let isDown = false;
+	let startX;
+	let scrollLeft;
+
+	slider.addEventListener('mousedown', (e) => {
+		isDown = true;
+		slider.classList.add('active');
+		startX = e.pageX - slider.offsetLeft;
+		scrollLeft = slider.scrollLeft;
+	});
+	slider.addEventListener('mouseleave', () => {
+		isDown = false;
+		slider.classList.remove('active');
+	});
+	slider.addEventListener('mouseup', () => {
+		isDown = false;
+		slider.classList.remove('active');
+	});
+	slider.addEventListener('mousemove', (e) => {
+		if (!isDown) return;
+		e.preventDefault();
+		const x = e.pageX - slider.offsetLeft;
+		const walk = (x - startX) * 3; //scroll-fast
+		slider.scrollLeft = scrollLeft - walk;
+	});
+
+}
+
+
+showWebsites();
+function showWebsites() {
+	if (!document.getElementById("websites_button").classList.contains("active")) {
+		document.getElementById("websites_button").classList.add("active");
+		document.getElementById("webxr_button").classList.remove("active");
+		var els = document.getElementsByClassName("webxr");
+		var i;
+		for (i = 0; i < els.length; i++) {
+			els[i].classList.add("fadeout");
+		}
+		setTimeout(function () {
+			var els = document.getElementsByClassName("webxr");
+			var i;
+			for (i = 0; i < els.length; i++) {
+				els[i].style.display = "none";
+				els[i].classList.remove("fadeout");
+			}
+
+			var els = document.getElementsByClassName("websites");
+			var i;
+			for (i = 0; i < els.length; i++) {
+				els[i].style.display = "inline-block";
+			}
+			for (i = 0; i < els.length; i++) {
+				els[i].classList.add("fadein");
+			}
+			setTimeout(function () {
+				var els = document.getElementsByClassName("websites");
+				var i;
+				for (i = 0; i < els.length; i++) {
+					els[i].classList.remove("fadein");
+				}
+			}, 500);
+		}, 1000);
+
+	}
+
+}
+function showWebxr() {
+	if (!document.getElementById("webxr_button").classList.contains("active")) {
+		document.getElementById("webxr_button").classList.add("active");
+		document.getElementById("websites_button").classList.remove("active");
+		var els = document.getElementsByClassName("websites");
+		var i;
+		for (i = 0; i < els.length; i++) {
+			els[i].classList.add("fadeout");
+		}
+		setTimeout(function () {
+			var els = document.getElementsByClassName("websites");
+			var i;
+			for (i = 0; i < els.length; i++) {
+				els[i].style.display = "none";
+				els[i].classList.remove("fadeout");
+			}
+
+			var els = document.getElementsByClassName("webxr");
+			var i;
+			for (i = 0; i < els.length; i++) {
+				els[i].style.display = "inline-block";
+			}
+			for (i = 0; i < els.length; i++) {
+				els[i].classList.add("fadein");
+			}
+			setTimeout(function () {
+				var els = document.getElementsByClassName("webxr");
+				var i;
+				for (i = 0; i < els.length; i++) {
+					els[i].classList.remove("fadein");
+				}
+			}, 500);
+		}, 1000);
+	}
 }
