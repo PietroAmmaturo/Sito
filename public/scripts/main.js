@@ -31,6 +31,7 @@ function stickyOnav() {
 function hideOnav() {
 	onavon = false;
 	document.getElementById("onavbar").style.width = "3.5em";
+	document.querySelector("#onavbar .center").style.opacity = "0";
 	document.getElementById("onavbar").style.right = "0px";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_left";
 	document.getElementById("blocktoggleonav").classList.add("active");
@@ -39,6 +40,7 @@ function hideOnav() {
 function showOnav() {
 	onavon = true;
 	document.getElementById("onavbar").style.width = "100%";
+	document.querySelector("#onavbar .center").style.opacity = "1";
 	document.getElementById("toggleonav").innerHTML = "keyboard_arrow_right";
 	document.getElementById("blocktoggleonav").classList.remove("active");
 }
@@ -61,23 +63,6 @@ function toggleOnav() {
 		hideOnav();
 	} else {
 		showOnav();
-	}
-}
-
-function showTextOnav(obj, description) {
-	content = document.getElementById(obj.id).innerHTML;
-	var htmlDescription = '<div>' + description + '</div>';
-	if (!(content.includes(htmlDescription))) {
-		document.getElementById(obj.id).innerHTML += (htmlDescription);
-	}
-}
-
-function hideTextOnav(obj, description) {
-	let content = document.getElementById(obj.id).innerHTML;
-	var htmlDescription = '<div>' + description + '</div>';
-	if ((content.includes(htmlDescription))) {
-		content = content.replace(htmlDescription, '');
-		document.getElementById(obj.id).innerHTML = content;
 	}
 }
 
