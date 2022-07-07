@@ -6,8 +6,8 @@
 </head>
 
 <body>
-    <video style="position: absolute" visible="false" id="vid" webkit-playsinline playsinline loop="true">
-        <source src="360.mp4" type="video/mp4">
+    <video src="./360.mp4" style="position: absolute" visible="false" id="vid" webkit-playsinline playsinline
+           loop="true" autoplay preload="auto" muted>
     </video>
     <script>
         AFRAME.registerComponent('play-on-window-click', {
@@ -15,19 +15,12 @@
                 target: { type: "selector" }
             },
             init: function () {
-                this.onClick = this.onClick.bind(this);
                 this.isPlaying = false;
+                window.addEventListener('dblclick', this.onDblClick.bind(this));
+                window.addEventListener('click', this.onClick.bind(this));
             },
-            play: function () {
-                window.addEventListener('dblclick', this.onClick);
-            },
-            pause: function () {
-                window.removeEventListener('dblclick', this.onClick);
-            },
-            onClick: function (evt) {
+            onDblClick: function (evt) {
                 var video = this.data.target;
-                //var video = this.el.components.material.material.map.image;
-                console.log("clicked")
                 if (!this.isPlaying) {
                     video.play();
                     this.isPlaying = true;
@@ -35,16 +28,16 @@
                     video.pause();
                     this.isPlaying = false;
                 }
+            },
+            onClick: function (evt) {
+                var video = this.data.target;
+                this.data.target.muted = false;
+                this.data.target.removeAttribute('muted');
             }
         });</script>
     <a-scene vr-mode-ui="enabled: true">
-        <!-- Using the asset management system. -->
         <a-videosphere play-on-window-click="target: #vid" src="#vid"></a-videosphere>
-
-        <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-        <!--<a-videosphere src="africa.mp4"></a-videosphere>-->
     </a-scene>
-
 </body>
 
 </html>
