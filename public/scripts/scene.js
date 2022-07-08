@@ -5,7 +5,7 @@ var scene = new THREE.Scene();
 
 var camera = new THREE.PerspectiveCamera(75, positionInfo.width / positionInfo.height, 0.1, 1000);
 
-var renderer = new THREE.WebGLRenderer( { alpha: true } );
+var renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(positionInfo.width, positionInfo.height);
 document.getElementById("myScene").appendChild(renderer.domElement);
 
@@ -195,3 +195,17 @@ function render() {
 }
 
 animate()
+
+window.addEventListener('resize', onWindowResize, false);
+
+function onWindowResize() {
+
+    var element = document.getElementById("myScene")
+    var positionInfo = element.getBoundingClientRect();
+
+    camera.aspect = positionInfo.width / positionInfo.height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( positionInfo.width, positionInfo.height);
+
+}
