@@ -37,16 +37,19 @@ iframe {
 }
 
 .header {
+	position: relative;
 	padding: 3em;
 	padding-bottom: 5em;
 	text-align: center;
-	/* center the text */
-	background-image: url('../images/headerbackground.jpg');
-	animation-name: background;
-	animation-duration: 180s;
-	animation-direction: normal;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0.7) 90%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.header canvas {
+	z-index: -100;
+	top: 0%;
+	left: 0%;
+	position: absolute;
+	height: 100% !important;
 }
 
 .header h1.letter {
@@ -138,24 +141,6 @@ iframe {
 
 	100% {
 		color: rgba(0, 0, 0, 0.2);
-	}
-}
-
-@keyframes background {
-	0% {
-		background-position: left top;
-	}
-
-	25% {
-		background-position: right top;
-	}
-
-	50% {
-		background-position: right bottom;
-	}
-
-	75% {
-		background-position: left bottom;
 	}
 }
 
