@@ -1,426 +1,495 @@
 <!DOCTYPE html>
 <html lang="eng">
+  <head>
+    <title>Pietro Ammaturo's personal website</title>
 
-<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Pietro Ammaturo's personal website</title>
+    <link rel="stylesheet" type="text/css" href="../public/styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <body>
+    <div class="header" id="myScene">
+      <div class="fullname">
+        <h1 class="letter 1">P</h1>
+        <h1 class="letter 2">i</h1>
+        <h1 class="letter 3">e</h1>
+        <h1 class="letter 4">t</h1>
+        <h1 class="letter 5">r</h1>
+        <h1 class="letter 6">o</h1>
+        <br />
+        <h1 class="letter 7">A</h1>
+        <h1 class="letter 8">m</h1>
+        <h1 class="letter 9">m</h1>
+        <h1 class="letter 10">a</h1>
+        <h1 class="letter 11">t</h1>
+        <h1 class="letter 12">u</h1>
+        <h1 class="letter 13">r</h1>
+        <h1 class="letter 14">o</h1>
+      </div>
+    </div>
 
-	<link rel="stylesheet" type="text/css" href="../public/styles/style.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Dosis&family=Economica&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&display=swap"
-		  rel="stylesheet">
+    <div id="onavbar" class="onavbar">
+      <a
+        onclick="toggleOnav()"
+        id="blocktoggleonav"
+        class="right"
+        style="display: none"
+      >
+        <i class="material-icons" id="toggleonav">keyboard_arrow_right</i>
+        <div class="label">TOGGLE</div>
+      </a>
+      <div class="center">
+        <a href="#about" id="about_button">
+          <i class="material-icons">person</i>
+          <div class="label">ABOUT</div>
+        </a>
+        <a href="#portfolio" id="portfolio_button">
+          <i class="material-icons">apps</i>
+          <div class="label">WORKS</div>
+        </a>
+        <a href="#news" id="news_button">
+          <i class="material-icons">new_releases</i>
+          <div class="label">NEWS</div>
+        </a>
+        <a href="#social" id="social_button">
+          <i class="material-icons">message</i>
+          <div class="label">SOCIAL</div>
+        </a>
+      </div>
+    </div>
 
-</head>
+    <div id="content" class="content">
+      <div class="divider_right"></div>
+      <section id="about">
+        <h1>About Me</h1>
+        <div class="separator"></div>
+        <div class="container about_item" id="info">
+          <h2>Info</h2>
+          <div class="container">
+            <img src="../public/images/me.jpg" />
+            <table>
+              <tr>
+                <td>
+                  <h3>Name:&nbsp&nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>Pietro</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Surname:&nbsp&nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>Ammaturo</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Birth date:&nbsp&nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>6 june 2002</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>From:&nbsp&nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>Avellino (AV)</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div id="profile" class="container about_item">
+          <h2>Profile</h2>
+          <div class="container">
+            <p>
+              I am a computer engeneering student at the Politecnico di Milano.
+              In my free time I realize websities an webxr experiences. I am
+              mainly a frontend web developer, but I am also studiyng the server
+              side. My main area of interests are webar(augmented reality in the
+              web) and webvr(virtual reality in the web), and how theese tools
+              are able to henance the web experience of the user.
+            </p>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div id="skills" class="container about_item">
+          <h2>Skills</h2>
+          <div class="container">
+            <table>
+              <tr>
+                <td class="score_label">
+                  <h3>A-Frame:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="aframescore" class="score aframe"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>Three.js:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="threejsscore" class="score threejs"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>AR.js:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="arjsscore" class="score arjs"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>HTML:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="htmlscore" class="score html"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>CSS:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="cssscore" class="score css"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>JS:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="jsscore" class="score js"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="score_label">
+                  <h3>C:&nbsp&nbsp</h3>
+                </td>
+                <td class="score_container">
+                  <div id="cscore" class="score c"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div id="studies" class="container about_item">
+          <h2>Studies</h2>
+          <div class="container">
+            <table>
+              <tr>
+                <td>
+                  <h3>Diploma: &nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>
+                    High School: ISIS Albertini Nola(NA) <br />
+                    scientific address
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>English: &nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>Cambridge C1 certification</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Office Skills: &nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>Eipass certification</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Economics: &nbsp&nbsp&nbsp</h3>
+                </td>
+                <td>
+                  <p>
+                    "Young manager course" certification<br />
+                    London Kingston University
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </section>
+      <div class="divider_left"></div>
+      <div class="divider_right"></div>
+      <section id="portfolio">
+        <h1>Portfolio</h1>
+        <div class="separator"></div>
+        <div class="portfolio_menu container">
+          <div class="wrapper">
+            <a id="websites_button">WEBSITES</a><a id="webxr_button">WEBXR</a>
+          </div>
+        </div>
+        <div class="separator"></div>
+        <div class="portfolio_items container">
+          <div id="portfolio_item_1" class="container portfolio_item websites">
+            <a href="https://www.yealthy.life">
+              <h2>Yealthy</h2>
+            </a>
+            <div class="carousel portfolio_carousel">
+              <div class="portfolio_space"></div>
+              <img src="../public/images/yealthy1.png" />
+              <img src="../public/images/yealthy2.png" />
+              <img src="../public/images/yealthy3.png" />
+              <img src="../public/images/yealthy4.png" />
+              <div class="portfolio_space"></div>
+            </div>
+            <div class="container">
+              <p>
+                I realized Yealthy's website. Yealthy is a startup and its
+                website consists of different pages, containing different
+                carousels, interesting backgrounds, a fancy news section, a blog
+                showing Guido's latest medium posts and much more.
+              </p>
+            </div>
+          </div>
+          <div id="portfolio_item_2" class="container portfolio_item websites">
+            <a href="https://www.guidoputignano.com">
+              <h2>Guido Putignano's personal website</h2>
+            </a>
+            <div class="carousel portfolio_carousel">
+              <div class="portfolio_space"></div>
+              <img src="../public/images/guido1.png" />
+              <img src="../public/images/guido2.png" />
+              <img src="../public/images/guido3.png" />
+              <img src="../public/images/guido4.png" />
+              <div class="portfolio_space"></div>
+            </div>
+            <div class="container">
+              <p>
+                I realized Guido Putignano's personal website, a simple
+                one-pager with different sections, a fancy Portfolio and a few
+                carousels, based on POLO's templates.
+              </p>
+            </div>
+          </div>
+          <div id="portfolio_item_3" class="container portfolio_item webxr">
+            <a href="https://pyramide3d.com/AR/">
+              <h2>Pyramide3D</h2>
+            </a>
+            <div class="carousel portfolio_carousel">
+              <div class="portfolio_space"></div>
+              <img src="../public/images/julien1.jpg" />
+              <img src="../public/images/julien2.jpg" />
+              <video controls>
+                <source src="../public/images/julien1.mp4" type="video/mp4" />
+              </video>
+              <div class="portfolio_space"></div>
+            </div>
+            <div class="container">
+              <p>
+                This is a simple webARexperience, marker based, that displays a
+                model on a marker, that can be a photo or a barcode, in this
+                case a QRcode, representing the value 5
+              </p>
+            </div>
+          </div>
+          <div id="portfolio_item_3" class="container portfolio_item webxr">
+            <a href="https://pyramide3d.com/AR/">
+              <h2>Money Boy Hub</h2>
+            </a>
+            <div class="carousel portfolio_carousel">
+              <div class="portfolio_space"></div>
+              <img src="../public/images/money-boy-hub1.png" />
+              <img src="../public/images/money-boy-hub2.png" />
+              <img src="../public/images/money-boy-hub3.png" />
 
-<body>
+              <video controls>
+                <source
+                  src="../public/images/money-boy-hub1.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="portfolio_space"></div>
+            </div>
+            <div class="container">
+              <p>
+                This is a complex webVR experience, realized in collaboration
+                with Thomas for the Solana Hackathon. This is the first of a few
+                different rooms I will be realizing for this project. It is the
+                main room, containing interactive screens, and chairs, as well
+                as portals leading to other experiences that will be realized. I
+                also realized the "seat" component to generalize the act of
+                sitting down on a object while working on this project. All of
+                theese features are shown in the demonstrative video. It will
+                also work with VRcontrols in the near feature, as well as other
+                features.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </section>
+      <div class="divider_left"></div>
+      <div class="divider_right"></div>
+      <section id="news">
+        <h1>News</h1>
+        <div class="separator"></div>
+        <div class="container carousel news_carousel">
+          <div class="news_space"></div>
+          <div class="news_item container">
+            <h2>InTown Metaverse</h2>
+            <div class="container">
+              <p>
+                I have been working with Dream Big Technology on their new
+                metaverse application:
+                <a href="https://intown.me/">InTown Metaverse</a>
+                A new 3D based social network, currently available for Mac and
+                PCs, but with full support for mobile (not yet in production)
+                and aiming at VR support. The frontend of the experience is
+                realized using A-Frame and electron. Most of the experience's
+                backend lays on top of ethereum's blockchain (with proprietary
+                contracts), being totally decentralized. IPFS serves as file
+                storage. Networked A-Frame is currently responsible for the Real
+                time communication of clients.
+              </p>
+            </div>
+          </div>
+          <div class="news_item container">
+            <h2>Mythic table Django</h2>
+            <div class="container">
+              <p>
+                This year I have realized the reimplementation of
+                <a href="https://www.mythictable.com/">Mythic Table's</a
+                >backend, replacing previous technologies with new solutions.
+                The project is associated with a repository:
+                <a href="https://github.com/PietroAmmaturo/MythicTableDjango"
+                  >MythicTableDjango</a
+                >containing the necessary documentation to run the project, both
+                through Docker setup (easier) and locally (more complex,
+                intended for other developers). <br />
+                Previous Backend Technologies: C#, ASP.NET, SignalR <br />
+                Newly Chosen Implementation Technologies: Python, Django, Django
+                Rest, Django Channels.
+              </p>
+            </div>
+          </div>
+          <div class="news_item container">
+            <h2>Solana's Hackathon</h2>
+            <div class="container">
+              <p>
+                I am working with Thomas and his team on the money-boy-hub
+                project, with which we will partecipate to
+                <a href="https://solana.com/solanaszn">Solana's Hackathon</a>,
+                as of now we plan on doing 4 different rooms: the hub, a gallery
+                and a personal room. Two of which have already been realized,
+                you can find a showcase of the first one in my portfolio. Stand
+                by for updates.
+              </p>
+            </div>
+          </div>
+          <div class="news_item container">
+            <h2>University</h2>
+            <div class="container">
+              <p>
+                I am currently studying computer engeneering at
+                <a href="https://www.polimi.it/en/">Politecnico di Milano</a> ,
+                I am in the second semester of the second year.
+              </p>
+            </div>
+          </div>
+          <div class="news_item container">
+            <h2>WebXR</h2>
+            <div class="container">
+              <p>
+                I am working on different WebXR projects, using
+                <a href="https://aframe.io/">A-Frame</a>,
+                <a href="https://ar-js-org.github.io/AR.js-Docs//">AR.js</a>,
+                <a href="https://threejs.org/">Three.js</a>
+                and more. At the same time I am learning more about theese
+                libraries and others regarding webxr, such as WebGL, collision
+                library in Aframe.
+              </p>
+            </div>
+          </div>
+          <div class="news_space"></div>
+        </div>
+        <div class="separator"></div>
+      </section>
+      <div class="divider_left"></div>
+      <div class="divider_right"></div>
+      <section id="social">
+        <h1>Social</h1>
+        <div class="container">
+          <div class="separator"></div>
+          <a href="https://twitter.com/AmmaturoPietro">
+            <div class="social_item left">
+              <img src="../public/images/twitter_icon.png" />
+              <h2>follow me on twitter</h2>
+            </div>
+          </a>
+          <div class="separator"></div>
+          <a href="https://www.instagram.com/pietro_ammaturo">
+            <div class="social_item right">
+              <img src="../public/images/instagram_icon.png" />
+              <h2>find me on instagram</h2>
+            </div>
+          </a>
+          <div class="separator"></div>
+          <a href="https://github.com/PietroAmmaturo">
+            <div class="social_item left">
+              <img src="../public/images/github_icon.png" />
+              <h2>check me out on github</h2>
+            </div>
+          </a>
+          <div class="separator"></div>
+          <a href="https://www.fiverr.com/users/pietroammaturo">
+            <div class="social_item right">
+              <img src="../public/images/fiverr_icon.png" />
+              <h2>hire me on fiverr</h2>
+            </div>
+          </a>
+          <div class="separator"></div>
+          <a href="mailto:pammaturo02@gmail.com">
+            <div class="social_item left">
+              <img src="../public/images/mail_icon.png" />
+              <div>
+                <h2>mail me:</h2>
+                <p>pammaturo02 @gmail.com</p>
+              </div>
+            </div>
+          </a>
+          <div class="separator"></div>
+        </div>
+      </section>
+      <div class="divider_left"></div>
+    </div>
 
-	<div class="header" id="myScene">
-		<div class="fullname">
-			<h1 class="letter 1">P</h1>
-			<h1 class="letter 2">i</h1>
-			<h1 class="letter 3">e</h1>
-			<h1 class="letter 4">t</h1>
-			<h1 class="letter 5">r</h1>
-			<h1 class="letter 6">o</h1>
-			<br>
-			<h1 class="letter 7">A</h1>
-			<h1 class="letter 8">m</h1>
-			<h1 class="letter 9">m</h1>
-			<h1 class="letter 10">a</h1>
-			<h1 class="letter 11">t</h1>
-			<h1 class="letter 12">u</h1>
-			<h1 class="letter 13">r</h1>
-			<h1 class="letter 14">o</h1>
-		</div>
-	</div>
-
-	<div id="onavbar" class="onavbar">
-		<a onclick="toggleOnav()" id="blocktoggleonav" class="right" style="display: none">
-			<i class="material-icons" id="toggleonav">keyboard_arrow_right</i>
-			<div class="label">TOGGLE</div>
-		</a>
-		<div class="center">
-			<a href="#about" id="about_button">
-				<i class="material-icons">person</i>
-				<div class="label">ABOUT</div>
-			</a>
-			<a href="#portfolio" id="portfolio_button">
-				<i class="material-icons">apps</i>
-				<div class="label">WORKS</div>
-			</a>
-			<a href="#news" id="news_button">
-				<i class="material-icons">new_releases</i>
-				<div class="label">NEWS</div>
-			</a>
-			<a href="#social" id="social_button">
-				<i class="material-icons">message</i>
-				<div class="label">SOCIAL</div>
-			</a>
-		</div>
-	</div>
-
-	<div id="content" class="content">
-		<div class="divider_right"></div>
-		<section id="about">
-			<h1>About Me</h1>
-			<div class="separator"></div>
-			<div class="container about_item" id="info">
-				<h2>Info</h2>
-				<div class="container">
-					<img src="../public/images/me.jpg" />
-					<table>
-						<tr>
-							<td>
-								<h3>Name:&nbsp&nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>Pietro</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>Surname:&nbsp&nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>Ammaturo</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>Birth date:&nbsp&nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>6 june 2002</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>From:&nbsp&nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>Avellino (AV)</p>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="separator"></div>
-			<div id="profile" class="container about_item">
-				<h2>Profile</h2>
-				<div class="container">
-					<p>
-						I am a computer engeneering student at the Politecnico di Milano. In my free time I realize
-						websities an webxr experiences. I am mainly a frontend web developer, but I am also studiyng the
-						server side. My main area of interests are webar(augmented reality in the web) and webvr(virtual
-						reality in the web), and how theese tools are able to henance the web experience of the user.
-					</p>
-
-				</div>
-			</div>
-			<div class="separator"></div>
-			<div id="skills" class="container about_item">
-				<h2>Skills</h2>
-				<div class="container">
-					<table>
-						<tr>
-							<td class="score_label">
-								<h3>A-Frame:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="aframescore" class="score aframe"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>Three.js:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="threejsscore" class="score threejs"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>AR.js:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="arjsscore" class="score arjs"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>HTML:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="htmlscore" class="score html"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>CSS:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="cssscore" class="score css"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>JS:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="jsscore" class="score js"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="score_label">
-								<h3>C:&nbsp&nbsp</h3>
-							</td>
-							<td class="score_container">
-								<div id="cscore" class="score c"></div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="separator"></div>
-			<div id="studies" class="container about_item">
-				<h2>Studies</h2>
-				<div class="container">
-					<table>
-						<tr>
-							<td>
-								<h3>Diploma: &nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>High School: ISIS Albertini Nola(NA) <br> scientific address
-								</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>English: &nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>Cambridge C1 certification</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>Office Skills: &nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>Eipass certification</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h3>Economics: &nbsp&nbsp&nbsp</h3>
-							</td>
-							<td>
-								<p>"Young manager course" certification<br>
-									London Kingston University</p>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="separator"></div>
-		</section>
-		<div class="divider_left"></div>
-		<div class="divider_right"></div>
-		<section id="portfolio">
-			<h1>Portfolio</h1>
-			<div class="separator"></div>
-			<div class="portfolio_menu container">
-				<div class="wrapper"><a id="websites_button">WEBSITES</a><a id="webxr_button">WEBXR</a></div>
-			</div>
-			<div class="separator"></div>
-			<div class="portfolio_items container">
-				<div id="portfolio_item_1" class="container portfolio_item websites">
-					<a href="https://www.yealthy.life">
-						<h2>Yealthy</h2>
-					</a>
-					<div class="carousel portfolio_carousel">
-						<div class="portfolio_space"></div>
-						<img src="../public/images/yealthy1.png" />
-						<img src="../public/images/yealthy2.png" />
-						<img src="../public/images/yealthy3.png" />
-						<img src="../public/images/yealthy4.png" />
-						<div class="portfolio_space"></div>
-					</div>
-					<div class="container">
-						<p>
-							I realized Yealthy's website. Yealthy is a startup and its website consists of different
-							pages, containing different carousels, interesting backgrounds, a fancy news section, a blog
-							showing Guido's latest medium posts and much more.</p>
-					</div>
-				</div>
-				<div id="portfolio_item_2" class="container portfolio_item websites">
-					<a href="https://www.guidoputignano.com">
-						<h2>Guido Putignano's personal website</h2>
-					</a>
-					<div class="carousel portfolio_carousel">
-						<div class="portfolio_space"></div>
-						<img src="../public/images/guido1.png" />
-						<img src="../public/images/guido2.png" />
-						<img src="../public/images/guido3.png" />
-						<img src="../public/images/guido4.png" />
-						<div class="portfolio_space"></div>
-					</div>
-					<div class="container">
-						<p>I realized Guido Putignano's personal website, a simple one-pager with different sections, a
-							fancy Portfolio and a few carousels, based on POLO's templates.</p>
-
-					</div>
-				</div>
-				<div id="portfolio_item_3" class="container portfolio_item webxr">
-					<a href="https://pyramide3d.com/AR/">
-						<h2>Pyramide3D</h2>
-					</a>
-					<div class="carousel portfolio_carousel">
-						<div class="portfolio_space"></div>
-						<img src="../public/images/julien1.jpg" />
-						<img src="../public/images/julien2.jpg" />
-						<video controls>
-							<source src="../public/images/julien1.mp4" type="video/mp4">
-						</video>
-						<div class="portfolio_space"></div>
-					</div>
-					<div class="container">
-						<p>
-							This is a simple webARexperience, marker based, that displays a model on a marker, that can
-							be a photo or a barcode, in this case a QRcode, representing the value 5</p>
-
-					</div>
-				</div>
-				<div id="portfolio_item_3" class="container portfolio_item webxr">
-					<a href="https://pyramide3d.com/AR/">
-						<h2>Money Boy Hub</h2>
-					</a>
-					<div class="carousel portfolio_carousel">
-						<div class="portfolio_space"></div>
-						<img src="../public/images/money-boy-hub1.png" />
-						<img src="../public/images/money-boy-hub2.png" />
-						<img src="../public/images/money-boy-hub3.png" />
-
-						<video controls>
-							<source src="../public/images/money-boy-hub1.mp4" type="video/mp4">
-						</video>
-						<div class="portfolio_space"></div>
-					</div>
-					<div class="container">
-						<p>
-							This is a complex webVR experience, realized in collaboration with Thomas for the Solana
-							Hackathon. This is the first of a few different rooms I will be realizing for this project.
-							It is the main room, containing interactive screens, and chairs, as well as portals leading
-							to other experiences that will be realized. I also realized the "seat" component to
-							generalize the act of sitting down on a object while working on this project. All of theese
-							features are shown in the demonstrative video. It will also work with VRcontrols in the near
-							feature, as well as other features.</p>
-
-					</div>
-				</div>
-			</div>
-			<div class="separator"></div>
-		</section>
-		<div class="divider_left"></div>
-		<div class="divider_right"></div>
-		<section id="news">
-			<h1>News</h1>
-			<div class="separator"></div>
-			<div class="container carousel news_carousel">
-				<div class="news_space"></div>
-				<div class="news_item container">
-					<h2>Solana's Hackathon</h2>
-					<div class="container">
-						<p>
-							I am working with Thomas and his team on the money-boy-hub project, with which we will
-							partecipate to <a href="https://solana.com/solanaszn">Solana's Hackathon</a>, as of now we
-							plan on doing 4 different rooms: the hub, a gallery and a personal room. Two of which have
-							already been realized, you can find a showcase of the first one in my portfolio. Stand by
-							for updates.
-						</p>
-					</div>
-				</div>
-				<div class="news_item container">
-					<h2>University</h2>
-					<div class="container">
-						<p>
-							I am currently studying computer engeneering at <a
-							   href="https://www.polimi.it/en/">Politecnico di Milano</a> , I am in the
-							second semester of the second year.</p>
-					</div>
-				</div>
-				<div class="news_item container">
-					<h2>WebXR</h2>
-					<div class="container">
-						<p>
-							I am working on different WebXR projects, using <a href="https://aframe.io/">A-Frame</a>,
-							<a href="https://ar-js-org.github.io/AR.js-Docs//">AR.js</a>, <a
-							   href="https://threejs.org/">Three.js</a>
-							and more. At the same time I am learning more about theese libraries and others regarding
-							webxr, such as
-							WebGL, collision library in Aframe.
-						</p>
-					</div>
-				</div>
-				<div class="news_space"></div>
-			</div>
-			<div class="separator"></div>
-		</section>
-		<div class="divider_left"></div>
-		<div class="divider_right"></div>
-		<section id="social">
-			<h1>Social</h1>
-			<div class="container">
-				<div class="separator"></div>
-				<a href="https://twitter.com/AmmaturoPietro">
-					<div class="social_item left">
-						<img src="../public/images/twitter_icon.png" />
-						<h2>follow me on twitter</h2>
-					</div>
-				</a>
-				<div class="separator"></div>
-				<a href="https://www.instagram.com/pietro_ammaturo">
-					<div class="social_item right">
-						<img src="../public/images/instagram_icon.png" />
-						<h2>find me on instagram</h2>
-					</div>
-				</a>
-				<div class="separator"></div>
-				<a href="https://github.com/PietroAmmaturo">
-					<div class="social_item left">
-						<img src="../public/images/github_icon.png" />
-						<h2>check me out on github</h2>
-					</div>
-				</a>
-				<div class="separator"></div>
-				<a href="https://www.fiverr.com/users/pietroammaturo">
-					<div class="social_item right">
-						<img src="../public/images/fiverr_icon.png" />
-						<h2>hire me on fiverr</h2>
-					</div>
-				</a>
-				<div class="separator"></div>
-				<a href="mailto:pammaturo02@gmail.com">
-					<div class="social_item left">
-						<img src="../public/images/mail_icon.png" />
-						<div>
-							<h2>mail me:</h2>
-							<p>pammaturo02 @gmail.com</p>
-						</div>
-					</div>
-				</a>
-				<div class="separator"></div>
-			</div>
-		</section>
-		<div class="divider_left"></div>
-	</div>
-
-	<script src="https://threejs.org/build/three.min.js"></script>
-	<script type="text/javascript" src="../public/scripts/scene.js"></script>
-	<script type="text/javascript" src="../public/scripts/main.js"></script>
-	<script type="text/javascript" src="../public/scripts/listeners.js"></script>
-</body>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script type="text/javascript" src="../public/scripts/scene.js"></script>
+    <script type="text/javascript" src="../public/scripts/main.js"></script>
+    <script
+      type="text/javascript"
+      src="../public/scripts/listeners.js"
+    ></script>
+  </body>
+</html>
