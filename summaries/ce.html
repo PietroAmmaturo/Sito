@@ -9,478 +9,912 @@
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
       font-size: 2em;
+      margin: 1em;
     }
   </style>
   <body>
     <h1>Computer Ethics</h1>
     <h2>Topics</h2>
-    <ul class="topics-list">
-      <li>
-        <h3>
-          Moor, J. (1985). “What is Computer Ethics?”, Metaphilosophy
-          16(4):266-275:
-        </h3>
-      </li>
-      <li>
-        <h3>
-          van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
-          Engineering: An Introduction, Wiley. CHAPTER 1:
-        </h3>
-      </li>
-      <li>
-        <h3>
-          van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
-          Engineering: An Introduction, Wiley. CHAPTER 3 (from p. 66 to p. 101):
-        </h3>
-      </li>
-      <li>
-        <h3>
-          van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
-          Engineering: An Introduction, Wiley. CHAPTER 4:
-        </h3>
-      </li>
-      <li>
-        <h3>
-          Rachels, J. (1975). “Why Privacy is Important”, Philosophy & Public
-          Affairs, Vol. 4, No. 4, pp. 323-333:
-        </h3>
-      </li>
-      <li id="privacy_and_information_technology">
-        <h3>
-          van den Hoven, J., Blaauw, M., Pieters, W. and Warnier, M., "Privacy
-          and Information Technology"
-          <a href="https://plato.stanford.edu/entries/it-privacy/"
-            >The Stanford Encyclopedia of Philosophy (Winter 2014 Edition)</a
-          >, Edward N. Zalta (ed.):
-        </h3>
-      </li>
-      <li id="big_data_end_run">
-        <h3>
-          Barocas, S., Nissenbaum, H., “Big Data’s End Run around Anonymity and
-          Consent”, in Privacy, Big Data, and the Public Good Frameworks for
-          Engagement”:
-        </h3>
-        <p>
-          This reading basically addresses the issues of Big Data (tracking,
-          discrimination...) Defined in the previous reading:
-          <a href="#privacy_and_information_technology"
-            >Privacy and Information Technology</a
-          >.<br />
-          Choses a definition of <a href="#big_data">Big Data</a> and
-          <a href="#privacy">Privacy</a> to disambiguate. <br />
-          Defines briefly the common means that have been used until now to
-          protect us from those issues:
-          <a href="#anoniminity_and_consent">anoniminity and consent</a>.<br />
-          To go later further in depth about them, individually:
-          <a href="#anoniminity">Anoniminity</a>,
-          <a href="#consent">Consent</a>. <br />
-          Showing their limits and fallacies in both theoretical and practical
-          scenarios. Arguing that in many contexts they prove to be incapable of
-          protecting the individual.
-          <br />
-        </p>
-        <ul>
-          <li>
-            Anoniminity is rendered almost useless in cases of:
-            <a href="#anonymous_identifiers">shared anonymous identifiers</a>,
-            <a href="#comprehensiveness">comprehensiveness of the records</a>
-            and <a href="#inference">data inference</a>.
-          </li>
-          <li>
-            Consent is irrelevant due to the
-            <a href="#transparency_paradox">transparency paradox</a>, the
-            <a href="#nature_of_flows">nature of informational flows</a> in the
-            big data and the
-            <a href="#tiranny_of_the_minority">tiranny of the minority</a>.
-          </li>
-        </ul>
-        <p>
-          In conclusion we argue that background and context-driven rights and
-          obligations are necessary to guarantee privacy and that Anonimity and
-          Consent are useless without them.
-        </p>
-        <ul>
-          <li>
-            <h4>Advantages of Big Data</h4>
-            <p>
-              Big data promises to deliver analytic insights that will add to
-              the stock of scientific and social scientific knowledge,
-              significantly improve decision makingin boththe public and private
-              sector, andgreatly enhanceindividual self-knowledge and
-              understanding.
-            </p>
-          </li>
-          <li>
-            <h4>Issues of Big Data</h4>
-            <p>
-              Big data is a threat to fundamental values, including everything
-              from autonomy, to fairness, justice, due process, property,
-              solidarity, and, perhaps most of all, privacy
-            </p>
-          </li>
-          <li>
-            <h4 id="anoniminity_and_consent">
-              Anonymity and consent as the solution
-            </h4>
-            <p>
-              anonymization seems to take data outside the scope of privacy, as
-              it no longer maps onto identifiable subjects, while allowing
-              information subjects to give or withold consent, giving them (in
-              theory) control over the information they want to share. This fits
-              perfectly the common conception of privacy as: "control over
-              information about oneself".
-            </p>
-          </li>
-          <li>
-            <h4>Limits of anonymity and consent</h4>
-            <p>
-              In practice, however, anonymity and consent have proven elusive,
-              as time and again critics have revealed fundamental problems in
-              implementing both.
-            </p>
-          </li>
-          <li>
-            <h4>Virtually intractable challenge to anonymity</h4>
-            <p>
-              Even when individuals are not ‘identifiable’, they may still be
-              ‘reachable’, may still be comprehensibly represented in records
-              that detail their attributes and activities, and may be subject to
-              consequential inferences and predictions taken on that basis.
-            </p>
-          </li>
-          <li>
-            <h4>Virtually intractable challenge to consent</h4>
-            <p>
-              It is absurd to think that notice and consent can fully specify
-              the terms of consent between data collector and data subject. This
-              consideration highligts the inefficacy of consent as a matter of
-              individual choice.
-            </p>
-          </li>
-          <li id="big_data">
-            <h4>Definition of Big Data</h4>
-            <p>
-              Big Data is a belief in the power of finely observed patterns,
-              structures, and models drawn inductively from massive datasets.
-            </p>
-          </li>
-          <li id="privacy">
-            <h4>Definition of privacy (as contextual integrity)</h4>
-            <p>
-              Privacy is the requirement that information about people
-              (‘personal information’) flows appropriately, where
-              appropriateness means in accordance with
-              <a href="#informationsl_norms">informational norms</a>.
-            </p>
-          </li>
-          <li id="informationsl_norms">
-            <h4>Informational norms (Theory of contextual integrity)</h4>
-            <p>
-              Informational norms prescribe information flows according to key
-              actors, types of information, and constraints under which flow
-              occurs (‘transmission principles’).
-            </p>
-            <h5>Example</h5>
-            <p>
-              informational norms for a health care context would govern flow
-              between and about people in their context-specific capacities,
-              such as physicians, patients, nurses, insurance companies,
-              pharmacists, and so forth. Types of information would range over
-              relevant fields, including, say, symptoms, diagnoses,
-              prescriptions, as well as biographical information. And notable
-              among transmission principles, confidentiality is likely to be a
-              prominent constraint on the terms under which information types
-              flow from, say, patients to physicians.
-            </p>
-            <h5>Key concept:</h5>
-            <p>
-              control over information about oneself is not presumed unless the
-              other parameters – (context specific) actors and information types
-              – warrant it. E.G. If confidentiality is not guaranteed, it must
-              not be assumed, hence if violated it does not violate Privacy,
-              because information still flows accordingly to informational
-              norms.
-            </p>
-          </li>
-          <li>
-            <h4>Why privacy as contextual integrity?</h4>
-            <p>
-              Because computing and information technologies have been radically
-              disruptive. To distinguish between technologies that are and are
-              not distruptive, a norm-based account of privacy, such as
-              contextual integrity, must offer a basis for drawing such
-              distinctions.<br />
-              By keeping in view connections with specific information flows,
-              certain options become salient that might otherwise not have been:
-              as soon as we notice a distruption, we can study the flow to see
-              what went wrong and caused a disruption.
-            </p>
-          </li>
-          <li id="anoniminity">
-            <h4>Anonimity and our assumptions about it</h4>
-            <p>
-              Anonymity obliterates the link between data and a specific person
-              not so much to protect privacy but, in a sense, to bypass it
-              entirely. <br />
-              If anoniminity can be effectively guaranteed is outside of the
-              scope of the extract, we assume that the problem of anonymization,
-              classically speaking, has been solved (even if it has obviously
-              not). <br />
-              Basically, assuming that anoniminity works, is it worth it to
-              protect us using it, or is it useless?
-            </p>
-          </li>
-          <li>
-            <h4>The value of anoniminity</h4>
-            <p>
-              The value of anonymity inheres to something we called
-              ‘reachability’, the possibility of knocking on your door, holding
-              you accountable – with or without access to identifying
-              information.
-            </p>
-          </li>
-          <li id="anonymous_identifiers">
-            <h4>Anonymous Identifiers</h4>
-            <p>
-              Unique persistent identifiers that differ from those in common and
-              everyday use. They (in theory) avoid association with records of
-              other istitutions, but you are still identified within the
-              institution that gave you that "Anonymous Identifier". <br />
-              In practice any unique identifier or sufficiently unique pattern
-              can serve as the basis for recognizing the same person in and
-              across multiple databases, so they are not so good. The protective
-              value of Unique persistent identifiers decreases as they are
-              adopted by or shared with additional institutions (E.G. Social
-              Security Number).
-            </p>
-          </li>
-          <li id="comprehensiveness">
-            <h4>Comprehensiveness</h4>
-            <p>
-              A further worry is that the comprehensiveness of the records
-              maintained by especially large institutions – records that contain
-              no identifying information – may become so rich that they subvert
-              the very meaning of anonymity.<br />
-              “if a company knows 100 data points about me in the digital
-              environment, and that affects how that company treats me in the
-              digital world, what’s the difference if they know my name or not?”
-              - Turow<br />
-              We can no longer turn to anonymity (or, more accurately,
-              pseudonymity) to pull datasets outside the remit of privacy
-              regulations and debate.
-            </p>
-          </li>
-          <li id="inference">
-            <h4>Inference</h4>
-            <p>
-              Even without names, personal information of Anonymous
-              Identifiers,thanks to data mining a lot can be inferred from a
-              given big enough data set. This renders the traditional
-              protections afforded by anonymity (again, more accurately,
-              pseudonymity) much less effective.
-            </p>
-            <h5>Example</h5>
-            <p>
-              Rather than attempt to de-anonymize medical records, for instance,
-              an attacker (or commercial actor) might instead infer a rule that
-              relates a string of more easily observable or accessible
-              indicators to a specific medical condition.
-            </p>
-          </li>
-          <li>
-            <h4>Research Underwritten by Anonymity</h4>
-            <p>
-              Findings from the research that they underwrite may provide
-              institutions with new paths by which to infer precisely those
-              attributes that were previously impossible to associate with
-              specific individuals in the absence of identifying information.
-              <br />
-              Basically a research meant to guarantee Anoniminty enables
-              institutions to infer characteristics that were previously
-              "protected" by anoniminity. They should have discussed about that
-              beforehand.
-            </p>
-          </li>
-          <li id="consent">
-            <h4>Informed consent</h4>
-            <p>
-              Where anonymity is unachievable or simply does not make sense,
-              informed consent often is the mechanism sought out by
-              conscientious collectors and users of personal information.
-            </p>
-          </li>
-          <li>
-            <h4>Fair Information Practice Principles (FIPPs)</h4>
-            <p>
-              Theese principles of informed consent in privacy law. These
-              principles, in broad brushstrokes, demand that data subjects be
-              given notice, that is to say, informed who is collecting, what is
-              being collected, how information is being used and shared, and
-              whether information collection is voluntary or required. The
-              Internet challenged them a lot, eventually coming up with privacy
-              policies.
-            </p>
-          </li>
-          <li>
-            <h4>Privacy Policies (How consent is handled in the Internet)</h4>
-            <p>
-              Over the course of roughly a decade and a half, privacy policies
-              have remained the linchpin of privacy protection online, despite
-              overwhelming evidence that most of us neither read nor understand
-              them. The debate on how to make them better is still active (opt
-              in vs opt out, ...).
-            </p>
-          </li>
-          <li>
-            <h4>Assumptions about consent</h4>
-            <p>
-              We accept that informed consent is a useful privacy measure in
-              certain circumstances and against certain threats and that
-              existing mechanisms can and should be improved, but, against the
-              challenges of big data, consent, by itself, has little traction.
-              (much like the approach taken on
-              <a href="#anoniminity">Anonimity</a>)
-            </p>
-          </li>
-          <li id="transparency_paradox">
-            <h4>The Transparency Paradox</h4>
-            <p>
-              Simplicity and clarity unavoidably results in losses of fidelity.
-              <br />
-              A few simple and clear statments cannot specify all the
-              implications of consenting. <br />Even the few people want to go
-              in detail and actually read the policies, will most likely not
-              understand them. <br />And even if they do understand, the
-              information given to them will be so general that they still will
-              not – indeed cannot – be informed in ways relevant to their
-              decisions whether to consent.
-            </p>
-            <h5>Example</h5>
-            <p>
-              What can it mean to an ordinary person that the information will
-              be shared with Axciom or Choicepoint, let alone the NSA? <br />
-              Characterizing the type of information is even tougher. Is it
-              sufficient for the utility company to inform customers that it is
-              collecting smart meter readings?
-            </p>
-          </li>
-          <li id="nature_of_flows">
-            <h4>Indeterminate, Unending, Unpredictable data flows and usage</h4>
-            <p>
-              Deciding how to describe information practices in ways that are
-              relevant to privacy so that individuals meaningfully grant or
-              withhold consent is difficult due to the machinations of big data:
-              data moves from place to place and recipient to recipient in
-              unpredictable ways. <br />
-              Who will ask to buy that data (if at all)? <br />
-              To which data will this data be aggregated?. <br />
-              Basically, the flows of the
-              <a href="informational_norms">informational noms</a> are not well
-              defined unless recipients and transmission principles are
-              specified (which is almost never the case). <br />
-              As many have now argued, consent under those conditions is not
-              meaningful.
-            </p>
-          </li>
-          <li>
-            <h4>How to consent for correlated data?</h4>
-            <p>
-              What if from a large dataset, using data mining techniques, some
-              unanticipated correlations are discovered? <br />Is it the data
-              controller's responsibility to warn the informing subjects about
-              such possibility? <br />How should he inform them, if even he does
-              not know the possible findings in advance? <br />
-              As many have now argued, consent under those conditions is not
-              meaningful.
-            </p>
-          </li>
-          <li id="tiranny_of_the_minority">
-            <h4>The tiranny of the minority</h4>
-            <p>
-              The volunteered information of the few can unlock the same
-              information about the many. <br />
-              "it’s no longer about what you do that will go down on your
-              permanent record. Everything that everyone else does that concerns
-              you, implicates you, or might influence you will go down on your
-              permanent record."" - Hence danah. <br />
-              It is even possible to make inferences about people who are not
-              even a part of an online social network (i.e. to learn things
-              about obviously absent nonmembers). <br />
-            </p>
-            <h5>Examples</h5>
-            <p>
-              1) Let's say that 10 people near to you consent to share their
-              data, from that data a certain pattern is extracted E.G. those
-              people switch from WhatsApp to Telegram. It is now possible to
-              infer that you are likely switch from WhatsApp to Telegram.<br />
-              2) More generally: Target was able to infer a rule about the
-              relationship between purchases and pregnancy from what must have
-              been a tiny proportion of all its customers who actually decided
-              to tell the company that they recently had a baby.
-            </p>
-            <h5>Consequences</h5>
-            <p>
-              Multiple attributes can be inferred globally when as few as 20% of
-              the users reveal their attribute information. <br />
-              Once a critical threshold has been reached, data collectors can
-              rely on more easily observable information to situate all
-              individuals according to these patterns, rendering irrelevant
-              whether or not those individuals have consented to allowing access
-              to the critical information in question. Withholding consent will
-              make no difference to how they are treated!
-            </p>
-          </li>
-          <li>
-            <h4>Points of view</h4>
-            <p>
-              1) Some people think that privacy and big data are incompatible,
-              to them, the points shown before just enforce the need to dislodge
-              privacy from its pedestal and allowthe glorious potential of big
-              data to be fulfilled. <br />
-              2) Others say that we should remain concerned about ethical issues
-              raised by big data, that, while privacy may be a lost cause, the
-              real problems arise with use. Basiccally allow data collection and
-              prevent misuse. <br />
-              3) Our point of view: we are not yet readyto give up on privacy,
-              nor completely on anonymity and consent.
-            </p>
-          </li>
-          <li>
-            <h4>Our conclusions:</h4>
-            <p>
-              Background and context-driven rights and obligations have been
-              neglected in favor of anonymity and consent to the detriment of
-              individuals and social integrity. They should instead be the
-              foundation of how privacy is guaranteed: <br />
-              0) There should be a set of background and context driven rights
-              and obligations that must be respected. <br />
-              1) The user should only consent to data collection or sharing that
-              violates this set of obligations <br />
-              2) This sharing should be very limited in time and purpose <br />
-              3) It is up to the data user to justify why certain data shall be
-              collected. <br />
-              4) Where, for example, anonymizing data, adopting pseudonyms, or
-              granting or withholding consent makes no difference to outcomes
-              for an individual, we had better be sure that the outcomes in
-              question can be defended as morally and politically legitimate.
-              <br />
-              5) When anonymity and consent do make a difference, we learn from
-              the domain of scientific integrity that simply because someone is
-              anonymous or pseudonymous or has consented does not by itself
-              legitimate the action in question.
-              <br />
-            </p>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h3>
-          Stallman, R. (1995). “Why software should be free”. Computer Ethics
-          and Social Values, Johnson, D. and Nissenbaum, H. (eds.), Prentice
-          Hall, 190-199:
-        </h3>
-      </li>
-    </ul>
+    <section>
+      <h3>
+        Moor, J. (1985). “What is Computer Ethics?”, Metaphilosophy
+        16(4):266-275:
+      </h3>
+    </section>
+    <section>
+      <h3>
+        van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
+        Engineering: An Introduction, Wiley. CHAPTER 1:
+      </h3>
+    </section>
+    <section>
+      <h3>
+        van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
+        Engineering: An Introduction, Wiley. CHAPTER 3 (from p. 66 to p. 101):
+      </h3>
+    </section>
+    <section>
+      <h3>
+        van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
+        Engineering: An Introduction, Wiley. CHAPTER 4:
+      </h3>
+    </section>
+    <section>
+      <h3>
+        Rachels, J. (1975). “Why Privacy is Important”, Philosophy & Public
+        Affairs, Vol. 4, No. 4, pp. 323-333:
+      </h3>
+    </section>
+    <section id="privacy_and_information_technology">
+      <h3>
+        van den Hoven, J., Blaauw, M., Pieters, W. and Warnier, M., "Privacy and
+        Information Technology"
+        <a href="https://plato.stanford.edu/entries/it-privacy/"
+          >The Stanford Encyclopedia of Philosophy (Winter 2014 Edition)</a
+        >, Edward N. Zalta (ed.):
+      </h3>
+      <p>
+        The focus of this article is on exploring the relationship between
+        information technology and privacy. <br />
+        We will both illustrate the specific
+        <a href="#internet_and_privacy"
+          >threats that IT and innovations in IT
+        </a>
+        pose for privacy and indicate
+        <a href="#it_solutions"
+          >how IT itself might be able to overcome these privacy concerns</a
+        >
+        by being developed in ways that can be termed “privacy-sensitive”,
+        “privacy enhancing” or “privacy respecting”.
+        <br />
+        We will also discuss the role of
+        <a href="#emerging_technologies"> emerging technologies </a>
+        in the debate, and account for the way in which moral debates are
+        themselves affected by IT.
+      </p>
+      <ul>
+        <li>
+          <h4>Surveillance capitalism</h4>
+          <p>
+            Label used to describe the scope and purpose of the personal data
+            centred business models of Big Tech
+          </p>
+        </li>
+        <li>
+          <h4>Constitutional (decisional) privacy</h4>
+          <p>
+            The freedom to make one’s own decisions without interference by
+            others in regard to matters seen as intimate and personal.
+          </p>
+        </li>
+        <li>
+          <h4>Tort (informational) privacy</h4>
+          <p>
+            The interest of individuals in exercising control over access to
+            information about themselves.
+          </p>
+          <h5>Normative definition</h5>
+          <p>
+            Informational privacy in a normative sense refers typically to a
+            nonabsolute moral right of persons to have direct or indirect
+            control over access to (1) information about oneself, (2) situations
+            in which others could acquire information about oneself, and (3)
+            technology that can be used to generate, process or disseminate
+            information about oneself
+          </p>
+        </li>
+        <li>
+          <h4>Opinions on the inpact of new technology on privacy</h4>
+          <p>
+            1) We have zero privacy in the digital age and that there is no way
+            we can protect it, so we should get used to the new world and get
+            over it (Sprenger 1999). <br />
+            2) Our privacy is more important than ever and that we can and we
+            must attempt to protect it.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy in reductionist accounts</h4>
+          <p>
+            Privacy claims are really about other values and other things that
+            matter from a moral point of view.
+          </p>
+          <h5>Opposing view</h5>
+          <p>
+            Privacy is valuable in itself and its value and importance are not
+            derived from other considerations.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy in cluster accounts</h4>
+          <p>
+            There is a cluster of related moral claims underlying appeals to
+            privacy, but maintains that there is no single essential core of
+            privacy concerns.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy in epistemic accounts</h4>
+          <p>
+            Having privacy means that others don’t know certain private
+            propositions; lacking privacy means that others do know certain
+            private propositions (Blaauw 2013).
+          </p>
+        </li>
+        <li>
+          <h4>EU vs US on privacy</h4>
+          <p>
+            EU conceptualizes issues of informational privacy in terms of ‘data
+            protection’, US in terms of ‘privacy’ (Heersmink et al. 2011).
+          </p>
+        </li>
+        <li>
+          <h4>Personal data</h4>
+          <p>
+            Personal data is defined in the law as data that can be linked with
+            a natural person. There are two ways in which this link can be made:
+            a referential mode and a non-referential mode.
+          </p>
+        </li>
+        <li>
+          <h4>Referential mode</h4>
+          <p>
+            The type of use that is made on the basis of a (possible)
+            acquaintance relationship of the speaker with the object of his
+            knowledge.
+          </p>
+          <h5>Example</h5>
+          <p>
+            “The murderer of Kennedy must be insane”, uttered while pointing to
+            him in court is an example of a referentially used description.
+          </p>
+        </li>
+        <li>
+          <h4>Non referential mode</h4>
+          <p>
+            The user of the description is not – and may never be – acquainted
+            with the person he is talking about or intends to refer to.
+          </p>
+          <h5>Example</h5>
+          <p>“the murderer of Kennedy must be insane, whoever he is”.</p>
+        </li>
+        <li>
+          <h4>Moral reasons for the protection of personal data</h4>
+          <p>
+            <a href="#prevention_of_harm">Prevention of harm</a>,
+            <a href="#informational_inequality">informational inequality</a>,
+            <a href="#informational_injustice"
+              >informational injustice and discrimination</a
+            >,
+            <a href="#violation_of_personal"
+              >Violation of personal choice and inherent human worth.</a
+            >,
+          </p>
+        </li>
+        <li>
+          <h4 id="prevention_of_harm">Prevention of harm</h4>
+          <p>
+            Unrestricted access by others can be used to harm the data subject
+            in a variety of ways.
+          </p>
+        </li>
+        <li>
+          <h4 id="informational_inequality">Informational inequality</h4>
+          <p>
+            Individuals are usually not in a good position to negotiate
+            contracts about the use of their data and do not have the means to
+            check whether partners live up to the terms of the contract.
+          </p>
+        </li>
+        <li>
+          <h4 id="informational_injustice">
+            Informational injustice and discrimination
+          </h4>
+          <p>
+            Personal information provided in one sphere or context may change
+            its meaning when used in another sphere or context and may lead to
+            discrimination and disadvantages for the individual.
+          </p>
+        </li>
+        <li>
+          <h4 id="violation_of_personal">
+            Violation of personal choice and inherent human worth
+          </h4>
+          <p>
+            1) Mass surveillance leads to a situation where routinely,
+            systematically, and continuously individuals make choices and
+            decisions because they know others are watching them. <br />
+            2) Being able to figure people out on the basis of their big data
+            constitutes an epistemic and moral immodesty (Bruynseels & Van den
+            Hoven 2015), which fails to respect the fact that human beings are
+            subjects with private mental states that have a certain quality that
+            is inaccessible from an external perspective.
+          </p>
+        </li>
+        <li>
+          <h4>Law, regulation, and indirect control over access</h4>
+          <p>
+            Data protection laws are in force in almost all countries. The basic
+            moral principle underlying these laws is the requirement of informed
+            consent. <br />
+            But it is impossible to guarantee compliance of all types of data
+            processing in all these areas and applications with these rules and
+            laws in traditional ways. <br />
+            Hence “privacy-enhancing technologies” (PETs) and identity
+            management systems are expected to replace human oversight in many
+            cases.
+          </p>
+        </li>
+        <li>
+          <h4 href="privacy_by_design">Privacy by design</h4>
+          <p>
+            The data ecosystems and socio-technical systems, supply chains,
+            organisations, including incentive structures, business processes,
+            and technical hardware and software, training of personnel, should
+            all be designed in such a way that the likelihood of privacy
+            violations is a low as possible. <br />
+            “data protection needs to be viewed in proactive rather than
+            reactive terms, making privacy by design preventive and not simply
+            remedial” (Cavoukian 2010).
+          </p>
+        </li>
+        <li id="internet_and_privacy">
+          <h4>Internet and privacy</h4>
+          <p>
+            The Internet was not designed for the purpose of separating
+            information flows (Michener 1999). Sites are allowed to store
+            information on your computer, this is necessary for them to work.
+            But this same information can be used, and is used, for tracking.
+          </p>
+        </li>
+        <li>
+          <h4>Cloud and privacy</h4>
+          <p>
+            In cloud computing, both data and programs are online (in the
+            cloud), and it is not always clear what the user-generated and
+            system-generated data are used for. Moreover, as data are located
+            elsewhere in the world, it is not even always obvious which law is
+            applicable, and which authorities can demand access to the data.
+          </p>
+        </li>
+        <li>
+          <h4>Social media and privacy</h4>
+          <p>
+            Users are tempted to exchange their personal data for the benefits
+            of using services, and provide both this data and their attention as
+            payment for the services. <br />
+            In addition, users may not even be aware of what information they
+            are tempted to provide.
+          </p>
+          <h5>Countermesures and limitations</h5>
+          <p>
+            One way of limiting the temptation of users to share is requiring
+            default privacy settings to be strict.<br />
+            Such restrictions limit the value and usability of the social
+            network sites themselves, and may reduce positive effects of such
+            services. A particular example of privacy-friendly defaults is the
+            opt-in as opposed to the opt-out approach.
+          </p>
+        </li>
+        <li>
+          <h4>Big data and privacy</h4>
+          <p>
+            Big data may be used in profiling the user (Hildebrandt 2008),
+            creating patterns of typical combinations of user properties, which
+            can then be used to predict interests and behavior. <br />
+            Profiling could also be used by organizations or possible future
+            governments that have discrimination of particular groups on their
+            political agenda, in order to find their targets and deny them
+            access to services, or worse.
+          </p>
+          <h5>Countermesures and limitations</h5>
+          <p>
+            According to EU data protection law, permission is needed for
+            processing personal data, and they can only be processed for the
+            purpose for which they were obtained. <br />
+            Specific challenges, therefore, are: <br />
+            1) How to obtain permission when the user does not explicitly engage
+            in a transaction (as in case of surveillance). <br />
+            2) How to prevent “function creep”, i.e. data being used for
+            different purposes after they are collected (as may happen for
+            example with DNA databases (Dahl & Sætnan 2009).
+          </p>
+        </li>
+        <li>
+          <h4>Mobile devices and privacy</h4>
+          <p>
+            These devices typically contain a range of data-generating sensors
+            (e.g. cameras). It is supposed that the user knows when theese
+            sensors are active or not. (e.g. a light warning when the camera is
+            active) But malicious software might be avoiding this. <br />
+            In general “reconfigurable technology” that handles personal data
+            raises the question of user knowledge of the configuration.
+          </p>
+        </li>
+        <li>
+          <h4>IOT and privacy</h4>
+          <p>
+            EU and US passports have RFID chips with protected biometric data,
+            but information like the user’s nationality may easily leak when
+            attempting to read such devices. <br />
+            Even dumb chips (chips that only contain a number) could be used to
+            trace a person once it is known that he carries an item containing a
+            chip. <br />
+            This is just the tip of the iceberg: many devices contain sensors
+            which may communicate with the company in order to gather data.
+          </p>
+        </li>
+        <li>
+          <h4>E-Government and privacy</h4>
+          <p>
+            In polling stations, the authorities see to it that the voter keeps
+            the vote private, but such surveillance is not possible when voting
+            by mail or online, and it cannot even be enforced by technological
+            means, as someone can always watch while the voter votes. In this
+            case, privacy is not only a right but also a duty, and information
+            technology developments play an important role in the possibilities
+            of the voter to fulfill this duty, as well as the possibilities of
+            the authorities to verify this. In a broader sense, e-democracy
+            initiatives may change the way privacy is viewed in the political
+            process.
+          </p>
+        </li>
+        <li>
+          <h4>Surveillance and privacy</h4>
+          <p>
+            Information technology is used for all kinds of surveillance tasks.
+            It can be used to augment and extend traditional surveillance
+            systems, or to create a whole new kind of surveillance:
+            "surveillance capitalism" where social media and other online
+            systems are used to gather large amounts of data about individuals.
+            <br />
+            In addition to the private sector surveillance industry, governments
+            form another traditional group that uses surveillance techniques at
+            a large scale, either by intelligence services or law enforcement.
+          </p>
+        </li>
+        <li id="it_solutions">
+          <h4>IT solutions to privacy concerns</h4>
+          <p>
+            There are rules, guidelines or best practices that can be used for
+            designing privacy-preserving systems. Such possibilities range from
+            ethicallyinformed design methodologies to using encryption to
+            protect personal information from unauthorized use.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy engineering</h4>
+          <p>
+            Extends the
+            <a href="#privacy_by_design">privacy by design</a> approach by
+            aiming to provide a more practical, deployable set of methods by
+            which to achieve system-wide privacy. <br />
+            Systems that are designed with these rules and guidelines in mind
+            should thus – in principle – be in compliance with EU privacy laws
+            and respect the privacy of its users. <br />
+          </p>
+          <h5>Issues</h5>
+          <p>
+            1) But different people will interpret the principles
+            differently.<br />
+            2) During the implementation phase software bugs are introduced.
+            <br />
+            3) It is very hard to verify whether an implementation meets its
+            design/specification.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy enhancing technologies</h4>
+          <p>
+            In Tor, messages are encrypted and routed along numerous different
+            computers. Similarly, in Freenet content is stored in encrypted form
+            from all users of the system (but keys are not shared!). Both theese
+            technologies plausible deniability and privacy. <br />
+            Another option for providing anonymity is the anonymization of data
+            through special software. But it is very hard to
+            <a href="#anonymous_identifiers"
+              >anonymize data in such a way that all links with an individual
+              are removed</a
+            >
+            and the resulting anonymized data is still useful for research
+            purposes.
+          </p>
+        </li>
+        <li>
+          <h4>Cryptography</h4>
+          <p>
+            No need to say obvious things (it is important and widely used,
+            hashes, SSO, HTTPS, VPN...). Below we show 2 interesting
+            techniques.<br />
+            1) Homomorphic encryption allows a data processor to process
+            encrypted data, i.e. users could send personal data in encrypted
+            form and get back some useful results – for example, recommendations
+            of movies that online friends like – in encrypted form. <br />
+            2) Blockchain technology, although focused on data integrity and not
+            inherently anonymous, enables many privacy-related applications.
+          </p>
+        </li>
+        <li>
+          <h4>Identity managment</h4>
+          <p>
+            It is quite common for ‘Single sign on’ frameworks (OpenID, Login
+            with Google...) to be linked to the real world identity of
+            individuals. <br />
+            Requiring a direct link between online and ‘real world’ identities
+            is problematic from a privacy perspective, because they allow
+            profiling of users <br />
+            Blockchain technology is used to make it possible for users to
+            control a digital identity without the use of a traditional trusted
+            third party (Baars 2016).
+          </p>
+        </li>
+        <li>
+          <h4 id="emerging_technologies">How will things evolve in future?</h4>
+          <p>
+            However, there are future and emerging technologies that may have an
+            even more profound impact. Consider for example brain-computer
+            interfaces. In case computers are connected directly to the brain,
+            not only behavioral characteristics are subject to privacy
+            considerations, but even one’s thoughts run the risk of becoming
+            public, with decisions of others being based upon them. In addition,
+            it could become possible to change one’s behavior by means of such
+            technology.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy evolves together with technology</h4>
+          <p>
+            Technology does not only influence privacy by changing the
+            accessibility of information, but also by changing the privacy norms
+            themselves: something that might be arguably private and worth
+            protecting today, might become universally accepted as shared.
+          </p>
+        </li>
+        <li>
+          <h4>Focus on data usage rather than acquisition</h4>
+          <p>
+            1) It may be more feasible to protect privacy by transparency – by
+            requiring actors to justify decisions made about individuals, thus
+            insisting that decisions are not based on illegitimate information.
+            <br />
+            2) It may well happen that citizens, in turn, start data collection
+            on those who collect data about them. The
+            <a href="#why_software_should_be_free">open source</a>
+            movement may also contribute to transparency of data processing. In
+            this context, transparency can be seen as a pro-ethical condition
+            contributing to privacy.
+          </p>
+        </li>
+        <li>
+          <h4>Precautionary principle</h4>
+          <p>
+            The burden of proof for absence of irreversible effects of
+            information technology on society, e.g. in terms of power relations
+            and equality, would lie with those advocating the new technology.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section id="big_data_end_run">
+      <h3>
+        Barocas, S., Nissenbaum, H., “Big Data’s End Run around Anonymity and
+        Consent”, in Privacy, Big Data, and the Public Good Frameworks for
+        Engagement”:
+      </h3>
+      <p>
+        This reading basically addresses the issues of Big Data (tracking,
+        discrimination...) Defined in the previous reading:
+        <a href="#privacy_and_information_technology"
+          >Privacy and Information Technology</a
+        >.<br />
+        Choses a definition of <a href="#big_data">Big Data</a> and
+        <a href="#privacy">Privacy</a> to disambiguate. <br />
+        Defines briefly the common means that have been used until now to
+        protect us from those issues:
+        <a href="#anoniminity_and_consent">anoniminity and consent</a>.<br />
+        To go later further in depth about them, individually:
+        <a href="#anoniminity">Anoniminity</a>, <a href="#consent">Consent</a>.
+        <br />
+        Showing their limits and fallacies in both theoretical and practical
+        scenarios. Arguing that in many contexts they prove to be incapable of
+        protecting the individual.
+        <br />
+      </p>
+      <ul>
+        <li>
+          Anoniminity is rendered almost useless in cases of:
+          <a href="#anonymous_identifiers">shared anonymous identifiers</a>,
+          <a href="#comprehensiveness">comprehensiveness of the records</a>
+          and <a href="#inference">data inference</a>.
+        </li>
+        <li>
+          Consent is irrelevant due to the
+          <a href="#transparency_paradox">transparency paradox</a>, the
+          <a href="#nature_of_flows">nature of informational flows</a> in the
+          big data and the
+          <a href="#tiranny_of_the_minority">tiranny of the minority</a>.
+        </li>
+      </ul>
+      <p>
+        In conclusion we argue that background and context-driven rights and
+        obligations are necessary to guarantee privacy and that Anonimity and
+        Consent are useless without them.
+      </p>
+      <ul>
+        <li>
+          <h4>Advantages of Big Data</h4>
+          <p>
+            Big data promises to deliver analytic insights that will add to the
+            stock of scientific and social scientific knowledge, significantly
+            improve decision making in both the public and private sector, and
+            greatly enhance individual self-knowledge and understanding.
+          </p>
+        </li>
+        <li>
+          <h4>Issues of Big Data</h4>
+          <p>
+            Big data is a threat to fundamental values, including everything
+            from autonomy, to fairness, justice, due process, property,
+            solidarity, and, perhaps most of all, privacy
+          </p>
+        </li>
+        <li>
+          <h4 id="anoniminity_and_consent">
+            Anonymity and consent as the solution
+          </h4>
+          <p>
+            anonymization seems to take data outside the scope of privacy, as it
+            no longer maps onto identifiable subjects, while allowing
+            information subjects to give or withold consent, giving them (in
+            theory) control over the information they want to share. This fits
+            perfectly the common conception of privacy as: "control over
+            information about oneself".
+          </p>
+        </li>
+        <li>
+          <h4>Limits of anonymity and consent</h4>
+          <p>
+            In practice, however, anonymity and consent have proven elusive, as
+            time and again critics have revealed fundamental problems in
+            implementing both.
+          </p>
+        </li>
+        <li>
+          <h4>Virtually intractable challenge to anonymity</h4>
+          <p>
+            Even when individuals are not ‘identifiable’, they may still be
+            ‘reachable’, may still be comprehensibly represented in records that
+            detail their attributes and activities, and may be subject to
+            consequential inferences and predictions taken on that basis.
+          </p>
+        </li>
+        <li>
+          <h4>Virtually intractable challenge to consent</h4>
+          <p>
+            It is absurd to think that notice and consent can fully specify the
+            terms of consent between data collector and data subject. This
+            consideration highligts the inefficacy of consent as a matter of
+            individual choice.
+          </p>
+        </li>
+        <li id="big_data">
+          <h4>Definition of Big Data</h4>
+          <p>
+            Big Data is a belief in the power of finely observed patterns,
+            structures, and models drawn inductively from massive datasets.
+          </p>
+        </li>
+        <li id="privacy">
+          <h4>Definition of privacy (as contextual integrity)</h4>
+          <p>
+            Privacy is the requirement that information about people (‘personal
+            information’) flows appropriately, where appropriateness means in
+            accordance with
+            <a href="#informationsl_norms">informational norms</a>.
+          </p>
+        </li>
+        <li id="informationsl_norms">
+          <h4>Informational norms (Theory of contextual integrity)</h4>
+          <p>
+            Informational norms prescribe information flows according to key
+            actors, types of information, and constraints under which flow
+            occurs (‘transmission principles’).
+          </p>
+          <h5>Example</h5>
+          <p>
+            informational norms for a health care context would govern flow
+            between and about people in their context-specific capacities, such
+            as physicians, patients, nurses, insurance companies, pharmacists,
+            and so forth. Types of information would range over relevant fields,
+            including, say, symptoms, diagnoses, prescriptions, as well as
+            biographical information. And notable among transmission principles,
+            confidentiality is likely to be a prominent constraint on the terms
+            under which information types flow from, say, patients to
+            physicians.
+          </p>
+          <h5>Key concept:</h5>
+          <p>
+            control over information about oneself is not presumed unless the
+            other parameters – (context specific) actors and information types –
+            warrant it. E.G. If confidentiality is not guaranteed, it must not
+            be assumed, hence if violated it does not violate Privacy, because
+            information still flows accordingly to informational norms.
+          </p>
+        </li>
+        <li>
+          <h4>Why privacy as contextual integrity?</h4>
+          <p>
+            Because computing and information technologies have been radically
+            disruptive. To distinguish between technologies that are and are not
+            distruptive, a norm-based account of privacy, such as contextual
+            integrity, must offer a basis for drawing such distinctions.<br />
+            By keeping in view connections with specific information flows,
+            certain options become salient that might otherwise not have been:
+            as soon as we notice a distruption, we can study the flow to see
+            what went wrong and caused a disruption.
+          </p>
+        </li>
+        <li id="anoniminity">
+          <h4>Anonimity and our assumptions about it</h4>
+          <p>
+            Anonymity obliterates the link between data and a specific person
+            not so much to protect privacy but, in a sense, to bypass it
+            entirely. <br />
+            If anoniminity can be effectively guaranteed is outside of the scope
+            of the extract, we assume that the problem of anonymization,
+            classically speaking, has been solved (even if it has obviously
+            not). <br />
+            Basically, assuming that anoniminity works, is it worth it to
+            protect us using it, or is it useless?
+          </p>
+        </li>
+        <li>
+          <h4>The value of anoniminity</h4>
+          <p>
+            The value of anonymity inheres to something we called
+            ‘reachability’, the possibility of knocking on your door, holding
+            you accountable – with or without access to identifying information.
+          </p>
+        </li>
+        <li id="anonymous_identifiers">
+          <h4>Anonymous Identifiers</h4>
+          <p>
+            Unique persistent identifiers that differ from those in common and
+            everyday use. They (in theory) avoid association with records of
+            other istitutions, but you are still identified within the
+            institution that gave you that "Anonymous Identifier". <br />
+            In practice any unique identifier or sufficiently unique pattern can
+            serve as the basis for recognizing the same person in and across
+            multiple databases, so they are not so good. The protective value of
+            Unique persistent identifiers decreases as they are adopted by or
+            shared with additional institutions (E.G. Social Security Number).
+          </p>
+        </li>
+        <li id="comprehensiveness">
+          <h4>Comprehensiveness</h4>
+          <p>
+            A further worry is that the comprehensiveness of the records
+            maintained by especially large institutions – records that contain
+            no identifying information – may become so rich that they subvert
+            the very meaning of anonymity.<br />
+            “if a company knows 100 data points about me in the digital
+            environment, and that affects how that company treats me in the
+            digital world, what’s the difference if they know my name or not?” -
+            Turow<br />
+            We can no longer turn to anonymity (or, more accurately,
+            pseudonymity) to pull datasets outside the remit of privacy
+            regulations and debate.
+          </p>
+        </li>
+        <li id="inference">
+          <h4>Inference</h4>
+          <p>
+            Even without names, personal information or anonymous identifiers,
+            thanks to data mining a lot can be inferred from a given big enough
+            data set. This renders the traditional protections afforded by
+            anonymity (again, more accurately, pseudonymity) much less
+            effective.
+          </p>
+          <h5>Example</h5>
+          <p>
+            Rather than attempt to de-anonymize medical records, for instance,
+            an attacker (or commercial actor) might instead infer a rule that
+            relates a string of more easily observable or accessible indicators
+            to a specific medical condition.
+          </p>
+        </li>
+        <li>
+          <h4>Research Underwritten by Anonymity</h4>
+          <p>
+            Findings from research on sone attributes based on anonymous data
+            may provide institutions with new paths by which to infer precisely
+            those attributes that were previously impossible to associate with
+            specific individuals in the absence of identifying information.
+            <br />
+            Basically a research meant to guarantee anoniminty enables
+            institutions to infer characteristics that were previously
+            "protected" by anoniminity. They should have discussed about that
+            beforehand.
+          </p>
+        </li>
+        <li id="consent">
+          <h4>Informed consent</h4>
+          <p>
+            Where anonymity is unachievable or simply does not make sense,
+            informed consent often is the mechanism sought out by conscientious
+            collectors and users of personal information.
+          </p>
+        </li>
+        <li>
+          <h4>Fair Information Practice Principles (FIPPs)</h4>
+          <p>
+            Theese are the first principles of informed consent in privacy law.
+            These principles, in broad brushstrokes, demand that data subjects
+            be given notice, that is to say, informed who is collecting, what is
+            being collected, how information is being used and shared, and
+            whether information collection is voluntary or required. The
+            Internet challenged them a lot, eventually coming up with privacy
+            policies.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy Policies (How consent is handled in the Internet)</h4>
+          <p>
+            Over the course of roughly a decade and a half, privacy policies
+            have remained the linchpin of privacy protection online, despite
+            overwhelming evidence that most of us neither read nor understand
+            them. The debate on how to make them better is still active (opt in
+            vs opt out, ...).
+          </p>
+        </li>
+        <li>
+          <h4>Assumptions about consent</h4>
+          <p>
+            We accept that informed consent is a useful privacy measure in
+            certain circumstances and against certain threats and that existing
+            mechanisms can and should be improved, but, against the challenges
+            of big data, consent, by itself, has little traction. (much like the
+            approach taken on
+            <a href="#anoniminity">Anonimity</a>)
+          </p>
+        </li>
+        <li id="transparency_paradox">
+          <h4>The Transparency Paradox</h4>
+          <p>
+            Simplicity and clarity unavoidably results in losses of fidelity.
+            <br />
+            A few simple and clear statments cannot specify all the implications
+            of consenting. <br />Even the few people want to go in detail and
+            actually read the policies, will most likely not understand them.
+            <br />And even if they do understand, the information given to them
+            will be so general that they still will not – indeed cannot – be
+            informed in ways relevant to their decisions whether to consent.
+          </p>
+          <h5>Example</h5>
+          <p>
+            What can it mean to an ordinary person that the information will be
+            shared with Axciom or Choicepoint, let alone the NSA? <br />
+            Characterizing the type of information is even tougher. Is it
+            sufficient for the utility company to inform customers that it is
+            collecting smart meter readings?
+          </p>
+        </li>
+        <li id="nature_of_flows">
+          <h4>Indeterminate, Unending, Unpredictable data flows and usage</h4>
+          <p>
+            Deciding how to describe information practices in ways that are
+            relevant to privacy so that individuals meaningfully grant or
+            withhold consent is difficult due to the machinations of big data:
+            data moves from place to place and recipient to recipient in
+            unpredictable ways. <br />
+            Who will ask to buy that data (if at all)? <br />
+            To which data will this data be aggregated?. <br />
+            Basically, the flows of the
+            <a href="informational_norms">informational noms</a> are not well
+            defined unless recipients and transmission principles are specified
+            (which is almost never the case). <br />
+            As many have now argued, consent under those conditions is not
+            meaningful.
+          </p>
+        </li>
+        <li>
+          <h4>How to consent for correlated data?</h4>
+          <p>
+            What if from a large dataset, using data mining techniques, some
+            unanticipated correlations are discovered? <br />Is it the data
+            controller's responsibility to warn the informing subjects about
+            such possibility? <br />How should he inform them, if even he does
+            not know the possible findings in advance? <br />
+            As many have now argued, consent under those conditions is not
+            meaningful.
+          </p>
+        </li>
+        <li id="tiranny_of_the_minority">
+          <h4>The tiranny of the minority</h4>
+          <p>
+            The volunteered information of the few can unlock the same
+            information about the many. <br />
+            "it’s no longer about what you do that will go down on your
+            permanent record. Everything that everyone else does that concerns
+            you, implicates you, or might influence you will go down on your
+            permanent record."" - Hence danah. <br />
+            It is even possible to make inferences about people who are not even
+            a part of an online social network (i.e. to learn things about
+            obviously absent nonmembers). <br />
+          </p>
+          <h5>Examples</h5>
+          <p>
+            1) Let's say that 10 people near to you consent to share their data,
+            from that data a certain pattern is extracted E.G. those people
+            switch from WhatsApp to Telegram. It is now possible to infer that
+            you are likely switch from WhatsApp to Telegram.<br />
+            2) More generally: Target was able to infer a rule about the
+            relationship between purchases and pregnancy from what must have
+            been a tiny proportion of all its customers who actually decided to
+            tell the company that they recently had a baby.
+          </p>
+          <h5>Consequences</h5>
+          <p>
+            Multiple attributes can be inferred globally when as few as 20% of
+            the users reveal their attribute information. <br />
+            Once a critical threshold has been reached, data collectors can rely
+            on more easily observable information to situate all individuals
+            according to these patterns, rendering irrelevant whether or not
+            those individuals have consented to allowing access to the critical
+            information in question. Withholding consent will make no difference
+            to how they are treated!
+          </p>
+        </li>
+        <li>
+          <h4>Points of view</h4>
+          <p>
+            1) Some people think that privacy and big data are incompatible, to
+            them, the points shown before just enforce the need to dislodge
+            privacy from its pedestal and allowthe glorious potential of big
+            data to be fulfilled. <br />
+            2) Others say that we should remain concerned about ethical issues
+            raised by big data, that, while privacy may be a lost cause, the
+            real problems arise with use. Basiccally allow data collection and
+            prevent misuse. <br />
+            3) Our point of view: we are not yet readyto give up on privacy, nor
+            completely on anonymity and consent.
+          </p>
+        </li>
+        <li>
+          <h4>Our conclusions:</h4>
+          <p>
+            Background and context-driven rights and obligations have been
+            neglected in favor of anonymity and consent to the detriment of
+            individuals and social integrity. They should instead be the
+            foundation of how privacy is guaranteed: <br />
+            0) There should be a set of background and context driven rights and
+            obligations that must be respected. <br />
+            1) The user should only consent to data collection or sharing that
+            violates this set of obligations <br />
+            2) This sharing should be very limited in time and purpose <br />
+            3) It is up to the data user to justify why certain data shall be
+            collected. <br />
+            4) Where, for example, anonymizing data, adopting pseudonyms, or
+            granting or withholding consent makes no difference to outcomes for
+            an individual, we had better be sure that the outcomes in question
+            can be defended as morally and politically legitimate.
+            <br />
+            5) When anonymity and consent do make a difference, we learn from
+            the domain of scientific integrity that simply because someone is
+            anonymous or pseudonymous or has consented does not by itself
+            legitimate the action in question.
+            <br />
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3 id="why_software_should_be_free">
+        Stallman, R. (1995). “Why software should be free”. Computer Ethics and
+        Social Values, Johnson, D. and Nissenbaum, H. (eds.), Prentice Hall,
+        190-199:
+      </h3>
+    </section>
     <h3>Exam Dates</h3>
     <ul class="types-list">
       <li>21 DEC</li>
