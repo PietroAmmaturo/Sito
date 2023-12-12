@@ -11,15 +11,41 @@
       font-size: 2em;
       margin: 1em;
     }
+
+    section.minimized ul {
+      display: none;
+    }
+    section.minimized p {
+      display: none;
+    }
+    section.compressed li p {
+      display: none;
+    }
+    section.compressed li h5 {
+      display: none;
+    }
+    section.compressed li ul {
+      display: none;
+    }
+    section.compressed table {
+      display: none;
+    }
   </style>
+
   <body>
     <h1>Computer Ethics</h1>
-    <h2>Topics</h2>
+    <h2 onclick="toggleCompress()">Topics, click to show</h2>
     <section>
       <h3>
         Moor, J. (1985). “What is Computer Ethics?”, Metaphilosophy
         16(4):266-275:
       </h3>
+      <ul>
+        <li>
+          <h4></h4>
+          <p></p>
+        </li>
+      </ul>
     </section>
     <section>
       <h3>
@@ -480,7 +506,7 @@
           <p>
             The branch of ethics that describes existing morality, including
             customs and habits, opinions about good and evil, responsible and
-            irresponsible behavior, and acceptable and unacceptable action.
+            irresponsible behaviour, and acceptable and unacceptable action.
           </p>
         </li>
         <li>
@@ -794,7 +820,7 @@
           </p>
         </li>
         <li>
-          <h4>Universality principle</h4>
+          <h4 id="universality_principle">Universality principle</h4>
           <p>
             First formulation of the categorical imperative: Act only on that
             maxim which you can at the same time will that it should become a
@@ -809,7 +835,7 @@
           </p>
         </li>
         <li>
-          <h4>Reciprocity principle</h4>
+          <h4 id="reciprocity_principle">Reciprocity principle</h4>
           <p>
             Second formulation of the categorical imperative: Act as to treat
             humanity, whether in your own person or in that of any other, in
@@ -919,12 +945,949 @@
         van de Poel, I., Royakkers, L. (2011). Ethics, Technology, and
         Engineering: An Introduction, Wiley. CHAPTER 4:
       </h3>
+      <ul>
+        <li>
+          <h4>Argumentation</h4>
+          <p>
+            Is an activity which can be directed towards defending an opinion
+            (attempted justification). <br />
+            Or attacking an opinion (attempted refutation).
+          </p>
+        </li>
+        <li>
+          <h4>Argumentation theory</h4>
+          <p>
+            An interdisciplinary study of analyzing and evaluating arguments.
+          </p>
+        </li>
+        <li>
+          <h4>Argument</h4>
+          <p>
+            A set of statements, of which one (the conclusion) is claimed to
+            follow from the others (the premises).
+          </p>
+        </li>
+        <li>
+          <h4>Conclusion of an argument</h4>
+          <p>
+            The statement that is affirmed on the basis of the premises of the
+            argument.
+          </p>
+        </li>
+        <li>
+          <h4>Premises</h4>
+          <p>
+            The statements, which are affirmed (or assumed) as providing support
+            or reasons for accepting the conclusion.
+          </p>
+        </li>
+        <li>
+          <h4 id="valid_argument">Valid argument</h4>
+          <p>
+            An argument whose conclusion follows with necessity from its
+            premises: if the premises are true, the conclusion must be true.
+            <br />
+            With invalid arguments, the premises do not entail its conclusion.
+          </p>
+          <h5>Example</h5>
+          <p>
+            P1 : If it rains, the streets become wet. <br />
+            P2 : It rains <br />
+            C: The streets become wet.
+          </p>
+        </li>
+        <li>
+          <h4 id="modus_ponens">Modus ponens</h4>
+          <p>
+            Form of a valid argument in which the conclusion “q” follows from
+            the premises “p” and “if p then q.”
+          </p>
+          <h5>Example</h5>
+          <p>
+            P1 : If it rains, the streets become wet. <br />
+            P2 : It rains <br />
+            C: The streets become wet.
+          </p>
+        </li>
+        <li>
+          <h4>Fallacy of affirming the consequent</h4>
+          <p>"if p then q" does not imply that "if q then p".</p>
+          <h5>Example</h5>
+          <p>
+            P′ 1 : If it rains, I will stay at home <br />
+            P′ 2 : I will stay at home <br />
+            C′: It rains
+          </p>
+        </li>
+        <li>
+          <h4>Modus tollens</h4>
+          <p>
+            Form of a valid argument in which the conclusion “not-p” follows
+            from the premises “if p then q” and “not-q.”
+          </p>
+          <h5>Example</h5>
+          <p>
+            P″1: If it rains, I will stay at home <br />
+            P″2: I will not stay at home <br />
+            C″: It is not raining. <br />
+          </p>
+        </li>
+        <li>
+          <h4>Fallacy of denying the anteced</h4>
+          <p>"if p then q" does not imply that "if q then p".</p>
+          <h5>Example</h5>
+          <p>
+            P″′ 1 : If it rains, I will stay at home <br />
+            P″′ 2 : It is not raining. <br />
+            C″′: “I will not stay at home
+          </p>
+        </li>
+        <li>
+          <h4>When is it possible to challenge a conclusion?</h4>
+          <table>
+            <tr>
+              <th></th>
+              <th>All premises are true</th>
+              <th>Some premises are false</th>
+            </tr>
+            <tr>
+              <td>The argument is valid</td>
+              <td>Conclusion cannot be challenged</td>
+              <td>Conclusion cannot be challenged</td>
+            </tr>
+            <tr>
+              <td>The argument is invalid</td>
+              <td>Conclusion can be challenged</td>
+              <td>Conclusion can be challenged</td>
+            </tr>
+          </table>
+        </li>
+        <li>
+          <h4>Deductive (monotonic) arguments</h4>
+          <p>
+            The conclusion is enclosed in the premises: the result, the
+            conclusion, says no more and is not logically stronger than the
+            totality of premises that the argument is based on. <br />
+            <a href="#valid_argument">Valid arguments</a> are of a deductive
+            nature.
+          </p>
+        </li>
+        <li>
+          <h4>Non deductive (non monotonic) arguments</h4>
+          <p>
+            The conclusion is logically stronger than the premises. <br />
+            The truth of the premises does not guarantee the truth of the
+            conclusion. <br />
+            Due to the indirect nature of non deductive argumentation, there
+            always is a small degree of uncertainty.
+          </p>
+        </li>
+        <li>
+          <h4>Plausibility principle</h4>
+          <p>
+            The principle that enumeration and supplementary argumentation in a
+            non-deductive argumentation can make the conclusion plausible
+            (acceptable).
+          </p>
+        </li>
+        <li>
+          <h4>Inductive argumentation</h4>
+          <p>
+            A type of non-deductive argumentation. Argumentation from the
+            particular to the general.
+          </p>
+        </li>
+        <li>
+          <h4>Critical questions</h4>
+          <p>
+            Questions belonging to a certain type of non deductive argumentation
+            to check the degree of plausibility of a conclusion.
+          </p>
+        </li>
+        <li>
+          <h4>Sound argumentation</h4>
+          <p>
+            An argumentation for which the corresponding critical questions can
+            be answered positively and which therefore makes the conclusion
+            plausible if the premises are true.
+          </p>
+        </li>
+        <li>
+          <h4>Rash generalization</h4>
+          <p>
+            A fallacy related to inductive argumentation which occurs if the
+            generalization is not sound, because too few observations were used
+            as a basis for the general statement for example
+          </p>
+        </li>
+        <li>
+          <h4>Argumentation by analogy</h4>
+          <p>
+            If something is/was the case in an example case, then it also holds
+            true for a comparable situation.
+          </p>
+          <h5>Formal description</h5>
+          <p>
+            Situation q is comparable with situation p (the analogy premise).
+            <br />
+            If situation p occurs then r applies.<br />
+            So, if situation q occurs then r applies
+          </p>
+          <h5>Critical questions:</h5>
+          <p>
+            1) Are the two situations comparable? <br />
+            2) Is what is asserted about the example situation true?
+          </p>
+        </li>
+        <li>
+          <h4>Arguments in a utilitarian plea</h4>
+          <p>
+            An action is morally acceptable if and only if that action can be
+            reasonably expected to produce the greatest happiness for the
+            greatest number of people. <br />
+            In a utilitarian plea, the means-end argumentation is at the
+            forefront. From a given end the means are derived to realize that
+            end.
+          </p>
+        </li>
+        <li>
+          <h4 id="means_end">Means-end argumentation</h4>
+          <p>If you wish to achieve end x, then you must carry out action y.</p>
+          <h5>Formal description</h5>
+          <p>
+            x (the end) <br />
+            Carrying out action y (the means) realizes the end x (the means-end
+            premise) <br />
+            So: do y
+          </p>
+          <h5>Critical questions</h5>
+          <p>
+            1) Does action y indeed realize end x? <br />
+            2) Can action y be carried out? <br />
+            3) Does execution of action y lead to unacceptable side effects?
+            <br />
+            4) Are there no other (better) actions to achieve x? <br />
+            5) Is the end acceptable?
+          </p>
+        </li>
+        <li>
+          <h4>How to show that: "Does action y indeed realize end x?"</h4>
+          <p>
+            Two matters are of importance to answer this question.<br />
+            1) We must demonstrate that the action leads to the expected
+            consequence. (using
+            <a href="#causality_argumentation ">causality argumentation </a> )
+            <br />
+            2) The consequence is the best one, that is, “the greatest happiness
+            for the greatest number.” (using
+            <a href="#comparative_assessment "> comparative assessment</a> )
+            <a></a>
+          </p>
+        </li>
+        <li>
+          <h4 id="causality_argumentation">Causality Argumentation</h4>
+          <p>
+            In this argumentation, use is made of the fact that a certain
+            expected consequence can be derived from a certain situation or
+            action. <br />
+            It is similar to the <a href="#modus_ponens">modus ponens</a>, but
+            we can never be certain that q is the expected consequence of action
+            p.
+          </p>
+          <h5>Formal description</h5>
+          <p>
+            p (action or situation) <br />
+            So: q (the expected consequence)
+          </p>
+          <h5>Critical questions:</h5>
+          <p>
+            1) Will the given situation or action indeed lead to the expected
+            consequence? <br />
+            2) Have no issues been forgotten, for example, with respect to the
+            expected consequence? <br />
+            3) How do you determine the expected consequence and can it be
+            justified?
+          </p>
+        </li>
+        <li>
+          <h4 id="comparative_assessment">Comparative assessment</h4>
+          <p>
+            Used to demonstrate that the consequence is indeed the best one.
+            <br />
+            This judgment can be made if the expected consequences of all
+            possible actions have been determined, so that they can be compared.
+            Using a kind of cost-benefit analysis, the best possible consequence
+            is selected.
+          </p>
+        </li>
+        <li>
+          <h4>Frequently occurring fallacies in causality argumentations</h4>
+          <p>
+            1) Post hoc ergo propter hoc: a causal relationship is derived
+            simply from the fact that two events occur after each other. (e.g.
+            “I saw a black cat yesterday and then I saw a car accident. So black
+            cats are bad luck.”) <br />
+            2) Slippery slope: wild argumentation is involved: far-reaching
+            consequences are derived from a small cause. (e.g. “You should not
+            gamble. If you start you will not be able to stop. Soon you will
+            lose all your money and end up in the gutter.”)
+          </p>
+        </li>
+        <li>
+          <h4>Argumentation in Kantian reasoning</h4>
+          <p>
+            1) An action is morally acceptable if and only if the action meets
+            the first categorical imperative(
+            <a href="#universality_principle">universality principle</a>).
+            <br />
+            2) An action is morally acceptable if and only if the action meets
+            the second categorical imperative (
+            <a href="#reciprocity_principle">reciprocity principle</a>).
+          </p>
+        </li>
+        <li>
+          <h4>
+            Morally right actions according to the first categorical imperative
+          </h4>
+          <p>
+            If we wish to defend that an action h is morally right, then we
+            first take the negation of that action (not-h) and thus “not doing
+            that action.” Next, we show that the action not-h is morally
+            unacceptable by showing that the maxim of that action (i.e., the
+            principle that the action is either permitted or forbidden for you)
+            leads to a contradiction as soon as you make a general law of it
+            (cf. Korsgaard, 1996). Thus we can say that h is morally acceptable.
+            Basically
+            <a href="#proof_from_the_absurd">proof from the absurd</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="proof_from_the_absurd">Proof from the absurd</h4>
+          <p>
+            The proposition is proven by showing that the negation of the
+            proposition leads to a contradiction (an inconsistent set of
+            statements).
+          </p>
+          <h5>Formal description</h5>
+          <p>
+            1) Assuming A (logically) leads to an inconsistent set of statements
+            <br />
+            2) So: not-A
+          </p>
+          <h5>Critical questions</h5>
+          <p>
+            1) Does assuming A indeed lead to an inconsistent set of statements?
+            <br />
+            2) Is not-A (or not-p) indeed the negation of A (or p)? In other
+            words, can A be concluded from “not not-A?”
+          </p>
+        </li>
+        <li>
+          <h4>
+            Morally right actions according to the second categorical imperative
+          </h4>
+          <p>
+            If it is my aim to obtain money from someone without giving it back,
+            I can realize this by means of a false promise or by misleading
+            someone (the means). Next, we must ask the question whether the
+            person I made the promise to would agree to the means and the end it
+            is supposed to meet. If the answer is positive then the action is
+            morally acceptable, but if the answer is negative (as in this case)
+            the action is morally unacceptable. Basically
+            <a href="#means_end">ends-means</a> form of argumentation.
+          </p>
+        </li>
+        <li>
+          <h4>Argumentation in virtue-ethical reasoning</h4>
+          <p>
+            An action is morally acceptable if and only if that action is what a
+            virtuous agent would do in the circumstances. (Hursthouse, 1991)
+            <br />
+            The question is, of course, how we define a virtuous person. <br />
+            Using
+            <a href="#characteristic_judgment_argumentation "
+              >Characteristic-judgment argumentation
+            </a>
+          </p>
+        </li>
+        <li>
+          <h4 id="characteristic_judgment_argumentation">
+            Characteristic-Judgment Argumentation
+          </h4>
+          <p>
+            If someone or something X displays certain characteristics s1 ,s2
+            ,…, sn , then judgment A is justified for that person or thing.
+          </p>
+          <h5>Formal description</h5>
+          <p>
+            1) has the characteristics s1 ,s2 ,…,sn <br />
+            2) characteristics s1 ,s2 ,…,sn are typical of A (the
+            characteristic-judgment premise) <br />
+            3) So: A applies to X
+          </p>
+          <h5>Critical questions</h5>
+          <p>
+            1) Do the characteristics mentioned justify judgment A?<br />
+            2) Are the characteristics mentioned all typical of A?<br />
+            3) Are there any other characteristics necessary for A?<br />
+            4) Does X possess characteristics that justify the judgment not
+            A?<br />
+            5) Does X possess the characteristics mentioned?<br />
+          </p>
+        </li>
+        <li>
+          <h4>Formal fallacies</h4>
+          <p>
+            Formal fallacies are determined solely by the form (hence the name)
+            or structure of an argument. Any invalid argument is a formal
+            fallacy.
+          </p>
+        </li>
+        <li>
+          <h4>Informal fallacies</h4>
+          <p>
+            Informal fallacies are based on considerations of the context and
+            content of the arguments. Informal fallacies which are often be used
+            in ethical discussions are:
+            <a href="#attack_on_the_person">attack on the person</a>;
+            <a href="#confusion_of_law_and_ethics"
+              >confusion of law and ethics</a
+            >; <a href="#straw_person">straw person</a>;
+            <a href="#wishful_thinking">wishful thinking</a>;
+            <a href="#naturalistic_fallacy">naturalistic fallacy</a>;
+            <a href="#privacy_fallacy">privacy fallacy</a>; and
+            <a href="#ambiguity">ambiguity</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="attack_on_the_person">Attack on the person (Ad Hominem)</h4>
+          <p>
+            This fallacy is committed when an attempt is made to discredit an
+            argument by bringing into question in some negative way the
+            presenter of the argument instead of attacking the argument itself.
+          </p>
+        </li>
+        <li>
+          <h4 id="confusion_of_law_and_ethics">Confusion of law and ethics</h4>
+          <p>
+            Confusion of law and ethics can simply be put as “If it isn’t
+            illegal, it is ethical.” Ethics is, however, more encompassing than
+            law. (e.g. Having an extramarital affair is not forbidden by law,
+            but that is not to say that this is morally acceptable)
+          </p>
+        </li>
+        <li>
+          <h4 id="straw_person">Straw person</h4>
+          <p>
+            The straw person fallacy is committed when an attempt is made to
+            miss-state a person’s actual position and conclude that the original
+            argument is a bad argument.
+          </p>
+          <h5>Example</h5>
+          <p>
+            Suppose that someone is critical of the use of nuclear energy, and
+            his opponent react as follows: “Personally, I think the energy power
+            supply is of the highest importance.” With this the opponent
+            suggests that the first one does not adhere to good energy power
+            supply, but this cannot be derived from his criticism on nuclear
+            energy.
+          </p>
+        </li>
+        <li>
+          <h4 id="wishful_thinking">Wishful thinking</h4>
+          <p>
+            Wishful thinking (or fallacy of desire) occurs when a person
+            interprets facts, reports, events, perceptions, and so on, according
+            to what he/she would like to be the case rather than according to
+            the actual or rational acceptable evidence.
+          </p>
+        </li>
+        <li>
+          <h4 id="naturalistic_fallacy">Naturalistic fallacy</h4>
+          <p>
+            The naturalistic fallacy takes the form of deducing normative
+            statements based only on descriptive statements. We can simply put
+            it as: deriving ought from is. The (false) reason behind this
+            fallacy is that we must always accept things as they are.
+          </p>
+          <h5>Example</h5>
+          <p>
+            “Stealing bikes is morally acceptable in the Netherlands, because
+            more bikes are stolen than bought in the Netherlands.”
+          </p>
+        </li>
+        <li>
+          <h4 id="privacy_fallacy">Privacy fallacy</h4>
+          <p>
+            If you have done nothing wrong, you have nothing to worry about.
+            That argument does not hold for several reasons: <br />
+            1) Erroneous information can dramatically affect your life. <br />
+            2) A person can risk discrimination, if that person’s information is
+            publicly known.<br />
+          </p>
+        </li>
+        <li>
+          <h4 id="ambiguity">Ambiguity</h4>
+          <p>
+            Fallacies of ambiguity play with the meaning of words or phrases and
+            therefore often are humorous. <br />
+            One must be careful if words or phrases can have different
+            interpretations, because it can make a significant difference to the
+            meaning of what is said and can therefore generate fallacious
+            inferences.
+          </p>
+        </li>
+        <li>
+          <h4>Fallacies of risk</h4>
+          <p>
+            Fallacies specific to public debates on the acceptability of
+            technological risks. <br />
+            NB: from now on X and Y stand for an activity, product or
+            technology.
+          </p>
+        </li>
+        <li>
+          <h4>The sheer size fallacy</h4>
+          <p>
+            1) X is accepted <br />
+            2) Y is a smaller risk than X <br />
+            3) So, Y should be accepted <br />
+            This fallacy is based on a false analogy. The analogy can only be
+            made in a right way, if X and Y are alternatives in the same
+            decision.
+          </p>
+        </li>
+        <li>
+          <h4>The fallacy of naturalness</h4>
+          <p>
+            1) X is unnatural
+            <br />
+            2) So, X should not be accepted <br />
+            This fallacy corresponds with the naturalistic fallacy. A normative
+            statement is derived from only a descriptive statement. The idea
+            behind this fallacy is that whatever is unnatural is wrong. The
+            problem with this is that is not clear what is meant by “natural.”
+          </p>
+        </li>
+        <li>
+          <h4>The ostrich’s fallacy</h4>
+          <p>
+            1) X does not give rise to any detectable risk or there is no
+            scientific proof that X is dangerous <br />
+            2) So, X does not give rise to any unacceptable risk
+            <br />
+            The gist of the fallacy is that as long as a risk does not reveal,
+            the risk does not exist.
+          </p>
+        </li>
+        <li>
+          <h4>The delay fallacy</h4>
+          <p>
+            1) If we wait we will know more about X <br />
+            2) So, no decision about X should be made now <br />
+            But the problem may get worse, or change.
+          </p>
+        </li>
+        <li>
+          <h4>The technocratic fallacy</h4>
+          <p>
+            1) It is an engineering issue how dangerous X is <br />
+            2) So, engineers should decide whether or not X is acceptable <br />
+            Indeed, engineers have competence in determining the nature and the
+            magnitude of technological risks, but this competence is not the
+            same as competence in deciding whether or not a technological risk
+            is morally acceptable. (see <a href="#technocracy">technocracy</a>)
+          </p>
+        </li>
+        <li>
+          <h4 id="privacy_fallacy">The fallacy of pricing</h4>
+          <p>
+            1) We have to weight the risks of X against its benefits<br />
+            2) So, we must put a price on the risks of X<br />
+            There are many things we cannot easily value in terms of money,
+            including those that involve the loss of human lives. Furthermore,
+            there is no sensible price that can be meaningfully assigned to
+            technological risks, since it also depends on the circumstances.
+          </p>
+        </li>
+        <li>
+          <h4 id="privacy_fallacy">Privacy fallacy</h4>
+          <p></p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Winner, L. (1980). “Do artifacts have politics?”. Daedalus, 109,
+        121-136:
+      </h3>
+      <ul>
+        <li>
+          <h4 id="lewis_mumford">Lewis Mumford' two types of technologies</h4>
+          <p>
+            1) Authoritarian: system-centered, immensely powerful, but
+            inherently unstable. <br />
+            2) Democratic: a-centered, relatively weak, but resourceful and
+            durable.
+          </p>
+        </li>
+        <li>
+          <h4>Social determination of technology</h4>
+          <p>
+            What matters is not technology itself, but the social or economic
+            system in which it is embedded. This goes both for technological
+            development and usage.
+          </p>
+          <h5>Upsides</h5>
+          <p>
+            Those who have not recognized the ways in which technologies are
+            shaped by social and economic forces have not gotten very far.
+          </p>
+          <h5>Downsides</h5>
+          <p>
+            Taken literally, it suggests that technical things do not matter at
+            all. <br />
+            This makes it easy for social scientists: nothing special,
+            preexisting models are not influenced and still valid.
+          </p>
+        </li>
+        <li>
+          <h4>Theory of technological politics</h4>
+          <p>
+            It is true that technologies are shaped by social and economic
+            forces, but also the vice versa: society change and advance based on
+            the technological advancments, humans adapt to technology.
+          </p>
+        </li>
+        <li>
+          <h4>Ways in which artifacts can contain political properties.</h4>
+          <p>
+            <a href="#technical_arrangments"
+              >Technical Arrangments as Forms of Order</a
+            >; <br />
+            <a href="#inherently_political">Inherently Political Technologies</a
+            >; <br />
+          </p>
+        </li>
+        <li>
+          <h4>Technical Arrangments as Forms of Order</h4>
+          <p>
+            Usualy technologies are seen as neutral tools that can be used well
+            or poorly, for good, evil, or something in between. <br />
+            But what if a given device has been designed and built in such a way
+            that it produces a set of consequences logically and temporarly
+            prior to any of its professed uses? <br />
+            Some features in the design or arrangment of a device or system
+            could provide a convenient means for estabilishing patterns of power
+            and authority in a given setting.
+          </p>
+          <h5>Example</h5>
+          <p>
+            Robert Moses designned purposedly low bridges over parkways, so that
+            buses full of black and low income people would not be able to use
+            thoose parkways.
+          </p>
+        </li>
+        <li>
+          <h4>
+            Choices affecting distribution of power, authority and priviledge.
+          </h4>
+          <p>
+            1) Yes or no: are we going to develop the new technology or not?<br />
+            2) How: specific features in the design or arrangment of a technical
+            system after the decision to go ahead with it has already been made.
+            Making theese choices is complex: not everyone is aware in the same
+            way about how a technology will influence society. <br />
+            The highest level of choice is at the start, because once a standard
+            is taken choices are more and more fixed. But at he start usually
+            little is known about the consequences.
+          </p>
+        </li>
+        <li>
+          <h4>Technology impacts society</h4>
+          <p>
+            The issues that divide or unite people in society are settled not
+            only in the institutions and practices of politics proper, but also,
+            in tangible arrangments of steel and concrete, wires and
+            transistors, nuts and bolts.
+          </p>
+        </li>
+        <li>
+          <h4 id="inherently_political">Inherently Political Technologies</h4>
+          <p>
+            Some technologies are by their very nature political in a specific
+            way: centralized or decentralized, egalitarian or inegalitarian,
+            repressive or liberating. As
+            <a href="#lewis_mumford">Lewis Mumford</a> said.<br />
+            Usually, especyally in the case of large scale technologu, they are
+            strongly linked to particular institutionalized patterns of power
+            and authority.
+          </p>
+        </li>
+        <li>
+          <h4>Engel's technological authority</h4>
+          <p>
+            Technology is inherently hierarchical, operating a machine
+            necesitates order and coordination, granted by a hierarchical scheme
+            where, at the top, there is the "imperious authority" of the
+            machine. (this is a very extremist view)
+          </p>
+          <h5>Example</h5>
+          <p>
+            If you accept nuclear power plants, you also accept a
+            techno-scientific-industrial-military elite.
+          </p>
+        </li>
+        <li>
+          <h4>Marx's position in "Capital"</h4>
+          <p>
+            Increasing mechanization will render obsolete the hierarchical
+            division of labor and the relationship of subordination that, in his
+            view, were necessary during the early stages of modern
+            manufacturing.
+          </p>
+        </li>
+        <li>
+          <h4>A weaker way of stating the case political technologies</h4>
+          <p>
+            A given kind of technology is strongly compatible with, but does not
+            strictly require, social and political relationships of a particular
+            stripe.
+          </p>
+          <h5>Example</h5>
+          <p>
+            Solar energy is decentralized both in a technical and political
+            sense, but there is nothing about it that strictly requires
+            democracy.
+          </p>
+        </li>
+        <li>
+          <h4>Chandler's opinion on large scale systems</h4>
+          <p>
+            The properties of large scale systems require centralized,
+            hierarchical managerial control. (e.g. railroads, atomic bomb)
+          </p>
+        </li>
+        <li>
+          <h4>Plato's ship</h4>
+          <p>
+            A ship at sea needs steering by a decisive hand. This can be
+            accomplished only by a single capitan and an obedient crew.
+          </p>
+        </li>
+        <li>
+          <h4>Politics of technology influences the politics of community</h4>
+          <p>
+            While in theory the two things should be separated, it has been
+            noted that patterns of autority that work effectively in the
+            corporation become for buisnessmen "the desirable model against
+            which to compare political and economic relationships in the rest of
+            society".
+          </p>
+        </li>
+        <li>
+          <h4>The cost of centralization</h4>
+          <p>
+            High risk centralizated technologies (e.g. nuclear plants based on
+            plutonium) are better handled by an authoritarian centralized entity
+            that can keep security (e.g. avoid stealing of plutonium), but at
+            what cost for the worker's and citizen's freedom?
+          </p>
+        </li>
+      </ul>
     </section>
     <section>
       <h3>
         Rachels, J. (1975). “Why Privacy is Important”, Philosophy & Public
         Affairs, Vol. 4, No. 4, pp. 323-333:
       </h3>
+      <p>James Rachels against Thomas Scanlon simplification</p>
+      <ul>
+        <li>
+          <h4>
+            The first element of a theory of privacy according to Thomas Scanlon
+          </h4>
+          <p>
+            A characterization of the special interest we have in being able to
+            be free from certain kinds of intrusions. <br />
+            Right place to begin.
+          </p>
+        </li>
+        <li>
+          <h4>Examples of why privacy is important to us</h4>
+          <p>
+            a) Privacy is sometimes necessary to protect people's interests in
+            competitive situations. <br />
+            b) In other cases someone may want to keep some aspect of his life
+            or behaviour private simply because it would be embarrassing for
+            other people to know about it. <br />
+            c) There are several reasons why medical records should be kept
+            private, having to do with the consequences to individuals of facts
+            about them becoming public knowledge. <br />
+            d) When people apply for credit (or for large amounts of insurance
+            or for jobs of certain types) they are often investigated, and the
+            result is a fat file of information about them. <br />
+            All sorts of other information goes into such files, for example,
+            information about the applicant's sex-life, his political views, and
+            so forth. Clearly it is unfair for one's application for credit to
+            be influenced by such irrelevant matters. <br />
+          </p>
+        </li>
+        <li>
+          <h4>Why privacy is more than that</h4>
+          <p>
+            It is "nobody else's buisness".<br />
+            We have a "sense of privacy' which is violated in such affairs, and
+            this sense of privacy cannot adequately be explained merely in terms
+            of our fear of being embarrassed or disadvantaged in one of these
+            obvious ways.
+          </p>
+          <h5>Example</h5>
+          <p>
+            A woman may rightly be upset if her creditrating is adversely
+            affected by a report about her sexual behaviour because the use of
+            such information is unfair. <br />
+            But more importantly she may also object to the report simply
+            because she feels-as most of us do-that her sex-life is nobody
+            else's business.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy and relationships</h4>
+          <p>
+            Privacy is necessary if we are to maintain the variety of social
+            relationships with other people that we want to have and that is why
+            it is important to us. <br />
+            There are different patterns of behaviour associated with different
+            relationships.
+          </p>
+        </li>
+        <li>
+          <h4>
+            Changing behaviour according to the relationship means dishonesty
+            (anthitesis)
+          </h4>
+          <p>
+            "Real people aren't any different when they're alone. No masks. What
+            you see of them is authentic." <br />
+            According to this way of looking at things, the fact that we observe
+            different standards of conduct with different people is merely a
+            sign of dishonesty
+          </p>
+        </li>
+        <li>
+          <h4>
+            Different relationships are characterized by different behaviour
+          </h4>
+          <p>
+            It is not merely accidental that we vary our behaviour with
+            different, people according to the different social relationships
+            that we have with them. <br />
+            Rather, the different patterns of behaviour are (partly) what define
+            the different relationships; they are an important part of what
+            makes the different relationships what they are <br />
+            However one conceives one's relations with other people, there is
+            inseparable from that conception an idea of how it is appropriate to
+            behave with and around them.
+          </p>
+        </li>
+        <li>
+          <h4 id="different_behaviour">
+            Different relationships are characterized different information
+            disclosure
+          </h4>
+          <p>
+            However one conceives one's relations with other people, there is
+            inseparable from that conception an idea of what information about
+            oneself it is appropriate for them to have.
+          </p>
+        </li>
+        <li>
+          <h4>Privacy is crucial to relationships</h4>
+          <p>
+            Our ability to control who has access to us, and who knows what
+            about us, allows us to maintain the variety of relationships with
+            other people that we want to have, it is, one of the most important
+            reasons why we value privacy.
+          </p>
+          <h5>Example</h5>
+          <p>
+            First, consider what happens when two close friends are joined by a
+            casual acquaintance. The character of the group changes; and one of
+            the changes is that conversation about intimate matters is now out
+            of order. Then suppose these friends could never be alone; suppose
+            there were always third parties (let us say casual acquaintances or
+            strangers) intruding. Then they could do either of two things. They
+            could carry on as close friends do, sharing confidences, freely
+            expressing their feelings about things, and so on. But this would
+            mean violating their sense of how it is
+            <a href="#different_behaviour">appropriate to behave</a> around
+            casual acquaintances or strangers.
+          </p>
+        </li>
+        <li>
+          <h4>Thomson's simplifying hypothesis</h4>
+          <p>
+            The right to privacy is itself a cluster of rights, and that it is
+            not a distinct cluster of rights but itself intersects with the
+            cluster of rights which the right over the person consists of, and
+            also with the cluster of rights which owning property consists of."
+            This hypothesis is "simplifying" because it eliminates the right to
+            privacy as anything distinctive.
+          </p>
+          <h5>Counter example by James (author)</h5>
+          <p>
+            Consider the right not to have various parts of one's body looked
+            at.
+            <br />
+            Insofar as this is a matter of privacy, it is not simply analogous
+            to property rights; for the kind of interest we have in controlling
+            who looks at what parts of our bodies is very different from the
+            interest we have in our cars or fountain pens.<br />
+            By dissociating the body from ideas of physical intimacy, and the
+            complex of personal relationships of which such intimacies are a
+            part, we can make this "right over the body" seem to be nothing more
+            than an un-grand kind of property right; but that dissociation
+            separates this right from the matters that make privacy important
+          </p>
+        </li>
+        <li>
+          <h4>Thomson's very personal gossip</h4>
+          <p>
+            Does it violate your right to privacy for others to indulge in "very
+            personal gossip" about you? She thinks not.
+          </p>
+          <h5>Counter example by James (author)</h5>
+          <p>
+            You have shared your troubles with your closest friend, but this is
+            not the sort of thing you want everyone to know. Not only would it
+            be humiliating for everyone to know, it is none of their business.
+            It is the sort of intimate fact about you that is not appropriate
+            for strangers or casual acquaintances to know. But now the gossips
+            have obtained the information (perhaps one of them innocently
+            overheard your discussion with your friend; it was not his fault, so
+            he did not violate your privacy in the hearing, but then you did not
+            know he was within earshot) and now they are spreading it around to
+            everyone who knows you and to some who do not. Are they violating
+            your right to privacy? I think they are.
+          </p>
+          <h5>Conclusion</h5>
+          <p>
+            Since the right that is violated in this case is not also a property
+            right, or a right over the person, the simplifying hypothesis fails.
+          </p>
+        </li>
+        <li>
+          <h4>The simplifying hypothesis is not enough</h4>
+          <p>
+            If the right to privacy has a different point than these other
+            rights, we should not expect it always to overlap with them. <br />
+            And even if it did always overlap, we could still regard the right
+            to privacy as a distinctive sort of right in virtue of the special
+            kind of interest it protects.
+          </p>
+        </li>
+      </ul>
     </section>
     <section id="privacy_and_information_technology">
       <h3>
@@ -1182,7 +2145,7 @@
           <p>
             Big data may be used in profiling the user (Hildebrandt 2008),
             creating patterns of typical combinations of user properties, which
-            can then be used to predict interests and behavior. <br />
+            can then be used to predict interests and behaviour. <br />
             Profiling could also be used by organizations or possible future
             governments that have discrimination of particular groups on their
             political agenda, in order to find their targets and deny them
@@ -1335,10 +2298,10 @@
             However, there are future and emerging technologies that may have an
             even more profound impact. Consider for example brain-computer
             interfaces. In case computers are connected directly to the brain,
-            not only behavioral characteristics are subject to privacy
+            not only behavioural characteristics are subject to privacy
             considerations, but even one’s thoughts run the risk of becoming
             public, with decisions of others being based upon them. In addition,
-            it could become possible to change one’s behavior by means of such
+            it could become possible to change one’s behaviour by means of such
             technology.
           </p>
         </li>
@@ -1804,4 +2767,27 @@
       <!-- Add more exam dates as needed -->
     </ul>
   </body>
+
+  <script>
+    function toggleCompress(el) {
+      console.log(el);
+      if (!el.parentElement.classList.contains("compressed")) {
+        el.parentElement.classList.add("compressed");
+        return;
+      }
+      if (!el.parentElement.classList.contains("minimized")) {
+        el.parentElement.classList.add("minimized");
+        return;
+      }
+      el.parentElement.classList.remove("minimized");
+      el.parentElement.classList.remove("compressed");
+    }
+
+    document
+      .querySelectorAll("section h3")
+      .forEach((el) => el.addEventListener("click", () => toggleCompress(el)));
+    document
+      .querySelectorAll("section")
+      .forEach((el) => el.classList.add("compressed", "minimized"));
+  </script>
 </html>
