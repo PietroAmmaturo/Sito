@@ -107,7 +107,7 @@
           </p>
         </li>
         <li>
-          <h4>Steps of data integration</h4>
+          <h4 id="data_integration_steps">Steps of data integration</h4>
           <p>
             1) Schema reconciliation: mapping the data structure (if it exists!)
             <br />
@@ -524,7 +524,7 @@
       </ul>
     </section>
     <section>
-      <h3>Structured data integration</h3>
+      <h3>Semistructured data integration</h3>
       <ul>
         <li>
           <h4>Semistructured data</h4>
@@ -1185,6 +1185,258 @@
             <br />
             - Use made up functions to solve semantic conflicts (e.g. feet to
             meters)
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Data Quality</h3>
+      <ul>
+        <li>
+          <h4>Data Driven Management</h4>
+          <p>
+            Data-driven Management is characterized by the practice of
+            collecting data, analyzing it, and basing decisions on insights
+            derived from the information.
+          </p>
+          <h5>Weakpoints</h5>
+          <p>
+            The success of data-driven decision making depends on <br />
+            1) the quality of data collected <br />
+            2) the methods used to analyze data
+          </p>
+        </li>
+        <li>
+          <h4>GIGO (Garbage In – Garbage Out) Phenomenon</h4>
+          <p>
+            If the input data is wrong, the error propagates to the output.
+            <br />
+            Furtheremore, ven if it is a small error...you can have the snowball
+            effect: from a small error a giant consequence.
+          </p>
+        </li>
+        <li>
+          <h4>Data preparation</h4>
+          <p>
+            We need an adequate architecture for analyze data and to preaparate
+            it because: <br />
+            1) Real-word data is often incomplete, inconsistent, and contain
+            many errors… <br />
+            2) Data preparation, cleaning, and transformation comprises the
+            majority of the work in a data mining application (90%).
+          </p>
+        </li>
+        <li>
+          <h4>Data Quality issues</h4>
+          <p>
+            1) Missing values <br />
+            2) Duplicate data <br />
+            3) Inconsistent data <br />
+            4) Outliers <br />
+            5) Noise
+          </p>
+        </li>
+        <li>
+          <h4>Poor data quality causes</h4>
+          <p>
+            1) Missing values <br />
+            2) Duplicates <br />
+            3) Inconsistencies <br />
+            4) Outliers <br />
+            5) Noise <br />
+            6) Out-of-date data
+          </p>
+        </li>
+        <li>
+          <h4>Most used objective Dimensions</h4>
+          <p>
+            1) Accuracy: the extent to which data are correct, reliable and
+            certified <br />
+            2) Completeness: the degree to which a given data collection
+            includes the data describing the corresponding set of real-world
+            objects <br />
+            3) Consistency: the satisfaction of semantic rules defined over a
+            set of data items <br />
+            4) Timeliness: the extent to which data are sufficiently up-to-date
+            for a task
+          </p>
+        </li>
+        <li>
+          <h4>Data Quality improvement strategies</h4>
+          <p>
+            <a href="#data_based">Data-based approaches</a> and
+            <a href="#process_based">Process-based actions</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="data_based">Data-based approaches</h4>
+          <p>
+            They focus on data values and aim to identify and correct errors
+            without considering the process and context in which they will be
+            used.
+          </p>
+          <h5>Examples</h5>
+          <p>
+            <a href="#data_cleaning">Data cleaning</a>,
+            <a href="#profiling">Profiling</a>
+          </p>
+        </li>
+        <li>
+          <h4 id="process_based">Process-based actions</h4>
+          <p>
+            They are activated when an error occurs and aim to discover and
+            eliminate the root cause of the error.
+          </p>
+        </li>
+        <li>
+          <h4 id="data_cleaning">Data cleaning</h4>
+          <p>
+            Data cleaning is the process of identifying and eliminating
+            inconsistencies, discrepancies and errors in data in order to
+            improve quality.
+          </p>
+          <h5>Steps</h5>
+          <p>
+            1) <a href="#profiling">Data profiling</a> <br />
+            2) <a href="#normalization">Standardization/ normalization</a>
+            <br />
+            3) <a href="#correction">Error correction </a><br />
+            4) Duplicate detection
+          </p>
+        </li>
+        <li>
+          <h4 id="profiling">Profiling</h4>
+          <p>
+            1) Analysis of content and structure of attributes: Data type,
+            domain, data distribution and variance, occurence of null values,
+            uniqueness, format (e.g., mm/dd/yyyy) <br />
+            2) Analysis of dependencies between attributes of a single relation:
+            E.g., Functional dependencies, primary key candidates <br />
+            3) Analysis of overlapping attributes from different relations:
+            Redundancies, foreign keys <br />
+            4) Number of missing values or wrong values • current vs.expected
+            cardinality <br />
+            5) frequency of null values, minimum / maximum, variance <br />
+            6) Duplicates <br />
+            7) Number of tuples vs. Cardinality of attribute domain
+          </p>
+        </li>
+        <li>
+          <h4 id="normalization">Data transformation and normalization</h4>
+          <p>
+            1) Data type conversion <br />
+            2) Normalization: mapping into a common format (e.g. currency: $ ->
+            €) <br />
+            3) Discretization of numerical values <br />
+            4) Domain-specific transformations (e.g. St. -> Street)
+          </p>
+        </li>
+        <li>
+          <h4 id="correction">Error Localization and correction</h4>
+          <p>
+            This activity can be seen as composed of: <br />
+            1) Localization and correction of inconsistencies.<br />
+            2) Localize and correction of
+            <a href="#missing_data">incomplete data.</a> <br />
+            3) <a href="#outlier_detection">Localization of outliers</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="missing_data">Missing data</h4>
+          <p>
+            Missing information on different levels <br />
+            1) Instance level: values, tuples, relation fragments, ... <br />
+            2) Schema level: Attributes, ...
+          </p>
+          <h5>Main Problems on instance level:</h5>
+          <p>
+            1) Treating null values: missing value or default value? <br />
+            2) Data truncation and data censorization <br />
+            3) Biased data, e.g. caused by null values
+          </p>
+          <h5>Imputing missing value</h5>
+          <p>
+            Unbiased estimators: stimating missing values without changing
+            characteristics of existing dataset (mean, variance, ...). <br />
+            Exploiting functional dependencies (e.g.: #Bedrooms -> Income)
+            <br />
+            Techniques from statistics (e.g. Linear regression: income = c *
+            #Bedrooms)
+          </p>
+        </li>
+        <li>
+          <h4 id="outlier_detection">Outlier detection</h4>
+          <p>
+            An outlier is a suspicious observation that deviates too much from
+            other observations.
+          </p>
+          <h5>Issues</h5>
+          <p>
+            1) Detection: distribution, „geometry“, time series <br />
+            2) Interpretation: data or observation error vs. real event
+          </p>
+        </li>
+        <li>
+          <h4>Duplicate detection</h4>
+          <p>
+            Duplicate detection (or entity reconciliation) is the discovery of
+            multiple representations of the same real-world object.
+          </p>
+          <h5>Issues</h5>
+          <p>
+            1) Identify a good similarity measure <br />
+            2) Minimize the number of comparisons
+          </p>
+        </li>
+        <li>
+          <h4>Data integration</h4>
+          <p>
+            In case of multiple sources,
+            <a href="#data_integration_steps">data integration</a> is also
+            needed.
+          </p>
+        </li>
+        <li>
+          <h4>Data Quality and Data Warehouses</h4>
+          <p>
+            Data Quality improvement methods are also used in Data Warehouse.
+          </p>
+        </li>
+        <li>
+          <h4>Data Quality and Big Data</h4>
+          <p>
+            Big Data tried to overcome Data Quality issues with Data Quantity.
+            But quality is still an issue.
+          </p>
+          <h5>Big data challenges</h5>
+          <p>
+            1) Diversity of data sources(Variety) Abundant data types- internal
+            + external data sources Complex data structures- structured,
+            semi-structured, IoT Difficult data integration - ETL and
+            traditional approaches useless due to data volume and velocity
+            <br />
+            2) Tremendous data volume (Volume) Data quality profiling and
+            assessment (collection, cleaning, and integration) is difficult to
+            execute in a reasonable amount of time. <br />
+            3) Timeliness of data is very short (Velocity) Data is updated
+            continuously. If data is not collected and analysed in real time,
+            information becomes outdated and invalid. <br />
+            4) Missing standard for Data Quality (Veracity) Standards have been
+            proposed for DQ of traditional data sources but not for big data.
+          </p>
+          <h5>To summarize: most common DQ issues in big data</h5>
+          <p>
+            Not integrated data <br />
+            Incomplete data <br />
+            Incorrect data<br />
+            <a href="#data_cleaning">Data cleaning</a> have to be frequently
+            performed<br />
+            Inconsistent sources and issues in
+            <a href="#data_integration_steps"></a>data integration<br />
+            Source reliability<br />
+            Data variety<br />
+            Human resources: find the right competencies<br />
+            Data provenance and lineage informatio should be available
           </p>
         </li>
       </ul>
