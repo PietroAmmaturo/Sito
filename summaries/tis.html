@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Computer Ethics</title>
+  </head>
+  <style>
+    html {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      font-size: 2em;
+      margin: 1em;
+    }
+
+    section.minimized ul {
+      display: none;
+    }
+    section.minimized p {
+      display: none;
+    }
+    section.minimized h4 {
+      display: none;
+    }
+    section.compressed li p {
+      display: none;
+    }
+    section.compressed li h5 {
+      display: none;
+    }
+    section.compressed li ul {
+      display: none;
+    }
+    section.compressed table {
+      display: none;
+    }
+  </style>
+
+  <body>
+    <h1>Computer Ethics</h1>
+    <h2 onclick="toggleCompress()">Topics, click to show</h2>
+    <section>
+      <h3>Intro to data integration</h3>
+      <p></p>
+      <ul>
+        <li>
+          <h4 id="what_is_ce">The data integration problem</h4>
+          <p>
+            Combining data coming from different data sources, providing the
+            user with a unified vision of the data.
+          </p>
+        </li>
+        <li>
+          <h4>The four V’s of Big data in data integration</h4>
+          <p>
+            <a href="#volume">Volume</a>, <a href="#velocity">Velocity</a>,
+            <a href="#variety">Variety</a>,<a href="#veracity">Veracity</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="volume">Volume</h4>
+          <p>
+            Not only can each data source contain a huge volume of data, but
+            also the number of data sources has grown to be in the millions.
+          </p>
+        </li>
+        <li>
+          <h4 id="velocity">Velocity</h4>
+          <p>
+            As a direct consequence of the rate at which data is being collected
+            and continuously made available, many of the data sources are very
+            dynamic.
+          </p>
+        </li>
+        <li>
+          <h4 id="variety">Variety (heterogeneity)</h4>
+          <p>
+            People and enterprises need to integrate data and the systems that
+            handle those data: relational DBMSs and their extensions, legacy
+            data and legacy DBMSs, sensors and user-generated content produce
+            heterogeneous, structured or unstructured data.
+          </p>
+          <h5>Causes</h5>
+          <p>
+            1. Different platforms: Technological heterogeneity <br />
+            2. Different data models of the participating datasets à Model
+            heterogeneity<br />
+            3. Different query languages -> Language heterogeneity<br />
+            4. Different data schemas and different conceptual representations
+            in DBs<br />
+            previously developed à Schema (semantic) heterogeneity<br />
+            5. Different values for the same info (due to errors or to
+            different<br />
+            knowledge)à Instance (semantic) heterogeneity
+          </p>
+        </li>
+        <li>
+          <h4 id="veracity">Veracity (Data Quality)</h4>
+          <p>
+            Data sources (even in the same domain) are of widely differing
+            qualities: <br />
+            1) Completeness: is it complete?<br />
+            2) Validity: is it true? <br />
+            3) Consistency: is it not contraddicctory? <br />
+            4) Timeliness: is it up to date? (valid now) <br />
+            5) Accuracy: how specific?<br />
+            6) Ethics and fairness <br />
+          </p>
+        </li>
+        <li>
+          <h4>Steps of data integration</h4>
+          <p>
+            1) Schema reconciliation: mapping the data structure (if it exists!)
+            <br />
+            2) Record linkage (aka Entity resolution): data matching based on
+            the same content <br />
+            3) Data fusion: reconciliation of non-identical content
+          </p>
+        </li>
+        <li>
+          <h4>Relevant Ways of Integrating Database Systems</h4>
+          <p>
+            1. Use a materialized database (data are merged in a new database):
+            ETL + DW <br />
+            2. Use a virtual non-materialized data base (data remain at
+            sources): <br />
+            o Enteprise Information Integration (EII) (or Data Integration)
+            Systems (common front-end to the various datasources) <br />
+            o Data Exchange (source-to-target), less used recently
+          </p>
+        </li>
+        <li>
+          <h4>Materialized vs virtual</h4>
+          <p>
+            Materialized is better when we want it fast and we don't need really
+            up to date data. We will use these for DW. (e.g. I need a DB which
+            allows me to study the trend of my company in the last 10 years).
+            <br />
+            Virtual is better in case of dynamic sources, in case data in the
+            sources changes often (e.g. booking.com), or in case sources are
+            added or removed often.
+          </p>
+        </li>
+        <li>
+          <h4 id="data_layer">
+            General framework for virtual Data Integration
+          </h4>
+          <p>
+            We are not speaking only about data integration for relational
+            databases but for everything. <br />
+            There are a few steps to be done: <br />
+            Question route: application -> middelware -> data layer -> sources
+            <br />
+            1) The middleware divides the query in multiple queries one for each
+            system (but not translating the language). <br />
+            2) The data layer takes care of speaking to the sources in their
+            languages (XML, JSON, SQL...) <br />
+            Answer route: sources -> data layer -> middleware -> application
+            <br />
+            3) The data layer translates the answeres. <br />
+            4) The middleware translates back the queries.
+          </p>
+        </li>
+        <li>
+          <h4>Middleware</h4>
+          <p>
+            When a query is submitted, the integration system (and specifically
+            its middleware) has to decompose it into queries against the
+            component datasets: <br />
+            1. determine first which parts of the query refer to which dataset.
+            <br />
+            2. which parts apply to only a single dataset. (evaluated within the
+            component datasets) <br />
+            3. which parts apply to data from different datasets. (evaluated
+            over the integrated data)<br />
+          </p>
+        </li>
+        <li>
+          <h4>Why data integration even in a UNIQUE DB ?</h4>
+          <p>
+            • Each area of the company will ask the designer to design their
+            (part of) database (DB) <br />
+            • However, a lot of this data are common to some of the areas
+            <br />
+            • If the global company DB is just the collection of these partial
+            DBs, there will be many redundancies (useless memory occupation)<br />
+            • Worst of all, when updating one instance of these duplicates,
+            maybe the other one will remain as before (inconsistencies)
+          </p>
+          <h5>Solution</h5>
+          <p>
+            Within a single company, there shall be an integrated, centralized
+            DB. <br />
+            This ELIMINATES useless REDUNDANCIES which would cause: <br />
+            • Inconsistencies (i.e. contradictions) <br />
+            • Useless memory occupation <br />
+            Each functionality in the company will have its own personalized
+            view. <br />
+            NB: even if decentrlized, it should be built as centralized and then
+            decentralized.
+          </p>
+        </li>
+        <li>
+          <h4>Types of sources to be integrated</h4>
+          <p>
+            • Federated DBs <br />
+            o Homogeneous data: same data model <br />
+            o Heterogeneous data: different data models: OO, XML, relational,
+            RDF, Web data etc. (Semi-structured data), even free text
+            (unstructured data) <br />
+            • Transient, initially unknown data sources <br />
+          </p>
+        </li>
+        <li>
+          <h4>Multidatabase</h4>
+          <p>
+            We must build a system that: <br />
+            • Supports access to different data sources <br />
+            • “Knows” the contents of these data sources <br />
+            • Integrates the different data sources by means of a unifying,
+            global schema <br />
+            • Receives queries expressed in the language of the global schema
+            <br />
+            • Distributes “rewritten” queries to the sources <br />
+            • Combines the answers received from the sources to build the final
+            answer <br />
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Structured data integration</h3>
+      <ul>
+        <li>
+          <h4>
+            Designing data integration in the Multidatabase (with a unique data
+            model)
+          </h4>
+          <p>
+            1. Source schema identification (when present) <br />
+            2. Source schema reverse engineering (data source conceptual
+            schemata) <br />
+            3. Conceptual schemata integration and restructuring: conflict
+            resolution and restructuring <br />
+            4. Conceptual to logical translation (of the obtained global schema)
+            <br />
+            5. Mapping between the global logical schema and the single schemata
+            (logical view definition) <br />
+            6. After integration: query-answering through data views <br />
+          </p>
+        </li>
+        <li>
+          <h4 id="logical_view_definition">Logical view definition</h4>
+          <p>
+            Mapping between the global logical (mediated) schema and the single
+            source schemata. <br />
+            • Two basic techniques: <a href="#GAV">GAV</a>,
+            <a href="#LAV">LAV</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="GAV">GAV (Global As View)</h4>
+          <p>
+            • Up to now we supposed that the global schema be derived from the
+            integration process of the data source schemata <br />
+            • Thus the global schema is expressed in terms of the data source
+            schemata <br />
+            • Such approach is called the Global As View approach
+          </p>
+          <h5>GAV mapping</h5>
+          <p>
+            • A GAV mapping is a set of assertions, one for each element g of G
+            a <br />
+            g -> qS <br />
+            That is, the mapping specifies g as a query qS over the data
+            sources. This means that the mapping (view) tells us exactly how the
+            element g is computed.
+          </p>
+          <h5>When?</h5>
+          <p>
+            1) OK for stable data sources <br />
+            2) Difficult to extend with a new data source
+          </p>
+          <h5>Considerations</h5>
+          <p>
+            • Suppose we introduce a new source <br />
+            • The simple views we have just created must be modified <br />
+            • In the simplest case (like in the GLOB_PROD case) we only need to
+            add a union with a new SELECT FROM-WHERE clause <br />
+            • This is not true in general, view definitions may be much more
+            complex <br />
+            • In LAV this problem does not occur
+          </p>
+        </li>
+        <li>
+          <h4 id="LAV">LAV (Global As View)</h4>
+          <p>
+            • The global schema has been designed independently of the data
+            source schemata <br />
+            • The relationship (mapping) between sources and global schema is
+            obtained by defining each data source as a view over the global
+            schema
+          </p>
+          <h5>LAV mapping</h5>
+          <p>
+            A mapping LAV is a set of assertions, one for each element s of each
+            source S <br />
+            s à qG <br />
+            Thus the content of each source is characterized in terms of a view
+            qG over the global schema
+          </p>
+          <h5>When?</h5>
+          <p>
+            1) OK if the global schema is stable, e.g. based on a domain
+            description (e.g. an ontology) or an enterprise model <br />
+            2) It favours extensibility <br />
+            3) Query processing much more complex
+          </p>
+          <h5>Considerations</h5>
+          <p>
+            • Some information may be lacking: there is no corresponding value.
+            <br />
+            • On the other hand, no query coming from the global schema will
+            ever require those attributes, since they are not present in the
+            global schema
+          </p>
+        </li>
+        <li>
+          <h4>How to handle inconsistencies</h4>
+          <p>
+            At query processing time, when a real-world object is represented by
+            instances in different databases, they may have different values. To
+            handle theese inconsistencies there are two ways:
+            <a href="#record_linkage">Record Linkage</a>,
+            <a href="#data_fusion">Data Fusion</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="#record_linkage">Record Linkage (Entity Resolution)</h4>
+          <p>
+            Whatever the data model, we have to recognize when two datasets
+            contain the same information. There are 2 main ways to do Record
+            Linkage: <a href="#similarity_measures">similarity measures</a> and
+            <a href="#record_matching">record matching</a>.
+          </p>
+          <h5>Example</h5>
+          <p>
+            If 2 DB contain the same touple, but in one the address is saved as
+            string, in another there is no adress column, but there are city,
+            street and number.
+          </p>
+        </li>
+        <li>
+          <h4 href="#similarity_measures">Similarity Measures</h4>
+          <p>
+            The higher the similarity the more similar are the strings. Types of
+            similarity measures: <br />
+            1) Sequence-based: edit distance, Needleman-Wunch, affine gap, Smith
+            Waterman, Jaro, Jaro-Winkler <br />
+            2) Set-based: overlap, Jaccard, TF/IDF <br />
+            3) Hybrid: generalized Jaccard, soft TF/IDF, Monge-Elkan <br />
+            4) Phonetic: Soundex
+          </p>
+          <h5>Efficiency</h5>
+          <p>
+            Applying s(x,y) to all pairs is quadratic in the size of the
+            datasets, which is usually bad.
+          </p>
+        </li>
+        <li>
+          <h4 href="#edit_distance">Edit Distance</h4>
+          <p>
+            The edit distance is based on the minimal number of operations that
+            are needed to transform string a into string b.
+          </p>
+        </li>
+        <li>
+          <h4 href="#set_based">Set-based (Specifically Jaccard)</h4>
+          <p>
+            View strings as multisets of tokens. <br />
+            • For strings, this corresponds to dividing the strings into tokens,
+            and computing the measure on the two sets of tokens.
+          </p>
+          <h5>Example</h5>
+          <p>
+            The tokens are pieces of the strings, like for instance, we can
+            choose tokens of lenght 2: <br />
+            E.g., for strings pino and pin <br />
+            A = {#p, pi, in, no, o#}, B = {#p, pi, in, n#} <br />
+            J(pino, pin) = 3/(5+4)-3 = 3/6 = 1/2
+          </p>
+        </li>
+        <li>
+          <h4 href="#phonetic">Phonetic Similarity Measures</h4>
+          <p>
+            • Match strings based on their sound <br />
+            • Soundex is the most common one. Soundex calculates a
+            four-character code from a word based on the pronunciation and
+            considers two words as similar if their codes are equal.
+          </p>
+        </li>
+        <li>
+          <h4 id="record_matching">Record Matching</h4>
+          <p>
+            1) <a href="#rule">Rule-based</a> <br />
+            2) <a href="#learning">Learning-based</a> <br />
+            3) <a href="#probabilistic">Probabilistic</a> <br />
+          </p>
+        </li>
+        <li>
+          <h4 id="rule">Rule Matching</h4>
+          <p>
+            Manually written rules that specify when two tuples match. E.g. two
+            tuples refer to the same person if they have the same SSN
+          </p>
+        </li>
+        <li>
+          <h4 id="learning">Learning Matching</h4>
+          <p>Learning can be supervised or unsupervised <br /></p>
+          <h5>Supervised</h5>
+          <p>
+            Supervised (e.g. classification): learn how to match from training
+            data, then apply it to match new tuple pairs: <br />
+            1) Learn how to match each attribute of the tuples (the training
+            phase): each (xi ,yi ) is a pair of elements and li is a label: “
+            yes ” if xi matches yi and “ no ” otherwise <br />
+            2) Define the weight of each attribute in the final matching of the
+            whole records<br />
+            3) Apply the learned model to the new tuple pairs<br />
+            NB: It requires lots of training data
+          </p>
+          <h5>Unsupervised</h5>
+          <p>
+            Unsupervised learning (typically clustering, based on clusterizing
+            similar values) may solve this problem.
+          </p>
+        </li>
+        <li>
+          <h4 id="probabilistic">Probabilistic Matching</h4>
+          <p>
+            • Model the matching domain using a probability distribution <br />
+            • Reason with the distribution to make matching decisions
+          </p>
+          <h5>Benefits</h5>
+          <p>
+            o provide a principled framework that can naturally incorporate a
+            variety of domain knowledge <br />
+            o can leverage the wealth of probabilistic representation and
+            reasoning techniques already developed in the AI and DB communities
+            <br />
+            o provide a frame of reference for comparing and explaining other
+            matching approaches
+          </p>
+          <h5>Disadvantages</h5>
+          <p>
+            o computationally expensive <br />
+            o often hard to understand and debug matching decisions
+          </p>
+        </li>
+        <li>
+          <h4>Data Fusion</h4>
+          <p>
+            Given that some data clearly represent the same entity, what to do
+            when other parts of the info do not match. How we decide is
+            extremely dependant on the application case: a
+            <a href="#resolution">resolution function</a> must be chosen.
+          </p>
+        </li>
+        <li>
+          <h4 id="#resolution_function">Resolution Function</h4>
+          <p>
+            Inconsistency may depend on different reasons: o One (or both) of
+            the sources are incorrect<br />
+            o Each source has a correct but partial view, e.g. databases from
+            different workplaces, e.g.: <br />
+            • the full salary is the sum of the two <br />
+            • the list of authors of a book is incomplete <br />
+            • one of two full names only contains the first letter of the middle
+            name <br />
+            o Often, the correct value may be obtained as a function of the
+            original ones, e.g. : value1 + value2 , or 1*value1 + 0*value2 or
+            0,5*value1 + 0,5*value2
+          </p>
+        </li>
+        <li>
+          <h4>Levels of source heterogeneity</h4>
+          <p>
+            • Schemata (
+            <a href="#logical_view_definition">Logical View Definition</a>
+            ): Externam Schemata -> Data Integration -> Component Schemata
+            <br />
+            • Data Models (<a href="#wrappers">Wrappers</a>) <br />
+            • Systems (easily overcome if we reconcile data models and schemata)
+          </p>
+        </li>
+        <li>
+          <h4 id="wrappers">Wrappers (translators)</h4>
+          <p>
+            • Wrappers basically implement the
+            <a href="#data_layer">data layer</a> of the global figure: they
+            convert queries into queries/commands which are understandable for
+            the specific data source, possibly extending the query possibilities
+            of a data source (see e.g. type conversions, celsius to far) <br />
+            • They convert query results from the source format to a format
+            which is understandable for the query/application <br />
+            • Easy to produce in the case of structured data: e.g. for the
+            relational model and the Object Oriented model, we can translate the
+            queries and the results between the two models <br />
+            • More difficult is the problem if the data is not structured
+            (later)
+          </p>
+        </li>
+        <li>
+          <h4>Design steps</h4>
+          <p>
+            1. Reverse engineering (i.e. production of the conceptual schema)
+            <br />
+            2. Conceptual schemata integration <br />
+            3. Choice of the target logical data model and translation of the
+            global conceptual schema <br />
+            4. Definition of the language translation (wrapping) <br />
+            5. Definition of the data views (as usual)
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Structured data integration</h3>
+      <ul>
+        <li>
+          <h4>Semistructured data</h4>
+          <p>
+            For this data there is some form of structure, but it is not as:
+            <br />
+            1) Presriptive <br />
+            2) Regular <br />
+            3) Complete <br />
+            As in traditional DBMSs
+          </p>
+          <h4>Examples</h4>
+          <p>
+            - Web data <br />
+            - XML sata <br />
+            - Data derived from the integration of hetereogeneous datasources.
+          </p>
+        </li>
+        <li>
+          <h4>Semistructured data models</h4>
+          <p>
+            Based on: <br />
+            1) Text <br />
+            2) Trees <br />
+            3) Graphs <br />
+            - Labeled nodes <br />
+            - Labeled arcs <br />
+            - Both
+          </p>
+        </li>
+        <li>
+          <h4>Information search in semistructured DBs</h4>
+          <p>
+            An overall data representation should be progressively built, as we
+            discover and explore new information sources. GAV and LAV are no
+            more sufficient, we need <a href="#mediators">Mediators</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="mediators">Mediators</h4>
+          <p>
+            Mediators must do many different things: <br />
+            1) the processing needed to make the interfaces work <br />
+            2) the knowledge structures that drive the transformations needed to
+            transform data to information <br />
+            3) any intermediate storage that is needed (Wiederhold) <br />
+          </p>
+          <h5>Problem</h5>
+          <p>
+            The mediator has to be an expert of the domain, hence each different
+            domain needs a mediator appropriately designed to “understand” its
+            semantics.
+          </p>
+        </li>
+        <li>
+          <h4>Mediation-based systems</h4>
+          <p>
+            1) The mediator will understand the query, to which sources send the
+            query and reconcile the schemas. <br />
+            2) The wrapper translates from the mediator language to the specific
+            data sources language.
+          </p>
+          <h5>Example: TSIMMIS</h5>
+          <p>
+            1) Unique, graph-based internal data model: <a href="#oem">OEM</a>,
+            managed by the mediator. <br />
+            2) Wrappers for the model-to-model translations. <br />
+            3) Query posed to the mediator in the
+            <a href="#lorel">LOREL</a> language. <br />
+            4) Mediator "knows" the semantics of the application domain. 5) It
+            introduced the <a href="#dataguide">Dataguide</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="oem">OEM</h4>
+          <p>
+            1) Graph-based <br />
+            2) It does not represent the schema <br />
+            3) It directly represents the data : self-descriptive <br />
+            "<(Object-id),label,type,value>"
+          </p>
+          <h5>Example</h5>
+          <p>
+            "temp-in-farenheit,int,80>" where 80 is the data, the other 2 are
+            used to understand the information.
+          </p>
+        </li>
+        <li>
+          <h4 id="lorel">LOREL</h4>
+          <p>
+            1) Lightweight Object REpository Language <br />
+            2) Object-based <br />
+            3) Similar to object oriented query languages, with some
+            modifications appropriate for semistructured data
+          </p>
+          <h5>Example</h5>
+          <p>
+            “ Find books authored by Aho” <br />
+            select library.book.title <br />
+            where library.book.author = “Aho” <br />
+            from library
+          </p>
+        </li>
+        <li>
+          <h4 id="dataguide">Dataguide</h4>
+          <p>
+            The TSIMMIS system introduced the Dataguide: a kind of a-posteriori
+            schema, progressively built by the Mediator while exploring the data
+            sources. <br />
+            Is a guide to give to the people and t the application, to be read
+            by the people, so that they can write the queries in an intelligent
+            way. <br />
+          </p>
+          <h5>Example</h5>
+          <p>
+            It tells the user (or the system, if a transformation has to be
+            applied) that a node library exists, which contains nodes book,
+            which in turn contain the fields author and title. Otherwise the
+            user has no clue.
+          </p>
+        </li>
+        <li>
+          <h4>
+            Typical complications when integrating semi- or un-structured data
+          </h4>
+          <p>
+            1) Each mediator is specialized into a certain domain (e.g. weather
+            forecast), thus <br />
+            2) Each mediator must know domain metadata , which convey the data
+            semantics <br />
+            3) On-line duplicate recognition, reconciliation and removal (no
+            designer to solve conflicts at design time here) <br />
+            4) If data source changes a little, the wrapper has to be modified à
+            automatic wrapper generation (later)
+          </p>
+        </li>
+        <li>
+          <h4>Wrappers and unstructured data</h4>
+          <p>
+            1) In the case of unstructured data the wrapper must translate from
+            an unstructured language to a structured one and viceversa. <br />
+            2) This process is much easier if the unstructured content is
+            regular (e.g. derived from a DB). <br />
+            3) Even do, the unstructured content might change, making the
+            wrapper useless. <br />
+            4) Human-based maintenence of wrappers is expensive <br />
+            5) We need
+            <a href="automatic_wrapper">automatic wrapper generation</a>.
+          </p>
+        </li>
+        <li>
+          <h4>Automatic wrapper generation</h4>
+          <p>
+            We can only use it when pages are regular to some extent. Ok when
+            many pages sharing the same structure.
+          </p>
+          <h5>Exaples</h5>
+          <p>
+            1) pages are dynamically generated from a DB <br />
+            2) data intensive web sites
+          </p>
+        </li>
+        <li>
+          <h4>The Road Runner project</h4>
+          <p>
+            1) Page Class: <br />
+            The collection of all pages generated by the same script from a
+            common dataset <br />
+            2) Schema Derivation <br />
+            Given a set of HTML sample pages, belonging to the same class, find
+            the underlying dataset structure (database schema) <br />
+          </p>
+          <h5>Solution</h5>
+          <p>
+            Wrapper Generator <br />
+            1) Underlying dataset structure <br />
+            2) Extraction rules <br />
+          </p>
+        </li>
+        <li>
+          <h4>Ontologies</h4>
+          <p>
+            Ontologies are a way to solve the problem of automatic semantic
+            matching. <br />
+            1) A formal and shared definition of a vocabulary of terms and their
+            inter-relationships <br />
+            2) Predefined relations: synonimy, omonimy, hyponimy, etc.. <br />
+            3) More complex, designer-defined relationships, whose semantics
+            depends on the domain
+          </p>
+          <h5>Example</h5>
+          <p>
+            an ER diagram, a class diagram, any conceptual schema is a kind of
+            ontology
+          </p>
+          <h5>Definition</h5>
+          <p>
+            1) formal specification of a conceptualization of a shared knowledge
+            domain. <br />
+            2) An ontology is a controlled vocabulary that describes objects and
+            the relationships between them in a formal way. <br />
+            3) It has a grammar for using the terms to express something
+            meaningful within a specified domain of interest. <br />
+            4) The vocabulary is used to express queries and assertions.
+          </p>
+          <h5>Aims</h5>
+          <p>
+            1) A formal specification allows for use of a common vocabulary for
+            automatic knowledge sharing. <br />
+            2) Formally specifying a conceptualization means giving a unique
+            meaning to the terms that define the knowledge about a given domain.
+            <br />
+            3) Shared: an ontology captures knowledge which is common, thus over
+            which there is a consensus (objectivity is not an issue here).
+          </p>
+        </li>
+        <li>
+          <h4>Ontology types</h4>
+          <h5>Taxonomic ontologies</h5>
+          <p>
+            1) Definition of concepts through terms, their hierarchical
+            organization, and additional (pre-defined) relationships
+            (synonymy,composition,…). <br />
+            2) To provide a reference vocabulary
+          </p>
+          <h5>Descriptive ontologies</h5>
+          <p>
+            1) Definition of concepts through data structures and their
+            interrelationships, <br />
+            2) Provide information for “aligning” existing data structures or to
+            design new, specialized ontologies (domain ontologies). <br />
+            3) Closer to the database area techniques
+          </p>
+        </li>
+        <li>
+          <h4>Concepts</h4>
+          <p>
+            Are the building blocks of ontologies. They can be divided in:
+            <br />
+            1) Generic concepts, they express general world categories <br />
+            2) Specific concepts, they describe a particular application domain
+            (domain ontologies) <br />
+            They can be defined via a formal language or in natural language.<br />
+          </p>
+          <h5>Relationships between concepts</h5>
+          <p>
+            1) Taxonomies (IS_A), <br />
+            2) Meronymies (PART_OF), <br />
+            3) Synonymies, homonymies, ... <br />
+            4) User-defined associations,
+          </p>
+        </li>
+        <li>
+          <h4>Formal Definitions</h4>
+          <p>
+            O = (C, R, I, A)<br />
+            O: ontology, C: concepts, R: relations, A: axioms, I: Instances
+            <br />
+            1) Specified in some logic-based language <br />
+            2) Organized in a ISA hierarchy <br />
+            3) I is an instance collection, stored in the information source
+            <br />
+            An ontology is (part of) a knowledge base, composed by: a
+            <a href="#tbox">T-Box</a>, an <a href="#abox">A-Box</a>
+          </p>
+        </li>
+        <li>
+          <h4 id="tbox">T-Box</h4>
+          <p>
+            A T-Box contains all the concept and role definitions, and also
+            contains all the axioms of our logical theory (e.g. “A father is a
+            Man with a Child”).
+          </p>
+        </li>
+        <li>
+          <h4 id="abox">A-Box</h4>
+          <p>
+            An A-box contains all the basic assertions (also known as ground
+            facts) of the logical theory (e.g. “Tom is a father” is represented
+            as Father(Tom)). It describes the instances.
+          </p>
+        </li>
+        <li>
+          <h4>OpenCyc</h4>
+          <p>
+            The entire Cyc ontology contains hundreds of thousands of terms,
+            along with millions of assertions relating the terms to each other,
+            forming an ontology whose domain is all of human consensus reality.
+          </p>
+        </li>
+        <li>
+          <h4 id="semantic_web">Semantic Web</h4>
+          <p>
+            1) A vision for the future of the Web in which information is given
+            explicit meaning, making it easier for machines to automatically
+            process and integrate information available on the Web. <br />
+            2) Built on XML's ability to define customized tagging schemes and
+            RDF's flexible approach to representing data(*). <br />
+            3) The first level above RDF: OWL, an ontology language what can
+            formally describe the meaning of terminology used in Web documents à
+            beyond the basic semantics of RDF Schema.
+          </p>
+        </li>
+        <li>
+          <h4>Linked Data</h4>
+          <p>
+            Linked data is a W3C backed movement about connecting data sets
+            across the Web. It describes a method of publishing structured data
+            so that it can be interlinked and become more useful. It builds upon
+            standard web technologies (e.g. HTTP, RDF...), but extends them to
+            share information in a way that can be read automatcally by
+            computers, enabling data from different sources to be connected and
+            queried. <br />
+            It is a subset of the
+            <a href="#semantic_web">Semantic Web</a> movement, which is about
+            adding meaning to the web.
+          </p>
+        </li>
+        <li>
+          <h4>Open Data</h4>
+          <p>
+            Describes data that has been uploaded to the Web and is accessible
+            to all.
+          </p>
+        </li>
+        <li>
+          <h4>Linked Open Data</h4>
+          <p>
+            Extend the Web with a data commons by publishing various open
+            datasets as <a href="#rdf">RDF</a> on the Web and by setting RDF
+            links among them
+          </p>
+        </li>
+        <li>
+          <h4 id="rdf">RDF</h4>
+          <p>
+            At the core of RDF is this notion of a triple
+            subject-predicateobject, a statement that represents two vertices
+            connected by an edge: <br />
+            1) Subject: a resource, or a node in the graph <br />
+            2) Predicate: an edge – a relationship <br />
+            3) Object: another node or a literal value <br />
+            is a data model for objects ("resources") and relations between
+            them, provides a simple semantics for this data model, and can be
+            represented in an XML syntax.
+          </p>
+        </li>
+        <li>
+          <h4>RDF Schema</h4>
+          <p>
+            Is a vocabulary for describing properties and classes of RDF
+            resources, with a semantics for generalization-hierarchies of such
+            properties and classes.
+          </p>
+        </li>
+        <li>
+          <h4>XML</h4>
+          <p>
+            XML provides a surface syntax for structured documents, but imposes
+            no semantic constraints on the meaning of these documents.
+          </p>
+        </li>
+        <li>
+          <h4>XML Schema</h4>
+          <p>
+            XML Schema is a language for restricting the structure of XML
+            documents and also extends XML with data types.
+          </p>
+        </li>
+        <li>
+          <h4>OWL</h4>
+          <p>
+            1) The OWL Web Ontology Language is designed for use by applications
+            that need to process the content of information instead of just
+            presenting information to humans. <br />
+            2) OWL facilitates greater machine interpretability of Web content
+            than that supported by XML, RDF, and RDF Schema (RDF-S) by providing
+            additional vocabulary for describing properties and classes: among
+            others, relations between classes (e.g. disjointness), cardinality
+            (e.g. "exactly one"), equality, richer typing of properties,
+            characteristics of properties (e.g. symmetry), and enumerated
+            classes along with a formal semantics. <br />
+            3) OWL has three increasingly-expressive sublanguages: OWL Lite, OWL
+            DL, and OWL Full. <br />
+          </p>
+        </li>
+        <li>
+          <h4>Reasoning services for ontologies</h4>
+          <p>
+            There are reasoning services for ontologies, that are differentiated
+            in: <br />
+            <a href="#tbox_services">Services for the Tbox</a> <br />
+            <a href="#abox_services">Services for the Abox</a>
+          </p>
+        </li>
+        <li>
+          <h4 id="tbox_services">Services for the Tbox</h4>
+          <p>
+            1) Subsumption: verifies if a concept C subsumes (is a subconcept
+            of) another concept D 2) Consistency: verifies that there exists at
+            least one interpretation I which satisfies the given Tbox 3) Local
+            Satisfiability: verifies, for a given concept C, that there exists
+            at least one interpretation in which C is true
+          </p>
+        </li>
+        <li>
+          <h4 id="abox_services">Services for the Abox</h4>
+          <p>
+            1) Consistency: verifies that an Abox is consistent with respect to
+            a given Tbox <br />
+            2) Instance Checking: verifies if a given individual x belongs to a
+            particular concept C <br />
+            3) Instance Retrieval: returns the extension of a given concept C,
+            that is, the set of individuals belonging to C.
+          </p>
+        </li>
+        <li>
+          <h4>ER vs.ontology</h4>
+          <p>
+            1) Entities correspond to concepts <br />
+            2) Relationships correspond to Relations <br />
+            3) Hierarchies correspond to ISA <br />
+            4) Attributes correspond to data type properties <br />
+            Caution: An ER schema does not have VALUES !
+          </p>
+        </li>
+        <li>
+          <h4>DB vs ontologies</h4>
+          <p>
+            How should we improve database conceptual models to fulfill ontology
+            requirements ? <br />
+            1) Supporting defined concepts and adding the necessary reasoning
+            mechanisms <br />
+            2) Managing missing and incomplete information: semantic differences
+            between the two assumptions made w.r.t. missing information (Closed
+            World Assumption vs. Open World Assumption) <br />
+            3) Databases are assumed to represent certain data: a tuple in the
+            database is true, any tuple NOT in the database is false (Closed
+            World Assumption)
+          </p>
+        </li>
+        <li>
+          <h4>Ontology matching</h4>
+          <p>
+            1) The process of finding pairs of resources coming from different
+            ontologies which can be considered equal in meaning – matching
+            operators <br />
+            2) Again we need some kind of similarity measure. <br />
+            3) Recall: a similarity value is usually a number in the interval
+            [0,1] <br />
+            4) Caution: this time the
+            <a href="#similarity">similarity</a> measure takes into account
+            semantics, not only on the structure of the words as seein in
+            <a href="#similarity_measures"> Similarity Measures</a> !
+          </p>
+        </li>
+        <li>
+          <h4 id="similarity">Similarity</h4>
+          <p>
+            1) The concept of similarity is a basic concept in human cognition.
+            <br />
+            2) Similarity plays an essential role in taxonomy, recognition,
+            case-based reasoning and many other fields. There are many aspects
+            of the concept of similarity that have eluded formalization.
+          </p>
+        </li>
+        <li>
+          <h4>Ontology mapping</h4>
+          <p>
+            1) The process of relating similar concepts or relations of two or
+            more information sources using equivalence relations or order
+            relations. <br />
+            2) These relations are commonly implemented in inference and
+            reasoning softwares, so we can use the output ontology to perform
+            complex tasks on them without extra effort.
+          </p>
+        </li>
+        <li>
+          <h4>Reasons for ontology mismatches</h4>
+          <p>
+            There are several reasons for ontology mismatches, both at the
+            <a href="#mismatches_definition_language"
+              >definition language level</a
+            >
+            and at the <a href="#mismatches_ontology">ontology level</a>.
+          </p>
+        </li>
+        <li>
+          <h4 id="mismatches_definition_language">
+            Ontology mismatches at the definition language level
+          </h4>
+          <p>
+            1) Syntax <br />
+            2) Availability of different constructs (e.g. part-of, synonym,
+            etc.) <br />
+            3) Linguistic primitives’ semantics (e.g. union or intersection of
+            multiple intervals) à Normalize by translating to the same language/
+            paradigm
+          </p>
+        </li>
+        <li>
+          <h4 id="mismatches_ontology">
+            Ontology mismatches at the ontology level
+          </h4>
+          <p>
+            1) Scope: Two classes seem to represent the same concept, but do not
+            have exactly the same instances <br />
+            2) Model coverage and granularity: a mismatch in the part of the
+            domain that is covered by the ontology, or the level of detail to
+            which that domain is modelled. <br />
+            3) Paradigm: Different paradigms can be used to represent concepts
+            such as time. For example, one model might use temporal
+            representations based on continuous intervals while another might
+            use a representation based on discrete sets of time points. <br />
+            4) Encoding <br />
+            5) Concept description: e.g. a distinctions between two classes can
+            be modeled using a qualifying attribute or by introducing a separate
+            class, or the way in which is-a hierarchy is built <br />
+            6) Homonymies <br />
+            7) Synonymies
+          </p>
+        </li>
+        <li>
+          <h4>How can ontologies support integration?</h4>
+          <p>
+            There are several ways in which ontologies can be helpful in solving
+            integration problems: <br />
+            1) Discovery of “equivalent” concepts <br />
+            (mapping) <br />
+            2) Formal representation of these mappings <br />
+            3) Reasoning on these mappings : How do we use the mappings within
+            our reasoning and query-answering process?
+          </p>
+          <h5>An ontology as a schema integration support tool</h5>
+          <p>
+            1) Ontologies used to represent the semantics of schema elements (if
+            the schema exists) <br />
+            2) Similarities between the source ontologies guide conflict
+            resolution, both at the schema level (if the schemata exist) and at
+            the instance level (record linkage). <br />
+          </p>
+          <h5>An ontology instead of a global schema</h5>
+          <p>
+            1) Schema-level representation only in terms of ontologies <br />
+            2) Ontology mapping, merging, etc. instead of schema integration
+            <br />
+            3) Integrated ontology used as a schema for querying
+          </p>
+          <h5>
+            An ontology as a support tool for content interpretation and
+            wrapping
+          </h5>
+          <h5>
+            An ontology as a mediation support tool for content inconsistency
+            detection and resolution (record linkage and data fusion)
+          </h5>
+        </li>
+        <li>
+          <h4>Ontology query processing</h4>
+          <p>
+            Ontologies require query languages as well, for: <br />
+            1) Schema exploration (when the schema is replaced by an ontology)
+            <br />
+            2) Reasoning on the schema <br />
+            3) Instance querying (when the instance is contained in an ontology,
+            like in the Semantic Web case)
+          </p>
+          <h5>Example</h5>
+          <p>Example of ontology query language: SPARQL (W3C)</p>
+        </li>
+        <li>
+          <h4>Ontology query processing versus database query processing</h4>
+          <p>
+            When we use ontologies to interact with databases, we have to take
+            care of: <br />
+            1) Transformation of ontological query into the language of the
+            datasource, and the other way round <br />
+            2) Different semantics (CWA versus OWA) <br />
+            3) What has to be processed where (e.g. push of the relational
+            operators to the relational engine)
+          </p>
+        </li>
+        <li>
+          <h4>The application context</h4>
+          <p>
+            1) A (possibly large) number of data sources <br />
+            2) Heterogeneous data sources <br />
+            3) Different levels of data structure <br />
+            o Databases (relational, OO…) <br />
+            o Semi-structured data sources (XML, HTML, more markups …) <br />
+            o Unstructured data (text, multimedia etc…) <br />
+            4) Different terminologies and different operational contexts <br />
+            5) Time-variant data (e.g. WEB and social media) <br />
+            6) Mobile, transient data sources (e.g. sensor values) <br />
+            …..as you can see, everything becomes more and more dynamic.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Semi</h3>
+    </section>
+    <h3>Exam Dates</h3>
+    <ul class="types-list">
+      <li>21 DEC</li>
+      <li>22 JAN</li>
+      <li>15 FEB</li>
+      <!-- Add more exam dates as needed -->
+    </ul>
+  </body>
+
+  <script>
+    function toggleCompress(el) {
+      console.log(el);
+      if (!el.parentElement.classList.contains("compressed")) {
+        el.parentElement.classList.add("compressed");
+        return;
+      }
+      if (!el.parentElement.classList.contains("minimized")) {
+        el.parentElement.classList.add("minimized");
+        return;
+      }
+      el.parentElement.classList.remove("minimized");
+      el.parentElement.classList.remove("compressed");
+    }
+
+    document
+      .querySelectorAll("section h3")
+      .forEach((el) => el.addEventListener("click", () => toggleCompress(el)));
+    document
+      .querySelectorAll("section")
+      .forEach((el) => el.classList.add("compressed", "minimized"));
+  </script>
+</html>
