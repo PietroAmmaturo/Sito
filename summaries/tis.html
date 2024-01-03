@@ -1125,7 +1125,69 @@
       </ul>
     </section>
     <section>
-      <h3>Semi</h3>
+      <h3>Data Integration Exercise tips</h3>
+      <ul>
+        <li>
+          <h4>1 Reverse engeneering</h4>
+          <p>
+            You need to generate the ER from the Logic Schema. <br />
+            1) Find the foreign keys first. <br />
+            2) Put in the center the table that is referenced the most from oher
+            tables. <br />
+            3) Put tables that reference each other near <br />
+            4) Connect tables and write cardinalities. <br />
+            5) If a table represents a relationship, the relationship is likely
+            N:N. <br />
+            6) Foreign keys are not written, not even as attributes, it is
+            implicit that: <br />
+            - If the relationship is N:N there is a middle table. <br />
+            - Otherwise the entity on the "1" side (that has a reference to only
+            one row of the other table) contains the FK <br />
+          </p>
+        </li>
+        <li>
+          <h4>2 Schema integration</h4>
+          <p>
+            You need to generate the global ER from the local ERs. <br />
+            1) Build the table: DB1, DB2, DB3, ..., Conflicts, Solutions. <br />
+            2) Identify corresponding entities in the 2 schemas. <br />
+            3) Each row shall heve the 2 corresponding entities, their conflicts
+            and the relative solutions.<br />
+            4) It is possible that an entity in DB1 corresponds to more than one
+            in DB2, in this case join them. <br />
+            5) Name conflicts: choose a suitable name between the 2. <br />
+            6) Data semantic conflicts: choose the best one. (e.g. between age
+            and date of birth choose age). <br />
+            7) Key conflicts: create a new key from the previous 2 (unless one
+            includes the other). <br />
+            8) Cardinality conflict: choose the cardinality that includes both.
+            e.g. 1:N + 0:1 -> 0:N. <br />
+            <br />
+            9) Write the ER. <br />
+            <br />
+            10) Write the logical schema.
+          </p>
+        </li>
+        <li>
+          <h4>3 Mapping definition (GAV) and query answering</h4>
+          <p>
+            1) Do the query on the global schema first, it should be as easy as
+            an easy DB1 qustion. <br />
+            2) Do the query on the local DBs like this: <br />
+            - Write the query for each DB <br />
+            - Rename the columns that nees to be renamed using the keyword "AS"
+            <br />
+            - Make the union of the queries 3) Do the GAV mappings last (thy
+            take a lot of time): <br />
+            - Use KeyGen to generate ids in case of key conflicts (e.g.
+            KeyGenSale(IDSaleContract, ‘LALuxuryHouses’)). NB: Sometimes you
+            don't (e.g. if you use SSN as key and SSN was present in bot DBs).
+            <br />
+            - Use made up functions to solve semantic conflicts (e.g. feet to
+            meters)
+          </p>
+        </li>
+      </ul>
     </section>
     <h3>Exam Dates</h3>
     <ul class="types-list">
