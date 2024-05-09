@@ -1,0 +1,795 @@
+<head>
+  <title>Pietro Ammaturo's personal website</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-entity-slider-component@1.0.0/dist/aframe-entity-slider-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.3.5/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-geometry-merger-component/dist/aframe-geometry-merger-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-particle-system-component@1.1.4/dist/aframe-particle-system-component.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/physx@latest/dist/physx.min.js"></script>
+</head>
+<script>
+  /* global AFRAME, THREE */
+
+  /* global AFRAME, THREE */
+
+  AFRAME.registerComponent("simple-navmesh-constraint", {
+    schema: {
+      enabled: {
+        default: true,
+      },
+      navmesh: {
+        default: "",
+      },
+      fall: {
+        default: 0.5,
+      },
+      height: {
+        default: 1.6,
+      },
+      exclude: {
+        default: "",
+      },
+      xzOrigin: {
+        default: "",
+      },
+    },
+
+    init: function () {
+      this.onSceneUpdated = this.onSceneUpdated.bind(this);
+
+      this.el.sceneEl.addEventListener("child-attached", this.onSceneUpdated);
+      this.el.sceneEl.addEventListener("child-detached", this.onSceneUpdated);
+
+      this.objects = [];
+      this.excludes = [];
+    },
+
+    remove: function () {
+      this.el.sceneEl.removeEventListener(
+        "child-attached",
+        this.onSceneUpdated
+      );
+      this.el.sceneEl.removeEventListener(
+        "child-detached",
+        this.onSceneUpdated
+      );
+    },
+
+    onSceneUpdated: function (evt) {
+      // We already have an update on the way
+      if (this.entitiesChanged) {
+        return;
+      }
+
+      // Don't bother updating if the entity is not relevant to us
+      if (
+        evt.detail.el.matches(this.data.navmesh) ||
+        evt.detail.el.matches(this.data.exclude)
+      ) {
+        this.entitiesChanged = true;
+      }
+    },
+
+    updateNavmeshEntities: function () {
+      this.objects.length = 0;
+      this.excludes.length = 0;
+
+      if (this.data.navmesh.length > 0) {
+        for (const navmesh of document.querySelectorAll(this.data.navmesh)) {
+          this.objects.push(navmesh.object3D);
+        }
+      }
+
+      if (this.objects.length === 0) {
+        console.warn("simple-navmesh-constraint: Did not match any elements");
+      } else if (this.data.exclude.length > 0) {
+        for (const excluded of document.querySelectorAll(this.data.exclude)) {
+          this.objects.push(excluded.object3D);
+          this.excludes.push(excluded);
+        }
+      }
+
+      this.entitiesChanged = false;
+    },
+
+    update: function () {
+      this.lastPosition = null;
+      this.xzOrigin = this.data.xzOrigin
+        ? this.el.querySelector(this.data.xzOrigin)
+        : this.el;
+
+      this.updateNavmeshEntities();
+    },
+
+    tick: (function () {
+      const nextPosition = new THREE.Vector3();
+      const tempVec = new THREE.Vector3();
+      const scanPattern = [
+        [0, 1], // Default the next location
+        [0, 0.5], // Check that the path to that location was fine
+        [30, 0.4], // A little to the side shorter range
+        [-30, 0.4], // A little to the side shorter range
+        [60, 0.2], // Moderately to the side short range
+        [-60, 0.2], // Moderately to the side short range
+        [80, 0.06], // Perpendicular very short range
+        [-80, 0.06], // Perpendicular very short range
+      ];
+      const down = new THREE.Vector3(0, -1, 0);
+      const raycaster = new THREE.Raycaster();
+      const gravity = -1;
+      const maxYVelocity = 0.5;
+      const results = [];
+      let yVel = 0;
+      let firstTry = true;
+
+      return function tick(time, delta) {
+        if (this.data.enabled === false) return;
+        if (this.entitiesChanged) {
+          this.updateNavmeshEntities();
+        }
+        if (this.lastPosition === null) {
+          firstTry = true;
+          this.lastPosition = new THREE.Vector3();
+          this.xzOrigin.object3D.getWorldPosition(this.lastPosition);
+          if (this.data.xzOrigin)
+            this.lastPosition.y -= this.xzOrigin.object3D.position.y;
+        }
+
+        const el = this.el;
+        if (this.objects.length === 0) return;
+
+        this.xzOrigin.object3D.getWorldPosition(nextPosition);
+        if (this.data.xzOrigin)
+          nextPosition.y -= this.xzOrigin.object3D.position.y;
+        if (nextPosition.distanceTo(this.lastPosition) <= 0.01) return;
+
+        let didHit = false;
+        // So that it does not get stuck it takes as few samples around the user and finds the most appropriate
+        scanPatternLoop: for (const [angle, distance] of scanPattern) {
+          tempVec.subVectors(nextPosition, this.lastPosition);
+          tempVec.applyAxisAngle(down, (angle * Math.PI) / 180);
+          tempVec.multiplyScalar(distance);
+          tempVec.add(this.lastPosition);
+          tempVec.y += maxYVelocity;
+          tempVec.y -= this.data.height;
+          raycaster.set(tempVec, down);
+          raycaster.far =
+            this.data.fall > 0 ? this.data.fall + maxYVelocity : Infinity;
+          raycaster.intersectObjects(this.objects, true, results);
+
+          if (results.length) {
+            // If it hit something we want to avoid then ignore it and stop looking
+            for (const result of results) {
+              if (this.excludes.includes(result.object.el)) {
+                results.splice(0);
+                continue scanPatternLoop;
+              }
+            }
+            const hitPos = results[0].point;
+            results.splice(0);
+            hitPos.y += this.data.height;
+            if (nextPosition.y - (hitPos.y - yVel * 2) > 0.01) {
+              yVel += Math.max(gravity * delta * 0.001, -maxYVelocity);
+              hitPos.y = nextPosition.y + yVel;
+            } else {
+              yVel = 0;
+            }
+            tempVec.copy(hitPos);
+            this.xzOrigin.object3D.parent.worldToLocal(tempVec);
+            tempVec.sub(this.xzOrigin.object3D.position);
+            if (this.data.xzOrigin)
+              tempVec.y += this.xzOrigin.object3D.position.y;
+            this.el.object3D.position.add(tempVec);
+
+            this.lastPosition.copy(hitPos);
+            didHit = true;
+            break;
+          }
+        }
+
+        if (didHit) {
+          firstTry = false;
+        }
+
+        if (!firstTry && !didHit) {
+          this.el.object3D.position.copy(this.lastPosition);
+          this.el.object3D.parent.worldToLocal(this.el.object3D.position);
+        }
+      };
+    })(),
+  });
+  AFRAME.registerComponent("color-on-intersect", {
+    schema: {
+      color: { type: "string", default: "#FFFFFF" },
+    },
+    init: function () {
+      const el = this.el;
+      const defaultColor = el.getAttribute("material").color; // Get original color
+
+      el.addEventListener("raycaster-intersected", () => {
+        el.setAttribute("material", "color", this.data.color); // Change to red on intersect
+      });
+
+      el.addEventListener("raycaster-intersected-cleared", () => {
+        el.setAttribute("material", "color", defaultColor); // Revert to original color
+      });
+    },
+  });
+  AFRAME.registerComponent("color-on-click", {
+    schema: {
+      scale: { type: "string", default: "#FFFFFF" },
+    },
+    init: function () {
+      const el = this.el;
+
+      el.addEventListener("click", () => {
+        el.setAttribute("material", "color", this.data.color); // Change to red on intersect
+      });
+    },
+  });
+  AFRAME.registerComponent("color-button", {
+    init: function () {
+      const el = this.el;
+      el.setAttribute("material", "color", "lightcyan");
+      el.setAttribute("color-on-intersect", "color", "paleturquoise");
+      el.setAttribute("color-on-click", "color", "turquoise");
+    },
+  });
+  AFRAME.registerComponent("add-navmesh", {
+    init: function () {
+      const ground = this.el.querySelector(".environmentGround");
+      const platform = document.createElement("a-entity");
+      platform.setAttribute("geometry", "primitive: box; width: 4; depth: 4");
+      platform.appendChild(ground);
+      platform.setAttribute("color-button", "");
+      platform.setAttribute("teleport-button", "navmesh: .environmentGround");
+      platform.classList.add("box");
+      this.el.appendChild(platform);
+
+      document
+        .querySelectorAll(".collidable")
+        .forEach((el) =>
+          el.setAttribute(
+            "simple-navmesh-constraint",
+            "navmesh:.box;fall:1000;height:0.5;"
+          )
+        );
+    },
+  });
+  AFRAME.registerComponent("random-movement", {
+    schema: {
+      radius: { type: "number", default: 0.1 },
+      speed: { type: "number", default: 1 },
+    },
+
+    init: function () {
+      this.initialPosition = new THREE.Vector3();
+      this.initialPosition.copy(this.el.object3D.position);
+      this.findNewTarget();
+    },
+
+    tick: function (time, deltaTime) {
+      const speed = (this.data.speed * deltaTime) / 1000;
+      this.updatePosition(speed);
+      if (this.outOfBorders()) this.findNewTarget();
+    },
+
+    updatePosition: function (speed) {
+      // Interpolate position for smooth movement
+      const currentPosition = this.el.getAttribute("position");
+
+      const newPosition = {
+        x: currentPosition.x + (this.newX - currentPosition.x) * speed,
+        y: currentPosition.y + (this.newY - currentPosition.y) * speed,
+        z: currentPosition.z + (this.newZ - currentPosition.z) * speed,
+      };
+      this.el.object3D.position.copy(newPosition);
+    },
+
+    findNewTarget: function () {
+      const radius = this.data.radius;
+      const angleTheta = Math.random() * Math.PI * 2;
+      const anglePhi = Math.acos(Math.random() * 2 - 1);
+
+      this.newX =
+        this.initialPosition.x +
+        Math.sin(anglePhi) * Math.cos(angleTheta) * radius;
+      this.newY = this.initialPosition.y + Math.cos(anglePhi) * radius;
+      this.newZ =
+        this.initialPosition.z +
+        Math.sin(anglePhi) * Math.sin(angleTheta) * radius;
+    },
+
+    outOfBorders: function () {
+      const currentPosition = this.el.getAttribute("position");
+
+      return (
+        Math.max(
+          Math.abs(this.newX) - Math.abs(currentPosition.x),
+          Math.abs(this.newY) - Math.abs(currentPosition.y),
+          Math.abs(this.newZ) - Math.abs(currentPosition.z)
+        ) <= 0.1
+      );
+    },
+  });
+  AFRAME.registerComponent("random-rotation", {
+    schema: {
+      duration: { type: "number", default: 2000 },
+      maxAngle: { type: "number", default: 60 },
+    },
+
+    init: function () {
+      this.rotate();
+      this.animationInterval = setInterval(
+        () => this.rotate(),
+        this.data.duration
+      );
+    },
+
+    rotate: function () {
+      const maxAngle = this.data.maxAngle;
+
+      const rotationX = (Math.random() - 0.5) * maxAngle;
+      const rotationY = (Math.random() - 0.5) * maxAngle;
+      const rotationZ = (Math.random() - 0.5) * maxAngle;
+
+      this.el.setAttribute("animation", {
+        property: "rotation",
+        dur: this.data.duration, // Duration of the animation in milliseconds
+        to: `${rotationX} ${rotationY} ${rotationZ}`,
+        easing: "linear",
+      });
+    },
+  });
+  AFRAME.registerComponent("float", {
+    schema: {
+      duration: { type: "number", default: 5000 },
+      distance: { type: "number", default: 0.1 },
+      tilt: { type: "number", default: 5 },
+      easing: { type: "string", default: "linear" },
+    },
+
+    init: function () {
+      const initialPosition = this.el.getAttribute("position");
+      const initialRotationX = this.el.getAttribute("rotation").x;
+      const initialRotationZ = this.el.getAttribute("rotation").z;
+
+      this.animateFloat(initialPosition, initialRotationZ);
+      setInterval(
+        () => this.animateFloat(initialPosition, initialRotationZ),
+        this.data.duration
+      );
+    },
+    animateFloat: function (initialPosition, initialRotationZ) {
+      this.data.distance *= -1;
+      const duration = this.data.duration;
+      const distance = this.data.distance;
+      const easing = this.data.easing;
+      const tiltZ = this.data.tilt * (Math.floor(Math.random() + 0.5) * 2 - 1);
+      const currentRotation = this.el.getAttribute("rotation");
+
+      this.el.setAttribute("animation__position", {
+        property: "position",
+        dur: duration,
+        easing: easing,
+        dir: "alternate",
+        to: `${initialPosition.x} ${initialPosition.y + distance} ${
+          initialPosition.z
+        }`,
+        loop: true,
+      });
+
+      this.el.setAttribute("animation__tilt", {
+        property: "rotation",
+        dur: duration,
+        easing: easing,
+        to: `${currentRotation.x} ${currentRotation.y + 90} ${
+          initialRotationZ + tiltZ
+        }`,
+        loop: true,
+      });
+    },
+  });
+  AFRAME.registerComponent("teleport-button", {
+    schema: {
+      cameraRig: { type: "selector", default: "#rig" },
+      navmesh: { type: "string", default: ".navmesh" },
+    },
+
+    init: function () {
+      var el = this.el;
+      var cameraRig = this.data.cameraRig;
+      const navmesh = this.data.navmesh;
+      el.addEventListener("click", function () {
+        el.removeAttribute("color-button");
+        const n = el.querySelector(navmesh);
+        document
+          .querySelectorAll("[nav-mesh]")
+          .forEach((e) => (e !== n ? e.removeAttribute("nav-mesh") : null));
+        console.log(n);
+        n.setAttribute("nav-mesh", "");
+        document
+          .querySelectorAll("[teleport-button]")
+          .forEach((e) =>
+            e !== el ? e.setAttribute("color-button", "") : null
+          );
+        el.object3D.getWorldPosition(cameraRig.object3D.position);
+      });
+    },
+  });
+  AFRAME.registerComponent("island", {
+    schema: {
+      text: { type: "string", default: "text" },
+    },
+    init: function () {
+      const geometryEntity = document.createElement("a-entity");
+      geometryEntity.setAttribute("geometry-merger", "preserveOriginal: true");
+      geometryEntity.setAttribute("color-button", "");
+      geometryEntity.setAttribute("teleport-button", "");
+      geometryEntity.setAttribute("float", "duration: 50000");
+      geometryEntity.classList.add("obstacle");
+      // Circle on top
+      const circleEntity = document.createElement("a-entity");
+      circleEntity.setAttribute("position", "0 0 0");
+      circleEntity.setAttribute(
+        "geometry",
+        "primitive: circle; radius: 5; segments: 16"
+      );
+      circleEntity.setAttribute("rotation", "-90 0 0");
+      circleEntity.setAttribute("visible", "false");
+      circleEntity.classList.add("navmesh");
+      geometryEntity.appendChild(circleEntity);
+
+      // Sphere
+      const sphereEntity = document.createElement("a-entity");
+      sphereEntity.setAttribute(
+        "geometry",
+        "primitive: sphere; thetaLength: 90; radius: 5; segmentsWidth: 16; segmentsHeight: 8"
+      );
+      sphereEntity.setAttribute("scale", "1 0.5 1");
+      sphereEntity.setAttribute("rotation", "180 0 0");
+      sphereEntity.setAttribute("visible", "false");
+      geometryEntity.appendChild(sphereEntity);
+
+      this.el.appendChild(geometryEntity);
+
+      // Text
+      const textEntity = document.createElement("a-entity");
+      textEntity.setAttribute("position", "0 -5 0");
+      textEntity.setAttribute(
+        "troika-text",
+        "value: " +
+          this.data.text +
+          "; maxWidth: 20; fontSize: 2; color: Teal; depthOffset: -1"
+      );
+      textEntity.setAttribute("troika-text-material", "shader: standard;");
+      textEntity.setAttribute("look-at", "[camera]");
+      this.el.appendChild(textEntity);
+    },
+  });
+
+  AFRAME.registerComponent("tower", {
+    schema: {
+      text: { type: "string", default: "DefaultText" },
+    },
+
+    init: function () {
+      // Create troika-text entity
+      const textEntity = document.createElement("a-entity");
+      textEntity.setAttribute("position", "0 20 0");
+      textEntity.setAttribute(
+        "troika-text",
+        `value: ${this.data.text}; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1`
+      );
+      textEntity.setAttribute("troika-text-material", "shader: standard;");
+      textEntity.setAttribute("look-at", "[camera]");
+      this.el.appendChild(textEntity);
+
+      // Create container entity
+      const containerEntity = document.createElement("a-entity");
+      containerEntity.setAttribute("geometry-merger", "preserveOriginal: true");
+      containerEntity.setAttribute("color-button", "");
+      containerEntity.setAttribute("teleport-button", "");
+
+      // Create obstacle entities individually
+      const circleEntity = document.createElement("a-entity");
+      circleEntity.setAttribute(
+        "geometry",
+        "primitive: circle; segments: 8; radius: 8"
+      );
+      circleEntity.setAttribute("rotation", "-90 0 0");
+      circleEntity.setAttribute("position", "0 0 0");
+      circleEntity.setAttribute("class", "navmesh");
+      circleEntity.setAttribute("visible", "false");
+      containerEntity.appendChild(circleEntity);
+
+      const cylinderEntity = document.createElement("a-entity");
+      cylinderEntity.setAttribute(
+        "geometry",
+        "primitive: cylinder; segmentsRadial: 8; radius: 8; height: 16"
+      );
+      cylinderEntity.setAttribute("position", "0 -8 0");
+      cylinderEntity.setAttribute("visible", "false");
+      cylinderEntity.setAttribute("physx-body", "type: static");
+      containerEntity.appendChild(cylinderEntity);
+
+      // Create cone entities using a loop
+      for (let i = 0; i < 4; i++) {
+        const coneEntity = document.createElement("a-entity");
+        coneEntity.setAttribute(
+          "geometry",
+          "primitive: cone; radiusBottom: 1; radiusTop: 3; segmentsRadial: 4; height: 8"
+        );
+        if (i === 0) coneEntity.setAttribute("position", `0 -8 8`);
+        if (i === 1) coneEntity.setAttribute("position", `0 -8 -8`);
+        if (i === 2) coneEntity.setAttribute("position", `8 -8 0`);
+        if (i === 3) coneEntity.setAttribute("position", `-8 -8 0`);
+        coneEntity.setAttribute("visible", "false");
+        containerEntity.appendChild(coneEntity);
+      }
+      this.el.appendChild(containerEntity);
+    },
+  });
+</script>
+<body>
+  <a-scene
+    physx="autoLoad: true"
+    renderer="logarithmicDepthBuffer: true;
+  antialias: true;
+  colorManagement: true;
+  sortObjects: true;
+  physicallyCorrectLights: true;
+  maxCanvasWidth: 1920;
+  maxCanvasHeight: 1920;"
+    cursor="rayOrigin: mouse"
+    raycaster="objects: .clickable, [color-button]; far:100000;"
+  >
+    <a-entity
+      environment="groundDensity: 64; groundFrequency: 4; stageSize: 500; groundColor: Tan; groundColor2: RosyBrown; groundTexture: squares; skyType: gradient; skyColor: MistyRose; horizonColor: RosyBrown; fog: 0.7; dressing: mushrooms; seed: 935; dressingColor: PaleTurquoise; dressingScale: 1; dressingVariance: 1 1 1; dressingAmount: 20; dressingUniformScale: false; playArea: 1.05; groundYScale: 50; ground: canyon"
+      add-navmesh
+    ></a-entity>
+    <a-sky color="#000"></a-sky>
+    <a-entity
+      id="title"
+      position="0 60 -100"
+      troika-text="value: Pietro Ammaturo's\nVR Website; maxWidth: 150; fontSize: 10; align:center; color: Turquoise"
+      troika-text-material="shader: flat;"
+    ></a-entity>
+    <a-entity
+      position="0 2 -2"
+      troika-text="value: Please select the desired\nnavigation method; maxWidth: 2; align: center; fontSize: 0.1; color: Teal"
+      troika-text-material="shader: standard;"
+    ></a-entity>
+    <a-entity
+      entity-slider="backwardTrigger: #right; forwardTrigger: #left; offset: 0 0 3; toShow: 1; duration: 0.5"
+      id="slider"
+      position="0 1.65 -2"
+    >
+      <!--slides-->
+      <a-entity
+        wasd-onclick
+        geometry="primitive: box; width: 1.25; height: 0.25; depth: 0.1;"
+        color-button
+      >
+        <a-entity
+          position="0 0 0.05"
+          troika-text="value: WASD; maxWidth: 1; fontSize: 0.1; color: Teal; depthOffset: -1"
+          troika-text-material="shader: standard;"
+        >
+        </a-entity>
+      </a-entity>
+      <a-entity
+        geometry="primitive: box; width: 1.25; height: 0.25; depth: 0.1;"
+        color-button
+      >
+        <a-entity
+          position="0 0 0.05"
+          troika-text="value: Press to move forward; maxWidth: 1; fontSize: 0.1; color: Teal; depthOffset: -1"
+          troika-text-material="shader: standard;"
+        >
+        </a-entity>
+      </a-entity>
+      <a-entity
+        geometry="primitive: box; width: 1.25; height: 0.25; depth: 0.1;"
+        color-button
+      >
+        <a-entity
+          position="0 0 0.05"
+          troika-text="value: Teleport; maxWidth: 1; fontSize: 0.1; color: Teal; depthOffset: -1"
+          troika-text-material="shader: standard;"
+        >
+        </a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity position="0 1.65 -2">
+      <!--triggers-->
+      <a-cylinder
+        id="left"
+        position="-0.75 0 0"
+        rotation="0 -90 -90"
+        color-button
+        scale="0.1 0.1 0.1"
+        segments-radial="3"
+      ></a-cylinder>
+      <a-cylinder
+        color-button
+        id="right"
+        position="0.75 0 0"
+        rotation="0 90 90"
+        scale="0.1 0.1 0.1"
+        segments-radial="3"
+      ></a-cylinder>
+    </a-entity>
+
+    <a-entity position="4 2 -1" rotation="0 0 0">
+      <a-entity scale="1 1 1" rotation="-15 0 35" position="0 1.1 0.1">
+        <a-entity float>
+          <a-entity
+            geometry="primitive: cylinder; radius: 0.25; height: 0.5"
+            material="side: double; color: #333"
+          ></a-entity>
+          <a-entity
+            geometry="primitive: plane;"
+            material="side: double; color: #333"
+            rotation="-90 0 0"
+            position="0 -0.25 0"
+          ></a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity
+        rotation="0 -90 0"
+        position="0 0 0"
+        troika-text="value: Bachelor degree in Computer Engineering at Politecnico di Milano (108/110);
+        maxWidth: 2; fontSize: 0.2; color: Teal; depthOffset: -1; anchor: left"
+        troika-text-material="shader: standard;"
+      >
+      </a-entity>
+    </a-entity>
+
+    <a-entity position="0 10 40">
+      <a-entity
+        position="0 10 0"
+        troika-text="value: WebXR; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1"
+        troika-text-material="shader: standard;"
+        look-at="[camera]"
+      ></a-entity>
+      <a-entity
+        light="type: point; distance: 10; decay: 0.1; intensity: 2"
+        position="0 5 0"
+        random-movement="radius: 8"
+        geometry="primitive: octahedron; radius: 0.5"
+        material="emissive: #0FF; emissiveIntensity: 1"
+      >
+      </a-entity>
+      <a-entity position="10 0 0" island="text: Three"></a-entity>
+      <a-entity position="-10 0 0" island="text: A-Frame"></a-entity>
+    </a-entity>
+
+    <a-entity position="-40 10 20">
+      <a-entity
+        position="0 10 0"
+        troika-text="value: FrontEnd; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1"
+        troika-text-material="shader: standard;"
+        look-at="[camera]"
+      ></a-entity>
+      <a-entity
+      light="type: point; distance: 10; decay: 0.1; intensity: 2"
+      position="0 5 0"
+      random-movement="radius: 8"
+      geometry="primitive: octahedron; radius: 0.5"
+      material="emissive: #0FF; emissiveIntensity: 1"
+    >
+    </a-entity>
+      <a-entity position="0 0 10" island="text: Vue-Nuxt"></a-entity>
+      <a-entity position="-10 0 0" island="text: HTML-CSS-JS"></a-entity>
+    </a-entity>
+
+    <a-entity position="40 10 20">
+      <a-entity
+        position="0 10 0"
+        troika-text="value: BackEnd; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1"
+        troika-text-material="shader: standard;"
+        look-at="[camera]"
+      ></a-entity>
+      <a-entity
+      light="type: point; distance: 10; decay: 0.1; intensity: 2"
+      position="0 5 0"
+      random-movement="radius: 8"
+      geometry="primitive: octahedron; radius: 0.5"
+      material="emissive: #0FF; emissiveIntensity: 1"
+    >
+    </a-entity>
+      <a-entity position="10 0 0" island="text: Django-Rest"></a-entity>
+      <a-entity position="0 0 10" island="text: Java"></a-entity>
+    </a-entity>
+
+    <a-entity position="-60 30 80">
+      <a-entity
+        position="0 10 0"
+        troika-text="value: LowLevel; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1"
+        troika-text-material="shader: standard;"
+        look-at="[camera]"
+      ></a-entity>
+      <a-entity
+      light="type: point; distance: 10; decay: 0.1; intensity: 2"
+      position="0 5 0"
+      random-movement="radius: 8"
+      geometry="primitive: octahedron; radius: 0.5"
+      material="emissive: #0FF; emissiveIntensity: 1"
+    >
+    </a-entity>
+      <a-entity position="10 0 0" island="text: Vulkan"></a-entity>
+      <a-entity position="0 0 10" island="text: C++"></a-entity>
+      <a-entity position="-10 0 0" island="text: C"></a-entity>
+    </a-entity>
+
+    <a-entity position="60 30 80">
+      <a-entity
+        position="0 10 0"
+        troika-text="value: Deployment; maxWidth: 20; fontSize: 3; color: Teal; depthOffset: -1"
+        troika-text-material="shader: standard;"
+        look-at="[camera]"
+      ></a-entity>
+      <a-entity
+      light="type: point; distance: 10; decay: 0.1; intensity: 2"
+      position="0 5 0"
+      random-movement="radius: 8"
+      geometry="primitive: octahedron; radius: 0.5"
+      material="emissive: #0FF; emissiveIntensity: 1"
+    >
+    </a-entity>
+      <a-entity position="-10 0 0" island="text: Vercel"></a-entity>
+      <a-entity position="10 0 0" island="text: Supabase"></a-entity>
+      <a-entity position="0 0 10" island="text: GitHub"></a-entity>
+    </a-entity>
+
+    <a-entity tower="text: MoneyBoyHub" position="30 16 -30"> </a-entity>
+    <a-entity tower="text: InTownMe" position="-30 16 -30"> </a-entity>
+
+    <a-entity
+      position="0 100 0"
+      particle-system="preset: snow; particleCount: 10000; positionSpread: 1000 1000 1000"
+    ></a-entity>
+
+    <a-sphere
+      class="collidable"
+      physx-body="type: dynamic"
+      position="0 2 1"
+      radius="0.4"
+      color="Tan"
+    ></a-sphere>
+
+    <a-entity id="rig" movement-controls="constrainToNavMesh: true">
+      <a-entity
+        physx-body="type: kinematic"
+        geometry="primitive: cone; height: 1; radiusBottom: 0.2; radius-top: 0.05"
+        position="0 1 0"
+      >
+      </a-entity>
+      <a-entity
+        camera="far: 100000"
+        look-controls
+        position="0 1.65 0"
+        physx-body="type: kinematic"
+        geometry="primitive: sphere; radius: 0.1"
+      ></a-entity>
+      <a-entity
+        id="left-hand"
+        hand-tracking-controls="hand: left"
+        hand-tracking-extras
+        hand-teleport="rig: #rig; origin: a-camera"
+      ></a-entity>
+      <a-entity
+        id="right-hand"
+        hand-tracking-controls="hand: right"
+        hand-tracking-extras
+        world-drag="rig: #rig"
+      ></a-entity>
+    </a-entity>
+  </a-scene>
+</body>
